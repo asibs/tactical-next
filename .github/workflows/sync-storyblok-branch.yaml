@@ -1,0 +1,23 @@
+name: Sync storyblok branch
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  push-storyblok-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Push storyblok branch
+        run: |
+          # 1. Force recreate storyblok branch from main
+          git checkout main
+          git branch --force storyblok
+          # 2. Force push storyblok branch to github
+          git checkout storyblok
+          git push --force origin storyblok
