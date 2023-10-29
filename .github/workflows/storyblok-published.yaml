@@ -18,11 +18,11 @@ jobs:
       #   run: |
       #     git config user.name "GitHub Action Bot - Storybook Published"
       #     git config user.email "<>"
-      - name: Create fresh auto/storyblok-published-changes branch from main 
-        run: |
-          git checkout main
-          git branch --force auto/storyblok-published-changes
-          git checkout auto/storyblok-published-changes
+      # - name: Create fresh auto/storyblok-published-changes branch from main 
+      #   run: |
+      #     git checkout main
+      #     git branch --force auto/storyblok-published-changes
+      #     git checkout auto/storyblok-published-changes
       - name: Download stories from Storyblok and add changes to git
         env:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
@@ -54,10 +54,11 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: auto/storyblok-published-changes
           commit-message: Latest changes from Storyblok
           committer: GitHub Action Bot - Storybook Published <>
           author: GitHub Action Bot - Storybook Published <>
-          branch: auto/storyblok-published-changes
           title: '[Storyblok] Latest published changes'
           body: |
             Automatically created by Storyblok-Published Github action
