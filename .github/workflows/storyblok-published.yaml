@@ -57,8 +57,8 @@ jobs:
           base: main
           branch: auto/storyblok-published-changes
           commit-message: Latest changes from Storyblok
-          committer: GitHub Action Bot - Storybook Published <>
-          author: GitHub Action Bot - Storybook Published <>
+          committer: GitHub Action Bot - Storybook Published <noreply@github.com>
+          author: GitHub Action Bot - Storybook Published <noreply@github.com>
           title: '[Storyblok] Latest published changes'
           body: |
             Automatically created by Storyblok-Published Github action
