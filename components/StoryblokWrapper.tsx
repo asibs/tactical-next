@@ -9,7 +9,7 @@ export default async function StoryblokWrapper({slug}: params) {
   // call the API on every page load. If live-editing is off, permanently cache the result (ie.
   // the page will be statically rendered at build time)
   const revalidateTime = (process.env.ENABLE_STORYBLOK_LIVE_EDITING === 'true' ? 0 : false)
-  const res = await fetch(`https://localhost:3000/page_data/${slug}`, { next: { revalidate: revalidateTime } })
+  const res = await fetch(`${process.env.BASE_URL}/page_data/${slug}`, { next: { revalidate: revalidateTime } })
  
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
