@@ -38,7 +38,7 @@ jobs:
           done
       - name: Commit Storyblok changes to branch
         run: | 
-          git commit -m 'Latest changes from Storyblok - automatically pulled at $(date)'
+          git commit -m "Latest changes from Storyblok - automatically pulled at $(date)"
       - name: Force push auto/storyblok-published-changes
         run: |
           git push --force origin auto/storyblok-published-changes
@@ -46,6 +46,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr create -B main -H auto/storyblok-published-changes /
-            --title 'Storyblok - Latest published changes' /
+          gh pr create -B main -H auto/storyblok-published-changes \
+            --title 'Storyblok - Latest published changes' \
             --body 'Automatically created by Storyblok-Published Github action'
