@@ -1,30 +1,31 @@
-import { ISbStoriesParams, StoryblokComponent, StoryblokStory, getStoryblokApi } from '@storyblok/react/rsc'
-
-async function getStoryblokData(slug: string) { 
-  // For live-editing, we want draft versions of data from Storyblok - otherwise just published data.
-  let sbParams: ISbStoriesParams = {
-    version: (process.env.ENABLE_STORYBLOK_LIVE_EDITING === 'true' ? 'draft' : 'published')
-  };
- 
-  const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-}
+import { StoryblokComponent, StoryblokStory } from '@storyblok/react/rsc'
 
 type params = {
   slug: string
 }
 
 export default async function StoryblokWrapper({slug}: params) {
-  const { data } = await getStoryblokData(slug);
-  console.log(`Got data for slug ${slug}: ${JSON.stringify(data)}`)
+  // Fetch storyblok page data from our internal API. If live-editing is enabled, don't cache,
+  // call the API on every page load. If live-editing is off, permanently cache the result (ie.
+  // the page will be statically rendered at build time)
+  const revalidateTime = (process.env.ENABLE_STORYBLOK_LIVE_EDITING === 'true' ? 0 : false)
+  const res = await fetch(`https://localhost:3000/page_data/${slug}`, { next: { revalidate: revalidateTime } })
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  const data = await res.json()
+  console.debug(`Got data for slug ${slug}: ${JSON.stringify(data)}`)
 
   if (process.env.ENABLE_STORYBLOK_LIVE_EDITING === 'true') {
-    console.log('StoryblokWrapper.tsx: Enabling live-editing!')
+    console.debug('StoryblokWrapper.tsx: Enabling live-editing!')
     return (
       <StoryblokStory story={data.story} />
     )
   } else {
-    console.log('StoryblokWrapper.tsx: Disabling live-editing!')
+    console.debug('StoryblokWrapper.tsx: Disabling live-editing!')
     return (
       <StoryblokComponent blok={data.story.content} />
     )

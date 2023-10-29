@@ -12,9 +12,6 @@ import Teaser from "@/components/Teaser"
 
 const inter = Inter({ subsets: ['latin'] })
 
-console.log('***** PROCESS ENV IS *****')
-console.log(process.env)
-
 storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
   use: [apiPlugin],
@@ -38,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   if (process.env.ENABLE_STORYBLOK_LIVE_EDITING === 'true') {
-    console.log('layout.tsx: Enabling live-editing')
+    console.debug('layout.tsx: Enabling live-editing')
     return (
       <StoryblokProvider>
         <html lang="en">
@@ -47,7 +44,7 @@ export default function RootLayout({
       </StoryblokProvider>
     )
   } else {
-    console.log('layout.tsx: Disabling live-editing')
+    console.debug('layout.tsx: Disabling live-editing')
     return (
       <html lang="en">
         <body>{children}</body>
