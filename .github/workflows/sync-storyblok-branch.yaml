@@ -15,9 +15,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Push storyblok branch
         run: |
-          # 1. Force recreate storyblok branch from main
+          ##### 1. Force recreate storyblok branch from main #####
           git checkout main
           git branch --force storyblok
-          # 2. Force push storyblok branch to github
+
+          ##### 2. Force push storyblok branch to github #####
           git checkout storyblok
           git push --force origin storyblok

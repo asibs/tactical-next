@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@octokit/core": "^5.0.1",
     "@storyblok/react": "^2.4.7",
     "next": "13.5.4",
     "react": "^18",

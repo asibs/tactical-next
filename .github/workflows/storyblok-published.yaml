@@ -1,0 +1,47 @@
+name: Storyblok published
+
+on:
+  repository_dispatch:
+    types: [storyblok-published]
+
+permissions:
+  contents: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Push auto/storyblok-published-changes branch
+        run: |
+          ##### 1. Force recreate auto/storyblok-published-changes branch from main #####
+          git checkout main
+          git branch --force auto/storyblok-published-changes
+
+          ##### 2. Get latest published data from Storyblok and output to files #####
+          declare -a stories=("home")
+          for story in "${stories[@]}"
+          do
+            curl "https://api.storyblok.com/v2/cdn/stories/$story?token=$STORYBLOK_TOKEN" \
+            -X GET \
+            -H "Accept: application/json" \
+            -H "Content-Type: application/json" \
+            > storyblok_data/$story
+          done
+
+          ##### 3. Commit latest published Storyblok data #####
+          git commit -am 'Latest changes from Storyblok - automatically pulled at $(date)'
+
+          ##### 4. Force push auto/storyblok-published-changes branch to github #####
+          git checkout auto/storyblok-published-changes
+          git push --force origin auto/storyblok-published-changes
+        env:
+          STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
+
+      - name: Create Pull Request
+        run: |
+          gh pr create -B main -H auto/storyblok-published-changes /
+            --title 'Storyblok - Latest published changes' /
+            --body 'Automatically created by Storyblok-Published Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
