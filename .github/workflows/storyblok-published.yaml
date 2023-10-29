@@ -31,7 +31,7 @@ jobs:
           for story in "${stories[@]}"
           do
             curl "https://api.storyblok.com/v2/cdn/stories/$story?token=$STORYBLOK_TOKEN" \
-              -X GET \
+              -L -X GET \
               -H "Accept: application/json" \
               -H "Content-Type: application/json" \
               > storyblok_data/$story.json
