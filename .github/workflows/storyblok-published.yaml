@@ -1,6 +1,7 @@
 name: Storyblok published
 
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [storyblok-published]
 
