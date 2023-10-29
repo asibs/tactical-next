@@ -16,6 +16,14 @@ export const revalidate = 0
  * trigger the Github Action.
  */
 export async function GET(request: Request) {
+  return await handleRequest(request);
+}
+
+export async function POST(request: Request) {
+  return await handleRequest(request);
+}
+
+const handleRequest = async (request: Request) => {
   // Validate
   const { searchParams } = new URL(request.url);
   const sentKey = searchParams.get("apiKey") || "";
