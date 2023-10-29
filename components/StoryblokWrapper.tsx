@@ -1,5 +1,6 @@
 import { ISbStoriesParams, StoryblokComponent, StoryblokStory, getStoryblokApi } from '@storyblok/react/rsc'
-import { promises as fs } from 'fs'
+import { readFileSync } from 'fs';
+import path from 'path';
 
 type params = {
   slug: string
@@ -23,8 +24,11 @@ export default async function StoryblokWrapper({slug}: params) {
   } else {
     console.debug('StoryblokWrapper.tsx: Disabling live-editing!')
 
-    const file = await fs.readFile(process.cwd() + `/storyblok_data/${slug}.json`, 'utf8')
-    const data = JSON.parse(file)
+    const filePath = path.join(process.cwd(), 'storyblok_data', `${slug}.json`);
+    const fileContent = readFileSync(filePath, 'utf8');
+    const data = JSON.parse(fileContent)
+    // const file = await fs.readFile(process.cwd() + `/storyblok_data/${slug}.json`, 'utf8')
+    // const data = JSON.parse(file)
 
     return (
       <StoryblokComponent blok={data.story.content} />
