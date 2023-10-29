@@ -1,7 +1,9 @@
 name: Storyblok published
 
 on:
+  # Allows workflow to be manually run in Github UI
   workflow_dispatch:
+  # Allows workflow to be called via HTTP calls to GitHub (with correct auth, etc)
   repository_dispatch:
     types: [storyblok-published]
 
@@ -14,15 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # - name: Configure git
-      #   run: |
-      #     git config user.name "GitHub Action Bot - Storybook Published"
-      #     git config user.email "<>"
-      # - name: Create fresh auto/storyblok-published-changes branch from main 
-      #   run: |
-      #     git checkout main
-      #     git branch --force auto/storyblok-published-changes
-      #     git checkout auto/storyblok-published-changes
       - name: Download stories from Storyblok and add changes to git
         env:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
@@ -37,19 +30,6 @@ jobs:
               | jq > storyblok_data/$story.json
             git add storyblok_data/$story.json
           done
-      # - name: Commit Storyblok changes to branch
-      #   run: | 
-      #     git commit -m "Latest changes from Storyblok - automatically pulled at $(date)"
-      # - name: Force push auto/storyblok-published-changes
-      #   run: |
-      #     git push --force origin auto/storyblok-published-changes
-      # - name: Create Pull Request
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     gh pr create -B main -H auto/storyblok-published-changes \
-      #       --title 'Storyblok - Latest published changes' \
-      #       --body 'Automatically created by Storyblok-Published Github action'
       - name: Commit Changes and Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
@@ -62,6 +42,6 @@ jobs:
           title: '[Storyblok] Latest published changes'
           body: |
             Automatically created by Storyblok-Published Github action
-          # labels: |
-          #   report
-          #   automated pr
+          labels: |
+            automated-pr
+            storyblok-pr

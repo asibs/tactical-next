@@ -1,7 +1,9 @@
 name: Sync storyblok branch
 
 on:
+  # Allows workflow to be manually run in Github UI
   workflow_dispatch:
+  # Keep storyblok branch up-to-date with main whenever main changes
   push:
     branches:
       - main
