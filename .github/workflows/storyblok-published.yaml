@@ -34,7 +34,7 @@ jobs:
               -L -X GET \
               -H "Accept: application/json" \
               -H "Content-Type: application/json" \
-              > storyblok_data/$story.json
+              | jq > storyblok_data/$story.json
             git add storyblok_data/$story.json
           done
       # - name: Commit Storyblok changes to branch
