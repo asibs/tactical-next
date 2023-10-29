@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Configure git
+        run: |
+          git config user.name "GitHub Action Bot - Storybook Published"
+          git config user.email "<>"
       - name: Create fresh auto/storyblok-published-changes branch from main 
         run: |
           git checkout main
