@@ -10,6 +10,10 @@ import Grid from "@/components/Grid"
 import Feature from "@/components/Feature"
 import Teaser from "@/components/Teaser"
 
+// Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
+// This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
+export const revalidate = 0
+
 const inter = Inter({ subsets: ['latin'] })
 
 storyblokInit({
