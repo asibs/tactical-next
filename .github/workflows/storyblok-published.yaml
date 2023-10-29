@@ -22,7 +22,7 @@ jobs:
           git checkout main
           git branch --force auto/storyblok-published-changes
           git checkout auto/storyblok-published-changes
-      - name: Download stories from Storyblok
+      - name: Download stories from Storyblok and add changes to git
         env:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
         run: |
@@ -30,14 +30,15 @@ jobs:
           for story in "${stories[@]}"
           do
             curl "https://api.storyblok.com/v2/cdn/stories/$story?token=$STORYBLOK_TOKEN" \
-            -X GET \
-            -H "Accept: application/json" \
-            -H "Content-Type: application/json" \
-            > storyblok_data/$story
+              -X GET \
+              -H "Accept: application/json" \
+              -H "Content-Type: application/json" \
+              > storyblok_data/$story.json
+            git add storyblok_data/$story.json
           done
       - name: Commit Storyblok changes to branch
         run: | 
-          git commit -am 'Latest changes from Storyblok - automatically pulled at $(date)'
+          git commit -m 'Latest changes from Storyblok - automatically pulled at $(date)'
       - name: Force push auto/storyblok-published-changes
         run: |
           git push --force origin auto/storyblok-published-changes
