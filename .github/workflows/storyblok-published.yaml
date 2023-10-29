@@ -35,6 +35,7 @@ jobs:
         run: | 
           git commit -am 'Latest changes from Storyblok - automatically pulled at $(date)'
       - name: Force push auto/storyblok-published-changes
+        run: |
           git push --force origin auto/storyblok-published-changes
       - name: Create Pull Request
         env:
