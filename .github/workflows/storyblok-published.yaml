@@ -8,17 +8,19 @@ permissions:
   contents: write
 
 jobs:
-  comment:
+  create-or-update-pr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Push auto/storyblok-published-changes branch
+      - name: Create fresh auto/storyblok-published-changes branch from main 
         run: |
-          ##### 1. Force recreate auto/storyblok-published-changes branch from main #####
           git checkout main
           git branch --force auto/storyblok-published-changes
-
-          ##### 2. Get latest published data from Storyblok and output to files #####
+          git checkout auto/storyblok-published-changes
+      - name: Download stories from Storyblok
+        env:
+          STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
+        run: |
           declare -a stories=("home")
           for story in "${stories[@]}"
           do
@@ -28,20 +30,15 @@ jobs:
             -H "Content-Type: application/json" \
             > storyblok_data/$story
           done
-
-          ##### 3. Commit latest published Storyblok data #####
+      - name: Commit Storyblok changes to branch
+        run: | 
           git commit -am 'Latest changes from Storyblok - automatically pulled at $(date)'
-
-          ##### 4. Force push auto/storyblok-published-changes branch to github #####
-          git checkout auto/storyblok-published-changes
+      - name: Force push auto/storyblok-published-changes
           git push --force origin auto/storyblok-published-changes
-        env:
-          STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
-
       - name: Create Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr create -B main -H auto/storyblok-published-changes /
             --title 'Storyblok - Latest published changes' /
             --body 'Automatically created by Storyblok-Published Github action'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
