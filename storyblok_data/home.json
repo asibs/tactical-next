@@ -2,7 +2,7 @@
   "story": {
     "name": "Home",
     "created_at": "2023-10-13T23:08:12.219Z",
-    "published_at": "2023-10-29T23:53:39.423Z",
+    "published_at": "2023-10-30T17:53:44.019Z",
     "id": 389348312,
     "uuid": "0beb5b54-b1a4-40ce-bd45-8013948da48c",
     "content": {
@@ -23,7 +23,7 @@
             },
             {
               "_uid": "f5322e7f-2056-479b-a5d9-d65d8a113c3d",
-              "name": "Feature 2",
+              "name": "Cool thing",
               "component": "feature"
             },
             {
@@ -54,7 +54,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1698623619,
+  "cv": 1698688424,
   "rels": [],
   "links": []
 }
