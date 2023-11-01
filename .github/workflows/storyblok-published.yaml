@@ -39,7 +39,7 @@ jobs:
           commit-message: Latest changes from Storyblok
           committer: GitHub Action Bot - Storybook Published <noreply@github.com>
           author: GitHub Action Bot - Storybook Published <noreply@github.com>
-          title: '[Storyblok] Latest published changes'
+          title: "[Storyblok] Latest published changes"
           body: |
             Automatically created by Storyblok-Published Github action
           labels: |

@@ -3,7 +3,7 @@ import Crypto from "crypto";
 
 // Force next.js not to cache API calls in this route.
 // The only API call in this route is the call to Github Actions, we don't want to cache this!
-export const revalidate = 0
+export const revalidate = 0;
 
 /**
  * Proxy API route to trigger the Storyblok Published Github Action (defined in .github/workflows/storyblok-published.yaml)
@@ -38,7 +38,9 @@ const handleRequest = async (request: Request) => {
   }
 
   // Trigger Github Action
-  console.log("Storyblok githook: API Keys matched - calling Github Actions API");
+  console.log(
+    "Storyblok githook: API Keys matched - calling Github Actions API",
+  );
 
   const ghaToken = process.env.GHA_TOKEN || "";
   const ghOwner = process.env.GH_OWNER || "";
@@ -46,14 +48,17 @@ const handleRequest = async (request: Request) => {
 
   const octokit = new Octokit({ auth: ghaToken });
 
-  const ghResponse = await octokit.request(`POST /repos/{owner}/{repo}/dispatches`, {
-    owner: ghOwner,
-    repo: ghRepo,
-    event_type: "storyblok-published",
-    headers: {
-      "X-GitHub-Api-Version": "2022-11-28",
+  const ghResponse = await octokit.request(
+    `POST /repos/{owner}/{repo}/dispatches`,
+    {
+      owner: ghOwner,
+      repo: ghRepo,
+      event_type: "storyblok-published",
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
     },
-  });
+  );
 
   return new Response(`${ghResponse.status}`, { status: ghResponse.status });
 };
