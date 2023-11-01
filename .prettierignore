@@ -19,3 +19,6 @@
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# data files
+/storyblok_data/*
