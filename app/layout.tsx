@@ -51,7 +51,7 @@ export default function RootLayout({
     console.debug("layout.tsx: Disabling live-editing");
     return (
       <html lang="en">
-        <body>{children}</body>
+        <body className={inter.className}>{children}</body>
         <StoryblokBridgeLoader options={{}} />
       </html>
     );

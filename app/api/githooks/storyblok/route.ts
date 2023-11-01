@@ -60,8 +60,5 @@ const handleRequest = async (request: Request) => {
     },
   );
 
-  console.log("GitHub returned:");
-  console.log(ghResponse);
-
-  return new Response("OK", { status: 200 });
+  return new Response(`${ghResponse.status}`, { status: ghResponse.status });
 };
