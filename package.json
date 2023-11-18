@@ -13,26 +13,31 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write --list-different ."
+    "prettier:fix": "prettier --write --list-different .",
+    "storyblok:pull_components": "dotenv -c -- bash -c 'storyblok pull-components --file-name storyblok --space $STORYBLOK_SPACE_ID'",
+    "storyblok:generate_types": "storyblok-generate-ts source=./components.storyblok.json target=./components/storyblok-types"
   },
   "dependencies": {
     "@octokit/core": "^5.0.1",
     "@storyblok/react": "^2.4.7",
     "next": "13.5.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^4.11.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "eslint-config-prettier": "^9.0.0",
     "postcss": "^8",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
+    "storyblok-generate-ts": "^1.16.0",
     "tailwindcss": "^3",
     "typescript": "^5"
   }
