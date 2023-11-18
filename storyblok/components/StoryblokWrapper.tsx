@@ -43,7 +43,12 @@ export default async function StoryblokWrapper({ slug }: params) {
         console.debug(
           `StoryblokWrapper.tsx: Updating static storyblok data cache for ${slug}`,
         );
-        const filePath = path.join(process.cwd(), "storyblok", "data", `${slug}.json`);
+        const filePath = path.join(
+          process.cwd(),
+          "storyblok",
+          "data",
+          `${slug}.json`,
+        );
         const fileContent = readFileSync(filePath, "utf8");
         return JSON.parse(fileContent);
       },

@@ -14,7 +14,9 @@
     "lint:fix": "next lint --fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write --list-different .",
-    "storyblok:pull_components": "dotenv -c -- bash -c 'storyblok pull-components --path storyblok/types --file-name storyblok --space $STORYBLOK_SPACE_ID'",
+    "storyblok:login": "storyblok login",
+    "storyblok:logout": "storyblok logout",
+    "storyblok:pull_components": "dotenv -c -- bash -c 'storyblok pull-components --path storyblok/types/ --file-name storyblok --space $STORYBLOK_SPACE_ID'",
     "storyblok:generate_types": "storyblok-generate-ts source=./storyblok/types/components.storyblok.json target=./storyblok/types/storyblok-types"
   },
   "dependencies": {
