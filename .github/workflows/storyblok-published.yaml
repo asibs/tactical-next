@@ -27,8 +27,8 @@ jobs:
               -L -X GET \
               -H "Accept: application/json" \
               -H "Content-Type: application/json" \
-              | jq > storyblok_data/$story.json
-            git add storyblok_data/$story.json
+              | jq > storyblok/data/$story.json
+            git add storyblok/data/$story.json
           done
       - name: Commit Changes and Create Pull Request
         uses: peter-evans/create-pull-request@v5

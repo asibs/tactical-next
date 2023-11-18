@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
-import StoryblokProvider from "../components/StoryblokProvider";
+import StoryblokProvider from "@/storyblok/components/StoryblokProvider";
+import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 
 import Page from "@/components/Page";
 import Grid from "@/components/Grid";
 import Feature from "@/components/Feature";
 import Teaser from "@/components/Teaser";
+import Footer from "@/components/Footer";
 
 // Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
@@ -25,6 +27,7 @@ storyblokInit({
     grid: Grid,
     page: Page,
     teaser: Teaser,
+    footer: Footer,
   },
 });
 
@@ -44,6 +47,7 @@ export default function RootLayout({
       <StoryblokProvider>
         <html lang="en">
           <body className={inter.className}>{children}</body>
+          <StoryblokWrapper slug="footer" />
         </html>
       </StoryblokProvider>
     );
@@ -52,6 +56,7 @@ export default function RootLayout({
     return (
       <html lang="en">
         <body className={inter.className}>{children}</body>
+        <StoryblokWrapper slug="footer" />
         <StoryblokBridgeLoader options={{}} />
       </html>
     );
