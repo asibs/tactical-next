@@ -13,6 +13,6 @@ const Navigation = ({ blok }: { blok: NavbarLinkStoryblok }) => {
       {blok.link_name}
     </Nav.Link>
   );
-}
+};
 
 export default Navigation;

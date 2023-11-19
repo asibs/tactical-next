@@ -1,4 +1,4 @@
-import {StoryblokStory} from 'storyblok-generate-ts'
+import { StoryblokStory } from "storyblok-generate-ts";
 
 export interface FeatureStoryblok {
   name?: string;
@@ -73,7 +73,10 @@ export type MultilinkStoryblok =
 
 export interface FooterLinkStoryblok {
   link_name?: string;
-  link_url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  link_url?: Exclude<
+    MultilinkStoryblok,
+    { linktype?: "email" } | { linktype?: "asset" }
+  >;
   _uid: string;
   component: "footer link";
   [k: string]: any;

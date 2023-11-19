@@ -39,6 +39,10 @@ storyblokInit({
   components,
 });
 
-export default function StoryblokProvider({ children }) {
+export default function StoryblokProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return children;
 }

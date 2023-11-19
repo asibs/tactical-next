@@ -35,9 +35,7 @@
           "minimum": 1,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "footer column"
-          ]
+          "component_whitelist": ["footer column"]
         }
       },
       "image": null,
@@ -63,9 +61,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "footer link"
-          ]
+          "component_whitelist": ["footer link"]
         }
       },
       "image": null,
@@ -140,9 +136,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "navbar link"
-          ],
+          "component_whitelist": ["navbar link"],
           "required": true
         }
       },
