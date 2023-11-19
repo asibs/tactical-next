@@ -1,4 +1,4 @@
-import { StoryblokStory } from "storyblok-generate-ts";
+import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface FeatureStoryblok {
   name?: string;
@@ -73,10 +73,7 @@ export type MultilinkStoryblok =
 
 export interface FooterLinkStoryblok {
   link_name?: string;
-  link_url?: Exclude<
-    MultilinkStoryblok,
-    { linktype?: "email" } | { linktype?: "asset" }
-  >;
+  link_url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   _uid: string;
   component: "footer link";
   [k: string]: any;
@@ -89,11 +86,28 @@ export interface GridStoryblok {
     | FooterColumnStoryblok
     | FooterLinkStoryblok
     | GridStoryblok
+    | NavbarStoryblok
+    | NavbarLinkStoryblok
     | PageStoryblok
     | TeaserStoryblok
   )[];
   _uid: string;
   component: "grid";
+  [k: string]: any;
+}
+
+export interface NavbarStoryblok {
+  links: NavbarLinkStoryblok[];
+  _uid: string;
+  component: "navbar";
+  [k: string]: any;
+}
+
+export interface NavbarLinkStoryblok {
+  link_name: string;
+  link_url: string;
+  _uid: string;
+  component: "navbar link";
   [k: string]: any;
 }
 
@@ -104,6 +118,8 @@ export interface PageStoryblok {
     | FooterColumnStoryblok
     | FooterLinkStoryblok
     | GridStoryblok
+    | NavbarStoryblok
+    | NavbarLinkStoryblok
     | PageStoryblok
     | TeaserStoryblok
   )[];

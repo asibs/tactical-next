@@ -7,6 +7,7 @@ import Grid from "@/components/Grid";
 import Feature from "@/components/Feature";
 import Teaser from "@/components/Teaser";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 
 const components = {
   feature: Feature,
@@ -14,6 +15,7 @@ const components = {
   page: Page,
   teaser: Teaser,
   footer: Footer,
+  navbar: Navigation,
 };
 
 /** 2. Initialize it as usual */

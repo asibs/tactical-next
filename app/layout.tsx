@@ -11,6 +11,7 @@ import Grid from "@/components/Grid";
 import Feature from "@/components/Feature";
 import Teaser from "@/components/Teaser";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 
 // Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
@@ -28,6 +29,7 @@ storyblokInit({
     page: Page,
     teaser: Teaser,
     footer: Footer,
+    navbar: Navigation,
   },
 });
 
@@ -46,8 +48,11 @@ export default function RootLayout({
     return (
       <StoryblokProvider>
         <html lang="en">
-          <body className={inter.className}>{children}</body>
-          <StoryblokWrapper slug="footer" />
+          <body className={inter.className}>
+            <StoryblokWrapper slug="navigation" />
+            {children}
+            <StoryblokWrapper slug="footer" />
+          </body>
         </html>
       </StoryblokProvider>
     );
@@ -55,8 +60,11 @@ export default function RootLayout({
     console.debug("layout.tsx: Disabling live-editing");
     return (
       <html lang="en">
-        <body className={inter.className}>{children}</body>
-        <StoryblokWrapper slug="footer" />
+        <body className={inter.className}>
+          <StoryblokWrapper slug="navigation" />
+          {children}
+          <StoryblokWrapper slug="footer" />
+        </body>
         <StoryblokBridgeLoader options={{}} />
       </html>
     );

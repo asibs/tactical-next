@@ -35,7 +35,9 @@
           "minimum": 1,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": ["footer column"]
+          "component_whitelist": [
+            "footer column"
+          ]
         }
       },
       "image": null,
@@ -61,7 +63,9 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": ["footer link"]
+          "component_whitelist": [
+            "footer link"
+          ]
         }
       },
       "image": null,
@@ -121,6 +125,64 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "grid",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "navbar",
+      "display_name": null,
+      "created_at": "2023-11-18T22:44:13.583Z",
+      "updated_at": "2023-11-18T23:13:06.047Z",
+      "id": 4903688,
+      "schema": {
+        "links": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "navbar link"
+          ],
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "navbar",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "navbar link",
+      "display_name": null,
+      "created_at": "2023-11-18T22:45:38.019Z",
+      "updated_at": "2023-11-18T23:03:12.234Z",
+      "id": 4903689,
+      "schema": {
+        "link_name": {
+          "type": "text",
+          "required": true
+        },
+        "link_url": {
+          "type": "text",
+          "required": true,
+          "description": "The path to the page the link should navigate to - eg. \"/about\", \"/donate\", etc"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "navbar link",
       "component_group_uuid": null,
       "color": null,
       "icon": null
