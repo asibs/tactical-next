@@ -5,13 +5,7 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import StoryblokProvider from "@/storyblok/components/StoryblokProvider";
 import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
-
-import Page from "@/components/Page";
-import Grid from "@/components/Grid";
-import Feature from "@/components/Feature";
-import Teaser from "@/components/Teaser";
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
+import { ComponentsMap } from "@/storyblok/components/ComponentsMap";
 
 // Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
@@ -23,14 +17,7 @@ storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
   use: [apiPlugin],
   apiOptions: { region: "eu" },
-  components: {
-    feature: Feature,
-    grid: Grid,
-    page: Page,
-    teaser: Teaser,
-    footer: Footer,
-    navbar: Navigation,
-  },
+  components: ComponentsMap,
 });
 
 export const metadata: Metadata = {

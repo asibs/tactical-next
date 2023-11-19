@@ -1,22 +1,7 @@
 /** 1. Tag it as a client component */
 "use client";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-
-import Page from "@/components/Page";
-import Grid from "@/components/Grid";
-import Feature from "@/components/Feature";
-import Teaser from "@/components/Teaser";
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
-
-const components = {
-  feature: Feature,
-  grid: Grid,
-  page: Page,
-  teaser: Teaser,
-  footer: Footer,
-  navbar: Navigation,
-};
+import { ComponentsMap } from "@/storyblok/components/ComponentsMap";
 
 /** 2. Initialize it as usual */
 /* NOTE: When we actually use the Storyblok API (in StoryblokWrapper),
@@ -36,7 +21,7 @@ storyblokInit({
 }
 
 storyblokInit({
-  components,
+  components: ComponentsMap,
 });
 
 export default function StoryblokProvider({
