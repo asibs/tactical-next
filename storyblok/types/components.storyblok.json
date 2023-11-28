@@ -27,15 +27,18 @@
       "name": "footer",
       "display_name": null,
       "created_at": "2023-11-12T21:15:54.072Z",
-      "updated_at": "2023-11-12T22:44:47.679Z",
+      "updated_at": "2023-11-23T12:23:24.794Z",
       "id": 4870849,
       "schema": {
-        "columns": {
+        "links": {
           "type": "bloks",
-          "minimum": 1,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": ["footer column"]
+          "component_whitelist": [
+            "footer_internal_link",
+            "footer_external_link"
+          ],
+          "required": true
         }
       },
       "image": null,
@@ -51,43 +54,21 @@
       "icon": null
     },
     {
-      "name": "footer column",
+      "name": "footer_external_link",
       "display_name": null,
-      "created_at": "2023-11-12T21:27:12.669Z",
-      "updated_at": "2023-11-12T22:45:41.540Z",
-      "id": 4870850,
-      "schema": {
-        "links": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": ["footer link"]
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": true,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "footer column",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null
-    },
-    {
-      "name": "footer link",
-      "display_name": null,
-      "created_at": "2023-11-12T21:28:38.884Z",
-      "updated_at": "2023-11-12T21:30:01.251Z",
-      "id": 4870851,
+      "created_at": "2023-11-23T12:04:20.276Z",
+      "updated_at": "2023-11-25T13:38:47.654Z",
+      "id": 4928025,
       "schema": {
         "link_name": {
-          "type": "text"
+          "type": "text",
+          "required": true
         },
         "link_url": {
-          "type": "multilink"
+          "type": "text",
+          "description": "The full URL (ie. including http:// or https:// ) to the page the link should navigate to. Use a \"footer internal link\" for pages within the site which you want to link in the footer.",
+          "required": true,
+          "tooltip": true
         }
       },
       "image": null,
@@ -97,7 +78,37 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "footer link",
+      "real_name": "footer_external_link",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "footer_internal_link",
+      "display_name": null,
+      "created_at": "2023-11-12T21:28:38.884Z",
+      "updated_at": "2023-11-24T13:42:18.350Z",
+      "id": 4870851,
+      "schema": {
+        "link_name": {
+          "type": "text",
+          "required": true
+        },
+        "link_url": {
+          "type": "text",
+          "display_name": "link_url",
+          "description": "The path to the page the link should navigate to - eg. \"/about\", \"/donate\", etc. Use a \"footer external link\" for pages on other websites which you want to link in the footer (eg. external donate pages, etc).",
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "footer_internal_link",
       "component_group_uuid": null,
       "color": null,
       "icon": null
@@ -129,14 +140,16 @@
       "name": "navbar",
       "display_name": null,
       "created_at": "2023-11-18T22:44:13.583Z",
-      "updated_at": "2023-11-18T23:13:06.047Z",
+      "updated_at": "2023-11-23T12:23:03.625Z",
       "id": 4903688,
       "schema": {
         "links": {
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": ["navbar link"],
+          "component_whitelist": [
+            "navbar_link"
+          ],
           "required": true
         }
       },
@@ -153,10 +166,10 @@
       "icon": null
     },
     {
-      "name": "navbar link",
+      "name": "navbar_link",
       "display_name": null,
       "created_at": "2023-11-18T22:45:38.019Z",
-      "updated_at": "2023-11-18T23:03:12.234Z",
+      "updated_at": "2023-11-23T12:23:03.555Z",
       "id": 4903689,
       "schema": {
         "link_name": {
@@ -176,7 +189,7 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "navbar link",
+      "real_name": "navbar_link",
       "component_group_uuid": null,
       "color": null,
       "icon": null

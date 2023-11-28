@@ -6,6 +6,8 @@ import Feature from "@/components/Feature";
 import Teaser from "@/components/Teaser";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
+import NavigationLink from "@/components/NavigationLink";
+import FooterLink from "@/components/FooterLink";
 
 export const ComponentsMap: SbReactComponentsMap = {
   feature: Feature,
@@ -13,5 +15,8 @@ export const ComponentsMap: SbReactComponentsMap = {
   page: Page,
   teaser: Teaser,
   footer: Footer,
+  footer_internal_link: FooterLink,
+  footer_external_link: FooterLink,
   navbar: Navigation,
+  navbar_link: NavigationLink
 };

@@ -6,7 +6,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
 import { NavbarStoryblok } from "@/storyblok/types/storyblok-types";
 
 import { Container, Navbar, Nav } from "react-bootstrap";
@@ -38,11 +38,14 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {blok.links.map((link) => (
-              <Nav.Link as={Link} key={link.link_url} href={link.link_url}>
-                {link.link_name}
-              </Nav.Link>
-            ))}
+            {blok.links.map((link) => {
+              // <Nav.Link as={Link} key={link.link_url} href={link.link_url}>
+              //   {link.link_name}
+              // </Nav.Link>
+              return (
+                <StoryblokComponent blok={link} key={link._uid} />
+              );
+            })}
           </Nav>
         </Navbar.Collapse>
       </Container>
