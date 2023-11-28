@@ -61,8 +61,14 @@ const handleRequest = async (request: Request) => {
   );
 
   if (200 <= ghResponse.status && ghResponse.status <= 299) {
-    return new Response(`Success - GitHub Action status: ${ghResponse.status}`, { status: 200 });
+    return new Response(
+      `Success - GitHub Action status: ${ghResponse.status}`,
+      { status: 200 },
+    );
   } else {
-    return new Response(`Failure - GitHub Action status: ${ghResponse.status}`, { status: 500 });
+    return new Response(
+      `Failure - GitHub Action status: ${ghResponse.status}`,
+      { status: 500 },
+    );
   }
 };
