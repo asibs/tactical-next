@@ -18,5 +18,5 @@ export const ComponentsMap: SbReactComponentsMap = {
   footer_internal_link: FooterLink,
   footer_external_link: FooterLink,
   navbar: Navigation,
-  navbar_link: NavigationLink
+  navbar_link: NavigationLink,
 };

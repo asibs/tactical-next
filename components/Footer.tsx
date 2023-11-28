@@ -9,7 +9,15 @@ import Col from "react-bootstrap/Col";
 
 import mvmtFrwdLogo from "../assets/movement-forward-logo-bw.png";
 
-import { FaDiscord, FaMastodon, FaSquareFacebook, FaSquareInstagram, FaSquareThreads, FaSquareTwitter, FaTelegram } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaMastodon,
+  FaSquareFacebook,
+  FaSquareInstagram,
+  FaSquareThreads,
+  FaSquareTwitter,
+  FaTelegram,
+} from "react-icons/fa6";
 import { MdGroups2 } from "react-icons/md";
 import { IconContext } from "react-icons";
 
@@ -25,35 +33,55 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
           </a>
         </Col>
         <Col>
-          <a href="https://facebook.com/mvtfwd" target="_blank" rel="noreferrer">
+          <a
+            href="https://facebook.com/mvtfwd"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconContext.Provider value={{ color: "pink", size: "4dvh" }}>
               <FaSquareFacebook />
             </IconContext.Provider>
           </a>
         </Col>
         <Col>
-          <a href="https://www.threads.net/@mvtfwd" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.threads.net/@mvtfwd"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconContext.Provider value={{ color: "pink", size: "4dvh" }}>
               <FaSquareThreads />
             </IconContext.Provider>
           </a>
         </Col>
         <Col>
-          <a href="https://instagram.com/mvtfwd" target="_blank" rel="noreferrer">
+          <a
+            href="https://instagram.com/mvtfwd"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconContext.Provider value={{ color: "pink", size: "4dvh" }}>
               <FaSquareInstagram />
             </IconContext.Provider>
           </a>
         </Col>
         <Col>
-          <a href="https://indieweb.social/@MVTFWD" target="_blank" rel="noreferrer">
+          <a
+            href="https://indieweb.social/@MVTFWD"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconContext.Provider value={{ color: "pink", size: "4dvh" }}>
               <FaMastodon />
             </IconContext.Provider>
           </a>
         </Col>
         <Col>
-          <a href="https://themovementforward.com/discord" target="_blank" rel="noreferrer">
+          <a
+            href="https://themovementforward.com/discord"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconContext.Provider value={{ color: "pink", size: "4dvh" }}>
               <FaDiscord />
             </IconContext.Provider>
@@ -67,7 +95,11 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
           </a>
         </Col>
         <Col>
-          <a href="https://facebook.com/groups/MVTFWD" target="_blank" rel="noreferrer">
+          <a
+            href="https://facebook.com/groups/MVTFWD"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconContext.Provider value={{ color: "pink", size: "4dvh" }}>
               <MdGroups2 />
             </IconContext.Provider>
@@ -79,7 +111,11 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
         <Col>
           <Row>
             <Col className="text-start">
-              <a href="https://mvtfwd.com/links" target="_blank" rel="noreferrer">
+              <a
+                href="https://mvtfwd.com/links"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <span>
                   <Image
                     src={mvmtFrwdLogo}
@@ -87,20 +123,22 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
                     style={{ width: "4dvh", height: "4dvh" }}
                   />
                 </span>
-                <span className="px-1"><b>@MVTFWD</b></span>
+                <span className="px-1">
+                  <b>@MVTFWD</b>
+                </span>
               </a>
             </Col>
           </Row>
           <Row className="my-2">
-            <Col>
-              © 2023 Forward Democracy Limited
-            </Col>
+            <Col>© 2023 Forward Democracy Limited</Col>
           </Row>
         </Col>
 
         <Col>
           <Row xs={1} sm={2} md={4} className="text-end">
-            {blok.links.map((link) => <StoryblokComponent blok={link} key={link._uid} />)}
+            {blok.links.map((link) => (
+              <StoryblokComponent blok={link} key={link._uid} />
+            ))}
           </Row>
         </Col>
       </Row>

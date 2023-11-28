@@ -42,9 +42,7 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
               // <Nav.Link as={Link} key={link.link_url} href={link.link_url}>
               //   {link.link_name}
               // </Nav.Link>
-              return (
-                <StoryblokComponent blok={link} key={link._uid} />
-              );
+              return <StoryblokComponent blok={link} key={link._uid} />;
             })}
           </Nav>
         </Navbar.Collapse>
