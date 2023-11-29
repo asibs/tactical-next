@@ -1,0 +1,46 @@
+{
+  "story": {
+    "name": "Navigation",
+    "created_at": "2023-11-18T23:06:07.849Z",
+    "published_at": "2023-11-28T22:31:17.531Z",
+    "id": 407847067,
+    "uuid": "df0372fc-f3ca-405c-838d-17504dfd5d3f",
+    "content": {
+      "_uid": "4c3d7069-1347-450a-ab39-0ac2df48d2f5",
+      "links": [
+        {
+          "_uid": "0e39f289-69b4-464c-9569-a16d5cfbbd8b",
+          "link_url": "/about",
+          "component": "navbar_link",
+          "link_name": "About"
+        },
+        {
+          "_uid": "923a55f8-b366-4a02-b826-4d29a330874d",
+          "link_url": "/donate",
+          "component": "navbar_link",
+          "link_name": "Donate"
+        }
+      ],
+      "component": "navbar"
+    },
+    "slug": "navigation",
+    "full_slug": "navigation",
+    "sort_by_date": null,
+    "position": -10,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": null,
+    "meta_data": null,
+    "group_id": "d2ff5b22-ef56-42bb-84b0-9bb1a04a5406",
+    "first_published_at": "2023-11-28T22:31:17.531Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1701210759,
+  "rels": [],
+  "links": []
+}
