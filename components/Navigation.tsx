@@ -39,10 +39,12 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {blok.links.map((link) => {
-              // <Nav.Link as={Link} key={link.link_url} href={link.link_url}>
-              //   {link.link_name}
-              // </Nav.Link>
               return <StoryblokComponent blok={link} key={link._uid} />;
+              // return (
+              //   <Nav.Link {...storyblokEditable(blok)} as={Link} key={link.link_url} href={link.link_url}>
+              //     {link.link_name}
+              //   </Nav.Link>
+              // );
             })}
           </Nav>
         </Navbar.Collapse>
