@@ -33,7 +33,9 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
             style={{ width: "2rem", height: "2rem" }}
           />
           StopTheTories
-          <em><strong>.Vote</strong></em>
+          <em>
+            <strong>.Vote</strong>
+          </em>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
