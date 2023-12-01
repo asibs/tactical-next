@@ -63,6 +63,9 @@ Request in GitHub! A link to the Vercel Preview deployment for the branch should
 on the PR within a few minutes of the PR being created. Once you've confirmed the Vercel Preview build is good, you can
 merge the PR to main, and the changes will auto-deploy to Production.
 
+Note that any new Stories will need to be added to the array in the `.github/workflows/storyblok-published.yaml` script.
+TODO: Find a better way of auto-detecting new stories.
+
 ### Development
 
 During development, you are likely to want to add new types of Storyblok blocks (eg. you might create a ButtonLink block
