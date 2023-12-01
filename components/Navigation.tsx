@@ -5,6 +5,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Rubik } from "next/font/google";
 
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
 import { NavbarStoryblok } from "@/storyblok/types/storyblok-types";
@@ -13,15 +14,18 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 
 import logo from "@/assets/stop-the-tories-logo-transparent.png";
 
+const rubik = Rubik({ subsets: ["latin"], weight: "500" });
+
 const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
   return (
     <Navbar
       {...storyblokEditable(blok)}
       expand="lg"
-      className="bg-body-tertiary"
+      bg="dark"
+      data-bs-theme="dark"
     >
       <Container>
-        <Navbar.Brand as={Link} href="/">
+        <Navbar.Brand as={Link} href="/" className={rubik.className}>
           <Image
             src={logo}
             alt="StopTheTories.vote logo"
@@ -29,9 +33,7 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
             style={{ width: "2rem", height: "2rem" }}
           />
           StopTheTories
-          <strong>
-            .<em>Vote</em>
-          </strong>
+          <em><strong>.Vote</strong></em>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

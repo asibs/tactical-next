@@ -19,6 +19,10 @@ $custom-colors: (
   "secondary-pink": #ff99ff,
 );
 
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
+
 $utilities: map-merge(
   $utilities,
   (
@@ -36,20 +40,34 @@ $utilities: map-merge(
   )
 );
 
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     "background-color": (
+//       property: background-color,
+//       class: bg,
+//       values: $custom-colors,
+//     ),
+//   )
+// );
+
 $utilities: map-merge(
   $utilities,
   (
-    "background-color": (
-      property: background-color,
-      class: bg,
-      values: $custom-colors,
-    ),
+    "background-color":
+      map-merge(
+        map-get($utilities, "background-color"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "background-color"), "values"),
+              $custom_colors
+            ),
+        )
+      ),
   )
 );
 
-$theme-colors: map-merge($theme-colors, $custom-colors);
-$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
-$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
 // $utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
 // $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 
