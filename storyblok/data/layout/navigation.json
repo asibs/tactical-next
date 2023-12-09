@@ -2,7 +2,7 @@
   "story": {
     "name": "Navigation",
     "created_at": "2023-12-09T18:54:22.225Z",
-    "published_at": "2023-11-28T22:31:17.531Z",
+    "published_at": "2023-12-09T20:00:47.688Z",
     "id": 416706552,
     "uuid": "879f1657-4dd7-4bd4-b83f-f193b381c768",
     "content": {
@@ -12,19 +12,16 @@
           "_uid": "0e39f289-69b4-464c-9569-a16d5cfbbd8b",
           "link_url": "/about",
           "component": "navbar_link",
-          "link_name": "About",
-          "_editable": "<!--#storyblok#{\"name\": \"navbar_link\", \"space\": \"257018\", \"uid\": \"0e39f289-69b4-464c-9569-a16d5cfbbd8b\", \"id\": \"416706552\"}-->"
+          "link_name": "About"
         },
         {
           "_uid": "923a55f8-b366-4a02-b826-4d29a330874d",
           "link_url": "/donate",
           "component": "navbar_link",
-          "link_name": "Donate",
-          "_editable": "<!--#storyblok#{\"name\": \"navbar_link\", \"space\": \"257018\", \"uid\": \"923a55f8-b366-4a02-b826-4d29a330874d\", \"id\": \"416706552\"}-->"
+          "link_name": "Donate"
         }
       ],
-      "component": "navbar",
-      "_editable": "<!--#storyblok#{\"name\": \"navbar\", \"space\": \"257018\", \"uid\": \"4c3d7069-1347-450a-ab39-0ac2df48d2f5\", \"id\": \"416706552\"}-->"
+      "component": "navbar"
     },
     "slug": "navigation",
     "full_slug": "layout/navigation",
@@ -43,7 +40,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1702148062,
+  "cv": 1702152054,
   "rels": [],
   "links": []
 }
