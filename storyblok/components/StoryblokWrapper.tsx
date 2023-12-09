@@ -29,7 +29,7 @@ export default async function StoryblokWrapper({ slug }: params) {
       );
       return <StoryblokStory story={storyblokResponse.data.story} />;
     } catch {
-      return <h1>Error: Content for [{slug}] not found</h1>
+      return <h1>Error: Content for [{slug}] not found</h1>;
     }
   } else {
     console.debug("StoryblokWrapper.tsx: Disabling live-editing");

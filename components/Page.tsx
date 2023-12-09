@@ -1,10 +1,9 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Header from "./Header";
-import { Rubik } from 'next/font/google';
+import { Rubik } from "next/font/google";
 import { PageStoryblok } from "@/storyblok/types/storyblok-types";
 
 const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
-
 
 const Page = ({ blok }: { blok: PageStoryblok }) => (
   <>
@@ -18,9 +17,10 @@ const Page = ({ blok }: { blok: PageStoryblok }) => (
     </Header>
 
     <main className="text-center mt-4" {...storyblokEditable(blok)}>
-      {blok.body && blok.body.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
+      {blok.body &&
+        blok.body.map((nestedBlok) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+        ))}
     </main>
   </>
 );
