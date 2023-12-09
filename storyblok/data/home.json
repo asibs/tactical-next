@@ -2,7 +2,7 @@
   "story": {
     "name": "Home",
     "created_at": "2023-10-13T23:08:12.219Z",
-    "published_at": "2023-10-30T17:53:44.019Z",
+    "published_at": "2023-12-09T19:58:51.452Z",
     "id": 389348312,
     "uuid": "0beb5b54-b1a4-40ce-bd45-8013948da48c",
     "content": {
@@ -11,8 +11,7 @@
         {
           "_uid": "811256e1-92bf-4b58-a35c-e6ed09befff6",
           "headline": "Stop the tories .Vote",
-          "component": "teaser",
-          "_editable": "<!--#storyblok#{\"name\": \"teaser\", \"space\": \"257018\", \"uid\": \"811256e1-92bf-4b58-a35c-e6ed09befff6\", \"id\": \"389348312\"}-->"
+          "component": "teaser"
         },
         {
           "_uid": "5fb611c8-4cf3-4a93-98a8-e35db90bf5f6",
@@ -20,30 +19,51 @@
             {
               "_uid": "936fd606-aed7-4bb5-b3b2-51f7a2c73589",
               "name": "Feature 1",
-              "component": "feature",
-              "_editable": "<!--#storyblok#{\"name\": \"feature\", \"space\": \"257018\", \"uid\": \"936fd606-aed7-4bb5-b3b2-51f7a2c73589\", \"id\": \"389348312\"}-->"
+              "component": "feature"
             },
             {
               "_uid": "f5322e7f-2056-479b-a5d9-d65d8a113c3d",
               "name": "Cool thing",
-              "component": "feature",
-              "_editable": "<!--#storyblok#{\"name\": \"feature\", \"space\": \"257018\", \"uid\": \"f5322e7f-2056-479b-a5d9-d65d8a113c3d\", \"id\": \"389348312\"}-->"
+              "component": "feature"
             },
             {
               "_uid": "9f6d28a3-f2ba-4585-9b06-742fb469f6a0",
               "name": "Feature 3",
-              "component": "feature",
-              "_editable": "<!--#storyblok#{\"name\": \"feature\", \"space\": \"257018\", \"uid\": \"9f6d28a3-f2ba-4585-9b06-742fb469f6a0\", \"id\": \"389348312\"}-->"
+              "component": "feature"
             }
           ],
-          "component": "grid",
-          "_editable": "<!--#storyblok#{\"name\": \"grid\", \"space\": \"257018\", \"uid\": \"5fb611c8-4cf3-4a93-98a8-e35db90bf5f6\", \"id\": \"389348312\"}-->"
+          "component": "grid"
         }
       ],
       "component": "page",
       "page_title": "TAKE BACK YOUR TORY SEAT",
-      "page_title_background": "FESTIVAL_CROWD",
-      "_editable": "<!--#storyblok#{\"name\": \"page\", \"space\": \"257018\", \"uid\": \"d1b18fb6-3cff-4810-a265-36d071f71b36\", \"id\": \"389348312\"}-->"
+      "page_content": [
+        {
+          "_uid": "cc7e8a3a-4a95-4bcb-ac96-d088d25255cc",
+          "content": [
+            {
+              "_uid": "6000e2c4-6273-4f4b-a66d-5eb8048f206d",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Hello World",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "component": "rich_text"
+            }
+          ],
+          "component": "one_column_layout"
+        }
+      ],
+      "page_title_background": "FESTIVAL_CROWD"
     },
     "slug": "home",
     "full_slug": "home",
@@ -62,7 +82,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1702148062,
+  "cv": 1702152054,
   "rels": [],
   "links": []
 }
