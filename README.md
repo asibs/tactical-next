@@ -73,14 +73,15 @@ or a PostcodeLookup block, etc). If & when you add these, you can automatically 
 running scripts.
 
 1. Set the `STORYBLOK_SPACE_ID` in your `.env.local` to your Storyblok Space ID (you can find this in the Storyblok UI)
-2. Login to the Storyblok CLI: `npm run storyblok:login`
+2. `npm run storyblok:login` - logs you in to the Storyblok CLI.
 3. `npm run storyblok:pull_components`
 4. `npm run storyblok:generate_types`
 
 Note, if you have auth issues at step 3, you may need to force logout and login again (`npm run storyblok:logout` then `npm run storyblok:login`).
 
-This will create / update `components.storyblok.json` (step 2) and `/components/storyblok-types.d.ts` (step 3). These types
-can then be used when creating your React Components for the Storyblok blocks.
+This will pull type information about the bloks you've defined in Storyblok, and writes them to `/storyblok/types/components.storyblok.json` (step 2),
+then generates Typescript types from the JSON, and write them to `/storyblok/types/storyblok-types.d.ts` (step 3). These types can then be used when
+creating your React Components for the Storyblok blocks.
 
 ---
 

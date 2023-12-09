@@ -36,9 +36,9 @@ export default function RootLayout({
       <StoryblokProvider>
         <html lang="en">
           <body className={inter.className}>
-            <StoryblokWrapper slug="navigation" />
+            <StoryblokWrapper slug="layout/navigation" />
             {children}
-            <StoryblokWrapper slug="footer" />
+            <StoryblokWrapper slug="layout/footer" />
           </body>
         </html>
       </StoryblokProvider>
@@ -48,9 +48,9 @@ export default function RootLayout({
     return (
       <html lang="en">
         <body className={inter.className}>
-          <StoryblokWrapper slug="navigation" />
+          <StoryblokWrapper slug="layout/navigation" />
           {children}
-          <StoryblokWrapper slug="footer" />
+          <StoryblokWrapper slug="layout/footer" />
         </body>
         <StoryblokBridgeLoader options={{}} />
       </html>

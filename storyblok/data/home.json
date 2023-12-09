@@ -11,7 +11,8 @@
         {
           "_uid": "811256e1-92bf-4b58-a35c-e6ed09befff6",
           "headline": "Stop the tories .Vote",
-          "component": "teaser"
+          "component": "teaser",
+          "_editable": "<!--#storyblok#{\"name\": \"teaser\", \"space\": \"257018\", \"uid\": \"811256e1-92bf-4b58-a35c-e6ed09befff6\", \"id\": \"389348312\"}-->"
         },
         {
           "_uid": "5fb611c8-4cf3-4a93-98a8-e35db90bf5f6",
@@ -19,23 +20,30 @@
             {
               "_uid": "936fd606-aed7-4bb5-b3b2-51f7a2c73589",
               "name": "Feature 1",
-              "component": "feature"
+              "component": "feature",
+              "_editable": "<!--#storyblok#{\"name\": \"feature\", \"space\": \"257018\", \"uid\": \"936fd606-aed7-4bb5-b3b2-51f7a2c73589\", \"id\": \"389348312\"}-->"
             },
             {
               "_uid": "f5322e7f-2056-479b-a5d9-d65d8a113c3d",
               "name": "Cool thing",
-              "component": "feature"
+              "component": "feature",
+              "_editable": "<!--#storyblok#{\"name\": \"feature\", \"space\": \"257018\", \"uid\": \"f5322e7f-2056-479b-a5d9-d65d8a113c3d\", \"id\": \"389348312\"}-->"
             },
             {
               "_uid": "9f6d28a3-f2ba-4585-9b06-742fb469f6a0",
               "name": "Feature 3",
-              "component": "feature"
+              "component": "feature",
+              "_editable": "<!--#storyblok#{\"name\": \"feature\", \"space\": \"257018\", \"uid\": \"9f6d28a3-f2ba-4585-9b06-742fb469f6a0\", \"id\": \"389348312\"}-->"
             }
           ],
-          "component": "grid"
+          "component": "grid",
+          "_editable": "<!--#storyblok#{\"name\": \"grid\", \"space\": \"257018\", \"uid\": \"5fb611c8-4cf3-4a93-98a8-e35db90bf5f6\", \"id\": \"389348312\"}-->"
         }
       ],
-      "component": "page"
+      "component": "page",
+      "page_title": "TAKE BACK YOUR TORY SEAT",
+      "page_title_background": "FESTIVAL_CROWD",
+      "_editable": "<!--#storyblok#{\"name\": \"page\", \"space\": \"257018\", \"uid\": \"d1b18fb6-3cff-4810-a265-36d071f71b36\", \"id\": \"389348312\"}-->"
     },
     "slug": "home",
     "full_slug": "home",
@@ -54,7 +62,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1701210759,
+  "cv": 1702148062,
   "rels": [],
   "links": []
 }

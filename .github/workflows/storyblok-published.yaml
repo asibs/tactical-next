@@ -20,7 +20,7 @@ jobs:
         env:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
         run: |
-          declare -a stories=("footer","home","navigation")
+          declare -a stories=("layout/navigation" "layout/footer" "home")
           for story in "${stories[@]}"
           do
             curl "https://api.storyblok.com/v2/cdn/stories/$story?token=$STORYBLOK_TOKEN" \

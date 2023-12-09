@@ -1,0 +1,77 @@
+{
+  "story": {
+    "name": "Footer",
+    "created_at": "2023-12-09T18:53:56.246Z",
+    "published_at": "2023-11-28T22:32:39.491Z",
+    "id": 416706550,
+    "uuid": "63903b08-be76-463b-ab23-9b4bf16e1c58",
+    "content": {
+      "_uid": "f03ace1f-3dc3-4d6c-aa0e-59f6357180cf",
+      "links": [
+        {
+          "_uid": "0b36df35-a266-4d35-b604-4b26b1000078",
+          "link_url": "/about",
+          "component": "footer_internal_link",
+          "link_name": "About",
+          "_editable": "<!--#storyblok#{\"name\": \"footer_internal_link\", \"space\": \"257018\", \"uid\": \"0b36df35-a266-4d35-b604-4b26b1000078\", \"id\": \"416706550\"}-->"
+        },
+        {
+          "_uid": "35f00c4d-c6b7-4cee-8ad8-56bfe34d4f74",
+          "link_url": "/donate",
+          "component": "footer_internal_link",
+          "link_name": "Donate",
+          "_editable": "<!--#storyblok#{\"name\": \"footer_internal_link\", \"space\": \"257018\", \"uid\": \"35f00c4d-c6b7-4cee-8ad8-56bfe34d4f74\", \"id\": \"416706550\"}-->"
+        },
+        {
+          "_uid": "f43ba7c3-5ef8-4831-bec1-54269dcad39c",
+          "link_url": "/volunteer",
+          "component": "footer_internal_link",
+          "link_name": "Volunteer",
+          "_editable": "<!--#storyblok#{\"name\": \"footer_internal_link\", \"space\": \"257018\", \"uid\": \"f43ba7c3-5ef8-4831-bec1-54269dcad39c\", \"id\": \"416706550\"}-->"
+        },
+        {
+          "_uid": "a5ebcbd1-938d-4440-869c-77729d9adbe5",
+          "link_url": "/contact",
+          "component": "footer_internal_link",
+          "link_name": "Contact",
+          "_editable": "<!--#storyblok#{\"name\": \"footer_internal_link\", \"space\": \"257018\", \"uid\": \"a5ebcbd1-938d-4440-869c-77729d9adbe5\", \"id\": \"416706550\"}-->"
+        },
+        {
+          "_uid": "873ca8f7-c450-429b-b0d0-3cf8f61fb4e4",
+          "link_url": "/faq",
+          "component": "footer_internal_link",
+          "link_name": "FAQ",
+          "_editable": "<!--#storyblok#{\"name\": \"footer_internal_link\", \"space\": \"257018\", \"uid\": \"873ca8f7-c450-429b-b0d0-3cf8f61fb4e4\", \"id\": \"416706550\"}-->"
+        },
+        {
+          "_uid": "fe9004f2-3756-47b3-820f-d5e8b4c95c26",
+          "link_url": "https://themovementforward.com/privacy/",
+          "component": "footer_external_link",
+          "link_name": "Privacy Policy",
+          "_editable": "<!--#storyblok#{\"name\": \"footer_external_link\", \"space\": \"257018\", \"uid\": \"fe9004f2-3756-47b3-820f-d5e8b4c95c26\", \"id\": \"416706550\"}-->"
+        }
+      ],
+      "component": "footer",
+      "_editable": "<!--#storyblok#{\"name\": \"footer\", \"space\": \"257018\", \"uid\": \"f03ace1f-3dc3-4d6c-aa0e-59f6357180cf\", \"id\": \"416706550\"}-->"
+    },
+    "slug": "footer",
+    "full_slug": "layout/footer",
+    "sort_by_date": null,
+    "position": 0,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": 416706548,
+    "meta_data": null,
+    "group_id": "f432e636-63e3-4e2d-82cc-eafc93b25261",
+    "first_published_at": "2023-11-12T23:00:30.524Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1702148062,
+  "rels": [],
+  "links": []
+}
