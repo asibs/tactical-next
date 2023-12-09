@@ -22,12 +22,15 @@ export default async function StoryblokWrapper({ slug }: params) {
     };
 
     const storyblokApi = getStoryblokApi();
-    const storyblokResponse = await storyblokApi.get(
-      `cdn/stories/${slug}`,
-      sbParams,
-    );
-
-    return <StoryblokStory story={storyblokResponse.data.story} />;
+    try {
+      const storyblokResponse = await storyblokApi.get(
+        `cdn/stories/${slug}`,
+        sbParams,
+      );
+      return <StoryblokStory story={storyblokResponse.data.story} />;
+    } catch {
+      return <h1>Error: Content for [{slug}] not found</h1>
+    }
   } else {
     console.debug("StoryblokWrapper.tsx: Disabling live-editing");
     // When live-editing is disabled, we use the local filesystem containing the story JSON,
