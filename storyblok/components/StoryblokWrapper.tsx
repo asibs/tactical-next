@@ -33,7 +33,7 @@ export default async function StoryblokWrapper({ slug }: params) {
     // When live-editing is disabled, we use the local filesystem containing the story JSON,
     // and cache it indefinitely so pages are statically generated at build-time
 
-    // const filePath = path.join(process.cwd(), 'storyblok_data', `${slug}.json`);
+    // const filePath = path.join(process.cwd(), 'storyblok', 'data', `${slug}.json`);
     // const fileContent = readFileSync(filePath, 'utf8');
     // const data = JSON.parse(fileContent)
 
@@ -45,14 +45,15 @@ export default async function StoryblokWrapper({ slug }: params) {
         );
         const filePath = path.join(
           process.cwd(),
-          "storyblok_data",
+          "storyblok",
+          "data",
           `${slug}.json`,
         );
         const fileContent = readFileSync(filePath, "utf8");
         return JSON.parse(fileContent);
       },
       // Cache key
-      [`storyblok_data/${slug}.json`],
+      [`storyblok/data/${slug}.json`],
       // Cache options
       { revalidate: false }, // Cache will never refresh
     );

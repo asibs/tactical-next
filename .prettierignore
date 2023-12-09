@@ -21,4 +21,4 @@
 next-env.d.ts
 
 # data files
-/storyblok_data/*
+/storyblok/data/*

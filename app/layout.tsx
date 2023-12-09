@@ -1,14 +1,11 @@
-import "./globals.css";
+import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
-import StoryblokProvider from "../components/StoryblokProvider";
-
-import Page from "@/components/Page";
-import Grid from "@/components/Grid";
-import Feature from "@/components/Feature";
-import Teaser from "@/components/Teaser";
+import StoryblokProvider from "@/storyblok/components/StoryblokProvider";
+import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
+import { ComponentsMap } from "@/storyblok/components/ComponentsMap";
 
 // Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
@@ -20,12 +17,7 @@ storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
   use: [apiPlugin],
   apiOptions: { region: "eu" },
-  components: {
-    feature: Feature,
-    grid: Grid,
-    page: Page,
-    teaser: Teaser,
-  },
+  components: ComponentsMap,
 });
 
 export const metadata: Metadata = {
@@ -43,7 +35,11 @@ export default function RootLayout({
     return (
       <StoryblokProvider>
         <html lang="en">
-          <body className={inter.className}>{children}</body>
+          <body className={inter.className}>
+            <StoryblokWrapper slug="layout/navigation" />
+            {children}
+            <StoryblokWrapper slug="layout/footer" />
+          </body>
         </html>
       </StoryblokProvider>
     );
@@ -51,7 +47,11 @@ export default function RootLayout({
     console.debug("layout.tsx: Disabling live-editing");
     return (
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <StoryblokWrapper slug="layout/navigation" />
+          {children}
+          <StoryblokWrapper slug="layout/footer" />
+        </body>
         <StoryblokBridgeLoader options={{}} />
       </html>
     );
