@@ -18,12 +18,6 @@ const NavigationLink = ({ blok }: { blok: NavbarLinkStoryblok }) => {
       {blok.link_name}
     </Nav.Link>
   );
-
-  // return (
-  //   <Link {...storyblokEditable(blok)} href={blok.link_url}>
-  //     {blok.link_name}
-  //   </Link>
-  // );
 };
 
 export default NavigationLink;
