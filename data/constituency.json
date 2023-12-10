@@ -1,52 +1,12 @@
-{
-  "results": [
-    {
-      "command": {
-        "func": "getData",
-        "kwargs": [
-          {
-            "range": "'constituencies'!A:D",
-            "hasHeaderRow": true,
-            "worksheetTitle": "constituencies",
-            "minCol": 1,
-            "maxCol": 4
-          },
-          null
-        ]
-      },
-      "result": {
-        "rawData": [
-          [
-            "isle-of-wight-east",
-            "Isle Of Wight East",
-            "Green"
-          ],
-          [
-            "isle-of-wight-west",
-            "Isle Of Wight West",
-            "Labour"
-          ]
-        ],
-        "formatted": [
-          {
-            "slug": "isle-of-wight-east",
-            "constituency_name": "Isle Of Wight East",
-            "recommendation": "Green"
-          },
-          {
-            "slug": "isle-of-wight-west",
-            "constituency_name": "Isle Of Wight West",
-            "recommendation": "Labour"
-          }
-        ],
-        "header": [
-          "slug",
-          "constituency_name",
-          "recommendation",
-          "notes"
-        ],
-        "range": "constituencies!A1:D1000"
-      }
-    }
-  ]
-}
+[
+  {
+    "slug": "isle-of-wight-east",
+    "constituency_name": "Isle Of Wight East",
+    "recommendation": "Green"
+  },
+  {
+    "slug": "isle-of-wight-west",
+    "constituency_name": "Isle Of Wight West",
+    "recommendation": "Labour"
+  }
+]
