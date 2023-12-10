@@ -50,21 +50,29 @@ unnecessary API calls on Prod.
 
 1. Set the `STORYBLOK_TO_GHA_KEY` for your Vercel Storyblok build to a secure, randomly generated string.
 2. Create a webhook in the Storyblok UI which will trigger whenever a Story is published, unpublished, deleted or moved. It
-   should point to the API endpoint mentioned above, with a URI param called `apiKey` set to the random key from (1)- ie.
+   should point to the API endpoint mentioned above, with a URI param called `apiKey` set to the random key from step (1)- ie.
    `https://MY_APP_STORYBLOK_BRANCH/api/githooks/storyblok?apiKey=MY_RANDOM_KEY`
 3. Generate a GitHub Personal Access Token (User Settings -> Developer Settings -> Personal Access Tokens). A fine-grained
    token is recommended, as this allows you to limit the access more. You will need to grant access to this repo only, with
-   "Read access to metadata" and "Read and Write access to code". Once generated, copy the token.
-4. Set the ENV VARs in the Storyblok build (through the Vercel UI). You need to set `GHA_TOKEN` (the token you generated &
-   copied in the step above), `GH_OWNER` (your GitHub username), and `GH_REPO` (the URL to the GitHub repo).
+   the following permissions:
+   - Actions - Read & Write (TODO: Verify if this is definitely required...)
+   - Contents - Read & Write
+   - Metadata - Read-only
+   - Pull Requests - Read & Write
+   - Once generated, copy the token.
+4. Set the ENV VARs in the Storyblok build (through the Vercel UI). You need to set `GHA_TOKEN` (using token you generated &
+   copied in step (3)), `GH_OWNER` (your GitHub username), and `GH_REPO` (the URL to the GitHub repo).
+5. Add a new GitHub Action Repository Secret, called `GH_PERSONAL_ACCESS_TOKEN` (again, using the GitHub Personal Access Token
+   you generated previously). You can do this by navigating to your repo, and going to Settings -> Secrets and variables ->
+   Actions -> Repository secrets.
+6. In the Storyblok UI, generate an Access Token (Settings -> Configuration -> Access Tokens). Give it an Access Level of
+   "Public", as we only want the GitHub Action to pull Storyblok content which has been published (not preview content).
+   Copy the token, and add another GitHub Action Repository Secret, called `STORYBLOK_TOKEN` with the value of the token.
 
 Now you should be able to publish changes to the site content in the Storyblok UI, and this should auto-generate a Pull
 Request in GitHub! A link to the Vercel Preview deployment for the branch should also be automatically added as a comment
 on the PR within a few minutes of the PR being created. Once you've confirmed the Vercel Preview build is good, you can
 merge the PR to main, and the changes will auto-deploy to Production.
-
-Note that any new Stories will need to be added to the array in the `.github/workflows/storyblok-published.yaml` script.
-TODO: Find a better way of auto-detecting new stories.
 
 ### Development
 
