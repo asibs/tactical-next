@@ -25,7 +25,13 @@ jobs:
           spreadsheetId: ${{ vars.GSHEET_SPREADSHEET_ID }}
           commands: |
             [
-              { "command": "getData", "args": { "range": "'${{ vars.GSHEET_WORKSHEET_TITLE }}'!A2:B3" } }
+              {
+                "command": "getData",
+                "args": {
+                  "range": "${{ vars.GSHEET_WORKSHEET_AND_RANGE }}",
+                  "hasHeaderRow": true,
+                }
+              }
             ]
       - name: Write results
         env:
