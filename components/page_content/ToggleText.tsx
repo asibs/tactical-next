@@ -5,7 +5,7 @@
 
 import { ToggleTextStoryblok } from "@/storyblok/types/storyblok-types";
 import { storyblokEditable } from "@storyblok/react/rsc";
-import { render } from 'storyblok-rich-text-react-renderer';
+import { render } from "storyblok-rich-text-react-renderer";
 import { Rubik } from "next/font/google";
 import { useState } from "react";
 import { Collapse } from "react-bootstrap";
@@ -25,34 +25,27 @@ const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
         className="align-middle"
         style={{ cursor: "pointer" }}
       >
-        <h2
-          className={`${rubik.className}`}
-          style={{ fontWeight: "bold" }}
-        >
+        <h2 className={`${rubik.className}`} style={{ fontWeight: "bold" }}>
           <FaCircleChevronRight
             style={{
               transition: "transform 0.3s ease 0s",
-              transform: `rotate(${visible ? 90 : 0}deg)`
+              transform: `rotate(${visible ? 90 : 0}deg)`,
             }}
             className="pb-1"
-          />
-          {" "}
+          />{" "}
           {blok.title}
         </h2>
       </div>
 
       <Collapse in={visible}>
-        <div id={`collapse-${blok._uid}`}>
-          {render(blok.text)}
-        </div>
+        <div id={`collapse-${blok._uid}`}>{render(blok.text)}</div>
       </Collapse>
     </div>
   );
 };
 
-
-
-{/*
+{
+  /*
 const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
   const [visible, setVisible] = useState(blok.text_shown_initially);
 
@@ -71,6 +64,7 @@ const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
     </div>
   );
 };
-*/}
+*/
+}
 
 export default ToggleText;

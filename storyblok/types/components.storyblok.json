@@ -150,9 +150,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "navbar_link"
-          ],
+          "component_whitelist": ["navbar_link"],
           "required": true
         }
       },
