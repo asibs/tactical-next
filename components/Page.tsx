@@ -5,24 +5,25 @@ import { PageStoryblok } from "@/storyblok/types/storyblok-types";
 
 const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
 
-const Page = ({ blok }: { blok: PageStoryblok }) => (
-  <>
-    <Header backgroundImage={blok.page_title_background}>
-      <h1
-        className={`${rubik.className} text-100`}
-        style={{ fontSize: "6vmax", fontWeight: "bolder" }}
-      >
-        {blok.page_title}
-      </h1>
-    </Header>
+const Page = ({ blok }: { blok: PageStoryblok }) => {
+  return (
+    <>
+      <Header backgroundImage={blok.page_title_background}>
+        <h1
+          className={`${rubik.className} text-100`}
+          style={{ fontSize: "6vmax", fontWeight: "bolder" }}
+        >
+          {blok.page_title}
+        </h1>
+      </Header>
 
-    <main className="text-center mt-4" {...storyblokEditable(blok)}>
-      {blok.body &&
-        blok.body.map((nestedBlok) => (
+      <main className="text-center mt-4" {...storyblokEditable(blok)}>
+        {blok.page_content.map((nestedBlok) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
-    </main>
-  </>
-);
+      </main>
+    </>
+  );
+};
 
 export default Page;
