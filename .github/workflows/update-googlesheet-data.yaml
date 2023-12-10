@@ -1,4 +1,4 @@
-name: gsheet.action test
+name: Update GoogleSheet Data
 on:
   # Allows workflow to be manually run in Github UI
   workflow_dispatch:
@@ -29,7 +29,7 @@ jobs:
                 "command": "getData",
                 "args": {
                   "range": "${{ vars.GSHEET_WORKSHEET_AND_RANGE }}",
-                  "hasHeaderRow": true,
+                  "hasHeaderRow": true
                 }
               }
             ]
