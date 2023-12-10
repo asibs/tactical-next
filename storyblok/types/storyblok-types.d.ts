@@ -39,8 +39,13 @@ export interface GridStoryblok {
     | GridStoryblok
     | NavbarStoryblok
     | NavbarLinkStoryblok
+    | OneColumnLayoutStoryblok
     | PageStoryblok
+    | RichTextStoryblok
     | TeaserStoryblok
+    | ThreeColumnLayoutStoryblok
+    | ToggleTextStoryblok
+    | TwoColumnLayoutStoryblok
   )[];
   _uid: string;
   component: "grid";
@@ -62,19 +67,28 @@ export interface NavbarLinkStoryblok {
   [k: string]: any;
 }
 
+export interface OneColumnLayoutStoryblok {
+  content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
+  )[];
+  _uid: string;
+  component: "one_column_layout";
+  [k: string]: any;
+}
+
 export interface PageStoryblok {
   page_title: string;
   page_title_background: "NONE" | "FESTIVAL_CROWD";
-  body?: (
-    | FeatureStoryblok
-    | FooterStoryblok
-    | FooterExternalLinkStoryblok
-    | FooterInternalLinkStoryblok
-    | GridStoryblok
-    | NavbarStoryblok
-    | NavbarLinkStoryblok
-    | PageStoryblok
-    | TeaserStoryblok
+  page_content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
   )[];
   _uid: string;
   component: "page";
@@ -82,9 +96,81 @@ export interface PageStoryblok {
   [k: string]: any;
 }
 
+export interface RichtextStoryblok {
+  type: string;
+  content?: RichtextStoryblok[];
+  marks?: RichtextStoryblok[];
+  attrs?: any;
+  text?: string;
+  [k: string]: any;
+}
+
+export interface RichTextStoryblok {
+  text: RichtextStoryblok;
+  _uid: string;
+  component: "rich_text";
+  [k: string]: any;
+}
+
 export interface TeaserStoryblok {
   headline?: string;
   _uid: string;
   component: "teaser";
+  [k: string]: any;
+}
+
+export interface ThreeColumnLayoutStoryblok {
+  column_1_content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
+  )[];
+  column_2_content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
+  )[];
+  column_3_content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
+  )[];
+  _uid: string;
+  component: "three_column_layout";
+  [k: string]: any;
+}
+
+export interface ToggleTextStoryblok {
+  title: string;
+  text: RichtextStoryblok;
+  text_shown_initially?: boolean;
+  _uid: string;
+  component: "toggle_text";
+  [k: string]: any;
+}
+
+export interface TwoColumnLayoutStoryblok {
+  column_1_content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
+  )[];
+  column_2_content: (
+    | OneColumnLayoutStoryblok
+    | ThreeColumnLayoutStoryblok
+    | TwoColumnLayoutStoryblok
+    | RichTextStoryblok
+    | ToggleTextStoryblok
+  )[];
+  _uid: string;
+  component: "two_column_layout";
   [k: string]: any;
 }
