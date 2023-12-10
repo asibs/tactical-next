@@ -1,0 +1,57 @@
+ame: gsheet.action test
+on:
+  # Allows workflow to be manually run in Github UI
+  workflow_dispatch:
+  # Allows workflow to be called via HTTP calls to GitHub (with correct auth, etc)
+  repository_dispatch:
+    types: [update-googlesheet-data]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-or-update-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jroehl/gsheet.action@v2.1.1
+        name: Download latest data from Google Sheets
+        id: download_gsheets_data
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+        with:
+          spreadsheetId: ${{ env.GSHEET_SPREADSHEET_ID }}
+          commands: |
+            [
+              { "command": "getData", "args": { "range": "'${{ env.GSHEET_WORKSHEET_TITLE }}'!A2:B3" } }
+            ]
+      - name: Write results
+        env:
+          RESULTS: ${{ steps.download_gsheets_data.outputs.results }}
+        run: |
+          # Write the results to the data file
+          echo "$RESULTS" | jq > data/constituency.json
+          # Add the updates to git
+          git add data/constituency.json
+      - name: Commit Changes and Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          # Note: Need to use a Personal Access Token here, NOT the standard
+          # secrets.GITHUB_TOKEN - if we use the standard Github Actions GITHUB_TOKEN
+          # then the commit/push/etc won't trigger subsequent Github Actions (such as
+          # the lint-pr action, which is required to merge PRs). The Personal Access
+          # Token must be setup as an Action Secret on the GitHub repo. Use the same
+          # Personal Access Token as the GHA_TOKEN env variable in your deployed app.
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          base: main
+          branch: auto/constituency-data-changes
+          commit-message: Latest constituency data from Google Sheets
+          committer: GitHub Action Bot - Constituency Data <noreply@github.com>
+          author: GitHub Action Bot - Constituency Data <noreply@github.com>
+          title: "[Constituency Data] Latest Google Sheets Data"
+          body: |
+            Automatically created by Update-Googlesheet-Data Github action
+          labels: |
+            automated-pr
