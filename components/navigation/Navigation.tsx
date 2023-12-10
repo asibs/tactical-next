@@ -53,7 +53,6 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
                  * anyway).
                  */
               }
-              // return <StoryblokComponent blok={link} key={link._uid} />;
               return (
                 <Nav.Link
                   {...storyblokEditable(blok)}
