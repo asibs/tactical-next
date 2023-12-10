@@ -20,16 +20,29 @@ jobs:
         env:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
         run: |
-          declare -a stories=("layout/navigation" "layout/footer" "home")
-          for story in "${stories[@]}"
-          do
-            curl "https://api.storyblok.com/v2/cdn/stories/$story?token=$STORYBLOK_TOKEN" \
-              -L -X GET \
-              -H "Accept: application/json" \
-              -H "Content-Type: application/json" \
-              | jq > storyblok/data/$story.json
-            git add storyblok/data/$story.json
-          done
+          # Grab all stories from Storyblok, and extract their full slugs from the JSON
+          # NOTE: If we ever have more than 100 stories, we'll have to paginate through the results
+          # (storyblok max page size is 100)
+          curl "https://api.storyblok.com/v2/cdn/stories?per_page=100&token=$STORYBLOK_TOKEN" \
+            -L -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
+            | jq ".stories | .[] | .full_slug" \
+            | while read story_slug;
+            do
+              sleep 1  # Avoid Storyblok rate-limits...
+
+              # $story_slug will be wrapped in quotes - remove them
+              story=$(echo $story_slug | sed -e 's/^"//' -e 's/"$//')
+
+              # Grab the data for just this story and store it
+              curl "https://api.storyblok.com/v2/cdn/stories/$story?token=$STORYBLOK_TOKEN" \
+                -L -X GET \
+                -H "Accept: application/json" \
+                -H "Content-Type: application/json" \
+                | jq > storyblok/data/$story.json
+              
+              # Add the updates to git
+              git add storyblok/data/$story.json
+            done
       - name: Commit Changes and Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

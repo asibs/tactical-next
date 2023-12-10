@@ -12,14 +12,14 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
-// $all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
-
 $custom-colors: (
   "primary-pink": #ff66ff,
   "secondary-pink": #ff99ff,
 );
 
-$theme-colors: map-merge($theme-colors, $custom-colors);
+$all-colors: map-merge-multiple($custom-colors, $grays);
+
+$theme-colors: map-merge-multiple($theme-colors, $custom-colors);
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 $utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
 
@@ -33,7 +33,7 @@ $utilities: map-merge(
           values:
             map-merge(
               map-get(map-get($utilities, "color"), "values"),
-              $custom_colors
+              $all-colors
             ),
         )
       ),
@@ -61,7 +61,7 @@ $utilities: map-merge(
           values:
             map-merge(
               map-get(map-get($utilities, "background-color"), "values"),
-              $custom_colors
+              $all-colors
             ),
         )
       ),

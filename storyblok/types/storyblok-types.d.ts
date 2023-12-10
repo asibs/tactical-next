@@ -63,6 +63,8 @@ export interface NavbarLinkStoryblok {
 }
 
 export interface PageStoryblok {
+  page_title: string;
+  page_title_background: "NONE" | "FESTIVAL_CROWD";
   body?: (
     | FeatureStoryblok
     | FooterStoryblok

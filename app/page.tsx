@@ -1,5 +1,13 @@
 import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 
-export default async function Home() {
-  return <StoryblokWrapper slug="home" />;
+/* Index page. Since we use the Storyblok slug "home" for this page, it will also be
+ * visible at the `/home` URL (via the dynamic route under `/app/[slug]/page.tsx`).
+ */
+export default async function Index() {
+  return (
+    <>
+      <StoryblokWrapper slug="home" />
+      <p>on the homepage</p>
+    </>
+  );
 }

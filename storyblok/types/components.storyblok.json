@@ -57,7 +57,7 @@
       "name": "footer_external_link",
       "display_name": null,
       "created_at": "2023-11-23T12:04:20.276Z",
-      "updated_at": "2023-11-25T13:38:47.654Z",
+      "updated_at": "2023-12-04T17:50:03.680Z",
       "id": 4928025,
       "schema": {
         "link_name": {
@@ -72,7 +72,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "link_name",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -87,7 +87,7 @@
       "name": "footer_internal_link",
       "display_name": null,
       "created_at": "2023-11-12T21:28:38.884Z",
-      "updated_at": "2023-11-24T13:42:18.350Z",
+      "updated_at": "2023-12-04T17:50:13.446Z",
       "id": 4870851,
       "schema": {
         "link_name": {
@@ -102,7 +102,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "link_name",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -167,7 +167,7 @@
       "name": "navbar_link",
       "display_name": null,
       "created_at": "2023-11-18T22:45:38.019Z",
-      "updated_at": "2023-11-23T12:23:03.555Z",
+      "updated_at": "2023-12-04T17:50:26.985Z",
       "id": 4903689,
       "schema": {
         "link_name": {
@@ -181,7 +181,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "link_name",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -196,11 +196,39 @@
       "name": "page",
       "display_name": null,
       "created_at": "2023-10-13T23:08:12.123Z",
-      "updated_at": "2023-10-13T23:08:12.123Z",
+      "updated_at": "2023-12-09T11:57:12.728Z",
       "id": 4719857,
       "schema": {
+        "page_title": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "page_title_background": {
+          "type": "option",
+          "use_uuid": true,
+          "pos": 1,
+          "required": true,
+          "description": "Image to show as the background to the page title",
+          "tooltip": true,
+          "options": [
+            {
+              "_uid": "75f4a24b-929d-4a49-ba7b-4349606f6ee5",
+              "name": "No Image",
+              "value": "NONE"
+            },
+            {
+              "_uid": "8e72c893-1696-4bba-8218-1dbc2642793c",
+              "value": "FESTIVAL_CROWD",
+              "name": "Festival Crowd"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "No Image"
+        },
         "body": {
-          "type": "bloks"
+          "type": "bloks",
+          "pos": 2
         }
       },
       "image": null,
