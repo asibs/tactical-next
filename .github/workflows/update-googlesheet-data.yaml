@@ -1,4 +1,4 @@
-ame: gsheet.action test
+name: gsheet.action test
 on:
   # Allows workflow to be manually run in Github UI
   workflow_dispatch:

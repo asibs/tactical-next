@@ -43,7 +43,7 @@ const handleRequest = async (request: Request) => {
 
   // Trigger Github Action
   console.log(
-    "Storyblok githook: API Keys matched - calling Github Actions API",
+    "Constituencies githook: API Keys matched - calling Github Actions API",
   );
 
   const ghaToken = process.env.GHA_TOKEN || "";
