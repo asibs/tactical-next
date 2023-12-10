@@ -21,6 +21,8 @@ jobs:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
         run: |
           # Grab all stories from Storyblok, and extract their full slugs from the JSON
+          # NOTE: If we ever have more than 100 stories, we'll have to paginate through the results
+          # (storyblok max page size is 100)
           curl "https://api.storyblok.com/v2/cdn/stories?per_page=100&token=$STORYBLOK_TOKEN" \
             -L -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
             | jq ".stories | .[] | .full_slug" \
