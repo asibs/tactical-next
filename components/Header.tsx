@@ -8,17 +8,24 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function Header({ backgroundImage, children }: Props) {
-  let imageUrl = "";
+const imageUrl = (backgroundImage: string) => {
+  /* The values of backgroundImage should match the possible values of
+   * the `page_title_background` field in the generated Storyblok types
+   * (/storyblok/types/storyblok-types.d.ts).
+   */
   switch (backgroundImage) {
     case "FESTIVAL_CROWD":
-      imageUrl = festivalCrowsBackground.src;
-      break;
+      return festivalCrowsBackground.src;
+    default:
+      return "";
   }
+};
 
-  const headerStyle = imageUrl
+export default function Header({ backgroundImage, children }: Props) {
+  const image = imageUrl(backgroundImage);
+  const headerStyle = image
     ? {
-        background: `var(--bs-black) url(${imageUrl}) center / cover no-repeat`,
+        background: `var(--bs-black) url(${image}) center / cover no-repeat`,
       }
     : {};
 
