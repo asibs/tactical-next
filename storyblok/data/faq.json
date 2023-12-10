@@ -1,0 +1,60 @@
+{
+  "story": {
+    "name": "FAQ",
+    "created_at": "2023-12-09T13:34:06.457Z",
+    "published_at": "2023-12-10T12:51:31.470Z",
+    "id": 416705707,
+    "uuid": "09349e3a-47d9-481a-96fd-7592bad2b461",
+    "content": {
+      "_uid": "04439028-988b-4099-8f99-4019aba19907",
+      "component": "page",
+      "page_title": "FAQ - Frequently Asked Questions",
+      "page_content": [
+        {
+          "_uid": "fc434369-168b-4029-84c1-e41bbc3103f3",
+          "content": [
+            {
+              "_uid": "16b693fe-e6a8-4ab4-9205-4944e91f3a84",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Hello Worlds",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "component": "rich_text"
+            }
+          ],
+          "component": "one_column_layout"
+        }
+      ],
+      "page_title_background": "NONE"
+    },
+    "slug": "faq",
+    "full_slug": "faq",
+    "sort_by_date": null,
+    "position": -20,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": null,
+    "meta_data": null,
+    "group_id": "9965eb2b-8c16-47e9-87e1-849a6aa54672",
+    "first_published_at": "2023-12-10T11:44:57.479Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1702212691,
+  "rels": [],
+  "links": []
+}
