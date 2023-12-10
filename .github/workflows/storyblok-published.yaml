@@ -26,7 +26,7 @@ jobs:
           # (storyblok max page size is 100)
           curl "https://api.storyblok.com/v2/cdn/stories?per_page=100&token=$STORYBLOK_TOKEN" \
             -L -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
-            | jq ".stories | .[] | .full_slug" \
+            | jq ".stories[].full_slug" \
             | while read story_slug;
             do
               sleep 1  # Avoid Storyblok rate-limits...
