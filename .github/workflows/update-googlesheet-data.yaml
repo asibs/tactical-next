@@ -22,10 +22,10 @@ jobs:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
         with:
-          spreadsheetId: ${{ env.GSHEET_SPREADSHEET_ID }}
+          spreadsheetId: ${{ vars.GSHEET_SPREADSHEET_ID }}
           commands: |
             [
-              { "command": "getData", "args": { "range": "'${{ env.GSHEET_WORKSHEET_TITLE }}'!A2:B3" } }
+              { "command": "getData", "args": { "range": "'${{ vars.GSHEET_WORKSHEET_TITLE }}'!A2:B3" } }
             ]
       - name: Write results
         env:
