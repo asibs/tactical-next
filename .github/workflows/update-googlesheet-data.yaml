@@ -38,7 +38,7 @@ jobs:
           RESULTS: ${{ steps.download_gsheets_data.outputs.results }}
         run: |
           # Write the results to the data file
-          echo "$RESULTS" | jq > data/constituency.json
+          echo "$RESULTS" | jq ".results[0].result.formatted" > data/constituency.json
           # Add the updates to git
           git add data/constituency.json
       - name: Commit Changes and Create Pull Request
@@ -61,3 +61,4 @@ jobs:
             Automatically created by Update-Googlesheet-Data Github action
           labels: |
             automated-pr
+            constituency-data-pr
