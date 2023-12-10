@@ -44,6 +44,16 @@ jobs:
               # Add the updates to git
               git add storyblok/data/$story.json
             done
+      - name: Check write access to repo
+        run: |
+          token_login=$(curl -H "Authorization: Bearer ${token}" https://api.github.com/user | jq -r '.login')
+          echo token login is ${token_login}
+          echo $(curl  -H "Authorization: Bearer ${token}" https://api.github.com/repos/${repo}/collaborators/${token_login}/permission) > result
+          cat result | jq  '.permission == "admin" // .permission == "write"' > /dev/null || ( echo "Token does not have write access to ${repo}" >> ${GITHUB_STEP_SUMMARY}; exit 1)
+          curl -sS -f -I -H "Authorization: Bearer ${token}" https://api.github.com | grep 'x-oauth-scopes:' | grep 'repo' > /dev/null && exit 0 || echo "Token does not have repo scope on ${repo}" >> ${GITHUB_STEP_SUMMARY}
+        env:
+          repo: ${{ github.repository }}
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
       - name: Commit Changes and Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
@@ -53,7 +63,7 @@ jobs:
           # the lint-pr action, which is required to merge PRs). The Personal Access
           # Token must be setup as an Action Secret on the GitHub repo. Use the same
           # Personal Access Token as the GHA_TOKEN env variable in your deployed app.
-          token: $GH_PERSONAL_ACCESS_TOKEN
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           base: main
           branch: auto/storyblok-published-changes
           commit-message: Latest changes from Storyblok
