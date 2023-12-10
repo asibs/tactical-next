@@ -47,7 +47,7 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           base: main
           branch: auto/constituency-data-changes
-          commit-message: Latest constituency data from Google Sheets 
+          commit-message: Latest constituency data from Google Sheets
           committer: GitHub Action Bot - Constituency Data <noreply@github.com>
           author: GitHub Action Bot - Constituency Data <noreply@github.com>
           title: "[Constituency Data] Latest Google Sheets Data"

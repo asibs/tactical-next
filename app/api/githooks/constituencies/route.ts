@@ -11,7 +11,7 @@ export const revalidate = 0;
  *
  * This is necessary because triggering Github Actions requires specific auth, but we
  * want to be able to trigger on simple GET requests from the browser.
- * 
+ *
  * This API route requires an apiKey URL param, and if it matches the expected API key
  * in ENV (which should be a secure, randomly generated string), then it makes a request
  * to Github via their API to trigger the storyblok-published event and trigger the
@@ -35,7 +35,9 @@ const handleRequest = async (request: Request) => {
     Buffer.byteLength(sentKey) !== Buffer.byteLength(correctKey) ||
     !Crypto.timingSafeEqual(Buffer.from(sentKey), Buffer.from(correctKey))
   ) {
-    console.log("Constituencies githook: API Key did not match - returning 404");
+    console.log(
+      "Constituencies githook: API Key did not match - returning 404",
+    );
     return new Response("Not found", { status: 404 });
   }
 
