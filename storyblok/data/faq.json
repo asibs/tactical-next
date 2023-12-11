@@ -2,7 +2,7 @@
   "story": {
     "name": "FAQ",
     "created_at": "2023-12-09T13:34:06.457Z",
-    "published_at": "2023-12-10T12:51:31.470Z",
+    "published_at": "2023-12-10T23:17:43.242Z",
     "id": 416705707,
     "uuid": "09349e3a-47d9-481a-96fd-7592bad2b461",
     "content": {
@@ -14,7 +14,7 @@
           "_uid": "fc434369-168b-4029-84c1-e41bbc3103f3",
           "content": [
             {
-              "_uid": "16b693fe-e6a8-4ab4-9205-4944e91f3a84",
+              "_uid": "f9c113c1-cb7f-4843-b342-f17a239e81fa",
               "text": {
                 "type": "doc",
                 "content": [
@@ -22,14 +22,34 @@
                     "type": "paragraph",
                     "content": [
                       {
-                        "text": "Hello Worlds",
+                        "text": "If there is a Tory MP or councillor in your area, the best way to get them out is for as many people as possible to vote for the most likely opposition party to be able to beat them.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "In many places the numbers needed to flip a Tory held seat are small.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "So tell a friend, and share this website in your local community!",
                         "type": "text"
                       }
                     ]
                   }
                 ]
               },
-              "component": "rich_text"
+              "title": "HOW DOES TACTICAL VOTING WORK?",
+              "component": "toggle_text",
+              "text_shown_initially": false
             }
           ],
           "component": "one_column_layout"
@@ -54,7 +74,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1702212691,
+  "cv": 1702259588,
   "rels": [],
   "links": []
 }
