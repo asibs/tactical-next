@@ -49,8 +49,14 @@ jobs:
         id: version-bump
         uses: "phips28/gh-action-bump-version@master"
         with:
-          tag-prefix: "v"
+          # Always bump when generating a Storyblok PR to invalidate the cache
+          # (see /storyblok/components/StoryblokWrapper)
+          bump-policy: 'ignore'
+          # Use a pre-release, including the Git Commit Hash, so multiple commits
+          # to the same PR have different versions & invalidate the cache
           version-type: prerelease
+          preid: alpha.${{ github.run_id }}
+          # We'll create a PR in the next step, so skip committing, etc.
           skip-commit: true
           skip-push: true
           skip-tag: true
