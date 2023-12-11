@@ -41,10 +41,12 @@ export async function generateStaticParams() {
 export default async function ConstituencyPage({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string };
 }) {
   const constituenciesData = await getConstituencyData();
-  const constituencyData = constituenciesData.filter((c: any) => c["slug"] === params.slug)[0]
+  const constituencyData = constituenciesData.filter(
+    (c: any) => c["slug"] === params.slug,
+  )[0];
 
   return (
     <>
