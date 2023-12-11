@@ -14,7 +14,8 @@ jobs:
   create-or-update-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout latest code from main branch
+        uses: actions/checkout@v4
       - uses: jroehl/gsheet.action@v2.1.1
         name: Download latest data from Google Sheets
         id: download_gsheets_data
