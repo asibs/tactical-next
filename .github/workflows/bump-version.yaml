@@ -1,0 +1,30 @@
+name: 'Bump Version'
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  bump-version:
+    name: 'Bump Version on main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+      - name: 'Print old package.json'
+        run: cat ./package.json
+      - name: 'Bump package.json verson'
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          tag-prefix: 'v'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Print new package.json'
+        run: cat ./package.json
+      - name: 'Print New Verion'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "New version is: $NEW_TAG"
