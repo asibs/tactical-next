@@ -51,7 +51,7 @@ jobs:
         with:
           # Always bump when generating a Storyblok PR to invalidate the cache
           # (see /storyblok/components/StoryblokWrapper)
-          bump-policy: 'ignore'
+          bump-policy: ignore
           # Use a pre-release, including the Git Commit Hash, so multiple commits
           # to the same PR have different versions & invalidate the cache
           version-type: prerelease
