@@ -1,12 +1,15 @@
+import path from "path";
+import { readFileSync } from "fs";
+import { unstable_cache } from "next/cache";
+import getConfig from "next/config";
 import {
   ISbStoriesParams,
   StoryblokComponent,
   StoryblokStory,
   getStoryblokApi,
 } from "@storyblok/react/rsc";
-import { readFileSync } from "fs";
-import { unstable_cache } from "next/cache";
-import path from "path";
+
+const { serverRuntimeConfig } = getConfig() || {};
 
 type params = {
   slug: string;
@@ -33,13 +36,13 @@ export default async function StoryblokWrapper({ slug }: params) {
     }
   } else {
     console.debug("StoryblokWrapper.tsx: Disabling live-editing");
-    // When live-editing is disabled, we use the local filesystem containing the story JSON,
-    // and cache it indefinitely so pages are statically generated at build-time
-
-    // const filePath = path.join(process.cwd(), 'storyblok', 'data', `${slug}.json`);
-    // const fileContent = readFileSync(filePath, 'utf8');
-    // const data = JSON.parse(fileContent)
-
+    /* When live-editing is disabled, we use the local filesystem containing the story JSON,
+     * and cache it indefinitely so pages are statically generated at build-time.
+     *
+     * Note that the cache persists even BETWEEN deployments, so the cache key must contain
+     * something which will vary between deploys. We use the application version from the
+     * package.json file, which is auto-bumped by a Github Action.
+     */
     const getLocalStorybookData = unstable_cache(
       // Cache data function
       async () => {
@@ -56,7 +59,7 @@ export default async function StoryblokWrapper({ slug }: params) {
         return JSON.parse(fileContent);
       },
       // Cache key
-      [`storyblok/data/${slug}.json`],
+      [`storyblok/data/${slug}.json.${serverRuntimeConfig.appVersion}`],
       // Cache options
       { revalidate: false }, // Cache will never refresh
     );

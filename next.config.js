@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  serverRuntimeConfig: {
+    appVersion: process.env.npm_package_version || "",
+  },
+};
 
 module.exports = nextConfig;
