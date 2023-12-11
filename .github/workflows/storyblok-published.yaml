@@ -15,7 +15,8 @@ jobs:
   create-or-update-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout latest code from main branch
+        uses: actions/checkout@v4
       - name: Download stories from Storyblok and add changes to git
         env:
           STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
@@ -44,6 +45,17 @@ jobs:
               # Add the updates to git
               git add storyblok/data/$story.json
             done
+      - name: Bump package.json verson to new pre-release
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          tag-prefix: 'v'
+          version-type: prerelease
+          skip-commit: true
+          skip-push: true
+          skip-tag: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit Changes and Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
