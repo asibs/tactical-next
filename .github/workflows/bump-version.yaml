@@ -1,31 +1,31 @@
-name: 'Bump Version'
+name: Bump Version
 
 on:
   push:
     branches:
-      - 'main'
+      - main
 
 jobs:
   bump-version:
-    name: 'Bump Version on main'
+    name: Bump Version on main
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: 'Checkout source code'
+      - name: Checkout latest code from main branch
         uses: actions/checkout@v4
-      - name: 'Print old package.json'
+      - name: Print old package.json
         run: cat ./package.json
-      - name: 'Bump package.json verson'
+      - name: Bump package.json verson
         id: version-bump
-        uses: 'phips28/gh-action-bump-version@master'
+        uses: "phips28/gh-action-bump-version@master"
         with:
-          tag-prefix: 'v'
+          tag-prefix: "v"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'Print new package.json'
+      - name: Print new package.json
         run: cat ./package.json
-      - name: 'Print New Verion'
+      - name: Print New Verion
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: |

@@ -47,9 +47,9 @@ jobs:
             done
       - name: Bump package.json verson to new pre-release
         id: version-bump
-        uses: 'phips28/gh-action-bump-version@master'
+        uses: "phips28/gh-action-bump-version@master"
         with:
-          tag-prefix: 'v'
+          tag-prefix: "v"
           version-type: prerelease
           skip-commit: true
           skip-push: true
