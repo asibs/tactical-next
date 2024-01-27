@@ -50,8 +50,20 @@ export default async function ConstituencyPage({
 
   return (
     <>
-      <h1>{params.slug}</h1>
-      <p>{JSON.stringify(constituencyData)}</p>
+      {constituencyData && (
+        <>
+          <h1>{constituencyData["constituency_name"]}</h1>
+          <h2>Tactical Vote: {constituencyData["recommendation"]}</h2>
+          <p>{JSON.stringify(constituencyData)}</p>
+        </>
+      )}
+
+      {!constituencyData && (
+        <>
+          <h1>{params.slug}</h1>
+          <p>No data found for this constituency!</p>
+        </>
+      )}
     </>
   );
 }
