@@ -43,7 +43,7 @@ async function lookupPostcode(formData: FormData): Promise<State> {
   // Query the database
   console.time("query-postcode-database");
   const row = await db.get(
-    "SELECT * FROM postcode_lookup WHERE postcode_with_space = ?",
+    "SELECT * FROM postcode_lookup WHERE postcode = ?",
     postcode.postcode,
   );
   console.timeEnd("query-postcode-database");
