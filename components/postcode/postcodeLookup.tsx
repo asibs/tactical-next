@@ -13,46 +13,49 @@ let db: Database | null = null;
 const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 
 async function lookupPostcode(formData: FormData): Promise<State> {
-  'use server'
+  "use server";
 
-  console.log("IN SERVER FUNCTION")
-  console.log(formData)
-  console.log(formData.get("postcode"))
+  console.log("IN SERVER FUNCTION");
+  console.log(formData);
+  console.log(formData.get("postcode"));
 
   // Validate postcode
-  console.time("validate-postcode")
-  const postcode = parse(formData.get("postcode")?.toString() || "")
-  console.timeEnd("validate-postcode")
+  console.time("validate-postcode");
+  const postcode = parse(formData.get("postcode")?.toString() || "");
+  console.timeEnd("validate-postcode");
 
   if (!postcode.valid) {
-    console.log(`Postcode ${formData.get("postcode")} is not valid!`)
-    return { message: "Oops, that postcode doesn't look right to us..." }
+    console.log(`Postcode ${formData.get("postcode")} is not valid!`);
+    return { message: "Oops, that postcode doesn't look right to us..." };
   }
 
   // Initialise the database if necessary
   if (!db) {
-    console.log("Initialising postcode SQLite database")
-    console.time("initialise-postcode-database")
+    console.log("Initialising postcode SQLite database");
+    console.time("initialise-postcode-database");
     db = await open({
       filename: dbPath,
       driver: sqlite3.Database,
-    })
-    console.timeEnd("initialise-postcode-database")
+    });
+    console.timeEnd("initialise-postcode-database");
   }
 
   // Query the database
-  console.time("query-postcode-database")
-  const row = await db.get("SELECT * FROM postcode_lookup WHERE postcode_with_space = ?", postcode.postcode)
-  console.timeEnd("query-postcode-database")
+  console.time("query-postcode-database");
+  const row = await db.get(
+    "SELECT * FROM postcode_lookup WHERE postcode_with_space = ?",
+    postcode.postcode,
+  );
+  console.timeEnd("query-postcode-database");
 
   if (!row) {
-    console.log(`Postcode ${postcode.postcode} not found in DB!`)
-    return { message: "Oops, we can't find that postcode..." }
+    console.log(`Postcode ${postcode.postcode} not found in DB!`);
+    return { message: "Oops, we can't find that postcode..." };
   }
 
-  console.log(row)
-  console.log(row["constituency_shortcode"])
-  redirect(`/constituencies/${row["constituency_shortcode"]}`)
+  console.log(row);
+  console.log(row["constituency_shortcode"]);
+  redirect(`/constituencies/${row["constituency_shortcode"]}`);
 }
 
 type State = {
@@ -61,7 +64,7 @@ type State = {
 
 const initialState: State = {
   message: null,
-}
+};
 
 const PostcodeLookup = () => {
   // const { pending } = useFormStatus()
@@ -71,7 +74,13 @@ const PostcodeLookup = () => {
   return (
     <Container>
       <Form action={lookupPostcode}>
-        <Form.Control id="postcode" name="postcode" size="lg" type="text" placeholder="Postcode" />
+        <Form.Control
+          id="postcode"
+          name="postcode"
+          size="lg"
+          type="text"
+          placeholder="Postcode"
+        />
         <Button variant="primary" type="submit" aria-disabled={false}>
           Submit
         </Button>
