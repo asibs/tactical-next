@@ -1,4 +1,4 @@
-import PostcodeLookup from "@/components/postcode/postcodeLookup";
+import PostcodeLookup from "@/components/postcode/PostcodeLookup";
 import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 
 /* Index page. Since we use the Storyblok slug "home" for this page, it will also be

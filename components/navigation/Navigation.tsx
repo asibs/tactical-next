@@ -14,15 +14,17 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 
 import logo from "@/assets/stop-the-tories-logo-transparent.png";
 
-const rubik = Rubik({ subsets: ["latin"], weight: "500" });
+// const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
+import rubik from "@/utils/Fonts";
 
 const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
   return (
     <Navbar
       {...storyblokEditable(blok)}
       expand="lg"
-      bg="dark"
-      data-bs-theme="dark"
+      bg="light"
+      data-bs-theme="light"
+      sticky="top"
     >
       <Container>
         <Navbar.Brand as={Link} href="/" className={rubik.className}>
@@ -32,10 +34,8 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
             className="d-inline-block me-2"
             style={{ width: "2rem", height: "2rem" }}
           />
-          StopTheTories
-          <em>
-            <strong>.Vote</strong>
-          </em>
+          <span>StopTheTories</span>
+          <span className="fw-bolder fst-italic">.Vote</span>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -67,7 +67,7 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar >
   );
 };
 
