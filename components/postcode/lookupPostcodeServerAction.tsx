@@ -1,5 +1,3 @@
-"use server";
-
 import { parse } from "postcode";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
