@@ -9,6 +9,7 @@ import { redirect } from "next/navigation";
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
 let db: Database | null = null;
 const dbPath = path.join(process.cwd(), "data", "postcodes.db");
+console.log(`***** dbPath is [${dbPath}] *****`);
 
 async function lookupPostcode(formData: FormData): Promise<ServerActionData> {
   console.log("IN SERVER FUNCTION");
