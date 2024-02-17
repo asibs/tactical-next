@@ -12,4 +12,4 @@ type Constituency = {
 type Address = {
   name: string;
   slug: string;
-}
+};

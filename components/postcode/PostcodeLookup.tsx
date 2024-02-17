@@ -17,11 +17,12 @@ const PostcodeLookup = () => {
   const [emailOptIn, setEmailOptIn] = useState(false);
 
   return (
-    <Container className="rounded-3 bg-pink-strong p-3 mb-4 shadow text-100" style={{ fontSize: "18px" }}>
+    <Container
+      className="rounded-3 bg-pink-strong p-3 mb-4 shadow text-100"
+      style={{ fontSize: "18px" }}
+    >
       <Form action={lookupPostcode}>
-        <h3 className={`${rubik.className} fw-bolder`}>
-          VOTE THE TORIES OUT
-        </h3>
+        <h3 className={`${rubik.className} fw-bolder`}>VOTE THE TORIES OUT</h3>
         <p className="fw-bold text-900">
           Vote tactically at the General Election
         </p>
@@ -55,8 +56,9 @@ const PostcodeLookup = () => {
               placeholder="Your Email"
             />
             <p style={{ fontSize: "0.75em" }}>
-              We store your email address, postcode, and constituency, so we can send you exactly the information you need,
-              and the actions to take.
+              We store your email address, postcode, and constituency, so we can
+              send you exactly the information you need, and the actions to
+              take.
             </p>
           </>
         )}

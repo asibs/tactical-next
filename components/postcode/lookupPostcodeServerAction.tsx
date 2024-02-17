@@ -22,11 +22,16 @@ async function lookupPostcode(formData: FormData): Promise<ServerActionData> {
 
   if (!postcode.valid) {
     console.log(`Postcode ${formData.get("postcode")} is not valid!`);
-    return { constituencies: [], addresses: [], errorMessage: "Oops, that postcode doesn't look right to us. Try again, or contact us." };
+    return {
+      constituencies: [],
+      addresses: [],
+      errorMessage:
+        "Oops, that postcode doesn't look right to us. Try again, or contact us.",
+    };
   }
 
   // Remove whitespace from postcode to match the format in our database
-  const normalized_postcode = postcode.postcode.replace(/\s+/g, '')
+  const normalized_postcode = postcode.postcode.replace(/\s+/g, "");
 
   // Initialise the database if necessary
   if (!db) {
@@ -49,26 +54,43 @@ async function lookupPostcode(formData: FormData): Promise<ServerActionData> {
     JOIN pcon ON postcode_lookup.pcon_id = pcon.id
     WHERE postcode_lookup.postcode = ?
     ORDER BY postcode_lookup.confidence DESC`,
-    normalized_postcode
-  )
+    normalized_postcode,
+  );
   console.timeEnd("query-postcode-database");
 
-  console.log(constituencies)
+  console.log(constituencies);
 
   if (!constituencies || constituencies.length == 0) {
     console.log(`Postcode ${normalized_postcode} not found in DB!`);
-    return { constituencies: [], addresses: [], errorMessage: "Oops, that postcode doesn't look right to us. Try again, or contact us." };
+    return {
+      constituencies: [],
+      addresses: [],
+      errorMessage:
+        "Oops, that postcode doesn't look right to us. Try again, or contact us.",
+    };
   }
 
   if (constituencies.length == 1) {
-    console.log(`Single constituency found for postcode ${normalized_postcode}`)
+    console.log(
+      `Single constituency found for postcode ${normalized_postcode}`,
+    );
     // redirect(`/constituencies/${rows[0]["slug"]}`);
-    return { constituencies: constituencies, addresses: [], errorMessage: null };
+    return {
+      constituencies: constituencies,
+      addresses: [],
+      errorMessage: null,
+    };
   } else {
     // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
     // specific address, rather than us expecting to know (or find out) their constituency.
-    console.log(`Multiple constituencies found for postcode ${normalized_postcode}`)
-    return { constituencies: constituencies, addresses: [], errorMessage: null };
+    console.log(
+      `Multiple constituencies found for postcode ${normalized_postcode}`,
+    );
+    return {
+      constituencies: constituencies,
+      addresses: [],
+      errorMessage: null,
+    };
   }
 }
 

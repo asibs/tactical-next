@@ -67,7 +67,7 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar >
+    </Navbar>
   );
 };
 
