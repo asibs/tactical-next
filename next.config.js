@@ -5,6 +5,10 @@ const nextConfig = {
   },
   experimental: {
     serverActions: true,
+    // TODO: Disable for prod!
+    logging: {
+      level: "verbose",
+    },
   },
 };
 

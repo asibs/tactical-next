@@ -10,7 +10,7 @@ const fs = require('fs');
 
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
 let db: Database | null = null;
-const dbPath = path.join(process.cwd(), "data", "postcodes.db");
+const dbPath = path.join(process.cwd(), "data", "postcode_lookup.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
 async function lookupPostcode(formData: FormData): Promise<ServerActionData> {
