@@ -26,7 +26,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
       <Row xs={4} sm={8} className="text-center g-4">
         <Col>
           <a href="https://twitter.com/mvtfwd" target="_blank" rel="noreferrer">
-            <FaSquareTwitter className="fs-1 text-primary-pink" />
+            <FaSquareTwitter className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
@@ -35,7 +35,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
             target="_blank"
             rel="noreferrer"
           >
-            <FaSquareFacebook className="fs-1 text-primary-pink" />
+            <FaSquareFacebook className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
@@ -44,7 +44,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
             target="_blank"
             rel="noreferrer"
           >
-            <FaSquareThreads className="fs-1 text-primary-pink" />
+            <FaSquareThreads className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
@@ -53,7 +53,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
             target="_blank"
             rel="noreferrer"
           >
-            <FaSquareInstagram className="fs-1 text-primary-pink" />
+            <FaSquareInstagram className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
@@ -62,7 +62,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
             target="_blank"
             rel="noreferrer"
           >
-            <FaMastodon className="fs-1 text-primary-pink" />
+            <FaMastodon className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
@@ -71,12 +71,12 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
             target="_blank"
             rel="noreferrer"
           >
-            <FaDiscord className="fs-1 text-primary-pink" />
+            <FaDiscord className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
           <a href="https://t.me/MVTFWD" target="_blank" rel="noreferrer">
-            <FaTelegram className="fs-1 text-primary-pink" />
+            <FaTelegram className="fs-1 text-pink-strong" />
           </a>
         </Col>
         <Col>
@@ -85,7 +85,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
             target="_blank"
             rel="noreferrer"
           >
-            <MdGroups2 className="fs-1 text-primary-pink" />
+            <MdGroups2 className="fs-1 text-pink-strong" />
           </a>
         </Col>
       </Row>

@@ -15,7 +15,8 @@ jobs:
   push-storyblok-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout latest code from main branch
+        uses: actions/checkout@v4
       - name: Push storyblok branch
         run: |
           # 1. Force recreate storyblok branch from main
