@@ -29,6 +29,9 @@ async function lookupPostcode(formData: FormData): Promise<State> {
     return { message: "Oops, that postcode doesn't look right to us..." };
   }
 
+  // Remove whitespace from postcode to match the format in our database
+  const normalized_postcode = postcode.postcode.replace(/\s+/g, "");
+
   // Initialise the database if necessary
   if (!db) {
     console.log("Initialising postcode SQLite database");
@@ -42,20 +45,26 @@ async function lookupPostcode(formData: FormData): Promise<State> {
 
   // Query the database
   console.time("query-postcode-database");
-  const row = await db.get(
-    "SELECT * FROM postcode_lookup WHERE postcode = ?",
-    postcode.postcode,
+  const constituencies = await db.all(
+    `SELECT
+        pcon.slug,
+        pcon.name
+      FROM postcode_lookup
+      JOIN pcon ON postcode_lookup.pcon_id = pcon.id
+      WHERE postcode_lookup.postcode = ?
+      ORDER BY postcode_lookup.confidence DESC`,
+    normalized_postcode,
   );
   console.timeEnd("query-postcode-database");
 
-  if (!row) {
+  if (!constituencies || constituencies.length == 0) {
     console.log(`Postcode ${postcode.postcode} not found in DB!`);
     return { message: "Oops, we can't find that postcode..." };
   }
 
-  console.log(row);
-  console.log(row["constituency_shortcode"]);
-  redirect(`/constituencies/${row["constituency_shortcode"]}`);
+  console.log(constituencies);
+  console.log(constituencies[0]["slug"]);
+  redirect(`/constituencies/${constituencies[0]["slug"]}`);
 }
 
 type State = {
