@@ -6,20 +6,22 @@ import { open, Database } from "sqlite";
 import path from "path";
 import { redirect } from "next/navigation";
 
+const fs = require('fs');
+
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
 let db: Database | null = null;
 const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
-const fs = require('fs');
-fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
-  console.log(file);
-});
-
 async function lookupPostcode(formData: FormData): Promise<ServerActionData> {
   console.log("IN SERVER FUNCTION");
   console.log(formData);
   console.log(formData.get("postcode"));
+
+  console.log("***** FILES IN DATA DIRECTORY *****")
+  fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
+    console.log(file);
+  });
 
   // Validate postcode
   console.time("validate-postcode");
