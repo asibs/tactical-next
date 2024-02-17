@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { Col, Container, Row, Form, Button, FormCheck } from "react-bootstrap";
 import { useFormState, useFormStatus } from "react-dom";
 
@@ -7,10 +9,11 @@ import rubik from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 import { useState } from "react";
-import { redirect } from "next/navigation";
 // import lookupPostcode from "./lookupPostcodeServerAction";
 
 const PostcodeLookup = () => {
+  const router = useRouter()
+
   // const { pending } = useFormStatus()
   // https://github.com/vercel/next.js/issues/55919
   // const [state, formAction] = useFormState<State, FormData>(lookupPostcode, initialFormState)
@@ -32,7 +35,7 @@ const PostcodeLookup = () => {
     if (responseJson["errorMessage"]) {
       console.log(responseJson["errorMessage"]);
     } else if (responseJson["constituencies"] && responseJson["constituencies"].length == 1) {
-      redirect(`/constituencies/${responseJson["constituencies"][0]["slug"]}`);
+      router.push(`/constituencies/${responseJson["constituencies"][0]["slug"]}`);
     } else {
       console.log(responseJson["constituencies"]);
     }
@@ -61,9 +64,9 @@ const PostcodeLookup = () => {
         {/* TODO: Show constituency/address drop-down if more than one possibility */}
 
         <FormCheck id="email-opt-in">
-          <div onChange={() => setEmailOptIn(!emailOptIn)}>
-            <FormCheckInput checked={emailOptIn} />
-            <FormCheckLabel className="ps-2">
+          <div>
+            <FormCheckInput checked={emailOptIn} onChange={() => setEmailOptIn(!emailOptIn)} />
+            <FormCheckLabel className="ps-2" onClick={() => setEmailOptIn(!emailOptIn)}>
               <strong>Join with your email</strong> to stick together
             </FormCheckLabel>
           </div>
