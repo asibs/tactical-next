@@ -6,7 +6,7 @@
 2. Clone this repo: `git clone git@github.com:asibs/tactical-next.git`
 3. Switch into project folder: `cd tactical-next`
 4. Install the dependencies: `npm install`
-5. Run the app: `npm dev`
+5. Run the app: `npm run dev`
 6. The app should be available at: https://localhost:3000/
 
 ### Production Deployment
