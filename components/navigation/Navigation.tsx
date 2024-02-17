@@ -5,7 +5,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Rubik } from "next/font/google";
 
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
 import { NavbarStoryblok } from "@/storyblok/types/storyblok-types";
