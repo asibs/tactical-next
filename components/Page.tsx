@@ -3,7 +3,8 @@ import Header from "./Header";
 import { Rubik } from "next/font/google";
 import { PageStoryblok } from "@/storyblok/types/storyblok-types";
 
-const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
+// const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
+import rubik from "@/utils/Fonts";
 
 const Page = ({ blok }: { blok: PageStoryblok }) => {
   return (
