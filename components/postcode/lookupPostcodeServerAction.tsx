@@ -11,6 +11,11 @@ let db: Database | null = null;
 const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
+const fs = require('fs');
+fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
+  console.log(file);
+});
+
 async function lookupPostcode(formData: FormData): Promise<ServerActionData> {
   console.log("IN SERVER FUNCTION");
   console.log(formData);
