@@ -38,7 +38,7 @@ const PostcodeLookup = () => {
     }
 
     //
-    const response = await fetch("/api/postcodes", {
+    const response = await fetch("/api/constituency_lookup", {
       method: "POST",
       body: JSON.stringify({
         postcode: postcode,

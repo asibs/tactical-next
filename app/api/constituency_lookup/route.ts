@@ -2,7 +2,7 @@ import { parse } from "postcode";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 import path from "path";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 const fs = require("fs");
 
