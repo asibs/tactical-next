@@ -35,7 +35,7 @@ export async function generateStaticParams() {
   const constituenciesData = await getConstituencyData();
 
   return constituenciesData.map((c: any) => ({
-    slug: c["slug"],
+    slug: c["constituencySlug"],
   }));
 }
 
@@ -48,7 +48,7 @@ export default async function ConstituencyPage({
 }) {
   const constituenciesData = await getConstituencyData();
   const constituencyData = constituenciesData.filter(
-    (c: any) => c["slug"] === params.slug,
+    (c: any) => c["constituencySlug"] === params.slug,
   )[0];
 
   return (
@@ -58,7 +58,7 @@ export default async function ConstituencyPage({
           <Header backgroundImage="FESTIVAL_CROWD">
             <Container className="py-4 py-md-6">
               <h1 className={rubik.className}>
-                {constituencyData["constituency_name"]}
+                {constituencyData["constituencyName"]}
               </h1>
               <p>
                 Bookmark this page and check back before the election for
@@ -80,9 +80,9 @@ export default async function ConstituencyPage({
                 <Row>
                   <Col>
                     <h3
-                      className={`${rubik.className} party party-${constituencyData["party_slug"]}`}
+                      className={`${rubik.className} party party-${constituencyData["recommendedPartySlug"]}`}
                     >
-                      {constituencyData["recommendation"]}
+                      {constituencyData["recommendedPartyName"]}
                     </h3>
                   </Col>
                 </Row>

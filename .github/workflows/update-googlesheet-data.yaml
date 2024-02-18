@@ -16,6 +16,10 @@ jobs:
     steps:
       - name: Checkout latest code from main branch
         uses: actions/checkout@v4
+      # TODO: This action doesn't work for downloading large volumes of data to an ENV
+      # Look into changing the Google Action so we can download to a temp file instead
+      # For now, can manually download a CSV from Google Sheet and convert using:
+      # csvtojson constituencies.csv | jq > constituency.json
       - uses: jroehl/gsheet.action@v2.1.1
         name: Download latest data from Google Sheets
         id: download_gsheets_data

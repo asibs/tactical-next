@@ -1,12 +1,4552 @@
 [
   {
-    "slug": "isle-of-wight-east",
-    "constituency_name": "Isle Of Wight East",
-    "recommendation": "Green"
+    "constituencyMySocietyCode": "UKPARL.2025.BAF",
+    "constituencySlug": "broadland-and-fakenham",
+    "constituencyName": "Broadland and Fakenham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
   },
   {
-    "slug": "isle-of-wight-west",
-    "constituency_name": "Isle Of Wight West",
-    "recommendation": "Labour"
+    "constituencyMySocietyCode": "UKPARL.2025.GYM",
+    "constituencySlug": "great-yarmouth",
+    "constituencyName": "Great Yarmouth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NNF",
+    "constituencySlug": "north-norfolk",
+    "constituencyName": "North Norfolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MNF",
+    "constituencySlug": "mid-norfolk",
+    "constituencyName": "Mid Norfolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWN",
+    "constituencySlug": "south-west-norfolk",
+    "constituencyName": "South West Norfolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWN",
+    "constituencySlug": "north-west-norfolk",
+    "constituencyName": "North West Norfolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NEC",
+    "constituencySlug": "north-east-cambridgeshire",
+    "constituencyName": "North East Cambridgeshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EEC",
+    "constituencySlug": "ely-and-east-cambridgeshire",
+    "constituencyName": "Ely and East Cambridgeshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SCB",
+    "constituencySlug": "south-cambridgeshire",
+    "constituencyName": "South Cambridgeshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CBG",
+    "constituencySlug": "cambridge",
+    "constituencyName": "Cambridge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SNC",
+    "constituencySlug": "st-neots-and-mid-cambridgeshire",
+    "constituencyName": "St Neots and Mid Cambridgeshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HTD",
+    "constituencySlug": "huntingdon",
+    "constituencyName": "Huntingdon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWC",
+    "constituencySlug": "north-west-cambridgeshire",
+    "constituencyName": "North West Cambridgeshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PBO",
+    "constituencySlug": "peterborough",
+    "constituencyName": "Peterborough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NBD",
+    "constituencySlug": "north-bedfordshire",
+    "constituencyName": "North Bedfordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BED",
+    "constituencySlug": "bedford",
+    "constituencyName": "Bedford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MBD",
+    "constituencySlug": "mid-bedfordshire",
+    "constituencyName": "Mid Bedfordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DLB",
+    "constituencySlug": "dunstable-and-leighton-buzzard",
+    "constituencyName": "Dunstable and Leighton Buzzard",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LUS",
+    "constituencySlug": "luton-south-and-south-bedfordshire",
+    "constituencyName": "Luton South and South Bedfordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CLT",
+    "constituencySlug": "clacton",
+    "constituencyName": "Clacton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HWC",
+    "constituencySlug": "harwich-and-north-essex",
+    "constituencyName": "Harwich and North Essex",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.COL",
+    "constituencySlug": "colchester",
+    "constituencyName": "Colchester",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WTM",
+    "constituencySlug": "witham",
+    "constituencyName": "Witham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAL",
+    "constituencySlug": "maldon",
+    "constituencyName": "Maldon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAW",
+    "constituencySlug": "rayleigh-and-wickford",
+    "constituencyName": "Rayleigh and Wickford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CPT",
+    "constituencySlug": "castle-point",
+    "constituencyName": "Castle Point",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SBT",
+    "constituencySlug": "south-basildon-and-east-thurrock",
+    "constituencyName": "South Basildon and East Thurrock",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.THK",
+    "constituencySlug": "thurrock",
+    "constituencyName": "Thurrock",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAB",
+    "constituencySlug": "basildon-and-billericay",
+    "constituencyName": "Basildon and Billericay",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAO",
+    "constituencySlug": "brentwood-and-ongar",
+    "constituencyName": "Brentwood and Ongar",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EPF",
+    "constituencySlug": "epping-forest",
+    "constituencyName": "Epping Forest",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HLW",
+    "constituencySlug": "harlow",
+    "constituencyName": "Harlow",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CHM",
+    "constituencySlug": "chelmsford",
+    "constituencyName": "Chelmsford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWE",
+    "constituencySlug": "north-west-essex",
+    "constituencyName": "North West Essex",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTR",
+    "constituencySlug": "braintree",
+    "constituencyName": "Braintree",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SSF",
+    "constituencySlug": "south-suffolk",
+    "constituencyName": "South Suffolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.IPS",
+    "constituencySlug": "ipswich",
+    "constituencyName": "Ipswich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WSF",
+    "constituencySlug": "west-suffolk",
+    "constituencyName": "West Suffolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BES",
+    "constituencySlug": "bury-st-edmunds-and-stowmarket",
+    "constituencyName": "Bury St Edmunds and Stowmarket",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CSI",
+    "constituencySlug": "central-suffolk-and-north-ipswich",
+    "constituencyName": "Central Suffolk and North Ipswich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SFC",
+    "constituencySlug": "suffolk-coastal",
+    "constituencyName": "Suffolk Coastal",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAV",
+    "constituencySlug": "waveney-valley",
+    "constituencyName": "Waveney Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWT",
+    "constituencySlug": "lowestoft",
+    "constituencyName": "Lowestoft",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SNF",
+    "constituencySlug": "south-norfolk",
+    "constituencyName": "South Norfolk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NRS",
+    "constituencySlug": "norwich-south",
+    "constituencyName": "Norwich South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NRN",
+    "constituencySlug": "norwich-north",
+    "constituencyName": "Norwich North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LUN",
+    "constituencySlug": "luton-north",
+    "constituencyName": "Luton North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HIT",
+    "constituencySlug": "hitchin",
+    "constituencyName": "Hitchin",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HNE",
+    "constituencySlug": "north-east-hertfordshire",
+    "constituencyName": "North East Hertfordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SVG",
+    "constituencySlug": "stevenage",
+    "constituencyName": "Stevenage",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAS",
+    "constituencySlug": "hertford-and-stortford",
+    "constituencyName": "Hertford and Stortford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WHT",
+    "constituencySlug": "welwyn-hatfield",
+    "constituencyName": "Welwyn Hatfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BXB",
+    "constituencySlug": "broxbourne",
+    "constituencyName": "Broxbourne",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HMR",
+    "constituencySlug": "hertsmere",
+    "constituencyName": "Hertsmere",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWH",
+    "constituencySlug": "south-west-hertfordshire",
+    "constituencyName": "South West Hertfordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAT",
+    "constituencySlug": "watford",
+    "constituencyName": "Watford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HML",
+    "constituencySlug": "hemel-hempstead",
+    "constituencyName": "Hemel Hempstead",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAB",
+    "constituencySlug": "harpenden-and-berkhamsted",
+    "constituencyName": "Harpenden and Berkhamsted",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STA",
+    "constituencySlug": "st-albans",
+    "constituencyName": "St Albans",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SER",
+    "constituencySlug": "southend-east-and-rochford",
+    "constituencyName": "Southend East and Rochford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWL",
+    "constituencySlug": "southend-west-and-leigh",
+    "constituencyName": "Southend West and Leigh",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HPK",
+    "constituencySlug": "high-peak",
+    "constituencyName": "High Peak",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DED",
+    "constituencySlug": "derbyshire-dales",
+    "constituencyName": "Derbyshire Dales",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SDE",
+    "constituencySlug": "south-derbyshire",
+    "constituencyName": "South Derbyshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DES",
+    "constituencySlug": "derby-south",
+    "constituencyName": "Derby South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DEN",
+    "constituencySlug": "derby-north",
+    "constituencyName": "Derby North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ERW",
+    "constituencySlug": "erewash",
+    "constituencyName": "Erewash",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MDE",
+    "constituencySlug": "mid-derbyshire",
+    "constituencyName": "Mid Derbyshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABV",
+    "constituencySlug": "amber-valley",
+    "constituencyName": "Amber Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NED",
+    "constituencySlug": "north-east-derbyshire",
+    "constituencyName": "North East Derbyshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CHD",
+    "constituencySlug": "chesterfield",
+    "constituencyName": "Chesterfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BOL",
+    "constituencySlug": "bolsover",
+    "constituencyName": "Bolsover",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RUT",
+    "constituencySlug": "rutland-and-stamford",
+    "constituencyName": "Rutland and Stamford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAB",
+    "constituencySlug": "grantham-and-bourne",
+    "constituencyName": "Grantham and Bourne",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SLR",
+    "constituencySlug": "sleaford-and-north-hykeham",
+    "constituencyName": "Sleaford and North Hykeham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LNC",
+    "constituencySlug": "lincoln",
+    "constituencyName": "Lincoln",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GNB",
+    "constituencySlug": "gainsborough",
+    "constituencyName": "Gainsborough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LAH",
+    "constituencySlug": "louth-and-horncastle",
+    "constituencyName": "Louth and Horncastle",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAS",
+    "constituencySlug": "boston-and-skegness",
+    "constituencyName": "Boston and Skegness",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHD",
+    "constituencySlug": "south-holland-and-the-deepings",
+    "constituencyName": "South Holland and The Deepings",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RCF",
+    "constituencySlug": "rushcliffe",
+    "constituencyName": "Rushcliffe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NGS",
+    "constituencySlug": "nottingham-south",
+    "constituencyName": "Nottingham South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NGE",
+    "constituencySlug": "nottingham-east",
+    "constituencyName": "Nottingham East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NGN",
+    "constituencySlug": "nottingham-north-and-kimberley",
+    "constituencyName": "Nottingham North and Kimberley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BXT",
+    "constituencySlug": "broxtowe",
+    "constituencyName": "Broxtowe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ASF",
+    "constituencySlug": "ashfield",
+    "constituencyName": "Ashfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAN",
+    "constituencySlug": "mansfield",
+    "constituencyName": "Mansfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GED",
+    "constituencySlug": "gedling",
+    "constituencyName": "Gedling",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWF",
+    "constituencySlug": "sherwood-forest",
+    "constituencyName": "Sherwood Forest",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWK",
+    "constituencySlug": "newark",
+    "constituencyName": "Newark",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSL",
+    "constituencySlug": "bassetlaw",
+    "constituencyName": "Bassetlaw",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NHS",
+    "constituencySlug": "northampton-south",
+    "constituencyName": "Northampton South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SNH",
+    "constituencySlug": "south-northamptonshire",
+    "constituencyName": "South Northamptonshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAV",
+    "constituencySlug": "daventry",
+    "constituencyName": "Daventry",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NHN",
+    "constituencySlug": "northampton-north",
+    "constituencyName": "Northampton North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WBR",
+    "constituencySlug": "wellingborough-and-rushden",
+    "constituencyName": "Wellingborough and Rushden",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.COR",
+    "constituencySlug": "corby-and-east-northamptonshire",
+    "constituencyName": "Corby and East Northamptonshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KET",
+    "constituencySlug": "kettering",
+    "constituencyName": "Kettering",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HOW",
+    "constituencySlug": "harborough-oadby-and-wigston",
+    "constituencyName": "Harborough, Oadby and Wigston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MLE",
+    "constituencySlug": "mid-leicestershire",
+    "constituencyName": "Mid Leicestershire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SLE",
+    "constituencySlug": "south-leicestershire",
+    "constituencyName": "South Leicestershire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LEW",
+    "constituencySlug": "leicester-west",
+    "constituencyName": "Leicester West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LES",
+    "constituencySlug": "leicester-south",
+    "constituencyName": "Leicester South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LEE",
+    "constituencySlug": "leicester-east",
+    "constituencyName": "Leicester East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HKB",
+    "constituencySlug": "hinckley-and-bosworth",
+    "constituencyName": "Hinckley and Bosworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWL",
+    "constituencySlug": "north-west-leicestershire",
+    "constituencyName": "North West Leicestershire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LBO",
+    "constituencySlug": "loughborough",
+    "constituencyName": "Loughborough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAS",
+    "constituencySlug": "melton-and-syston",
+    "constituencyName": "Melton and Syston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EWH",
+    "constituencySlug": "edmonton-and-winchmore-hill",
+    "constituencyName": "Edmonton and Winchmore Hill",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ENF",
+    "constituencySlug": "enfield-north",
+    "constituencyName": "Enfield North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HSP",
+    "constituencySlug": "holborn-and-st-pancras",
+    "constituencyName": "Holborn and St Pancras",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAY",
+    "constituencySlug": "hayes-and-harlington",
+    "constituencyName": "Hayes and Harlington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ELN",
+    "constituencySlug": "ealing-north",
+    "constituencyName": "Ealing North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ELS",
+    "constituencySlug": "ealing-southall",
+    "constituencyName": "Ealing Southall",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ECA",
+    "constituencySlug": "ealing-central-and-acton",
+    "constituencyName": "Ealing Central and Acton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRW",
+    "constituencySlug": "croydon-west",
+    "constituencyName": "Croydon West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SCN",
+    "constituencySlug": "streatham-and-croydon-north",
+    "constituencyName": "Streatham and Croydon North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRE",
+    "constituencySlug": "croydon-east",
+    "constituencyName": "Croydon East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CBH",
+    "constituencySlug": "clapham-and-brixton-hill",
+    "constituencyName": "Clapham and Brixton Hill",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DWN",
+    "constituencySlug": "dulwich-and-west-norwood",
+    "constituencyName": "Dulwich and West Norwood",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWW",
+    "constituencySlug": "lewisham-west-and-east-dulwich",
+    "constituencyName": "Lewisham West and East Dulwich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.VCG",
+    "constituencySlug": "vauxhall-and-camberwell-green",
+    "constituencyName": "Vauxhall and Camberwell Green",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BOS",
+    "constituencySlug": "bermondsey-and-old-southwark",
+    "constituencyName": "Bermondsey and Old Southwark",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWN",
+    "constituencySlug": "lewisham-north",
+    "constituencyName": "Lewisham North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PKM",
+    "constituencySlug": "peckham",
+    "constituencyName": "Peckham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWE",
+    "constituencySlug": "lewisham-east",
+    "constituencyName": "Lewisham East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAW",
+    "constituencySlug": "greenwich-and-woolwich",
+    "constituencyName": "Greenwich and Woolwich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAC",
+    "constituencySlug": "eltham-and-chislehurst",
+    "constituencyName": "Eltham and Chislehurst",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAT",
+    "constituencySlug": "erith-and-thamesmead",
+    "constituencyName": "Erith and Thamesmead",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BXC",
+    "constituencySlug": "bexleyheath-and-crayford",
+    "constituencyName": "Bexleyheath and Crayford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CWG",
+    "constituencySlug": "chingford-and-woodford-green",
+    "constituencyName": "Chingford and Woodford Green",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WHW",
+    "constituencySlug": "walthamstow",
+    "constituencyName": "Walthamstow",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LAW",
+    "constituencySlug": "leyton-and-wanstead",
+    "constituencyName": "Leyton and Wanstead",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ILN",
+    "constituencySlug": "ilford-north",
+    "constituencyName": "Ilford North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ILS",
+    "constituencySlug": "ilford-south",
+    "constituencyName": "Ilford South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BKG",
+    "constituencySlug": "barking",
+    "constituencyName": "Barking",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WHB",
+    "constituencySlug": "west-ham-and-beckton",
+    "constituencyName": "West Ham and Beckton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EHM",
+    "constituencySlug": "east-ham",
+    "constituencyName": "East Ham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAB",
+    "constituencySlug": "stratford-and-bow",
+    "constituencyName": "Stratford and Bow",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PAL",
+    "constituencySlug": "poplar-and-limehouse",
+    "constituencyName": "Poplar and Limehouse",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BGS",
+    "constituencySlug": "bethnal-green-and-stepney",
+    "constituencyName": "Bethnal Green and Stepney",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAW",
+    "constituencySlug": "harrow-west",
+    "constituencyName": "Harrow West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FEL",
+    "constituencySlug": "feltham-and-heston",
+    "constituencyName": "Feltham and Heston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TWI",
+    "constituencySlug": "twickenham",
+    "constituencyName": "Twickenham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAC",
+    "constituencySlug": "hammersmith-and-chiswick",
+    "constituencyName": "Hammersmith and Chiswick",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAI",
+    "constituencySlug": "brentford-and-isleworth",
+    "constituencyName": "Brentford and Isleworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KAB",
+    "constituencySlug": "kensington-and-bayswater",
+    "constituencyName": "Kensington and Bayswater",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.OBS",
+    "constituencySlug": "old-bexley-and-sidcup",
+    "constituencyName": "Old Bexley and Sidcup",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAP",
+    "constituencySlug": "beckenham-and-penge",
+    "constituencyName": "Beckenham and Penge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.QPK",
+    "constituencySlug": "queen-s-park-and-maida-vale",
+    "constituencyName": "Queen's Park and Maida Vale",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BEA",
+    "constituencySlug": "brent-east",
+    "constituencyName": "Brent East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BWE",
+    "constituencySlug": "brent-west",
+    "constituencyName": "Brent West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWG",
+    "constituencySlug": "southgate-and-wood-green",
+    "constituencyName": "Southgate and Wood Green",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FGG",
+    "constituencySlug": "finchley-and-golders-green",
+    "constituencyName": "Finchley and Golders Green",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HEN",
+    "constituencySlug": "hendon",
+    "constituencyName": "Hendon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CPB",
+    "constituencySlug": "chipping-barnet",
+    "constituencyName": "Chipping Barnet",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HFB",
+    "constituencySlug": "hornsey-and-friern-barnet",
+    "constituencyName": "Hornsey and Friern Barnet",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TOT",
+    "constituencySlug": "tottenham",
+    "constituencyName": "Tottenham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HSN",
+    "constituencySlug": "hackney-north-and-stoke-newington",
+    "constituencyName": "Hackney North and Stoke Newington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PUT",
+    "constituencySlug": "putney",
+    "constituencyName": "Putney",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAT",
+    "constituencySlug": "battersea",
+    "constituencyName": "Battersea",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TOO",
+    "constituencySlug": "tooting",
+    "constituencyName": "Tooting",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAW",
+    "constituencySlug": "carshalton-and-wallington",
+    "constituencyName": "Carshalton and Wallington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAC",
+    "constituencySlug": "sutton-and-cheam",
+    "constituencyName": "Sutton and Cheam",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRS",
+    "constituencySlug": "croydon-south",
+    "constituencyName": "Croydon South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ISN",
+    "constituencySlug": "islington-north",
+    "constituencyName": "Islington North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ISS",
+    "constituencySlug": "islington-south-and-finsbury",
+    "constituencyName": "Islington South and Finsbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HSD",
+    "constituencySlug": "hackney-south-and-shoreditch",
+    "constituencyName": "Hackney South and Shoreditch",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAE",
+    "constituencySlug": "harrow-east",
+    "constituencyName": "Harrow East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAF",
+    "constituencySlug": "chelsea-and-fulham",
+    "constituencyName": "Chelsea and Fulham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ORP",
+    "constituencySlug": "orpington",
+    "constituencyName": "Orpington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BBH",
+    "constituencySlug": "bromley-and-biggin-hill",
+    "constituencyName": "Bromley and Biggin Hill",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAR",
+    "constituencySlug": "dagenham-and-rainham",
+    "constituencyName": "Dagenham and Rainham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAU",
+    "constituencySlug": "hornchurch-and-upminster",
+    "constituencyName": "Hornchurch and Upminster",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RMF",
+    "constituencySlug": "romford",
+    "constituencyName": "Romford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAM",
+    "constituencySlug": "mitcham-and-morden",
+    "constituencyName": "Mitcham and Morden",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KAS",
+    "constituencySlug": "kingston-and-surbiton",
+    "constituencyName": "Kingston and Surbiton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WIM",
+    "constituencySlug": "wimbledon",
+    "constituencyName": "Wimbledon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RPK",
+    "constituencySlug": "richmond-park",
+    "constituencyName": "Richmond Park",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.UXB",
+    "constituencySlug": "uxbridge-and-south-ruislip",
+    "constituencyName": "Uxbridge and South Ruislip",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RNP",
+    "constituencySlug": "ruislip-northwood-and-pinner",
+    "constituencyName": "Ruislip, Northwood and Pinner",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRK",
+    "constituencySlug": "cramlington-and-killingworth",
+    "constituencyName": "Cramlington and Killingworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAC",
+    "constituencySlug": "blaydon-and-consett",
+    "constituencyName": "Blaydon and Consett",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HEX",
+    "constituencySlug": "hexham",
+    "constituencyName": "Hexham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAA",
+    "constituencySlug": "blyth-and-ashington",
+    "constituencyName": "Blyth and Ashington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GCW",
+    "constituencySlug": "gateshead-central-and-whickham",
+    "constituencyName": "Gateshead Central and Whickham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TYN",
+    "constituencySlug": "tynemouth",
+    "constituencyName": "Tynemouth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NCN",
+    "constituencySlug": "newcastle-upon-tyne-north",
+    "constituencyName": "Newcastle upon Tyne North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NCL",
+    "constituencySlug": "newcastle-upon-tyne-central-and-west",
+    "constituencyName": "Newcastle upon Tyne Central and West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NCE",
+    "constituencySlug": "newcastle-upon-tyne-east-and-wallsend",
+    "constituencyName": "Newcastle upon Tyne East and Wallsend",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SUN",
+    "constituencySlug": "sunderland-central",
+    "constituencyName": "Sunderland Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SSH",
+    "constituencySlug": "south-shields",
+    "constituencyName": "South Shields",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.JGE",
+    "constituencySlug": "jarrow-and-gateshead-east",
+    "constituencyName": "Jarrow and Gateshead East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DHM",
+    "constituencySlug": "city-of-durham",
+    "constituencyName": "City of Durham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAS",
+    "constituencySlug": "easington",
+    "constituencyName": "Easington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HPL",
+    "constituencySlug": "hartlepool",
+    "constituencyName": "Hartlepool",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NDH",
+    "constituencySlug": "north-durham",
+    "constituencyName": "North Durham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WGS",
+    "constituencySlug": "washington-and-gateshead-south",
+    "constituencyName": "Washington and Gateshead South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HSS",
+    "constituencySlug": "houghton-and-sunderland-south",
+    "constituencyName": "Houghton and Sunderland South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BIA",
+    "constituencySlug": "bishop-auckland",
+    "constituencyName": "Bishop Auckland",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NAS",
+    "constituencySlug": "newton-aycliffe-and-spennymoor",
+    "constituencyName": "Newton Aycliffe and Spennymoor",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SKN",
+    "constituencySlug": "stockton-north",
+    "constituencyName": "Stockton North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MTE",
+    "constituencySlug": "middlesbrough-and-thornaby-east",
+    "constituencyName": "Middlesbrough and Thornaby East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MCL",
+    "constituencySlug": "middlesbrough-south-and-east-cleveland",
+    "constituencyName": "Middlesbrough South and East Cleveland",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RED",
+    "constituencySlug": "redcar",
+    "constituencyName": "Redcar",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DRL",
+    "constituencySlug": "darlington",
+    "constituencyName": "Darlington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SKW",
+    "constituencySlug": "stockton-west",
+    "constituencyName": "Stockton West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NNU",
+    "constituencySlug": "north-northumberland",
+    "constituencyName": "North Northumberland",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LAA",
+    "constituencySlug": "leigh-and-atherton",
+    "constituencyName": "Leigh and Atherton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MKF",
+    "constituencySlug": "makerfield",
+    "constituencyName": "Makerfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAR",
+    "constituencySlug": "carlisle",
+    "constituencyName": "Carlisle",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MOR",
+    "constituencySlug": "morecambe-and-lunesdale",
+    "constituencyName": "Morecambe and Lunesdale",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LAN",
+    "constituencySlug": "lancaster-and-wyre",
+    "constituencyName": "Lancaster and Wyre",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RIV",
+    "constituencySlug": "ribble-valley",
+    "constituencyName": "Ribble Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BPS",
+    "constituencySlug": "blackpool-south",
+    "constituencyName": "Blackpool South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FYL",
+    "constituencySlug": "fylde",
+    "constituencyName": "Fylde",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PRE",
+    "constituencySlug": "preston",
+    "constituencyName": "Preston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BUR",
+    "constituencySlug": "burnley",
+    "constituencyName": "Burnley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PDL",
+    "constituencySlug": "pendle-and-clitheroe",
+    "constituencyName": "Pendle and Clitheroe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BPN",
+    "constituencySlug": "blackpool-north-and-fleetwood",
+    "constituencyName": "Blackpool North and Fleetwood",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BBN",
+    "constituencySlug": "blackburn",
+    "constituencyName": "Blackburn",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HYB",
+    "constituencySlug": "hyndburn",
+    "constituencyName": "Hyndburn",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAD",
+    "constituencySlug": "rossendale-and-darwen",
+    "constituencyName": "Rossendale and Darwen",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SOP",
+    "constituencySlug": "southport",
+    "constituencyName": "Southport",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SRI",
+    "constituencySlug": "south-ribble",
+    "constituencyName": "South Ribble",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WLA",
+    "constituencySlug": "west-lancashire",
+    "constituencyName": "West Lancashire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SEF",
+    "constituencySlug": "sefton-central",
+    "constituencyName": "Sefton Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTL",
+    "constituencySlug": "bootle",
+    "constituencyName": "Bootle",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RCD",
+    "constituencySlug": "rochdale",
+    "constituencyName": "Rochdale",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRL",
+    "constituencySlug": "chorley",
+    "constituencyName": "Chorley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BUN",
+    "constituencySlug": "bury-north",
+    "constituencyName": "Bury North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HMN",
+    "constituencySlug": "heywood-and-middleton-north",
+    "constituencyName": "Heywood and Middleton North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BUS",
+    "constituencySlug": "bury-south",
+    "constituencyName": "Bury South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BLW",
+    "constituencySlug": "bolton-west",
+    "constituencyName": "Bolton West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BLN",
+    "constituencySlug": "bolton-north-east",
+    "constituencyName": "Bolton North East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BLS",
+    "constituencySlug": "bolton-south-and-walkden",
+    "constituencyName": "Bolton South and Walkden",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LRV",
+    "constituencySlug": "liverpool-riverside",
+    "constituencyName": "Liverpool Riverside",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWV",
+    "constituencySlug": "liverpool-wavertree",
+    "constituencyName": "Liverpool Wavertree",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LGT",
+    "constituencySlug": "liverpool-garston",
+    "constituencyName": "Liverpool Garston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KNW",
+    "constituencySlug": "knowsley",
+    "constituencyName": "Knowsley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.OLE",
+    "constituencySlug": "oldham-east-and-saddleworth",
+    "constituencyName": "Oldham East and Saddleworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.OLW",
+    "constituencySlug": "oldham-west-chadderton-and-royton",
+    "constituencyName": "Oldham West, Chadderton and Royton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWL",
+    "constituencySlug": "liverpool-walton",
+    "constituencyName": "Liverpool Walton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WGN",
+    "constituencySlug": "wigan",
+    "constituencyName": "Wigan",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAH",
+    "constituencySlug": "widnes-and-halewood",
+    "constituencyName": "Widnes and Halewood",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHN",
+    "constituencySlug": "st-helens-north",
+    "constituencyName": "St Helens North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BMS",
+    "constituencySlug": "blackley-and-middleton-south",
+    "constituencyName": "Blackley and Middleton South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAH",
+    "constituencySlug": "stalybridge-and-hyde",
+    "constituencyName": "Stalybridge and Hyde",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AUL",
+    "constituencySlug": "ashton-under-lyne",
+    "constituencyName": "Ashton-under-Lyne",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWD",
+    "constituencySlug": "liverpool-west-derby",
+    "constituencyName": "Liverpool West Derby",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SFD",
+    "constituencySlug": "salford",
+    "constituencyName": "Salford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WSL",
+    "constituencySlug": "worsley-and-eccles",
+    "constituencyName": "Worsley and Eccles",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHS",
+    "constituencySlug": "st-helens-south-and-whiston",
+    "constituencyName": "St Helens South and Whiston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAU",
+    "constituencySlug": "stretford-and-urmston",
+    "constituencyName": "Stretford and Urmston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAS",
+    "constituencySlug": "warrington-south",
+    "constituencyName": "Warrington South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAN",
+    "constituencySlug": "warrington-north",
+    "constituencyName": "Warrington North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ASW",
+    "constituencySlug": "altrincham-and-sale-west",
+    "constituencyName": "Altrincham and Sale West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WYT",
+    "constituencySlug": "wythenshawe-and-sale-east",
+    "constituencyName": "Wythenshawe and Sale East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MCT",
+    "constituencySlug": "manchester-central",
+    "constituencyName": "Manchester Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TAT",
+    "constituencySlug": "tatton",
+    "constituencyName": "Tatton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAD",
+    "constituencySlug": "gorton-and-denton",
+    "constituencyName": "Gorton and Denton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WIR",
+    "constituencySlug": "wirral-west",
+    "constituencyName": "Wirral West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MCH",
+    "constituencySlug": "mid-cheshire",
+    "constituencyName": "Mid Cheshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MRH",
+    "constituencySlug": "manchester-rusholme",
+    "constituencyName": "Manchester Rusholme",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MWI",
+    "constituencySlug": "manchester-withington",
+    "constituencyName": "Manchester Withington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CHS",
+    "constituencySlug": "chester-south-and-eddisbury",
+    "constituencyName": "Chester South and Eddisbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CWN",
+    "constituencySlug": "crewe-and-nantwich",
+    "constituencyName": "Crewe and Nantwich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SPT",
+    "constituencySlug": "stockport",
+    "constituencyName": "Stockport",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WLL",
+    "constituencySlug": "wallasey",
+    "constituencyName": "Wallasey",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CNG",
+    "constituencySlug": "congleton",
+    "constituencyName": "Congleton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAC",
+    "constituencySlug": "macclesfield",
+    "constituencyName": "Macclesfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CHN",
+    "constituencySlug": "chester-north-and-neston",
+    "constituencyName": "Chester North and Neston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CDL",
+    "constituencySlug": "cheadle",
+    "constituencyName": "Cheadle",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ELP",
+    "constituencySlug": "ellesmere-port-and-bromborough",
+    "constituencyName": "Ellesmere Port and Bromborough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BKH",
+    "constituencySlug": "birkenhead",
+    "constituencyName": "Birkenhead",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAH",
+    "constituencySlug": "runcorn-and-helsby",
+    "constituencyName": "Runcorn and Helsby",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAL",
+    "constituencySlug": "westmorland-and-lonsdale",
+    "constituencyName": "Westmorland and Lonsdale",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRW",
+    "constituencySlug": "barrow-and-furness",
+    "constituencyName": "Barrow and Furness",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAZ",
+    "constituencySlug": "hazel-grove",
+    "constituencyName": "Hazel Grove",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PEN",
+    "constituencySlug": "penrith-and-solway",
+    "constituencyName": "Penrith and Solway",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAW",
+    "constituencySlug": "whitehaven-and-workington",
+    "constituencyName": "Whitehaven and Workington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRL",
+    "constituencySlug": "bognor-regis-and-littlehampton",
+    "constituencyName": "Bognor Regis and Littlehampton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ASD",
+    "constituencySlug": "arundel-and-south-downs",
+    "constituencyName": "Arundel and South Downs",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AYS",
+    "constituencySlug": "aylesbury",
+    "constituencyName": "Aylesbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MKN",
+    "constituencySlug": "milton-keynes-north",
+    "constituencyName": "Milton Keynes North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MKC",
+    "constituencySlug": "milton-keynes-central",
+    "constituencyName": "Milton Keynes Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BUC",
+    "constituencySlug": "buckingham-and-bletchley",
+    "constituencyName": "Buckingham and Bletchley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MBU",
+    "constituencySlug": "mid-buckinghamshire",
+    "constituencyName": "Mid Buckinghamshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WYC",
+    "constituencySlug": "wycombe",
+    "constituencyName": "Wycombe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAN",
+    "constituencySlug": "banbury",
+    "constituencyName": "Banbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BWS",
+    "constituencySlug": "bicester-and-woodstock",
+    "constituencyName": "Bicester and Woodstock",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAT",
+    "constituencySlug": "henley-and-thame",
+    "constituencyName": "Henley and Thame",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAW",
+    "constituencySlug": "didcot-and-wantage",
+    "constituencyName": "Didcot and Wantage",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WIT",
+    "constituencySlug": "witney",
+    "constituencyName": "Witney",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.OXW",
+    "constituencySlug": "oxford-west-and-abingdon",
+    "constituencyName": "Oxford West and Abingdon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.OXE",
+    "constituencySlug": "oxford-east",
+    "constituencyName": "Oxford East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NBY",
+    "constituencySlug": "newbury",
+    "constituencyName": "Newbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RDW",
+    "constituencySlug": "reading-west-and-mid-berkshire",
+    "constituencyName": "Reading West and Mid Berkshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RDG",
+    "constituencySlug": "reading-central",
+    "constituencyName": "Reading Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAR",
+    "constituencySlug": "earley-and-woodley",
+    "constituencyName": "Earley and Woodley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WKM",
+    "constituencySlug": "wokingham",
+    "constituencyName": "Wokingham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRK",
+    "constituencySlug": "bracknell",
+    "constituencyName": "Bracknell",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAI",
+    "constituencySlug": "maidenhead",
+    "constituencyName": "Maidenhead",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SLO",
+    "constituencySlug": "slough",
+    "constituencyName": "Slough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WND",
+    "constituencySlug": "windsor",
+    "constituencyName": "Windsor",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SPL",
+    "constituencySlug": "spelthorne",
+    "constituencyName": "Spelthorne",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RUN",
+    "constituencySlug": "runnymede-and-weybridge",
+    "constituencyName": "Runnymede and Weybridge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAW",
+    "constituencySlug": "esher-and-walton",
+    "constituencyName": "Esher and Walton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAE",
+    "constituencySlug": "epsom-and-ewell",
+    "constituencyName": "Epsom and Ewell",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.REI",
+    "constituencySlug": "reigate",
+    "constituencyName": "Reigate",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ESU",
+    "constituencySlug": "east-surrey",
+    "constituencyName": "East Surrey",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAH",
+    "constituencySlug": "dorking-and-horley",
+    "constituencyName": "Dorking and Horley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GUI",
+    "constituencySlug": "guildford",
+    "constituencyName": "Guildford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAA",
+    "constituencySlug": "godalming-and-ash",
+    "constituencyName": "Godalming and Ash",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WOK",
+    "constituencySlug": "woking",
+    "constituencyName": "Woking",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SRH",
+    "constituencySlug": "surrey-heath",
+    "constituencyName": "Surrey Heath",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FAB",
+    "constituencySlug": "farnham-and-bordon",
+    "constituencyName": "Farnham and Bordon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EHA",
+    "constituencySlug": "east-hampshire",
+    "constituencyName": "East Hampshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NEH",
+    "constituencySlug": "north-east-hampshire",
+    "constituencyName": "North East Hampshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSK",
+    "constituencySlug": "basingstoke",
+    "constituencyName": "Basingstoke",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWH",
+    "constituencySlug": "north-west-hampshire",
+    "constituencyName": "North West Hampshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RSO",
+    "constituencySlug": "romsey-and-southampton-north",
+    "constituencyName": "Romsey and Southampton North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SOT",
+    "constituencySlug": "southampton-test",
+    "constituencyName": "Southampton Test",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SOI",
+    "constituencySlug": "southampton-itchen",
+    "constituencyName": "Southampton Itchen",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NFE",
+    "constituencySlug": "new-forest-east",
+    "constituencyName": "New Forest East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NFW",
+    "constituencySlug": "new-forest-west",
+    "constituencyName": "New Forest West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ESL",
+    "constituencySlug": "eastleigh",
+    "constituencyName": "Eastleigh",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HBV",
+    "constituencySlug": "hamble-valley",
+    "constituencyName": "Hamble Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WIN",
+    "constituencySlug": "winchester",
+    "constituencyName": "Winchester",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FAW",
+    "constituencySlug": "fareham-and-waterlooville",
+    "constituencyName": "Fareham and Waterlooville",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GOS",
+    "constituencySlug": "gosport",
+    "constituencyName": "Gosport",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PON",
+    "constituencySlug": "portsmouth-north",
+    "constituencyName": "Portsmouth North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.POS",
+    "constituencySlug": "portsmouth-south",
+    "constituencyName": "Portsmouth South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAV",
+    "constituencySlug": "havant",
+    "constituencyName": "Havant",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CCH",
+    "constituencySlug": "chichester",
+    "constituencyName": "Chichester",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WRH",
+    "constituencySlug": "worthing-west",
+    "constituencyName": "Worthing West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EWS",
+    "constituencySlug": "east-worthing-and-shoreham",
+    "constituencyName": "East Worthing and Shoreham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AHT",
+    "constituencySlug": "aldershot",
+    "constituencyName": "Aldershot",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAP",
+    "constituencySlug": "hove-and-portslade",
+    "constituencyName": "Hove and Portslade",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MSU",
+    "constituencySlug": "mid-sussex",
+    "constituencyName": "Mid Sussex",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HRH",
+    "constituencySlug": "horsham",
+    "constituencyName": "Horsham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRA",
+    "constituencySlug": "crawley",
+    "constituencyName": "Crawley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EBN",
+    "constituencySlug": "eastbourne",
+    "constituencyName": "Eastbourne",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BEX",
+    "constituencySlug": "bexhill-and-battle",
+    "constituencyName": "Bexhill and Battle",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAR",
+    "constituencySlug": "hastings-and-rye",
+    "constituencyName": "Hastings and Rye",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TNW",
+    "constituencySlug": "tunbridge-wells",
+    "constituencyName": "Tunbridge Wells",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GRV",
+    "constituencySlug": "gravesham",
+    "constituencyName": "Gravesham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAS",
+    "constituencySlug": "rochester-and-strood",
+    "constituencyName": "Rochester and Strood",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CTM",
+    "constituencySlug": "chatham-and-aylesford",
+    "constituencyName": "Chatham and Aylesford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAR",
+    "constituencySlug": "gillingham-and-rainham",
+    "constituencyName": "Gillingham and Rainham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAS",
+    "constituencySlug": "sittingbourne-and-sheppey",
+    "constituencyName": "Sittingbourne and Sheppey",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ASH",
+    "constituencySlug": "ashford",
+    "constituencyName": "Ashford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FAH",
+    "constituencySlug": "folkestone-and-hythe",
+    "constituencyName": "Folkestone and Hythe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAD",
+    "constituencySlug": "dover-and-deal",
+    "constituencyName": "Dover and Deal",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CTB",
+    "constituencySlug": "canterbury",
+    "constituencyName": "Canterbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HBS",
+    "constituencySlug": "herne-bay-and-sandwich",
+    "constituencyName": "Herne Bay and Sandwich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ETH",
+    "constituencySlug": "east-thanet",
+    "constituencyName": "East Thanet",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.IWW",
+    "constituencySlug": "isle-of-wight-west",
+    "constituencyName": "Isle of Wight West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.IWE",
+    "constituencySlug": "isle-of-wight-east",
+    "constituencyName": "Isle of Wight East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BCF",
+    "constituencySlug": "beaconsfield",
+    "constituencyName": "Beaconsfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BPV",
+    "constituencySlug": "brighton-pavilion",
+    "constituencyName": "Brighton Pavilion",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BKP",
+    "constituencySlug": "brighton-kemptown-and-peacehaven",
+    "constituencyName": "Brighton Kemptown and Peacehaven",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAA",
+    "constituencySlug": "chesham-and-amersham",
+    "constituencyName": "Chesham and Amersham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DFD",
+    "constituencySlug": "dartford",
+    "constituencyName": "Dartford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EGU",
+    "constituencySlug": "east-grinstead-and-uckfield",
+    "constituencyName": "East Grinstead and Uckfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FAV",
+    "constituencySlug": "faversham-and-mid-kent",
+    "constituencyName": "Faversham and Mid Kent",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWS",
+    "constituencySlug": "lewes",
+    "constituencyName": "Lewes",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MDS",
+    "constituencySlug": "maidstone-and-malling",
+    "constituencyName": "Maidstone and Malling",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SEV",
+    "constituencySlug": "sevenoaks",
+    "constituencyName": "Sevenoaks",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SXW",
+    "constituencySlug": "sussex-weald",
+    "constituencyName": "Sussex Weald",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TON",
+    "constituencySlug": "tonbridge",
+    "constituencyName": "Tonbridge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WKT",
+    "constituencySlug": "weald-of-kent",
+    "constituencyName": "Weald of Kent",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FES",
+    "constituencySlug": "frome-and-east-somerset",
+    "constituencyName": "Frome and East Somerset",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAS",
+    "constituencySlug": "glastonbury-and-somerton",
+    "constituencyName": "Glastonbury and Somerton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MDP",
+    "constituencySlug": "mid-dorset-and-north-poole",
+    "constituencyName": "Mid Dorset and North Poole",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SDS",
+    "constituencySlug": "south-dorset",
+    "constituencyName": "South Dorset",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NDS",
+    "constituencySlug": "north-dorset",
+    "constituencyName": "North Dorset",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WDS",
+    "constituencySlug": "west-dorset",
+    "constituencyName": "West Dorset",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSC",
+    "constituencySlug": "bristol-central",
+    "constituencyName": "Bristol Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSS",
+    "constituencySlug": "bristol-south",
+    "constituencyName": "Bristol South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSE",
+    "constituencySlug": "bristol-east",
+    "constituencyName": "Bristol East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BNW",
+    "constituencySlug": "bristol-north-west",
+    "constituencyName": "Bristol North West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BNE",
+    "constituencySlug": "bristol-north-east",
+    "constituencyName": "Bristol North East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FBS",
+    "constituencySlug": "filton-and-bradley-stoke",
+    "constituencyName": "Filton and Bradley Stoke",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TAY",
+    "constituencySlug": "thornbury-and-yate",
+    "constituencyName": "Thornbury and Yate",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NES",
+    "constituencySlug": "north-east-somerset-and-hanham",
+    "constituencyName": "North East Somerset and Hanham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTH",
+    "constituencySlug": "bath",
+    "constituencyName": "Bath",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WSM",
+    "constituencySlug": "weston-super-mare",
+    "constituencyName": "Weston-super-Mare",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WEL",
+    "constituencySlug": "wells-and-mendip-hills",
+    "constituencyName": "Wells and Mendip Hills",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NSS",
+    "constituencySlug": "north-somerset",
+    "constituencyName": "North Somerset",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BWT",
+    "constituencySlug": "bridgwater",
+    "constituencyName": "Bridgwater",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PLE",
+    "constituencySlug": "poole",
+    "constituencyName": "Poole",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BHW",
+    "constituencySlug": "bournemouth-west",
+    "constituencyName": "Bournemouth West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BHE",
+    "constituencySlug": "bournemouth-east",
+    "constituencyName": "Bournemouth East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CHR",
+    "constituencySlug": "christchurch",
+    "constituencyName": "Christchurch",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TEW",
+    "constituencySlug": "tewkesbury",
+    "constituencyName": "Tewkesbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NCT",
+    "constituencySlug": "north-cotswolds",
+    "constituencyName": "North Cotswolds",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CNM",
+    "constituencySlug": "cheltenham",
+    "constituencyName": "Cheltenham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GLO",
+    "constituencySlug": "gloucester",
+    "constituencyName": "Gloucester",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FOD",
+    "constituencySlug": "forest-of-dean",
+    "constituencyName": "Forest of Dean",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STR",
+    "constituencySlug": "stroud",
+    "constituencyName": "Stroud",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SCT",
+    "constituencySlug": "south-cotswolds",
+    "constituencyName": "South Cotswolds",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SNN",
+    "constituencySlug": "swindon-north",
+    "constituencyName": "Swindon North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SNS",
+    "constituencySlug": "swindon-south",
+    "constituencyName": "Swindon South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CPM",
+    "constituencySlug": "chippenham",
+    "constituencyName": "Chippenham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MKM",
+    "constituencySlug": "melksham-and-devizes",
+    "constituencyName": "Melksham and Devizes",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EWT",
+    "constituencySlug": "east-wiltshire",
+    "constituencyName": "East Wiltshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAL",
+    "constituencySlug": "salisbury",
+    "constituencyName": "Salisbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWW",
+    "constituencySlug": "south-west-wiltshire",
+    "constituencyName": "South West Wiltshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.YEO",
+    "constituencySlug": "yeovil",
+    "constituencyName": "Yeovil",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TAW",
+    "constituencySlug": "taunton-and-wellington",
+    "constituencyName": "Taunton and Wellington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TIV",
+    "constituencySlug": "tiverton-and-minehead",
+    "constituencyName": "Tiverton and Minehead",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HNS",
+    "constituencySlug": "honiton-and-sidmouth",
+    "constituencyName": "Honiton and Sidmouth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EXM",
+    "constituencySlug": "exmouth-and-exeter-east",
+    "constituencyName": "Exmouth and Exeter East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EXT",
+    "constituencySlug": "exeter",
+    "constituencyName": "Exeter",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NTA",
+    "constituencySlug": "newton-abbot",
+    "constituencyName": "Newton Abbot",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TRB",
+    "constituencySlug": "torbay",
+    "constituencyName": "Torbay",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SDV",
+    "constituencySlug": "south-devon",
+    "constituencyName": "South Devon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PMV",
+    "constituencySlug": "plymouth-moor-view",
+    "constituencyName": "Plymouth Moor View",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PSD",
+    "constituencySlug": "plymouth-sutton-and-devonport",
+    "constituencyName": "Plymouth Sutton and Devonport",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NDV",
+    "constituencySlug": "north-devon",
+    "constituencyName": "North Devon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TAV",
+    "constituencySlug": "torridge-and-tavistock",
+    "constituencyName": "Torridge and Tavistock",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWD",
+    "constituencySlug": "south-west-devon",
+    "constituencyName": "South West Devon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CDV",
+    "constituencySlug": "central-devon",
+    "constituencyName": "Central Devon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NCR",
+    "constituencySlug": "north-cornwall",
+    "constituencyName": "North Cornwall",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SEC",
+    "constituencySlug": "south-east-cornwall",
+    "constituencyName": "South East Cornwall",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SNQ",
+    "constituencySlug": "st-austell-and-newquay",
+    "constituencyName": "St Austell and Newquay",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TRF",
+    "constituencySlug": "truro-and-falmouth",
+    "constituencyName": "Truro and Falmouth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STV",
+    "constituencySlug": "st-ives",
+    "constituencyName": "St Ives",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CRR",
+    "constituencySlug": "camborne-and-redruth",
+    "constituencyName": "Camborne and Redruth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BPB",
+    "constituencySlug": "birmingham-perry-barr",
+    "constituencyName": "Birmingham Perry Barr",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BER",
+    "constituencySlug": "birmingham-erdington",
+    "constituencyName": "Birmingham Erdington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KLW",
+    "constituencySlug": "kenilworth-and-southam",
+    "constituencyName": "Kenilworth and Southam",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WKL",
+    "constituencySlug": "warwick-and-leamington",
+    "constituencyName": "Warwick and Leamington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAE",
+    "constituencySlug": "droitwich-and-evesham",
+    "constituencyName": "Droitwich and Evesham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RUG",
+    "constituencySlug": "rugby",
+    "constituencyName": "Rugby",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NUN",
+    "constituencySlug": "nuneaton",
+    "constituencyName": "Nuneaton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NWB",
+    "constituencySlug": "north-warwickshire-and-bedworth",
+    "constituencyName": "North Warwickshire and Bedworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SUT",
+    "constituencySlug": "sutton-coldfield",
+    "constituencyName": "Sutton Coldfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSN",
+    "constituencySlug": "birmingham-hodge-hill-and-solihull-north",
+    "constituencyName": "Birmingham Hodge Hill and Solihull North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BLA",
+    "constituencySlug": "birmingham-ladywood",
+    "constituencyName": "Birmingham Ladywood",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BEB",
+    "constituencySlug": "birmingham-edgbaston",
+    "constituencyName": "Birmingham Edgbaston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BNF",
+    "constituencySlug": "birmingham-northfield",
+    "constituencyName": "Birmingham Northfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BSO",
+    "constituencySlug": "birmingham-selly-oak",
+    "constituencyName": "Birmingham Selly Oak",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BHG",
+    "constituencySlug": "birmingham-hall-green-and-moseley",
+    "constituencyName": "Birmingham Hall Green and Moseley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BYA",
+    "constituencySlug": "birmingham-yardley",
+    "constituencyName": "Birmingham Yardley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWS",
+    "constituencySlug": "solihull-west-and-shirley",
+    "constituencyName": "Solihull West and Shirley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HRS",
+    "constituencySlug": "hereford-and-south-herefordshire",
+    "constituencyName": "Hereford and South Herefordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WWR",
+    "constituencySlug": "west-worcestershire",
+    "constituencyName": "West Worcestershire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WOR",
+    "constituencySlug": "worcester",
+    "constituencyName": "Worcester",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WYF",
+    "constituencySlug": "wyre-forest",
+    "constituencyName": "Wyre Forest",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RDC",
+    "constituencySlug": "redditch",
+    "constituencyName": "Redditch",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CEA",
+    "constituencySlug": "coventry-east",
+    "constituencyName": "Coventry East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CNW",
+    "constituencySlug": "coventry-north-west",
+    "constituencyName": "Coventry North West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SSO",
+    "constituencySlug": "south-shropshire",
+    "constituencyName": "South Shropshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHR",
+    "constituencySlug": "shrewsbury",
+    "constituencyName": "Shrewsbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TFD",
+    "constituencySlug": "telford",
+    "constituencyName": "Telford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WRK",
+    "constituencySlug": "the-wrekin",
+    "constituencyName": "The Wrekin",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NSO",
+    "constituencySlug": "north-shropshire",
+    "constituencyName": "North Shropshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WWE",
+    "constituencySlug": "wolverhampton-west",
+    "constituencyName": "Wolverhampton West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABH",
+    "constituencySlug": "aldridge-brownhills",
+    "constituencyName": "Aldridge-Brownhills",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAB",
+    "constituencySlug": "walsall-and-bloxwich",
+    "constituencyName": "Walsall and Bloxwich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DUD",
+    "constituencySlug": "dudley",
+    "constituencyName": "Dudley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAL",
+    "constituencySlug": "halesowen",
+    "constituencyName": "Halesowen",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SBR",
+    "constituencySlug": "stourbridge",
+    "constituencyName": "Stourbridge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SMK",
+    "constituencySlug": "smethwick",
+    "constituencyName": "Smethwick",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KSS",
+    "constituencySlug": "kingswinford-and-south-staffordshire",
+    "constituencyName": "Kingswinford and South Staffordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TMW",
+    "constituencySlug": "tamworth",
+    "constituencyName": "Tamworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LIC",
+    "constituencySlug": "lichfield",
+    "constituencyName": "Lichfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAU",
+    "constituencySlug": "burton-and-uttoxeter",
+    "constituencyName": "Burton and Uttoxeter",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NUL",
+    "constituencySlug": "newcastle-under-lyme",
+    "constituencyName": "Newcastle-under-Lyme",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STM",
+    "constituencySlug": "staffordshire-moorlands",
+    "constituencyName": "Staffordshire Moorlands",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STN",
+    "constituencySlug": "stoke-on-trent-north",
+    "constituencyName": "Stoke-on-Trent North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STC",
+    "constituencySlug": "stoke-on-trent-central",
+    "constituencyName": "Stoke-on-Trent Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STS",
+    "constituencySlug": "stoke-on-trent-south",
+    "constituencyName": "Stoke-on-Trent South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CKC",
+    "constituencySlug": "cannock-chase",
+    "constituencyName": "Cannock Chase",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SGW",
+    "constituencySlug": "stone-great-wyrley-and-penkridge",
+    "constituencyName": "Stone, Great Wyrley and Penkridge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STF",
+    "constituencySlug": "stafford",
+    "constituencyName": "Stafford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WNE",
+    "constituencySlug": "wolverhampton-north-east",
+    "constituencyName": "Wolverhampton North East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WSE",
+    "constituencySlug": "wolverhampton-south-east",
+    "constituencyName": "Wolverhampton South East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TIP",
+    "constituencySlug": "tipton-and-wednesbury",
+    "constituencyName": "Tipton and Wednesbury",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SOA",
+    "constituencySlug": "stratford-on-avon",
+    "constituencyName": "Stratford-on-Avon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NHR",
+    "constituencySlug": "north-herefordshire",
+    "constituencyName": "North Herefordshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MSE",
+    "constituencySlug": "meriden-and-solihull-east",
+    "constituencyName": "Meriden and Solihull East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CSO",
+    "constituencySlug": "coventry-south",
+    "constituencyName": "Coventry South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRG",
+    "constituencySlug": "bromsgrove",
+    "constituencyName": "Bromsgrove",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WBW",
+    "constituencySlug": "west-bromwich",
+    "constituencyName": "West Bromwich",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GAP",
+    "constituencySlug": "goole-and-pocklington",
+    "constituencyName": "Goole and Pocklington",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRD",
+    "constituencySlug": "bridlington-and-the-wolds",
+    "constituencyName": "Bridlington and The Wolds",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHA",
+    "constituencySlug": "sheffield-hallam",
+    "constituencyName": "Sheffield Hallam",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SCE",
+    "constituencySlug": "sheffield-central",
+    "constituencyName": "Sheffield Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SBH",
+    "constituencySlug": "sheffield-brightside-and-hillsborough",
+    "constituencyName": "Sheffield Brightside and Hillsborough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHE",
+    "constituencySlug": "sheffield-heeley",
+    "constituencyName": "Sheffield Heeley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SSE",
+    "constituencySlug": "sheffield-south-east",
+    "constituencyName": "Sheffield South East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PAS",
+    "constituencySlug": "penistone-and-stocksbridge",
+    "constituencyName": "Penistone and Stocksbridge",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BNN",
+    "constituencySlug": "barnsley-north",
+    "constituencyName": "Barnsley North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BNS",
+    "constituencySlug": "barnsley-south",
+    "constituencyName": "Barnsley South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAC",
+    "constituencySlug": "rawmarsh-and-conisbrough",
+    "constituencyName": "Rawmarsh and Conisbrough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RHM",
+    "constituencySlug": "rotherham",
+    "constituencyName": "Rotherham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RHV",
+    "constituencySlug": "rother-valley",
+    "constituencyName": "Rother Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DNC",
+    "constituencySlug": "doncaster-central",
+    "constituencyName": "Doncaster Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DNN",
+    "constituencySlug": "doncaster-north",
+    "constituencyName": "Doncaster North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DNE",
+    "constituencySlug": "doncaster-east-and-the-isle-of-axholme",
+    "constituencyName": "Doncaster East and the Isle of Axholme",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SCU",
+    "constituencySlug": "scunthorpe",
+    "constituencyName": "Scunthorpe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BIM",
+    "constituencySlug": "brigg-and-immingham",
+    "constituencyName": "Brigg and Immingham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GGC",
+    "constituencySlug": "great-grimsby-and-cleethorpes",
+    "constituencyName": "Great Grimsby and Cleethorpes",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HUW",
+    "constituencySlug": "kingston-upon-hull-west-and-haltemprice",
+    "constituencyName": "Kingston upon Hull West and Haltemprice",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HUN",
+    "constituencySlug": "kingston-upon-hull-north-and-cottingham",
+    "constituencyName": "Kingston upon Hull North and Cottingham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HUE",
+    "constituencySlug": "kingston-upon-hull-east",
+    "constituencyName": "Kingston upon Hull East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BEV",
+    "constituencySlug": "beverley-and-holderness",
+    "constituencyName": "Beverley and Holderness",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SBY",
+    "constituencySlug": "selby",
+    "constituencyName": "Selby",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAE",
+    "constituencySlug": "wetherby-and-easingwold",
+    "constituencyName": "Wetherby and Easingwold",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HGK",
+    "constituencySlug": "harrogate-and-knaresborough",
+    "constituencyName": "Harrogate and Knaresborough",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAR",
+    "constituencySlug": "skipton-and-ripon",
+    "constituencyName": "Skipton and Ripon",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAN",
+    "constituencySlug": "richmond-and-northallerton",
+    "constituencyName": "Richmond and Northallerton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TAM",
+    "constituencySlug": "thirsk-and-malton",
+    "constituencyName": "Thirsk and Malton",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAW",
+    "constituencySlug": "scarborough-and-whitby",
+    "constituencyName": "Scarborough and Whitby",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.YOO",
+    "constituencySlug": "york-outer",
+    "constituencyName": "York Outer",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.YOC",
+    "constituencySlug": "york-central",
+    "constituencyName": "York Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PCK",
+    "constituencySlug": "pontefract-castleford-and-knottingley",
+    "constituencyName": "Pontefract, Castleford and Knottingley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAB",
+    "constituencySlug": "dewsbury-and-batley",
+    "constituencyName": "Dewsbury and Batley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NAH",
+    "constituencySlug": "normanton-and-hemsworth",
+    "constituencyName": "Normanton and Hemsworth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HFX",
+    "constituencySlug": "halifax",
+    "constituencyName": "Halifax",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WKF",
+    "constituencySlug": "wakefield-and-rothwell",
+    "constituencyName": "Wakefield and Rothwell",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ODB",
+    "constituencySlug": "ossett-and-denby-dale",
+    "constituencyName": "Ossett and Denby Dale",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.COV",
+    "constituencySlug": "colne-valley",
+    "constituencyName": "Colne Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HUD",
+    "constituencySlug": "huddersfield",
+    "constituencyName": "Huddersfield",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SPV",
+    "constituencySlug": "spen-valley",
+    "constituencyName": "Spen Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAV",
+    "constituencySlug": "calder-valley",
+    "constituencyName": "Calder Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KAI",
+    "constituencySlug": "keighley-and-ilkley",
+    "constituencyName": "Keighley and Ilkley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BDE",
+    "constituencySlug": "bradford-east",
+    "constituencyName": "Bradford East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SHY",
+    "constituencySlug": "shipley",
+    "constituencyName": "Shipley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LCH",
+    "constituencySlug": "leeds-central-and-headingley",
+    "constituencyName": "Leeds Central and Headingley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BDW",
+    "constituencySlug": "bradford-west",
+    "constituencyName": "Bradford West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BDS",
+    "constituencySlug": "bradford-south",
+    "constituencyName": "Bradford South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LSW",
+    "constituencySlug": "leeds-south-west-and-morley",
+    "constituencyName": "Leeds South West and Morley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LWP",
+    "constituencySlug": "leeds-west-and-pudsey",
+    "constituencyName": "Leeds West and Pudsey",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LNE",
+    "constituencySlug": "leeds-north-east",
+    "constituencyName": "Leeds North East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LEA",
+    "constituencySlug": "leeds-east",
+    "constituencyName": "Leeds East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LNW",
+    "constituencySlug": "leeds-north-west",
+    "constituencyName": "Leeds North West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LSO",
+    "constituencySlug": "leeds-south",
+    "constituencyName": "Leeds South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CLW",
+    "constituencySlug": "cities-of-london-and-westminster",
+    "constituencyName": "Cities of London and Westminster",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HAH",
+    "constituencySlug": "hampstead-and-highgate",
+    "constituencyName": "Hampstead and Highgate",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRS",
+    "constituencySlug": "berwickshire-roxburgh-and-selkirk",
+    "constituencyName": "Berwickshire, Roxburgh and Selkirk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABF",
+    "constituencySlug": "arbroath-and-broughty-ferry",
+    "constituencyName": "Arbroath and Broughty Ferry",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DFR",
+    "constituencySlug": "dunfermline-and-dollar",
+    "constituencyName": "Dunfermline and Dollar",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AAS",
+    "constituencySlug": "airdrie-and-shotts",
+    "constituencyName": "Airdrie and Shotts",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EKS",
+    "constituencySlug": "east-kilbride-and-strathaven",
+    "constituencyName": "East Kilbride and Strathaven",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ERF",
+    "constituencySlug": "east-renfrewshire",
+    "constituencyName": "East Renfrewshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EEM",
+    "constituencySlug": "edinburgh-east-and-musselburgh",
+    "constituencyName": "Edinburgh East and Musselburgh",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ENL",
+    "constituencySlug": "edinburgh-north-and-leith",
+    "constituencyName": "Edinburgh North and Leith",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ESW",
+    "constituencySlug": "edinburgh-south-west",
+    "constituencyName": "Edinburgh South West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AAG",
+    "constituencySlug": "alloa-and-grangemouth",
+    "constituencyName": "Alloa and Grangemouth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GSW",
+    "constituencySlug": "glasgow-south-west",
+    "constituencyName": "Glasgow South West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.IRW",
+    "constituencySlug": "inverclyde-and-renfrewshire-west",
+    "constituencyName": "Inverclyde and Renfrewshire West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.KAL",
+    "constituencySlug": "kilmarnock-and-loudoun",
+    "constituencyName": "Kilmarnock and Loudoun",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LVG",
+    "constituencySlug": "livingston",
+    "constituencyName": "Livingston",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MID",
+    "constituencySlug": "midlothian",
+    "constituencyName": "Midlothian",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MWC",
+    "constituencySlug": "motherwell-wishaw-and-carluke",
+    "constituencyName": "Motherwell, Wishaw and Carluke",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PRS",
+    "constituencySlug": "paisley-and-renfrewshire-south",
+    "constituencyName": "Paisley and Renfrewshire South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.APG",
+    "constituencySlug": "angus-and-perthshire-glens",
+    "constituencyName": "Angus and Perthshire Glens",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.STG",
+    "constituencySlug": "stirling-and-strathallan",
+    "constituencyName": "Stirling and Strathallan",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WDB",
+    "constituencySlug": "west-dunbartonshire",
+    "constituencyName": "West Dunbartonshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MNS",
+    "constituencySlug": "moray-west-nairn-and-strathspey",
+    "constituencyName": "Moray West, Nairn and Strathspey",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABL",
+    "constituencySlug": "argyll-bute-and-south-lochaber",
+    "constituencyName": "Argyll, Bute and South Lochaber",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WAK",
+    "constituencySlug": "west-aberdeenshire-and-kincardine",
+    "constituencyName": "West Aberdeenshire and Kincardine",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GDB",
+    "constituencySlug": "gordon-and-buchan",
+    "constituencyName": "Gordon and Buchan",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CKY",
+    "constituencySlug": "cowdenbeath-and-kirkcaldy",
+    "constituencyName": "Cowdenbeath and Kirkcaldy",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABS",
+    "constituencySlug": "aberdeen-south",
+    "constituencyName": "Aberdeen South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EWE",
+    "constituencySlug": "edinburgh-west",
+    "constituencyName": "Edinburgh West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LOE",
+    "constituencySlug": "lothian-east",
+    "constituencyName": "Lothian East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ACC",
+    "constituencySlug": "ayr-carrick-and-cumnock",
+    "constituencyName": "Ayr, Carrick and Cumnock",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAY",
+    "constituencySlug": "central-ayrshire",
+    "constituencyName": "Central Ayrshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.OAS",
+    "constituencySlug": "orkney-and-shetland",
+    "constituencyName": "Orkney and Shetland",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NHI",
+    "constituencySlug": "na-h-eileanan-an-iar",
+    "constituencyName": "Na h-Eileanan an Iar",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NAA",
+    "constituencySlug": "north-ayrshire-and-arran",
+    "constituencyName": "North Ayrshire and Arran",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PHK",
+    "constituencySlug": "perth-and-kinross-shire",
+    "constituencyName": "Perth and Kinross-shire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DUN",
+    "constituencySlug": "dundee-central",
+    "constituencyName": "Dundee Central",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FLK",
+    "constituencySlug": "falkirk",
+    "constituencyName": "Falkirk",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BAL",
+    "constituencySlug": "bathgate-and-linlithgow",
+    "constituencyName": "Bathgate and Linlithgow",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ISW",
+    "constituencySlug": "inverness-skye-and-west-ross-shire",
+    "constituencyName": "Inverness, Skye and West Ross-shire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ESO",
+    "constituencySlug": "edinburgh-south",
+    "constituencyName": "Edinburgh South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DAG",
+    "constituencySlug": "dumfries-and-galloway",
+    "constituencyName": "Dumfries and Galloway",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PRN",
+    "constituencySlug": "paisley-and-renfrewshire-north",
+    "constituencyName": "Paisley and Renfrewshire North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABM",
+    "constituencySlug": "aberdeenshire-north-and-moray-east",
+    "constituencyName": "Aberdeenshire North and Moray East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CSR",
+    "constituencySlug": "caithness-sutherland-and-easter-ross",
+    "constituencyName": "Caithness, Sutherland and Easter Ross",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GEA",
+    "constituencySlug": "glasgow-east",
+    "constituencyName": "Glasgow East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MDB",
+    "constituencySlug": "mid-dunbartonshire",
+    "constituencyName": "Mid Dunbartonshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GNO",
+    "constituencySlug": "glasgow-north",
+    "constituencyName": "Glasgow North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GSO",
+    "constituencySlug": "glasgow-south",
+    "constituencyName": "Glasgow South",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GWE",
+    "constituencySlug": "glasgow-west",
+    "constituencyName": "Glasgow West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CKH",
+    "constituencySlug": "cumbernauld-and-kirkintilloch",
+    "constituencyName": "Cumbernauld and Kirkintilloch",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAB",
+    "constituencySlug": "coatbridge-and-bellshill",
+    "constituencyName": "Coatbridge and Bellshill",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.HCV",
+    "constituencySlug": "hamilton-and-clyde-valley",
+    "constituencyName": "Hamilton and Clyde Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RGN",
+    "constituencySlug": "rutherglen",
+    "constituencyName": "Rutherglen",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GNE",
+    "constituencySlug": "glasgow-north-east",
+    "constituencyName": "Glasgow North East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ABN",
+    "constituencySlug": "aberdeen-north",
+    "constituencyName": "Aberdeen North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DCT",
+    "constituencySlug": "dumfriesshire-clydesdale-and-tweeddale",
+    "constituencyName": "Dumfriesshire, Clydesdale and Tweeddale",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NEF",
+    "constituencySlug": "north-east-fife",
+    "constituencyName": "North East Fife",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GMF",
+    "constituencySlug": "glenrothes-and-mid-fife",
+    "constituencyName": "Glenrothes and Mid Fife",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AFM",
+    "constituencySlug": "aberafan-maesteg",
+    "constituencyName": "Aberafan Maesteg",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.AAD",
+    "constituencySlug": "alyn-and-deeside",
+    "constituencyName": "Alyn and Deeside",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BGA",
+    "constituencySlug": "bangor-aberconwy",
+    "constituencyName": "Bangor Aberconwy",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BGR",
+    "constituencySlug": "blaenau-gwent-and-rhymney",
+    "constituencyName": "Blaenau Gwent and Rhymney",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BRC",
+    "constituencySlug": "brecon-radnor-and-cwm-tawe",
+    "constituencyName": "Brecon, Radnor and Cwm Tawe",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BGN",
+    "constituencySlug": "bridgend",
+    "constituencyName": "Bridgend",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAN",
+    "constituencySlug": "caerfyrddin",
+    "constituencyName": "Caerfyrddin",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CAE",
+    "constituencySlug": "caerphilly",
+    "constituencyName": "Caerphilly",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CFE",
+    "constituencySlug": "cardiff-east",
+    "constituencyName": "Cardiff East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CFN",
+    "constituencySlug": "cardiff-north",
+    "constituencyName": "Cardiff North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CFP",
+    "constituencySlug": "cardiff-south-and-penarth",
+    "constituencyName": "Cardiff South and Penarth",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CFW",
+    "constituencySlug": "cardiff-west",
+    "constituencyName": "Cardiff West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CDP",
+    "constituencySlug": "ceredigion-preseli",
+    "constituencyName": "Ceredigion Preseli",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CLE",
+    "constituencySlug": "clwyd-east",
+    "constituencyName": "Clwyd East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.CLN",
+    "constituencySlug": "clwyd-north",
+    "constituencyName": "Clwyd North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.DMD",
+    "constituencySlug": "dwyfor-meirionnydd",
+    "constituencyName": "Dwyfor Meirionnydd",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.GWR",
+    "constituencySlug": "gower",
+    "constituencyName": "Gower",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LLE",
+    "constituencySlug": "llanelli",
+    "constituencyName": "Llanelli",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MTA",
+    "constituencySlug": "merthyr-tydfil-and-aberdare",
+    "constituencyName": "Merthyr Tydfil and Aberdare",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MSP",
+    "constituencySlug": "mid-and-south-pembrokeshire",
+    "constituencyName": "Mid and South Pembrokeshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MMS",
+    "constituencySlug": "monmouthshire",
+    "constituencyName": "Monmouthshire",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MAG",
+    "constituencySlug": "montgomeryshire-and-glynd-r",
+    "constituencyName": "Montgomeryshire and Glyndŵr",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NSW",
+    "constituencySlug": "neath-and-swansea-east",
+    "constituencyName": "Neath and Swansea East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NPE",
+    "constituencySlug": "newport-east",
+    "constituencyName": "Newport East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NPI",
+    "constituencySlug": "newport-west-and-islwyn",
+    "constituencyName": "Newport West and Islwyn",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.PPD",
+    "constituencySlug": "pontypridd",
+    "constituencyName": "Pontypridd",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.RAO",
+    "constituencySlug": "rhondda-and-ogmore",
+    "constituencyName": "Rhondda and Ogmore",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SWT",
+    "constituencySlug": "swansea-west",
+    "constituencyName": "Swansea West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.TOR",
+    "constituencySlug": "torfaen",
+    "constituencyName": "Torfaen",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.VOG",
+    "constituencySlug": "vale-of-glamorgan",
+    "constituencyName": "Vale of Glamorgan",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WRE",
+    "constituencySlug": "wrexham",
+    "constituencyName": "Wrexham",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.YNM",
+    "constituencySlug": "ynys-m-n",
+    "constituencyName": "Ynys Môn",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.EAN",
+    "constituencySlug": "east-antrim",
+    "constituencyName": "East Antrim",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SAN",
+    "constituencySlug": "south-antrim",
+    "constituencyName": "South Antrim",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.LGV",
+    "constituencySlug": "lagan-valley",
+    "constituencyName": "Lagan Valley",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.UBN",
+    "constituencySlug": "upper-bann",
+    "constituencyName": "Upper Bann",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTN",
+    "constituencySlug": "belfast-north",
+    "constituencyName": "Belfast North",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.ELD",
+    "constituencySlug": "east-londonderry",
+    "constituencyName": "East Londonderry",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.WTY",
+    "constituencySlug": "west-tyrone",
+    "constituencyName": "West Tyrone",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FOY",
+    "constituencySlug": "foyle",
+    "constituencyName": "Foyle",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NAN",
+    "constituencySlug": "north-antrim",
+    "constituencyName": "North Antrim",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.MUL",
+    "constituencySlug": "mid-ulster",
+    "constituencyName": "Mid Ulster",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.FST",
+    "constituencySlug": "fermanagh-and-south-tyrone",
+    "constituencyName": "Fermanagh and South Tyrone",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SDW",
+    "constituencySlug": "south-down",
+    "constituencyName": "South Down",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NDW",
+    "constituencySlug": "north-down",
+    "constituencyName": "North Down",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.SGF",
+    "constituencySlug": "strangford",
+    "constituencyName": "Strangford",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTE",
+    "constituencySlug": "belfast-east",
+    "constituencyName": "Belfast East",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTW",
+    "constituencySlug": "belfast-west",
+    "constituencyName": "Belfast West",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.BTS",
+    "constituencySlug": "belfast-south-and-mid-down",
+    "constituencyName": "Belfast South and Mid Down",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
+  },
+  {
+    "constituencyMySocietyCode": "UKPARL.2025.NAR",
+    "constituencySlug": "newry-and-armagh",
+    "constituencyName": "Newry and Armagh",
+    "recommendedPartyName": "To Be Confirmed",
+    "recommendedPartySlug": "none"
   }
 ]
