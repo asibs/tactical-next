@@ -231,9 +231,9 @@ const PostcodeLookup = () => {
                     emailOptIn: !formState.emailOptIn,
                   })
                 }
+                className="me-2"
               />
               <FormCheckLabel
-                className="ps-2"
                 onClick={() =>
                   setFormState({
                     ...formState,
