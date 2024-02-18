@@ -3,14 +3,12 @@
 import { useRouter } from "next/navigation";
 
 import { Container, Form, Button, FormCheck } from "react-bootstrap";
-// import { useFormState, useFormStatus } from "react-dom";
 
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 import { useState } from "react";
 import { isValid } from "postcode";
-// import lookupPostcode from "./lookupPostcodeServerAction";
 
 const errorCodeToErrorMessage = (code: ErrorCode) => {
   switch (code) {
