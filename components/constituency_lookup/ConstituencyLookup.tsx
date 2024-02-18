@@ -170,11 +170,11 @@ const PostcodeLookup = () => {
 
   return (
     <Container
-      className="rounded-3 bg-pink-strong p-3 mb-4 shadow text-100"
+      className="rounded-3 bg-pink-strong p-3 shadow text-100"
       style={{ fontSize: "18px" }}
     >
       <Form action={submitForm} noValidate>
-        <h3 className={`${rubik.className} fw-bolder`}>VOTE THE TORIES OUT</h3>
+        <h3 className={`${rubik.className} fw-bolder`}>Vote the Tories out</h3>
         <p className="fw-bold text-900">
           Vote tactically at the General Election
         </p>

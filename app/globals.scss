@@ -88,7 +88,36 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 @import "bootstrap/scss/bootstrap";
 // @import "../node_modules/bootstrap/scss/bootstrap";
 
-/* GLOBAL DEFAULT FORM STYLES */
+/* GLOBAL DEFAULT STYLES */
+
+// Header
+header {
+  background-color: var(--bs-black);
+  color: var(--bs-white);
+  font-size: 18px;
+}
+
+header h1 {
+  font-size: 2.4rem;
+}
+
+@include media-breakpoint-up(lg) {
+  header h1 {
+    font-size: 5rem;
+  }
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 // Checkbox
 input[type="checkbox"] {
@@ -117,4 +146,110 @@ select option:focus,
 button:focus {
   box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.5) !important;
   border-color: var(--bs-gray-600) !important;
+}
+
+// Party styles
+h3.party {
+  font-size: 8vmax;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h3.party-labour,
+svg.party-labour,
+i.party-labour {
+  color: var(--bs-red);
+}
+
+div.party-labour {
+  background-color: rgba(var(--bs-red-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-red-rgb), 1),
+    rgba(var(--bs-red-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+h3.party-libdem,
+svg.party-libdem,
+i.party-libdem {
+  color: var(--bs-orange);
+}
+
+div.party-libdem {
+  background-color: rgba(var(--bs-orange-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-orange-rgb), 1),
+    rgba(var(--bs-orange-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+h3.party-green,
+svg.party-green,
+i.party-green {
+  color: var(--bs-green);
+}
+
+div.party-green {
+  background-color: rgba(var(--bs-green-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-green-rgb), 1),
+    rgba(var(--bs-green-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+h3.party-conservative,
+svg.party-conservative,
+i.party-conservative {
+  color: var(--bs-blue);
+}
+
+div.party-conservative {
+  background-color: rgba(var(--bs-blue-rgb), 1);
+}
+
+// Add padding-y-6 classes
+.py-6 {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+@include media-breakpoint-up(sm) {
+  .py-sm-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .py-md-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .py-lg-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .py-xl-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .py-xxl-6 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
 }
