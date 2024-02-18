@@ -93,9 +93,21 @@ input[type="checkbox"]:checked {
   border-color: var(--bs-gray-900);
 }
 
-// Set focus on all inputs
-.form-control:focus,
-.btn:focus {
-  box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.5);
-  border-color: var(--bs-gray-600);
+// Set validation error style on all inputs
+input[type="text"]:invalid,
+input[type="email"]:invalid,
+select:invalid,
+select option:invalid {
+  box-shadow: 0 0 0px 4px rgba(196, 0, 0, 0.5) !important;
+}
+
+// Set focus style on all inputs
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="checkbox"]:focus,
+select:focus,
+select option:focus,
+button:focus {
+  box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.5) !important;
+  border-color: var(--bs-gray-600) !important;
 }
