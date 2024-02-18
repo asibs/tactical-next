@@ -34,6 +34,7 @@ const PostcodeLookup = () => {
     // User has selected their constituency from drop-down
     if (constituency) {
       router.push(`/constituencies/${constituency}`);
+      return;
     }
 
     //
@@ -43,6 +44,7 @@ const PostcodeLookup = () => {
         postcode: postcode,
         address: address,
       }),
+      cache: "force-cache", // Enable Next.js caching
     });
 
     const responseJson = await response.json();
