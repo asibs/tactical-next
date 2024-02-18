@@ -260,9 +260,9 @@ const PostcodeLookup = () => {
                 className="my-2"
               />
               <p style={{ fontSize: "0.75em" }}>
-                We store your email address, postcode, and constituency, so we can
-                send you exactly the information you need, and the actions to
-                take.
+                We store your email address, postcode, and constituency, so we
+                can send you exactly the information you need, and the actions
+                to take.
               </p>
             </>
           )}
@@ -277,7 +277,7 @@ const PostcodeLookup = () => {
               disabled={apiInProgress}
               aria-disabled={apiInProgress}
             >
-              <span className="fw-bold">Go</span>
+              <span className={`${rubik.className} fw-bold`}>Go</span>
             </Button>
           </Col>
           <Col className="align-self-center text-end">
@@ -285,15 +285,17 @@ const PostcodeLookup = () => {
               href="https://themovementforward.com/privacy/"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-link-black btn-sm"
+              className="btn btn-link btn-sm"
               role="button"
             >
-              Privacy Policy
+              <span className={`${rubik.className} fw-bold`}>
+                Privacy Policy
+              </span>
             </a>
           </Col>
         </Row>
       </Form>
-    </Container >
+    </Container>
   );
 };
 
