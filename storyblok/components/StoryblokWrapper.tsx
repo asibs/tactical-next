@@ -8,6 +8,7 @@ import {
   StoryblokStory,
   getStoryblokApi,
 } from "@storyblok/react/rsc";
+import Link from "next/link";
 
 const { serverRuntimeConfig } = getConfig() || {};
 
@@ -30,9 +31,20 @@ export default async function StoryblokWrapper({ slug }: params) {
         `cdn/stories/${slug}`,
         sbParams,
       );
+      // console.log("LIVE-EDITING DATA IS: ", storyblokResponse.data);
+      // console.log("LIVE-EDITING STORY IS: ", storyblokResponse.data.story);
+      // console.log(
+      //   "LIVE-EDITING CONTENT IS: ",
+      //   storyblokResponse.data.story.content,
+      // );
       return <StoryblokStory story={storyblokResponse.data.story} />;
     } catch {
-      return <h1>Error: Content for [{slug}] not found</h1>;
+      return (
+        <div>
+          <h2>Page Not Found</h2>
+          <Link href="/">Return Home</Link>
+        </div>
+      );
     }
   } else {
     console.debug("StoryblokWrapper.tsx: Disabling live-editing");
@@ -55,8 +67,13 @@ export default async function StoryblokWrapper({ slug }: params) {
           "data",
           `${slug}.json`,
         );
-        const fileContent = readFileSync(filePath, "utf8");
-        return JSON.parse(fileContent);
+        // console.log(`READING FROM [${filePath}]`);
+        try {
+          const fileContent = readFileSync(filePath, "utf8");
+          return JSON.parse(fileContent);
+        } catch {
+          return null;
+        }
       },
       // Cache key
       [`storyblok/data/${slug}.json.${serverRuntimeConfig.appVersion}`],
@@ -65,6 +82,18 @@ export default async function StoryblokWrapper({ slug }: params) {
     );
 
     const data = await getLocalStorybookData();
-    return <StoryblokComponent blok={data.story.content} />;
+    // console.log("SERVER DATA IS: ", JSON.stringify(data));
+    // console.log("SERVER STORY IS: ", JSON.stringify(data.story));
+    // console.log("SERVER CONTENT IS: ", JSON.stringify(data.story.content));
+    if (data) {
+      return <StoryblokComponent blok={data.story.content} />;
+    } else {
+      return (
+        <div>
+          <h2>Page Not Found</h2>
+          <Link href="/">Return Home</Link>
+        </div>
+      );
+    }
   }
 }
