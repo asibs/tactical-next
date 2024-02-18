@@ -1,9 +1,7 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Header from "./Header";
 import { PageStoryblok } from "@/storyblok/types/storyblok-types";
-
-// const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
-import rubik from "@/utils/Fonts";
+import { rubik } from "@/utils/Fonts";
 
 const Page = ({ blok }: { blok: PageStoryblok }) => {
   return (

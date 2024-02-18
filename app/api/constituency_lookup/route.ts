@@ -3,7 +3,9 @@ import { parse } from "postcode";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 import path from "path";
-// import { redirect } from "next/navigation";
+
+// Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
+export const runtime = 'nodejs'
 
 const fs = require("fs");
 
@@ -73,7 +75,7 @@ export async function POST(request: NextRequest) {
   );
   console.timeEnd("query-postcode-database");
 
-  console.log(constituencies);
+  console.log(`Found constituencues ${constituencies} from database`);
 
   if (!constituencies || constituencies.length == 0) {
     console.log(`Postcode ${normalized_postcode} not found in DB!`);

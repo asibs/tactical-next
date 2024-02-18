@@ -1,20 +1,17 @@
 "use client";
-{
-  /* Navbar needs to be a client component - it's interactive */
-}
+// Navbar needs to be a client component - it's interactive
 
 import Image from "next/image";
 import Link from "next/link";
 
-import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import { NavbarStoryblok } from "@/storyblok/types/storyblok-types";
 
 import { Container, Navbar, Nav } from "react-bootstrap";
 
 import logo from "@/assets/stop-the-tories-logo-transparent.png";
 
-// const rubik = Rubik({ subsets: ["latin"], weight: "500" });
-import rubik from "@/utils/Fonts";
+import { rubik } from "@/utils/Fonts";
 
 const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
   return (

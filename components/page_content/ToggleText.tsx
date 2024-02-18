@@ -1,7 +1,5 @@
 "use client";
-{
-  /* ToggleText needs to be a client component - it's interactive */
-}
+// ToggleText needs to be a client component - it's interactive
 
 import { ToggleTextStoryblok } from "@/storyblok/types/storyblok-types";
 import { storyblokEditable } from "@storyblok/react/rsc";
@@ -10,8 +8,7 @@ import { useState } from "react";
 import { Collapse } from "react-bootstrap";
 import { FaCircleChevronRight } from "react-icons/fa6";
 
-// const rubik = Rubik({ subsets: ["latin"], weight: "variable" });
-import rubik from "@/utils/Fonts";
+import { rubik } from "@/utils/Fonts";
 
 const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
   const [visible, setVisible] = useState(blok.text_shown_initially);

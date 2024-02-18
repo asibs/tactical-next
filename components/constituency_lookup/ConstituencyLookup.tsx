@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/navigation";
 
-import { Col, Container, Row, Form, Button, FormCheck } from "react-bootstrap";
-import { useFormState, useFormStatus } from "react-dom";
+import { Container, Form, Button, FormCheck } from "react-bootstrap";
+// import { useFormState, useFormStatus } from "react-dom";
 
-import rubik from "@/utils/Fonts";
+import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 import { useState } from "react";
@@ -42,24 +42,14 @@ const initialFormState: FormData = {
 const PostcodeLookup = () => {
   const router = useRouter();
 
-  // const { pending } = useFormStatus()
-  // https://github.com/vercel/next.js/issues/55919
-  // const [state, formAction] = useFormState<State, FormData>(lookupPostcode, initialFormState)
+  // TODO: Look into using useFormState in future:
+  // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-validation-and-error-handling
+  // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
 
   const [formState, setFormState] = useState<FormData>(initialFormState);
   const [apiResponse, setApiResponse] = useState<ConstituencyLookupResponse | null>(null);
   const [apiInProgress, setApiInProgress] = useState<boolean>(false);
   const [error, setError] = useState<ErrorCode | null>(null);
-
-  // DEPRECATED
-  const [errorMessage, setErrorMessage] = useState<string>("");
-  const [postcode, setPostcode] = useState<string>("");
-  const [emailOptIn, setEmailOptIn] = useState<boolean>(false);
-  const [constituencies, setConstituencies] = useState<Constituency[]>([]);
-  const [constituencySlug, setConstituencySlug] = useState<string>("");
-  const [addresses, setAddresses] = useState<Address[]>([]);
-  const [addressSlug, setAddressSlug] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
 
   const callApi = async (userPostcode: string, addressSlug?: string) => {
     // Avoid calling the API multiple time concurrently from fast user input...
@@ -174,43 +164,6 @@ const PostcodeLookup = () => {
     // If API returned multiple possible constituencies, the component will
     // automatically show a select for the constituencies or addresses
   }
-
-  // TODO: DEPRECATED
-  // const lookupPostcode = async () => {
-  //   // TODO: check postcode looks valid, check email looks valid, etc
-  //   // TODO: Subscribe email via ActionNetwork API once we know their constituency
-
-  //   // User has selected their constituency from drop-down
-  //   if (constituencySlug) {
-  //     router.push(`/constituencies/${constituencySlug}`);
-  //     return;
-  //   }
-
-  //   const requestBody: ConstituencyLookupRequest = {
-  //     postcode: postcode,
-  //     addressSlug: addressSlug,
-  //   }
-  //   const response = await fetch("/api/constituency_lookup", {
-  //     method: "POST",
-  //     body: JSON.stringify(requestBody),
-  //     cache: "force-cache", // Enable Next.js caching
-  //   });
-
-  //   const responseJson: ConstituencyLookupResponse = await response.json();
-  //   console.log(responseJson);
-
-  //   if (responseJson.errorCode) {
-  //     console.log(responseJson.errorCode);
-  //     setErrorMessage(errorCodeToErrorMessage(responseJson.errorCode))
-  //   } else if (responseJson.constituencies.length == 1) {
-  //     router.push(
-  //       `/constituencies/${responseJson.constituencies[0].slug}`,
-  //     );
-  //   } else {
-  //     console.log(responseJson.constituencies);
-  //     setConstituencies(responseJson.constituencies);
-  //   }
-  // };
 
   return (
     <Container
