@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 import { parse } from "postcode";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 import path from "path";
 
 // Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
-export const runtime = 'nodejs'
+export const runtime = "nodejs";
 
 const fs = require("fs");
 
@@ -42,10 +42,9 @@ export async function POST(request: NextRequest) {
       addressSlug: requestBody.addressSlug,
       constituencies: [],
       errorCode: "POSTCODE_INVALID",
-    }
+    };
     return NextResponse.json(response);
   }
-
 
   // Remove whitespace from postcode to match the format in our database
   const normalized_postcode = postcode.postcode.replace(/\s+/g, "");
@@ -84,7 +83,7 @@ export async function POST(request: NextRequest) {
       addressSlug: requestBody.addressSlug,
       constituencies: [],
       errorCode: "POSTCODE_NOT_FOUND",
-    }
+    };
     return NextResponse.json(response);
   }
 
@@ -96,7 +95,7 @@ export async function POST(request: NextRequest) {
       postcode: requestBody.postcode,
       addressSlug: requestBody.addressSlug,
       constituencies: constituencies,
-    }
+    };
     return NextResponse.json(response);
   } else {
     // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
@@ -108,7 +107,7 @@ export async function POST(request: NextRequest) {
       postcode: requestBody.postcode,
       addressSlug: requestBody.addressSlug,
       constituencies: constituencies,
-    }
+    };
     return NextResponse.json(response);
   }
 }

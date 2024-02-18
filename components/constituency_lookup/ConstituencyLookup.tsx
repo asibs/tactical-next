@@ -13,13 +13,13 @@ import { isValid } from "postcode";
 const errorCodeToErrorMessage = (code: ErrorCode) => {
   switch (code) {
     case "POSTCODE_INVALID":
-      return "Oops, that postcode doesn't look right to us. Please try again or contact us."
+      return "Oops, that postcode doesn't look right to us. Please try again or contact us.";
     case "POSTCODE_NOT_FOUND":
       return "Oops, we can't find that postcode. Please try again or contact us.";
     default:
       return "";
   }
-}
+};
 
 type FormData = {
   postcode: string;
@@ -27,7 +27,7 @@ type FormData = {
   constituencySlug: string;
   addressSlug: string;
   email: string;
-}
+};
 
 const initialFormState: FormData = {
   postcode: "",
@@ -35,7 +35,7 @@ const initialFormState: FormData = {
   constituencySlug: "",
   addressSlug: "",
   email: "",
-}
+};
 
 const PostcodeLookup = () => {
   const router = useRouter();
@@ -45,14 +45,15 @@ const PostcodeLookup = () => {
   // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
 
   const [formState, setFormState] = useState<FormData>(initialFormState);
-  const [apiResponse, setApiResponse] = useState<ConstituencyLookupResponse | null>(null);
+  const [apiResponse, setApiResponse] =
+    useState<ConstituencyLookupResponse | null>(null);
   const [apiInProgress, setApiInProgress] = useState<boolean>(false);
   const [error, setError] = useState<ErrorCode | null>(null);
 
   const callApi = async (userPostcode: string, addressSlug?: string) => {
     // Avoid calling the API multiple time concurrently from fast user input...
     if (apiInProgress) {
-      console.log("Skipping concurrent API call")
+      console.log("Skipping concurrent API call");
       return;
     }
 
@@ -62,7 +63,7 @@ const PostcodeLookup = () => {
       const requestBody: ConstituencyLookupRequest = {
         postcode: userPostcode,
         addressSlug: addressSlug,
-      }
+      };
       console.log("Making API call to constituency lookup route");
       const response = await fetch("/api/constituency_lookup", {
         method: "POST",
@@ -81,7 +82,7 @@ const PostcodeLookup = () => {
     }
 
     setApiInProgress(false);
-  }
+  };
 
   const postcodeChanged = async (userPostcode: string) => {
     // Update the stored / displayed postcode
@@ -92,12 +93,15 @@ const PostcodeLookup = () => {
     // If the postcode looks valid, and it's not the same as the last postcode we looked
     // up in the API, pre-load the results so we can imediately show the constituency /
     // address drop-down if necessary.
-    if (isValid(trimmedPostcode) && (!apiResponse || apiResponse.postcode != trimmedPostcode)) {
+    if (
+      isValid(trimmedPostcode) &&
+      (!apiResponse || apiResponse.postcode != trimmedPostcode)
+    ) {
       // Postcode has changed, so leave out the addressSlug in the API call - even if
       // one is/was selected, it's a different postcode now, so irrelevant!
       await callApi(trimmedPostcode);
     }
-  }
+  };
 
   const submitForm = async () => {
     const trimmedPostcode = formState.postcode.trim();
@@ -125,7 +129,10 @@ const PostcodeLookup = () => {
       // postcode and last API postcode don't match, call the API.
       console.log("SUBMIT HANDLER: postcode changed, calling API");
       await callApi(formState.postcode);
-    } else if (formState.addressSlug && (!apiResponse || apiResponse.addressSlug != formState.addressSlug)) {
+    } else if (
+      formState.addressSlug &&
+      (!apiResponse || apiResponse.addressSlug != formState.addressSlug)
+    ) {
       // Postcode has not changed, but the selected address has, so we need to call the
       // API to find the constituency for this address
       await callApi(formState.postcode, formState.addressSlug);
@@ -146,22 +153,20 @@ const PostcodeLookup = () => {
     if (apiResponse.constituencies.length == 1) {
       // Only one constituency returned by API - redirect
       // TODO: Subscribe email via ActionNetwork API now their constituency is known
-      console.log("SUBMIT HANDLER: Only one constituency from API, redirecting");
-      router.push(
-        `/constituencies/${apiResponse.constituencies[0].slug}`,
+      console.log(
+        "SUBMIT HANDLER: Only one constituency from API, redirecting",
       );
+      router.push(`/constituencies/${apiResponse.constituencies[0].slug}`);
     } else if (formState.constituencySlug) {
       // User has explicitly selected their constituency from the drop-down - redirect
       // TODO: Subscribe email via ActionNetwork API now their constituency is known
       console.log("SUBMIT HANDLER: User selected constituency, redirecting");
-      router.push(
-        `/constituencies/${formState.constituencySlug}`,
-      );
+      router.push(`/constituencies/${formState.constituencySlug}`);
     }
 
     // If API returned multiple possible constituencies, the component will
     // automatically show a select for the constituencies or addresses
-  }
+  };
 
   return (
     <Container
@@ -184,22 +189,23 @@ const PostcodeLookup = () => {
         />
 
         {error && (
-          <p className="fw-bold fst-italic">
-            {errorCodeToErrorMessage(error)}
-          </p>
+          <p className="fw-bold fst-italic">{errorCodeToErrorMessage(error)}</p>
         )}
 
         {apiResponse && apiResponse.constituencies.length > 1 && (
           <>
             <p style={{ fontSize: "0.75em" }}>
               We can&apos;t work out exactly which constituency you&apos;re in -
-              please select one of the {apiResponse.constituencies.length} options.
+              please select one of the {apiResponse.constituencies.length}{" "}
+              options.
             </p>
             <Form.Select
               name="constituency"
               size="lg"
               defaultValue=""
-              onChange={(e) => setFormState({ ...formState, constituencySlug: e.target.value })}
+              onChange={(e) =>
+                setFormState({ ...formState, constituencySlug: e.target.value })
+              }
             >
               <option selected disabled value="" style={{ display: "none" }}>
                 Select Constituency
@@ -217,11 +223,21 @@ const PostcodeLookup = () => {
           <div>
             <FormCheckInput
               checked={formState.emailOptIn}
-              onChange={() => setFormState({ ...formState, emailOptIn: !formState.emailOptIn })}
+              onChange={() =>
+                setFormState({
+                  ...formState,
+                  emailOptIn: !formState.emailOptIn,
+                })
+              }
             />
             <FormCheckLabel
               className="ps-2"
-              onClick={() => setFormState({ ...formState, emailOptIn: !formState.emailOptIn })}
+              onClick={() =>
+                setFormState({
+                  ...formState,
+                  emailOptIn: !formState.emailOptIn,
+                })
+              }
             >
               <strong>Join with your email</strong> to stick together
             </FormCheckLabel>
@@ -236,16 +252,24 @@ const PostcodeLookup = () => {
               type="email"
               placeholder="Your Email"
               value={formState.email}
-              onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+              onChange={(e) =>
+                setFormState({ ...formState, email: e.target.value })
+              }
             />
             <p style={{ fontSize: "0.75em" }}>
               We store your email address, postcode, and constituency, so we can
-              send you exactly the information you need, and the actions to take.
+              send you exactly the information you need, and the actions to
+              take.
             </p>
           </>
         )}
 
-        <Button variant="primary" type="submit" disabled={apiInProgress} aria-disabled={apiInProgress}>
+        <Button
+          variant="primary"
+          type="submit"
+          disabled={apiInProgress}
+          aria-disabled={apiInProgress}
+        >
           Submit
         </Button>
       </Form>
