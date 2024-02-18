@@ -78,6 +78,13 @@ $utilities: map-merge(
 /* Allow rows to have up to 12 columns via rol-cols-x */
 $grid-row-columns: 12;
 
+/* Override some of the default Bootstrap link styles */
+$link-color: #000000;
+$link-color-rgb: 0, 0, 0;
+$link-decoration: underline;
+$link-hover-color: #ee66ee;
+$bs-link-hover-color-rgb: 238, 102, 238;
+
 @import "bootstrap/scss/bootstrap";
 // @import "../node_modules/bootstrap/scss/bootstrap";
 

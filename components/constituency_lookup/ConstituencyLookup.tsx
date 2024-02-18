@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { Container, Form, Button, FormCheck } from "react-bootstrap";
+import { Container, Form, Button, FormCheck, Row, Col } from "react-bootstrap";
 
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
@@ -186,6 +186,7 @@ const PostcodeLookup = () => {
           placeholder="Your Postcode"
           pattern="^\s*[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d[A-Za-z]{2}\s*$"
           onChange={(e) => postcodeChanged(e.target.value)}
+          className="my-3"
         />
 
         {error && (
@@ -193,11 +194,11 @@ const PostcodeLookup = () => {
         )}
 
         {apiResponse && apiResponse.constituencies.length > 1 && (
-          <>
-            <p style={{ fontSize: "0.75em" }}>
+          <div className="my-3">
+            <p className="mb-1" style={{ fontSize: "0.75em" }}>
               We can&apos;t work out exactly which constituency you&apos;re in -
               please select one of the {apiResponse.constituencies.length}{" "}
-              options.
+              options:
             </p>
             <Form.Select
               name="constituency"
@@ -216,62 +217,83 @@ const PostcodeLookup = () => {
                 </option>
               ))}
             </Form.Select>
-          </>
-        )}
-
-        <FormCheck name="emailOptIn">
-          <div>
-            <FormCheckInput
-              checked={formState.emailOptIn}
-              onChange={() =>
-                setFormState({
-                  ...formState,
-                  emailOptIn: !formState.emailOptIn,
-                })
-              }
-            />
-            <FormCheckLabel
-              className="ps-2"
-              onClick={() =>
-                setFormState({
-                  ...formState,
-                  emailOptIn: !formState.emailOptIn,
-                })
-              }
-            >
-              <strong>Join with your email</strong> to stick together
-            </FormCheckLabel>
           </div>
-        </FormCheck>
-
-        {formState.emailOptIn && (
-          <>
-            <Form.Control
-              name="email"
-              size="lg"
-              type="email"
-              placeholder="Your Email"
-              value={formState.email}
-              onChange={(e) =>
-                setFormState({ ...formState, email: e.target.value })
-              }
-            />
-            <p style={{ fontSize: "0.75em" }}>
-              We store your email address, postcode, and constituency, so we can
-              send you exactly the information you need, and the actions to
-              take.
-            </p>
-          </>
         )}
 
-        <Button
-          variant="primary"
-          type="submit"
-          disabled={apiInProgress}
-          aria-disabled={apiInProgress}
-        >
-          Submit
-        </Button>
+        <div className="my-3">
+          <FormCheck name="emailOptIn">
+            <div>
+              <FormCheckInput
+                checked={formState.emailOptIn}
+                onChange={() =>
+                  setFormState({
+                    ...formState,
+                    emailOptIn: !formState.emailOptIn,
+                  })
+                }
+                className="me-2"
+              />
+              <FormCheckLabel
+                onClick={() =>
+                  setFormState({
+                    ...formState,
+                    emailOptIn: !formState.emailOptIn,
+                  })
+                }
+              >
+                <strong>Join with your email</strong> to stick together
+              </FormCheckLabel>
+            </div>
+          </FormCheck>
+
+          {formState.emailOptIn && (
+            <>
+              <Form.Control
+                name="email"
+                size="lg"
+                type="email"
+                placeholder="Your Email"
+                value={formState.email}
+                onChange={(e) =>
+                  setFormState({ ...formState, email: e.target.value })
+                }
+                className="my-2"
+              />
+              <p style={{ fontSize: "0.75em" }}>
+                We store your email address, postcode, and constituency, so we
+                can send you exactly the information you need, and the actions
+                to take.
+              </p>
+            </>
+          )}
+        </div>
+
+        <Row className="d-flex justify-content-between my-3">
+          <Col xs={4} className="d-grid">
+            <Button
+              variant="light"
+              size="lg"
+              type="submit"
+              disabled={apiInProgress}
+              aria-disabled={apiInProgress}
+            >
+              <span className={`${rubik.className} fw-bold`}>Go</span>
+            </Button>
+          </Col>
+          <Col className="align-self-center text-end">
+            <a
+              href="https://themovementforward.com/privacy/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-link btn-sm"
+              role="button"
+            >
+              <span className={`${rubik.className} fw-bold`}>
+                Privacy Policy
+              </span>
+            </a>
+          </Col>
+        </Row>
       </Form>
     </Container>
   );
