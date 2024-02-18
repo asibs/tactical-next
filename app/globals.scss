@@ -13,8 +13,10 @@
 @import "bootstrap/scss/utilities";
 
 $custom-colors: (
-  "primary-pink": #ff66ff,
-  "secondary-pink": #ff99ff,
+  "pink": #ff99ff,
+  "pink-light": #ffccff,
+  "pink-strong": #ff66ff,
+  "pink-dark": #ee66ee,
 );
 
 $all-colors: map-merge-multiple($custom-colors, $grays);
@@ -78,3 +80,34 @@ $grid-row-columns: 12;
 
 @import "bootstrap/scss/bootstrap";
 // @import "../node_modules/bootstrap/scss/bootstrap";
+
+/* GLOBAL DEFAULT FORM STYLES */
+
+// Checkbox
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+}
+input[type="checkbox"]:checked {
+  background-color: var(--bs-gray-900);
+  border-color: var(--bs-gray-900);
+}
+
+// Set validation error style on all inputs
+input[type="text"]:invalid,
+input[type="email"]:invalid,
+select:invalid,
+select option:invalid {
+  box-shadow: 0 0 0px 4px rgba(196, 0, 0, 0.5) !important;
+}
+
+// Set focus style on all inputs
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="checkbox"]:focus,
+select:focus,
+select option:focus,
+button:focus {
+  box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.5) !important;
+  border-color: var(--bs-gray-600) !important;
+}

@@ -11,6 +11,7 @@ import { ComponentsMap } from "@/storyblok/components/ComponentsMap";
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
 export const revalidate = 0;
 
+// TODO: Decide whether we want Inter at all or just use default fonts?
 const inter = Inter({ subsets: ["latin"] });
 
 storyblokInit({
@@ -35,7 +36,8 @@ export default function RootLayout({
     return (
       <StoryblokProvider>
         <html lang="en">
-          <body className={inter.className}>
+          {/* <body className={inter.className}> */}
+          <body>
             <StoryblokWrapper slug="layout/navigation" />
             {children}
             <StoryblokWrapper slug="layout/footer" />
@@ -47,7 +49,8 @@ export default function RootLayout({
     console.debug("layout.tsx: Disabling live-editing");
     return (
       <html lang="en">
-        <body className={inter.className}>
+        {/* <body className={inter.className}> */}
+        <body>
           <StoryblokWrapper slug="layout/navigation" />
           {children}
           <StoryblokWrapper slug="layout/footer" />

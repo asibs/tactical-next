@@ -1,4 +1,4 @@
-import PostcodeLookup from "@/components/postcode/postcodeLookup";
+import ConstituencyLookup from "@/components/constituency_lookup/ConstituencyLookup";
 import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 
 /* Index page. Since we use the Storyblok slug "home" for this page, it will also be
@@ -9,7 +9,7 @@ export default async function Index() {
     <>
       <StoryblokWrapper slug="home" />
       <p>on the homepage</p>
-      <PostcodeLookup />
+      <ConstituencyLookup />
     </>
   );
 }
