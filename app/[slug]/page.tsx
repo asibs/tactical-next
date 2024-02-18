@@ -35,10 +35,5 @@ export async function generateStaticParams() {
 // using the `params` returned by `generateStaticParams`
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  return (
-    <>
-      <StoryblokWrapper slug={slug} />
-      <p>in the dynamic route</p>
-    </>
-  );
+  return <StoryblokWrapper slug={slug} />;
 }
