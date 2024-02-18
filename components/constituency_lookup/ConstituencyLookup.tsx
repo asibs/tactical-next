@@ -75,10 +75,10 @@ const PostcodeLookup = () => {
         postcode: userPostcode,
         addressSlug: addressSlug,
       }
+      console.log("Making API call to constituency lookup route");
       const response = await fetch("/api/constituency_lookup", {
         method: "POST",
         body: JSON.stringify(requestBody),
-        cache: "force-cache", // Enable Next.js caching
       });
 
       if (response.ok) {

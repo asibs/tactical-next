@@ -13,6 +13,9 @@ const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
 // TODO: Handle errors and return appropriate errorMessage useful for debugging...!
+// TODO: Next.js doesn't cache POSTs - potentially change to a GET of format:
+// constituency_lookup/{postcode}/{addressSlug}
+// which should enable caching
 export async function POST(request: NextRequest) {
   console.log("IN SERVER FUNCTION");
   console.log(request);
