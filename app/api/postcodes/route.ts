@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
   // Validate postcode
   console.time("validate-postcode");
-  const postcode = parse(requestBody["postcode"] || "");
+  const postcode = parse(requestBody["postcode"]?.trim() || "");
   console.timeEnd("validate-postcode");
 
   if (!postcode.valid) {
