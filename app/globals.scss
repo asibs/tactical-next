@@ -78,10 +78,35 @@ $utilities: map-merge(
 /* Allow rows to have up to 12 columns via rol-cols-x */
 $grid-row-columns: 12;
 
+/* Override some of the default Bootstrap link styles */
+$link-color: #000000;
+$link-color-rgb: 0,0,0;
+$link-decoration: underline;
+$link-hover-color: #ee66ee;
+$bs-link-hover-color-rgb: 238,102,238;
+
 @import "bootstrap/scss/bootstrap";
 // @import "../node_modules/bootstrap/scss/bootstrap";
 
 /* GLOBAL DEFAULT FORM STYLES */
+
+// Custom button-link
+.btn-link-black {
+  --bs-btn-font-weight: 400;
+  --bs-btn-color: var(--bs-link-color);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--bs-link-hover-color);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: var(--bs-link-hover-color);
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-color: #6c757d;
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-box-shadow: 0 0 0 #000;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  text-decoration: underline;
+}
 
 // Checkbox
 input[type="checkbox"] {
