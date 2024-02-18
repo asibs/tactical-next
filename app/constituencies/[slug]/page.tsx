@@ -57,8 +57,13 @@ export default async function ConstituencyPage({
         <>
           <Header backgroundImage="FESTIVAL_CROWD">
             <Container className="py-4 py-md-6">
-              <h1 className={rubik.className}>{constituencyData["constituency_name"]}</h1>
-              <p>Bookmark this page and check back before the election for updated info.</p>
+              <h1 className={rubik.className}>
+                {constituencyData["constituency_name"]}
+              </h1>
+              <p>
+                Bookmark this page and check back before the election for
+                updated info.
+              </p>
             </Container>
           </Header>
 
@@ -67,12 +72,16 @@ export default async function ConstituencyPage({
               <Container>
                 <Row>
                   <Col>
-                    <h2 className={`${rubik.className} pb-3`}>The tactical vote is</h2>
+                    <h2 className={`${rubik.className} pb-3`}>
+                      The tactical vote is
+                    </h2>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h3 className={`${rubik.className} party party-${constituencyData["party_slug"]}`}>
+                    <h3
+                      className={`${rubik.className} party party-${constituencyData["party_slug"]}`}
+                    >
                       {constituencyData["recommendation"]}
                     </h3>
                   </Col>

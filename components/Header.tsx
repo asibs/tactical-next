@@ -25,8 +25,8 @@ export default function Header({ backgroundImage, children }: Props) {
   const image = imageUrl(backgroundImage);
   const headerStyle = image
     ? {
-      background: `var(--bs-black) url(${image}) top / cover no-repeat`,
-    }
+        background: `var(--bs-black) url(${image}) top / cover no-repeat`,
+      }
     : {};
 
   return (

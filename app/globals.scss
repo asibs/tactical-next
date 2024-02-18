@@ -108,7 +108,12 @@ header h1 {
 }
 
 // Headings
-H1, H2, H3, H4, H5, H6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
   font-weight: bold;
   text-transform: uppercase;
@@ -150,40 +155,57 @@ h3.party {
   text-transform: uppercase;
 }
 
-h3.party-labour, svg.party-labour, i.party-labour {
+h3.party-labour,
+svg.party-labour,
+i.party-labour {
   color: var(--bs-red);
 }
 
 div.party-labour {
   background-color: rgba(var(--bs-red-rgb), 1);
-  background: linear-gradient(rgba(var(--bs-red-rgb),1), rgba(var(--bs-red-rgb),0.85));
+  background: linear-gradient(
+    rgba(var(--bs-red-rgb), 1),
+    rgba(var(--bs-red-rgb), 0.85)
+  );
   box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-h3.party-libdem, svg.party-libdem, i.party-libdem {
+h3.party-libdem,
+svg.party-libdem,
+i.party-libdem {
   color: var(--bs-orange);
 }
 
 div.party-libdem {
   background-color: rgba(var(--bs-orange-rgb), 1);
-  background: linear-gradient(rgba(var(--bs-orange-rgb),1), rgba(var(--bs-orange-rgb),0.85));
+  background: linear-gradient(
+    rgba(var(--bs-orange-rgb), 1),
+    rgba(var(--bs-orange-rgb), 0.85)
+  );
   box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-h3.party-green, svg.party-green, i.party-green {
+h3.party-green,
+svg.party-green,
+i.party-green {
   color: var(--bs-green);
 }
 
 div.party-green {
   background-color: rgba(var(--bs-green-rgb), 1);
-  background: linear-gradient(rgba(var(--bs-green-rgb),1), rgba(var(--bs-green-rgb),0.85));
+  background: linear-gradient(
+    rgba(var(--bs-green-rgb), 1),
+    rgba(var(--bs-green-rgb), 0.85)
+  );
   box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-h3.party-conservative, svg.party-conservative, i.party-conservative {
+h3.party-conservative,
+svg.party-conservative,
+i.party-conservative {
   color: var(--bs-blue);
 }
 
@@ -193,41 +215,41 @@ div.party-conservative {
 
 // Add padding-y-6 classes
 .py-6 {
-  padding-top: 6rem!important;
-  padding-bottom: 6rem!important;
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
 }
 
 @include media-breakpoint-up(sm) {
   .py-sm-6 {
-    padding-top: 6rem!important;
-    padding-bottom: 6rem!important;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
   }
 }
 
-@include media-breakpoint-up(md){
+@include media-breakpoint-up(md) {
   .py-md-6 {
-    padding-top: 6rem!important;
-    padding-bottom: 6rem!important;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
   }
 }
 
 @include media-breakpoint-up(lg) {
   .py-lg-6 {
-    padding-top: 6rem!important;
-    padding-bottom: 6rem!important;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
   }
 }
 
 @include media-breakpoint-up(xl) {
   .py-xl-6 {
-    padding-top: 6rem!important;
-    padding-bottom: 6rem!important;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
   }
 }
 
 @include media-breakpoint-up(xxl) {
   .py-xxl-6 {
-    padding-top: 6rem!important;
-    padding-bottom: 6rem!important;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
   }
 }

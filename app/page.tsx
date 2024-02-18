@@ -18,10 +18,13 @@ export default async function Index() {
           <Row xs={1} md={2}>
             <Col md={4} lg={5} xl={7}>
               <h1 className={`${rubik.className} fw-bolder`}>
-                Your vote IS<br />your power
+                Your vote IS
+                <br />
+                your power
               </h1>
               <h3 className={`${rubik.className} fw-bolder`}>
-                Join the movement that sticks together using it's votes collectively for change.
+                Join the movement that sticks together using it&apos;s votes
+                collectively for change.
               </h3>
             </Col>
             <Col md={7} lg={6} xl={5} className="offset-md-1 offset-xl-0">
