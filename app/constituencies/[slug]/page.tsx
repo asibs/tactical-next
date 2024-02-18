@@ -1,7 +1,10 @@
+import Header from "@/components/Header";
+import { rubik } from "@/utils/Fonts";
 import { readFileSync } from "fs";
 import { unstable_cache } from "next/cache";
 import getConfig from "next/config";
 import path from "path";
+import { Col, Container, Row } from "react-bootstrap";
 
 const { serverRuntimeConfig } = getConfig() || {};
 
@@ -52,9 +55,38 @@ export default async function ConstituencyPage({
     <>
       {constituencyData && (
         <>
-          <h1>{constituencyData["constituency_name"]}</h1>
-          <h2>Tactical Vote: {constituencyData["recommendation"]}</h2>
+          <Header backgroundImage="FESTIVAL_CROWD">
+            <Container className="py-4 py-md-6">
+              <h1 className={rubik.className}>{constituencyData["constituency_name"]}</h1>
+              <p>Bookmark this page and check back before the election for updated info.</p>
+            </Container>
+          </Header>
+
+          <main>
+            <section id="section-advice" className="section-light">
+              <Container>
+                <Row>
+                  <Col>
+                    <h2 className={`${rubik.className} pb-3`}>The tactical vote is</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h3 className={`${rubik.className} party party-${constituencyData["party_slug"]}`}>
+                      {constituencyData["recommendation"]}
+                    </h3>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
+          </main>
+
+          {/* DEBUG DATA */}
+          {/*
+          <h5>{constituencyData["constituency_name"]}</h5>
+          <h6>Tactical Vote: {constituencyData["recommendation"]}</h6>
           <p>{JSON.stringify(constituencyData)}</p>
+          */}
         </>
       )}
 
