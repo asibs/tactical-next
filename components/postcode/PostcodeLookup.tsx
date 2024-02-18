@@ -12,13 +12,13 @@ import { useState } from "react";
 // import lookupPostcode from "./lookupPostcodeServerAction";
 
 const PostcodeLookup = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   // const { pending } = useFormStatus()
   // https://github.com/vercel/next.js/issues/55919
   // const [state, formAction] = useFormState<State, FormData>(lookupPostcode, initialFormState)
 
-  const [errorMessage, setErrorMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState();
   const [postcode, setPostcode] = useState("");
   const [emailOptIn, setEmailOptIn] = useState(false);
   const [constituencies, setConstituencies] = useState<Constituency[]>([]);
@@ -36,27 +36,32 @@ const PostcodeLookup = () => {
       router.push(`/constituencies/${constituency}`);
     }
 
-    // 
+    //
     const response = await fetch("/api/postcodes", {
       method: "POST",
       body: JSON.stringify({
-        "postcode": postcode,
-        "address": address,
-      })
-    })
+        postcode: postcode,
+        address: address,
+      }),
+    });
 
     const responseJson = await response.json();
     console.log(responseJson);
 
     if (responseJson["errorMessage"]) {
       console.log(responseJson["errorMessage"]);
-    } else if (responseJson["constituencies"] && responseJson["constituencies"].length == 1) {
-      router.push(`/constituencies/${responseJson["constituencies"][0]["slug"]}`);
+    } else if (
+      responseJson["constituencies"] &&
+      responseJson["constituencies"].length == 1
+    ) {
+      router.push(
+        `/constituencies/${responseJson["constituencies"][0]["slug"]}`,
+      );
     } else {
       console.log(responseJson["constituencies"]);
-      setConstituencies(responseJson["constituencies"])
+      setConstituencies(responseJson["constituencies"]);
     }
-  }
+  };
 
   return (
     <Container
@@ -81,25 +86,36 @@ const PostcodeLookup = () => {
         {constituencies.length > 0 && (
           <>
             <p style={{ fontSize: "0.75em" }}>
-              Sorry, we can't work out exactly which constituency you're in - please select your constituency.
+              Sorry, we can&apos;t work out exactly which constituency
+              you&apos;re in - please select your constituency.
             </p>
             <Form.Select
               name="constituency"
               size="lg"
               onChange={(e) => setConstituency(e.target.value)}
             >
-              <option selected disabled value="" style={{ display: "none" }}>Select Constituency</option>
-              {constituencies.map((c) =>
-                <option value={c.slug}>{c.name}</option>
-              )}
+              <option selected disabled value="" style={{ display: "none" }}>
+                Select Constituency
+              </option>
+              {constituencies.map((c) => (
+                <option key={c.slug} value={c.slug}>
+                  {c.name}
+                </option>
+              ))}
             </Form.Select>
           </>
         )}
 
         <FormCheck name="emailOptIn">
           <div>
-            <FormCheckInput checked={emailOptIn} onChange={() => setEmailOptIn(!emailOptIn)} />
-            <FormCheckLabel className="ps-2" onClick={() => setEmailOptIn(!emailOptIn)}>
+            <FormCheckInput
+              checked={emailOptIn}
+              onChange={() => setEmailOptIn(!emailOptIn)}
+            />
+            <FormCheckLabel
+              className="ps-2"
+              onClick={() => setEmailOptIn(!emailOptIn)}
+            >
               <strong>Join with your email</strong> to stick together
             </FormCheckLabel>
           </div>
@@ -115,8 +131,7 @@ const PostcodeLookup = () => {
         />
         <p style={{ fontSize: "0.75em" }} hidden={!emailOptIn}>
           We store your email address, postcode, and constituency, so we can
-          send you exactly the information you need, and the actions to
-          take.
+          send you exactly the information you need, and the actions to take.
         </p>
 
         <Button variant="primary" type="submit" aria-disabled={false}>

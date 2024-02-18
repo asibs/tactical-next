@@ -4,7 +4,7 @@ import { open, Database } from "sqlite";
 import path from "path";
 import { redirect } from "next/navigation";
 
-const fs = require('fs');
+const fs = require("fs");
 
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
 let db: Database | null = null;
@@ -15,10 +15,10 @@ export async function POST(request: Request) {
   console.log("IN SERVER FUNCTION");
   console.log(request);
 
-  const requestBody = await request.json()
+  const requestBody = await request.json();
   console.log(requestBody);
 
-  console.log("***** FILES IN DATA DIRECTORY *****")
+  console.log("***** FILES IN DATA DIRECTORY *****");
   fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
     console.log(file);
   });
