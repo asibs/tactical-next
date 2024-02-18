@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
-import HeaderWithConstituencyLookup from "@/components/HeaderWithConstituencyLookup";
 import ConstituencyLookup from "@/components/constituency_lookup/ConstituencyLookup";
-import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
+// import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 import { rubik } from "@/utils/Fonts";
 import { Col, Container, Row } from "react-bootstrap";
 
