@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 import path from "path";
-import { validatePostcode, sanitizePostcode } from "@/utils/Postcodes";
+import { validatePostcode, normalizePostcode } from "@/utils/Postcodes";
 
 // Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
 export const runtime = "nodejs";
@@ -31,9 +31,7 @@ export async function POST(request: NextRequest) {
   });
 
   //read & normalize postcode
-  const normalizedPostcode: string | undefined = requestBody?.postcode
-    .replaceAll?.(sanitizePostcode, "")
-    .toUpperCase();
+  const normalizedPostcode = normalizePostcode(requestBody?.postcode || "");
 
   //validate the postcode
   if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {

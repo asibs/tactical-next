@@ -4,7 +4,11 @@ import { useRouter } from "next/navigation";
 
 import { Container, Form, Button, FormCheck, Row, Col } from "react-bootstrap";
 
-import { sanitizePostcode, validatePostcode } from "@/utils/Postcodes";
+import {
+  normalizePostcode,
+  postcodeInputPattern,
+  validatePostcode,
+} from "@/utils/Postcodes";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
@@ -88,9 +92,7 @@ const PostcodeLookup = () => {
     // Update the stored / displayed postcode
     setFormState({ ...formState, postcode: userPostcode });
 
-    const normalizedPostcode = userPostcode
-      .replaceAll(sanitizePostcode, "")
-      .toUpperCase();
+    const normalizedPostcode = normalizePostcode(userPostcode);
 
     // If the postcode looks valid, and it's not the same as the last postcode we looked
     // up in the API, pre-load the results so we can imediately show the constituency /
@@ -106,9 +108,7 @@ const PostcodeLookup = () => {
   };
 
   const submitForm = async () => {
-    const normalizedPostcode = formState.postcode
-      .replaceAll(sanitizePostcode, "")
-      .toUpperCase();
+    const normalizedPostcode = normalizePostcode(formState.postcode);
 
     // VALIDATION
     if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
@@ -184,7 +184,7 @@ const PostcodeLookup = () => {
           size="lg"
           type="text"
           placeholder="Your Postcode"
-          pattern="^\s*[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d[A-Za-z]{2}\s*$"
+          pattern={postcodeInputPattern}
           onChange={(e) => postcodeChanged(e.target.value)}
           className="my-3"
         />
