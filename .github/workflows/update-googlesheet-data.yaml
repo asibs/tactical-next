@@ -39,16 +39,13 @@ jobs:
               }
             ]
           outputFile: /tmp/gsheet_action_results.json
-      - name: Echo full results
+      - name: Output full results
         run: |
-          echo /tmp/gsheet_action_results.json
-      - name: Echo minus E full results
-        run: |
-          echo -E /tmp/gsheet_action_results.json
+          cat /tmp/gsheet_action_results.json
       - name: Write results
         run: |
           # Write the results to the data file
-          echo -E /tmp/gsheet_action_results.json | jq ".results[0].result.formatted" > data/constituency.json
+          jq ".results[0].result.formatted" /tmp/gsheet_action_results.json > data/constituency.json
           # Add the updates to git
           git add data/constituency.json
       - name: Commit Changes and Create Pull Request
