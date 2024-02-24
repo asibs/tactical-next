@@ -39,9 +39,10 @@ jobs:
               }
             ]
           outputFile: /tmp/gsheet_action_results.json
+      - name: Echo full results
         run: |
           echo /tmp/gsheet_action_results.json
-      - name: Echo -E full results
+      - name: Echo minus E full results
         run: |
           echo -E /tmp/gsheet_action_results.json
       - name: Write results
