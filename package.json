@@ -12,6 +12,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write --list-different .",
     "storyblok:login": "storyblok login",
