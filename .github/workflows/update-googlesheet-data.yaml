@@ -39,6 +39,9 @@ jobs:
               }
             ]
           outputFile: /tmp/gsheet_action_results.json
+      - name: debug results
+        run: |
+          head /tmp/gsheet_action_results.json
       - name: Write results
         run: |
           # Write the results to the data file
