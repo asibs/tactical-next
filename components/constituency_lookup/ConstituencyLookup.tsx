@@ -4,11 +4,15 @@ import { useRouter } from "next/navigation";
 
 import { Container, Form, Button, FormCheck, Row, Col } from "react-bootstrap";
 
+import {
+  normalizePostcode,
+  postcodeInputPattern,
+  validatePostcode,
+} from "@/utils/Postcodes";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 import { useState } from "react";
-import { isValid } from "postcode";
 
 const errorCodeToErrorMessage = (code: ErrorCode) => {
   switch (code) {
@@ -88,41 +92,37 @@ const PostcodeLookup = () => {
     // Update the stored / displayed postcode
     setFormState({ ...formState, postcode: userPostcode });
 
-    const trimmedPostcode = userPostcode.trim();
+    const normalizedPostcode = normalizePostcode(userPostcode);
 
     // If the postcode looks valid, and it's not the same as the last postcode we looked
     // up in the API, pre-load the results so we can imediately show the constituency /
     // address drop-down if necessary.
     if (
-      isValid(trimmedPostcode) &&
-      (!apiResponse || apiResponse.postcode != trimmedPostcode)
+      validatePostcode.test(normalizedPostcode) &&
+      (!apiResponse || apiResponse.postcode != normalizedPostcode)
     ) {
       // Postcode has changed, so leave out the addressSlug in the API call - even if
       // one is/was selected, it's a different postcode now, so irrelevant!
-      await callApi(trimmedPostcode);
+      await callApi(normalizedPostcode);
     }
   };
 
   const submitForm = async () => {
-    const trimmedPostcode = formState.postcode.trim();
+    const normalizedPostcode = normalizePostcode(formState.postcode);
 
     // VALIDATION
-    if (!trimmedPostcode) {
-      // User hasn't input anything
-      setApiResponse(null);
-      setError("POSTCODE_INVALID");
-      return;
-    } else if (!isValid(trimmedPostcode)) {
-      // Invalid postcode
+    if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
+      // User hasn't input anything or invalid postcode
       setApiResponse(null);
       setError("POSTCODE_INVALID");
       return;
     }
+
     // TODO: Validate email if emailOptIn is set
     // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
 
     // CALL API IF NECESSARY
-    if (!apiResponse || apiResponse.postcode != trimmedPostcode) {
+    if (!apiResponse || apiResponse.postcode != normalizedPostcode) {
       // The postcode SHOULD have already been looked up by the postcodeChanged handler,
       // but it's possible that a slow pre-load API call blocked a subsequent postcode
       // change by the user (because we prevent concurrent API calls). If the form
@@ -184,7 +184,7 @@ const PostcodeLookup = () => {
           size="lg"
           type="text"
           placeholder="Your Postcode"
-          pattern="^\s*[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d[A-Za-z]{2}\s*$"
+          pattern={postcodeInputPattern}
           onChange={(e) => postcodeChanged(e.target.value)}
           className="my-3"
         />

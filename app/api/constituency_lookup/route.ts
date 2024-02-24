@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { parse } from "postcode";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 import path from "path";
+import { validatePostcode, normalizePostcode } from "@/utils/Postcodes";
 
 // Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
 export const runtime = "nodejs";
@@ -30,24 +30,20 @@ export async function POST(request: NextRequest) {
     console.log(file);
   });
 
-  // Validate postcode
-  console.time("validate-postcode");
-  const postcode = parse(requestBody.postcode.trim() || "");
-  console.timeEnd("validate-postcode");
+  //read & normalize postcode
+  const normalizedPostcode = normalizePostcode(requestBody?.postcode || "");
 
-  if (!postcode.valid) {
-    console.log(`Postcode ${requestBody.postcode} is not valid!`);
+  //validate the postcode
+  if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
+    console.log(`Postcode ${requestBody?.postcode} is not valid!`);
     const response: ConstituencyLookupResponse = {
-      postcode: requestBody.postcode,
+      postcode: requestBody?.postcode,
       addressSlug: requestBody.addressSlug,
       constituencies: [],
       errorCode: "POSTCODE_INVALID",
     };
     return NextResponse.json(response);
   }
-
-  // Remove whitespace from postcode to match the format in our database
-  const normalized_postcode = postcode.postcode.replace(/\s+/g, "");
 
   // Initialise the database if necessary
   if (!db) {
@@ -70,14 +66,14 @@ export async function POST(request: NextRequest) {
     JOIN pcon ON postcode_lookup.pcon_id = pcon.id
     WHERE postcode_lookup.postcode = ?
     ORDER BY postcode_lookup.confidence DESC`,
-    normalized_postcode,
+    normalizedPostcode,
   );
   console.timeEnd("query-postcode-database");
 
   console.log(`Found constituencues ${constituencies} from database`);
 
   if (!constituencies || constituencies.length == 0) {
-    console.log(`Postcode ${normalized_postcode} not found in DB!`);
+    console.log(`Postcode ${normalizedPostcode} not found in DB!`);
     const response: ConstituencyLookupResponse = {
       postcode: requestBody.postcode,
       addressSlug: requestBody.addressSlug,
@@ -88,9 +84,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (constituencies.length == 1) {
-    console.log(
-      `Single constituency found for postcode ${normalized_postcode}`,
-    );
+    console.log(`Single constituency found for postcode ${normalizedPostcode}`);
     const response: ConstituencyLookupResponse = {
       postcode: requestBody.postcode,
       addressSlug: requestBody.addressSlug,
@@ -101,7 +95,7 @@ export async function POST(request: NextRequest) {
     // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
     // specific address, rather than us expecting to know (or find out) their constituency.
     console.log(
-      `Multiple constituencies found for postcode ${normalized_postcode}`,
+      `Multiple constituencies found for postcode ${normalizedPostcode}`,
     );
     const response: ConstituencyLookupResponse = {
       postcode: requestBody.postcode,
