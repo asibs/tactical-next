@@ -39,18 +39,19 @@ const lookupCache: {
 } = {};
 
 const fetchApi = async (
-  requestBody: ConstituencyLookupRequest,
+  postcode: string,
+  addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
   try {
     console.log("Making API call to constituency lookup route");
-    const response = await fetch("/api/constituency_lookup", {
-      method: "POST",
-      body: JSON.stringify(requestBody),
-    });
+    const response = await fetch(
+      "/api/constituency_lookup/" +
+        postcode +
+        (addressSlug ? "/" + addressSlug : ""),
+    );
 
     if (response.ok) {
-      lookupCache[requestBody.postcode] = response.json();
-      return lookupCache[requestBody.postcode];
+      return response.json();
     } else {
       return null;
     }
@@ -73,38 +74,41 @@ const reqControl: ReqControl = {
 
 // throttled apiFetch
 const throttledApi = async (
-  requestBody: ConstituencyLookupRequest,
+  postcode: string,
+  addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
-  if (lookupCache.hasOwnProperty(requestBody.postcode)) {
-    const cached = await lookupCache[requestBody.postcode];
-    if (cached !== null) {
-      return cached; //don't want to cache and return an error!
+  //TODO handle address lookups in the cache
+  if (lookupCache.hasOwnProperty(postcode)) {
+    const cached = await lookupCache[postcode];
+    if (cached) {
+      return cached;
     }
   }
 
+  // Cancel existing delayed request
   if (reqControl.timerID) {
     clearTimeout(reqControl.timerID);
   }
 
   if (reqControl.time + reqControl.rateLimit < Date.now()) {
-    //more than rate limit ms since last request
+    //Last request was more than rate limit ago.
     reqControl.time = Date.now();
-    lookupCache[requestBody.postcode] = fetchApi(requestBody);
+    lookupCache[postcode] = fetchApi(postcode, addressSlug);
   } else {
-    //need to delay the request
-    lookupCache[requestBody.postcode] = new Promise((resolve) => {
+    //Need to delay the request.
+    lookupCache[postcode] = new Promise((resolve) => {
       reqControl.timerID = setTimeout(
         () => {
           reqControl.timerID = null;
           reqControl.time = Date.now();
-          resolve(fetchApi(requestBody));
+          resolve(fetchApi(postcode, addressSlug));
         },
         reqControl.rateLimit - (Date.now() - reqControl.time),
       );
     });
   }
 
-  return lookupCache[requestBody.postcode];
+  return lookupCache[postcode];
 };
 
 type FormData = {
@@ -151,16 +155,12 @@ const PostcodeLookup = () => {
   }
 
   const lookupPostcode = async (
-    userPostcode: string,
+    postcode: string,
     addressSlug?: string,
   ): Promise<ConstituencyLookupResponse | null> => {
     setApiResponse(false);
 
-    const requestBody: ConstituencyLookupRequest = {
-      postcode: userPostcode,
-      addressSlug: addressSlug,
-    };
-    const responseJson = await throttledApi(requestBody);
+    const responseJson = await throttledApi(postcode, addressSlug);
 
     // The response postcode doesn't match the last one entered.
     if (responseJson?.postcode !== currentPostcode) {
