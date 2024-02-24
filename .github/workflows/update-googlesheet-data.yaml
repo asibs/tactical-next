@@ -20,7 +20,7 @@ jobs:
       # Look into changing the Google Action so we can download to a temp file instead
       # For now, can manually download a CSV from Google Sheet and convert using:
       # csvtojson constituencies.csv | jq > constituency.json
-      - uses: jroehl/gsheet.action@v2.1.1
+      - uses: https://github.com/asibs/gsheet.action?ref=as/add-output-file-option
         name: Download latest data from Google Sheets
         id: download_gsheets_data
         env:
@@ -38,12 +38,11 @@ jobs:
                 }
               }
             ]
+          outputFile: /tmp/gsheet_action_results.json
       - name: Write results
-        env:
-          RESULTS: ${{ steps.download_gsheets_data.outputs.results }}
         run: |
           # Write the results to the data file
-          echo "$RESULTS" | jq ".results[0].result.formatted" > data/constituency.json
+          echo /tmp/gsheet_action_results.json | jq ".results[0].result.formatted" > data/constituency.json
           # Add the updates to git
           git add data/constituency.json
       - name: Commit Changes and Create Pull Request
