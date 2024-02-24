@@ -42,6 +42,9 @@ jobs:
       - name: debug results
         run: |
           head /tmp/gsheet_action_results.json
+      - name: Cat full results
+        run: |
+          cat /tmp/gsheet_action_results.json
       - name: Write results
         run: |
           # Write the results to the data file
