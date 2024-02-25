@@ -45,7 +45,102 @@ jobs:
       - name: Write results
         run: |
           # Write the results to the data file
-          jq ".results[0].result.formatted" /tmp/gsheet_action_results.json > data/constituency.json
+          jq '.results[0].result.formatted | map({
+            constituencyIdentifiers: {
+              slug: ."STT Slug",
+              name: ."Name",
+              mySocietyCode: ."Short Code"
+            },
+            recommendation: {
+              partySlug: ."TV Advice",
+              reason: ."TV Explanation"
+            },
+            impliedPreviousResult: {
+              winningParty: ."Implied Vote Share: Winner",
+              biggestProgressiveParty: ."Implied Vote Share: Biggest Progressive Party",
+              partyVoteResults: [
+                {
+                  partySlug: "Con",
+                  votePercent: (."Implied Vote Share: Con" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Lab",
+                  votePercent: (."Implied Vote Share: Lab" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "LD",
+                  votePercent: (."Implied Vote Share: LD" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Green",
+                  votePercent: (."Implied Vote Share: Green" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Reform",
+                  votePercent: (."Implied Vote Share: Reform" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "SNP",
+                  votePercent: (."Implied Vote Share: SNP" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "PC",
+                  votePercent: (."Implied Vote Share: PC" | gsub("%"; "") | tonumber)
+                }
+              ]
+            },
+            pollingResults: {
+              winningParty: ."MRP Vote Share Winner",
+              biggestProgressiveParty: ."MRP Vote Share Biggest Progressive Party",
+              partyVoteResults: [
+                {
+                  partySlug: "Con",
+                  votePercent: (."MRP Vote Share Con" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Lab",
+                  votePercent: (."MRP Vote Share Lab" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "LD",
+                  votePercent: (."MRP Vote Share LD" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Green",
+                  votePercent: (."MRP Vote Share Green" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Reform",
+                  votePercent: (."MRP Vote Share Reform" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "SNP",
+                  votePercent: (."MRP Vote Share SNP" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "PC",
+                  votePercent: (."MRP Vote Share PC" | gsub("%"; "") | tonumber)
+                }
+              ]
+            },
+            otherVoteData: {
+              targetSeatData: [
+                {
+                  partySlug: "Lab",
+                  likelyTarget: (."Labour Non-Target" | (if . == "non-target" then "NO" else "UNKNOWN" end))
+                },
+                {
+                  partySlug: "LD",
+                  likelyTarget: (."Lib Dem Top 50 MRP" | (if . == "" then "NO" else "YES" end))
+                },
+                {
+                  partySlug: "Green",
+                  likelyTarget: (."Green Target" | (if . == "TRUE" then "YES" else "NO" end))
+                }
+              ],
+              conservativeWinUnlikely: (."Con Can'\''t Win" | (if . == "TRUE" then true else false end))
+            }
+          })' /tmp/gsheet_action_results.json > data/constituency.json
           # Add the updates to git
           git add data/constituency.json
       - name: Commit Changes and Create Pull Request
