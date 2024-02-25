@@ -21,7 +21,7 @@ import {
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 const errorCodeToErrorMessage = (code: ErrorCode) => {
   switch (code) {
@@ -46,8 +46,8 @@ const fetchApi = async (
     console.log("Making API call to constituency lookup route");
     const response = await fetch(
       "/api/constituency_lookup/" +
-        postcode +
-        (addressSlug ? "/" + addressSlug : ""),
+      postcode +
+      (addressSlug ? "/" + addressSlug : ""),
     );
 
     if (response.ok) {
@@ -77,7 +77,7 @@ const throttledApi = async (
   postcode: string,
   addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
-  //TODO handle address lookups in the cache
+  //TODO handle address lookups in the cache if/when we use DemoClub API
   if (lookupCache.hasOwnProperty(postcode)) {
     const cached = await lookupCache[postcode];
     if (cached) {
@@ -113,13 +113,15 @@ const throttledApi = async (
 
 type FormData = {
   emailOptIn: boolean;
-  addressSlug: string;
+  constituencyIndex: number | false;
+  addressIndex: number | false;
   email: string;
 };
 
 const initialFormState: FormData = {
   emailOptIn: false,
-  addressSlug: "",
+  constituencyIndex: false,
+  addressIndex: false,
   email: "",
 };
 
@@ -138,21 +140,36 @@ const PostcodeLookup = () => {
   >(null);
   const [error, setError] = useState<ErrorCode | null>(null);
 
-  const [validPostcode, setValidPostcode] = useState<boolean>(false);
-  const [lastValidPcode, setLastValidPcode] = useState<string>("");
-  const [constituencyIdx, setConstituencyIdx] = useState<number | false>(false);
+  const [lastValidPostcode, setLastValidPostcode] = useState<string>("");
 
+  const currentPostcodeUseRef = useRef("");
+
+  const lastSelectedConstituency = useMemo(() => {
+    if (
+      apiResponse &&
+      apiResponse.constituencies?.length > 0 &&
+      apiResponse.postcode == currentPostcodeUseRef.current &&
+      formState.constituencyIndex !== false
+    ) {
+      return apiResponse.constituencies[formState.constituencyIndex];
+    } else {
+      return null;
+    }
+  },
+    [apiResponse, formState.constituencyIndex]
+  )
   let userConstituency: Constituency | null = null;
 
   if (
     apiResponse &&
     apiResponse.constituencies &&
     apiResponse.constituencies.length != 0 &&
-    apiResponse.postcode == lastValidPcode &&
-    constituencyIdx !== false
+    apiResponse.postcode == lastValidPostcode &&
+    formState.constituencyIndex !== false
   ) {
-    userConstituency = apiResponse.constituencies[constituencyIdx];
+    userConstituency = apiResponse.constituencies[formState.constituencyIndex];
   }
+  console.log(`lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}], userConstituency: [${JSON.stringify(userConstituency)}]`)
 
   const lookupPostcode = async (
     postcode: string,
@@ -160,12 +177,31 @@ const PostcodeLookup = () => {
   ): Promise<ConstituencyLookupResponse | null> => {
     setApiResponse(false);
 
+    console.log("MAKING POSTCODE API CALL");
+    console.log(`currentPostcode [${currentPostcode}]`);
+    console.log(`currentPostcodeUseRef [${currentPostcodeUseRef.current}]`);
+    console.log(`postcode [${postcode}]`);
+    console.log(`lastValidPostcode [${lastValidPostcode}]`);
+
     const responseJson = await throttledApi(postcode, addressSlug);
 
     // The response postcode doesn't match the last one entered.
-    if (responseJson?.postcode !== currentPostcode) {
+    if (responseJson?.postcode !== currentPostcodeUseRef.current) {
+      console.log("CURRENT POSTCODE DOESN'T MATCH RESPONSE");
+      console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
+      console.log(`currentPostcode [${currentPostcode}]`);
+      console.log(`currentPostcodeUseRef [${currentPostcodeUseRef.current}]`);
+      console.log(`postcode [${postcode}]`);
+      console.log(`lastValidPostcode [${lastValidPostcode}]`);
       return null;
     }
+
+    console.log("CURRENT POSTCODE DOES MATCH RESPONSE - UPDATING");
+    console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
+    console.log(`currentPostcode [${currentPostcode}]`);
+    console.log(`currentPostcodeUseRef [${currentPostcodeUseRef.current}]`);
+    console.log(`postcode [${postcode}]`);
+    console.log(`lastValidPostcode [${lastValidPostcode}]`);
 
     if (responseJson === null) {
       //TODO set a server error
@@ -173,9 +209,9 @@ const PostcodeLookup = () => {
       setApiResponse(responseJson);
 
       if (responseJson.constituencies.length == 1) {
-        setConstituencyIdx(0);
+        setFormState({ ...formState, constituencyIndex: 0 });
       } else {
-        setConstituencyIdx(false);
+        setFormState({ ...formState, constituencyIndex: false });
       }
       setError(responseJson.errorCode || null);
     }
@@ -189,15 +225,15 @@ const PostcodeLookup = () => {
     const normalizedPostcode = normalizePostcode(userPostcode);
 
     if (!validatePostcode.test(normalizedPostcode)) {
-      setValidPostcode(false);
       return;
     } else {
-      setValidPostcode(true);
+      // setLastValidPostcode(normalizedPostcode);
     }
     currentPostcode = normalizedPostcode;
+    currentPostcodeUseRef.current = normalizedPostcode;
 
-    if (normalizedPostcode != lastValidPcode) {
-      setLastValidPcode(normalizedPostcode);
+    if (normalizedPostcode != lastValidPostcode) {
+      setLastValidPostcode(normalizedPostcode);
     }
 
     // If the postcode looks valid, and it's not the same as the last postcode we looked
@@ -208,16 +244,16 @@ const PostcodeLookup = () => {
 
   const submitForm = async () => {
     console.log("Submitting form");
-    if (userConstituency) {
-      router.push(`/constituencies/${userConstituency.slug}`);
+    if (lastSelectedConstituency) {
+      router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       return;
     }
 
     // VALIDATION
     // no postcode or invalid postcode
     if (
-      !lastValidPcode ||
-      !validatePostcode.test(lastValidPcode) ||
+      !lastValidPostcode ||
+      !validatePostcode.test(lastValidPostcode) ||
       !apiResponse ||
       !apiResponse.constituencies ||
       apiResponse.constituencies.length == 0
@@ -228,7 +264,7 @@ const PostcodeLookup = () => {
     }
 
     //not selected constituency or address
-    if (apiResponse.constituencies.length > 1 && !constituencyIdx) {
+    if (apiResponse.constituencies.length > 1 && !formState.constituencyIndex) {
       //TODO: Set error for unclear constituency
     }
 
@@ -254,15 +290,15 @@ const PostcodeLookup = () => {
             placeholder="Your Postcode"
             pattern={postcodeInputPattern}
             onChange={(e) => postcodeChanged(e.target.value)}
-            className={`my-3" ${validPostcode ? "" : "text-black-50"}`}
+            className="invalid-text-greyed"
           />
-          {userConstituency && (
+          {lastSelectedConstituency && (
             <InputGroup.Text>
-              {!userConstituency?.name
+              {!lastSelectedConstituency?.name
                 ? ""
-                : userConstituency.name.length < 31
-                ? userConstituency.name
-                : userConstituency.name.substring(0, 27) + "..."}
+                : lastSelectedConstituency.name.length < 31
+                  ? lastSelectedConstituency.name
+                  : lastSelectedConstituency.name.substring(0, 27) + "..."}
             </InputGroup.Text>
           )}
         </InputGroup>
@@ -282,7 +318,10 @@ const PostcodeLookup = () => {
               name="constituency"
               size="lg"
               defaultValue=""
-              onChange={(e) => setConstituencyIdx(parseInt(e.target.value))}
+              onChange={(e) => setFormState({
+                ...formState,
+                constituencyIndex: parseInt(e.target.value),
+              })}
             >
               <option selected disabled value="" style={{ display: "none" }}>
                 Select Constituency
@@ -333,7 +372,7 @@ const PostcodeLookup = () => {
                 onChange={(e) =>
                   setFormState({ ...formState, email: e.target.value })
                 }
-                className="my-2"
+                className="my-2 invalid-text-greyed"
               />
               <p style={{ fontSize: "0.75em" }}>
                 We store your email address, postcode, and constituency, so we
@@ -350,8 +389,8 @@ const PostcodeLookup = () => {
               variant="light"
               size="lg"
               type="submit"
-              disabled={!userConstituency}
-              aria-disabled={!userConstituency}
+              disabled={!lastSelectedConstituency}
+              aria-disabled={!lastSelectedConstituency}
             >
               {apiResponse === false && (
                 <>
@@ -383,7 +422,7 @@ const PostcodeLookup = () => {
           </Col>
         </Row>
       </Form>
-    </Container>
+    </Container >
   );
 };
 
