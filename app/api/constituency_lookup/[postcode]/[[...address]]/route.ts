@@ -14,10 +14,11 @@ const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
 // TODO: Handle errors and return appropriate errorMessage useful for debugging...!
-export async function GET(request: NextRequest, { params }: { params: { postcode: string, address: string[] } }) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { postcode: string; address?: string[] } },
+) {
   console.log("IN SERVER FUNCTION");
-  const postcode = params.postcode;
-  const addressSlug = params.address?.[0];
 
   // console.log("***** FILES IN DATA DIRECTORY *****");
   // fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
@@ -25,13 +26,13 @@ export async function GET(request: NextRequest, { params }: { params: { postcode
   // });
 
   //read & normalize postcode
-  const normalizedPostcode = normalizePostcode(postcode);
+  const normalizedPostcode = normalizePostcode(params.postcode);
 
   //validate the postcode
   if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
-    console.log(`Postcode ${postcode} is not valid!`);
+    console.log(`Postcode ${params.postcode} is not valid!`);
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
+      postcode: params.postcode,
       constituencies: [],
       errorCode: "POSTCODE_INVALID",
     };
@@ -66,8 +67,8 @@ export async function GET(request: NextRequest, { params }: { params: { postcode
   if (!constituencies || constituencies.length == 0) {
     console.log(`Postcode ${normalizedPostcode} not found in DB!`);
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
-      addressSlug: addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: [],
       errorCode: "POSTCODE_NOT_FOUND",
     };
@@ -77,8 +78,8 @@ export async function GET(request: NextRequest, { params }: { params: { postcode
   if (constituencies.length == 1) {
     console.log(`Single constituency found for postcode ${normalizedPostcode}`);
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
-      addressSlug: addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
     return NextResponse.json(response);
@@ -89,8 +90,8 @@ export async function GET(request: NextRequest, { params }: { params: { postcode
       `Multiple constituencies found for postcode ${normalizedPostcode}`,
     );
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
-      addressSlug: addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
     return NextResponse.json(response);
