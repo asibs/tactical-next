@@ -125,8 +125,6 @@ const initialFormState: FormData = {
   email: "",
 };
 
-let currentPostcode = "";
-
 const PostcodeLookup = () => {
   const router = useRouter();
 
@@ -142,13 +140,13 @@ const PostcodeLookup = () => {
 
   const [lastValidPostcode, setLastValidPostcode] = useState<string>("");
 
-  const currentPostcodeUseRef = useRef("");
+  const currentPostcode = useRef("");
 
   const lastSelectedConstituency = useMemo(() => {
     if (
       apiResponse &&
       apiResponse.constituencies?.length > 0 &&
-      apiResponse.postcode == currentPostcodeUseRef.current &&
+      apiResponse.postcode == currentPostcode.current &&
       formState.constituencyIndex !== false
     ) {
       return apiResponse.constituencies[formState.constituencyIndex];
@@ -157,19 +155,8 @@ const PostcodeLookup = () => {
     }
   },
     [apiResponse, formState.constituencyIndex]
-  )
-  let userConstituency: Constituency | null = null;
-
-  if (
-    apiResponse &&
-    apiResponse.constituencies &&
-    apiResponse.constituencies.length != 0 &&
-    apiResponse.postcode == lastValidPostcode &&
-    formState.constituencyIndex !== false
-  ) {
-    userConstituency = apiResponse.constituencies[formState.constituencyIndex];
-  }
-  console.log(`lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}], userConstituency: [${JSON.stringify(userConstituency)}]`)
+  );
+  console.log(`lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}]`);
 
   const lookupPostcode = async (
     postcode: string,
@@ -178,19 +165,17 @@ const PostcodeLookup = () => {
     setApiResponse(false);
 
     console.log("MAKING POSTCODE API CALL");
-    console.log(`currentPostcode [${currentPostcode}]`);
-    console.log(`currentPostcodeUseRef [${currentPostcodeUseRef.current}]`);
+    console.log(`currentPostcode [${currentPostcode.current}]`);
     console.log(`postcode [${postcode}]`);
     console.log(`lastValidPostcode [${lastValidPostcode}]`);
 
     const responseJson = await throttledApi(postcode, addressSlug);
 
     // The response postcode doesn't match the last one entered.
-    if (responseJson?.postcode !== currentPostcodeUseRef.current) {
+    if (responseJson?.postcode !== currentPostcode.current) {
       console.log("CURRENT POSTCODE DOESN'T MATCH RESPONSE");
       console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
-      console.log(`currentPostcode [${currentPostcode}]`);
-      console.log(`currentPostcodeUseRef [${currentPostcodeUseRef.current}]`);
+      console.log(`currentPostcode [${currentPostcode.current}]`);
       console.log(`postcode [${postcode}]`);
       console.log(`lastValidPostcode [${lastValidPostcode}]`);
       return null;
@@ -198,8 +183,7 @@ const PostcodeLookup = () => {
 
     console.log("CURRENT POSTCODE DOES MATCH RESPONSE - UPDATING");
     console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
-    console.log(`currentPostcode [${currentPostcode}]`);
-    console.log(`currentPostcodeUseRef [${currentPostcodeUseRef.current}]`);
+    console.log(`currentPostcode [${currentPostcode.current}]`);
     console.log(`postcode [${postcode}]`);
     console.log(`lastValidPostcode [${lastValidPostcode}]`);
 
@@ -227,14 +211,9 @@ const PostcodeLookup = () => {
     if (!validatePostcode.test(normalizedPostcode)) {
       return;
     } else {
-      // setLastValidPostcode(normalizedPostcode);
-    }
-    currentPostcode = normalizedPostcode;
-    currentPostcodeUseRef.current = normalizedPostcode;
-
-    if (normalizedPostcode != lastValidPostcode) {
       setLastValidPostcode(normalizedPostcode);
     }
+    currentPostcode.current = normalizedPostcode;
 
     // If the postcode looks valid, and it's not the same as the last postcode we looked
     // up in the API, pre-load the results so we can imediately show the constituency /
