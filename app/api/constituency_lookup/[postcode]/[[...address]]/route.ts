@@ -19,6 +19,13 @@ export async function GET(
   { params }: { params: { postcode: string; address?: string[] } },
 ) {
   console.log("IN SERVER FUNCTION");
+
+  // Throw errors some of the time.
+  //if ( Date.now() % 3 < 1) {
+  //  console.log("400 ERROR RESPONSE");
+  //  return new NextResponse("Error", { status: 400 })
+  //}
+
   function sleep(ms: number) {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
@@ -27,9 +34,6 @@ export async function GET(
   console.log(`${new Date().toLocaleString()} - SLEEPING`);
   await sleep(5000);
   console.log(`${new Date().toLocaleString()} - FINISHED SLEEPING`);
-
-  const postcode = params.postcode;
-  const addressSlug = params.address?.[0];
 
   // console.log("***** FILES IN DATA DIRECTORY *****");
   // fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {

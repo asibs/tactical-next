@@ -35,7 +35,7 @@ const errorCodeToErrorMessage = (code: ErrorCode) => {
 };
 
 const lookupCache: {
-  [key: string]: Promise<ConstituencyLookupResponse | null>;
+  [key: string]: Promise<ConstituencyLookupResponse | null> | null;
 } = {};
 
 const fetchApi = async (
@@ -51,8 +51,10 @@ const fetchApi = async (
     );
 
     if (response.ok) {
+      console.log("response OK");
       return response.json();
     } else {
+      console.log("response not ok");
       return null;
     }
   } catch {
@@ -64,12 +66,14 @@ type ReqControl = {
   time: number;
   timerID: ReturnType<typeof setTimeout> | null;
   rateLimit: number;
+  lastLookup: string | null;
 };
 
 const reqControl: ReqControl = {
   time: 0,
   timerID: null,
-  rateLimit: 3000,
+  lastLookup: null,
+  rateLimit: 7000,
 };
 
 // throttled apiFetch
@@ -77,6 +81,8 @@ const throttledApi = async (
   postcode: string,
   addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
+  console.log("Throttled API request");
+
   //TODO handle address lookups in the cache if/when we use DemoClub API
   if (lookupCache.hasOwnProperty(postcode)) {
     const cached = await lookupCache[postcode];
@@ -86,9 +92,14 @@ const throttledApi = async (
   }
 
   // Cancel existing delayed request
-  if (reqControl.timerID) {
+  if (reqControl.timerID && reqControl.lastLookup) {
     clearTimeout(reqControl.timerID);
+    console.log("Cancelled a lookup", reqControl.lastLookup);
+    lookupCache[reqControl.lastLookup] = null;
   }
+
+  // TODO handle address lookups in the cache.
+  reqControl.lastLookup = postcode;
 
   if (reqControl.time + reqControl.rateLimit < Date.now()) {
     //Last request was more than rate limit ago.
@@ -97,13 +108,26 @@ const throttledApi = async (
   } else {
     //Need to delay the request.
     lookupCache[postcode] = new Promise((resolve) => {
+      let cancelled: boolean = true;
       reqControl.timerID = setTimeout(
         () => {
+          cancelled = false;
           reqControl.timerID = null;
           reqControl.time = Date.now();
           resolve(fetchApi(postcode, addressSlug));
         },
         reqControl.rateLimit - (Date.now() - reqControl.time),
+      );
+      // If a request is cancelled we still need to resovle the promise.
+      setTimeout(
+        () => {
+          console.log("Checking for cancelled request:", cancelled);
+          if (cancelled == true) {
+            console.log("request has been cancelled resolving promise");
+            resolve(null);
+          }
+        },
+        reqControl.rateLimit + 100 - (Date.now() - reqControl.time),
       );
     });
   }
@@ -138,15 +162,13 @@ const PostcodeLookup = () => {
   >(null);
   const [error, setError] = useState<ErrorCode | null>(null);
 
-  const [lastValidPostcode, setLastValidPostcode] = useState<string>("");
-
-  const currentPostcode = useRef("");
+  const validPostcode = useRef("");
 
   const lastSelectedConstituency = useMemo(() => {
     if (
       apiResponse &&
       apiResponse.constituencies?.length > 0 &&
-      apiResponse.postcode == currentPostcode.current &&
+      apiResponse.postcode == validPostcode.current &&
       formState.constituencyIndex !== false
     ) {
       return apiResponse.constituencies[formState.constituencyIndex];
@@ -158,67 +180,79 @@ const PostcodeLookup = () => {
     `lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}]`,
   );
 
-  const lookupPostcode = async (
+  const lookupConstituency = async (
     postcode: string,
     addressSlug?: string,
   ): Promise<ConstituencyLookupResponse | null> => {
     setApiResponse(false);
+    setError(null);
 
-    console.log("MAKING POSTCODE API CALL");
-    console.log(`currentPostcode [${currentPostcode.current}]`);
-    console.log(`postcode [${postcode}]`);
-    console.log(`lastValidPostcode [${lastValidPostcode}]`);
+    console.log("MAKING POSTCODE API CALL:");
+    console.log(`request postcode [${postcode}]`);
+    console.log(`current validPostcode [${validPostcode.current}]`);
 
     const responseJson = await throttledApi(postcode, addressSlug);
 
-    // The response postcode doesn't match the last one entered.
-    if (responseJson?.postcode !== currentPostcode.current) {
-      console.log("CURRENT POSTCODE DOESN'T MATCH RESPONSE");
-      console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
-      console.log(`currentPostcode [${currentPostcode.current}]`);
-      console.log(`postcode [${postcode}]`);
-      console.log(`lastValidPostcode [${lastValidPostcode}]`);
+    console.log("API CALL RESPONSE:");
+    console.log(`request postcode [${postcode}]`);
+    console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
+    console.log(`current validPostcode [${validPostcode.current}]`);
+
+    if (postcode != validPostcode.current) {
+      //This request no longer mathes the most recent.
       return null;
     }
 
-    console.log("CURRENT POSTCODE DOES MATCH RESPONSE - UPDATING");
-    console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
-    console.log(`currentPostcode [${currentPostcode.current}]`);
-    console.log(`postcode [${postcode}]`);
-    console.log(`lastValidPostcode [${lastValidPostcode}]`);
+    if (responseJson == null) {
+      console.log("SERVER ERROR");
+      // a server error for the most recent lookup!
+      // TODO update the UI to communicate server error
+      setApiResponse(null); // clear the spinner
+      return null;
+    }
 
-    if (responseJson === null) {
-      //TODO set a server error
+    // The response postcode doesn't match the last one entered.
+    if (responseJson.postcode !== postcode) {
+      //The server has responded with a different postcode
+      //to the one we sent it!
+      console.log("THIS SHOULD NEVER HAPPEN!");
+
+      // TODO update the UI to communicate server error
+      setApiResponse(false); // clear the spinner
+      return null;
+    }
+
+    console.log("RESPONSE MATCHES CURRENT - UPDATING");
+
+    setApiResponse(responseJson);
+    setError(responseJson.errorCode || null);
+
+    if (responseJson.constituencies.length == 1) {
+      setFormState({ ...formState, constituencyIndex: 0 });
     } else {
-      setApiResponse(responseJson);
-
-      if (responseJson.constituencies.length == 1) {
-        setFormState({ ...formState, constituencyIndex: 0 });
-      } else {
-        setFormState({ ...formState, constituencyIndex: false });
-      }
-      setError(responseJson.errorCode || null);
+      setFormState({ ...formState, constituencyIndex: false });
     }
 
     return responseJson;
   };
 
   const postcodeChanged = async (userPostcode: string) => {
-    // Update the stored / displayed postcode
-
     const normalizedPostcode = normalizePostcode(userPostcode);
 
-    if (!validatePostcode.test(normalizedPostcode)) {
+    if (
+      validPostcode.current == normalizedPostcode &&
+      apiResponse &&
+      apiResponse.postcode == normalizedPostcode
+    ) {
+      //We're already displaying the response for this postcode!
       return;
-    } else {
-      setLastValidPostcode(normalizedPostcode);
     }
-    currentPostcode.current = normalizedPostcode;
 
-    // If the postcode looks valid, and it's not the same as the last postcode we looked
-    // up in the API, pre-load the results so we can imediately show the constituency /
-    // address drop-down if necessary.
-    await lookupPostcode(normalizedPostcode);
+    // If the entered postcode is valid look store it and look it up.
+    if (validatePostcode.test(normalizedPostcode)) {
+      validPostcode.current = normalizedPostcode;
+      await lookupConstituency(normalizedPostcode);
+    }
   };
 
   const submitForm = async () => {
@@ -231,8 +265,7 @@ const PostcodeLookup = () => {
     // VALIDATION
     // no postcode or invalid postcode
     if (
-      !lastValidPostcode ||
-      !validatePostcode.test(lastValidPostcode) ||
+      !validPostcode.current ||
       !apiResponse ||
       !apiResponse.constituencies ||
       apiResponse.constituencies.length == 0
