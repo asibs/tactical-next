@@ -59,31 +59,31 @@ jobs:
               partyVoteResults: [
                 {
                   partySlug: "Con",
-                  votePercent: ."Implied Vote Share: Con"
+                  votePercent: (."Implied Vote Share: Con" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "Lab",
-                  votePercent: ."Implied Vote Share: Lab"
+                  votePercent: (."Implied Vote Share: Lab" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "LD",
-                  votePercent: ."Implied Vote Share: LD"
+                  votePercent: (."Implied Vote Share: LD" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "Green",
-                  votePercent: ."Implied Vote Share: Green"
+                  votePercent: (."Implied Vote Share: Green" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "Reform",
-                  votePercent: ."Implied Vote Share: Reform"
+                  votePercent: (."Implied Vote Share: Reform" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "SNP",
-                  votePercent: ."Implied Vote Share: SNP"
+                  votePercent: (."Implied Vote Share: SNP" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "PC",
-                  votePercent: ."Implied Vote Share: PC"
+                  votePercent: (."Implied Vote Share: PC" | gsub("%"; "") | tonumber)
                 }
               ]
             },
@@ -91,31 +91,31 @@ jobs:
               partyVoteResults: [
                 {
                   partySlug: "Con",
-                  votePercent: ."MRP Vote Share Con"
+                  votePercent: (."MRP Vote Share Con" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "Lab",
-                  votePercent: ."MRP Vote Share Lab"
+                  votePercent: (."MRP Vote Share Lab" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "LD",
-                  votePercent: ."MRP Vote Share LD"
+                  votePercent: (."MRP Vote Share LD" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "Green",
-                  votePercent: ."MRP Vote Share Green"
+                  votePercent: (."MRP Vote Share Green" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "Reform",
-                  votePercent: ."MRP Vote Share Reform"
+                  votePercent: (."MRP Vote Share Reform" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "SNP",
-                  votePercent: ."MRP Vote Share SNP"
+                  votePercent: (."MRP Vote Share SNP" | gsub("%"; "") | tonumber)
                 },
                 {
                   partySlug: "PC",
-                  votePercent: ."MRP Vote Share PC"
+                  votePercent: (."MRP Vote Share PC" | gsub("%"; "") | tonumber)
                 }
               ]
             }
