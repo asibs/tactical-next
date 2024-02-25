@@ -51,10 +51,8 @@ const fetchApi = async (
     );
 
     if (response.ok) {
-      console.log("response OK");
       return response.json();
     } else {
-      console.log("response not ok");
       return null;
     }
   } catch {
@@ -73,7 +71,7 @@ const reqControl: ReqControl = {
   time: 0,
   timerID: null,
   lastLookup: null,
-  rateLimit: 7000,
+  rateLimit: 3000,
 };
 
 // throttled apiFetch
@@ -81,8 +79,6 @@ const throttledApi = async (
   postcode: string,
   addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
-  console.log("Throttled API request");
-
   //TODO handle address lookups in the cache if/when we use DemoClub API
   if (lookupCache.hasOwnProperty(postcode)) {
     const cached = await lookupCache[postcode];
@@ -121,9 +117,7 @@ const throttledApi = async (
       // If a request is cancelled we still need to resovle the promise.
       setTimeout(
         () => {
-          console.log("Checking for cancelled request:", cancelled);
           if (cancelled == true) {
-            console.log("request has been cancelled resolving promise");
             resolve(null);
           }
         },
@@ -176,9 +170,6 @@ const PostcodeLookup = () => {
       return null;
     }
   }, [apiResponse, formState.constituencyIndex]);
-  console.log(
-    `lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}]`,
-  );
 
   const lookupConstituency = async (
     postcode: string,
@@ -187,16 +178,7 @@ const PostcodeLookup = () => {
     setApiResponse(false);
     setError(null);
 
-    console.log("MAKING POSTCODE API CALL:");
-    console.log(`request postcode [${postcode}]`);
-    console.log(`current validPostcode [${validPostcode.current}]`);
-
     const responseJson = await throttledApi(postcode, addressSlug);
-
-    console.log("API CALL RESPONSE:");
-    console.log(`request postcode [${postcode}]`);
-    console.log(`responseJson?.postcode [${responseJson?.postcode}]`);
-    console.log(`current validPostcode [${validPostcode.current}]`);
 
     if (postcode != validPostcode.current) {
       //This request no longer mathes the most recent.
@@ -221,8 +203,6 @@ const PostcodeLookup = () => {
       setApiResponse(false); // clear the spinner
       return null;
     }
-
-    console.log("RESPONSE MATCHES CURRENT - UPDATING");
 
     setApiResponse(responseJson);
     setError(responseJson.errorCode || null);
@@ -256,8 +236,9 @@ const PostcodeLookup = () => {
   };
 
   const submitForm = async () => {
-    console.log("Submitting form");
     if (lastSelectedConstituency) {
+      // TODO: Validate email & submit to AN form to subscribe them.
+      // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
       router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       return;
     }
@@ -279,9 +260,6 @@ const PostcodeLookup = () => {
     if (apiResponse.constituencies.length > 1 && !formState.constituencyIndex) {
       //TODO: Set error for unclear constituency
     }
-
-    // TODO: Validate email if emailOptIn is set
-    // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
   };
 
   return (

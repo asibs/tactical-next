@@ -20,21 +20,6 @@ export async function GET(
 ) {
   console.log("IN SERVER FUNCTION");
 
-  // Throw errors some of the time.
-  //if ( Date.now() % 3 < 1) {
-  //  console.log("400 ERROR RESPONSE");
-  //  return new NextResponse("Error", { status: 400 })
-  //}
-
-  function sleep(ms: number) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  }
-  console.log(`${new Date().toLocaleString()} - SLEEPING`);
-  await sleep(5000);
-  console.log(`${new Date().toLocaleString()} - FINISHED SLEEPING`);
-
   // console.log("***** FILES IN DATA DIRECTORY *****");
   // fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
   //   console.log(`- ${file}`);
