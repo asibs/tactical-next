@@ -3,7 +3,7 @@ type ConstituencyData = {
   recommendation: Recommendation;
   impliedPreviousResult: VoteResult;
   pollingResults: VoteResult;
-}
+};
 
 type ConstituencyIdentifiers = {
   slug: string;
@@ -14,13 +14,13 @@ type ConstituencyIdentifiers = {
 type Recommendation = {
   partySlug: string;
   reason: string;
-}
+};
 
 type VoteResult = {
   partyVoteResults: VoteResult[];
-}
+};
 
 type PartyVoteResult = {
   partySlug: string;
   votePercent: number;
-}
+};
