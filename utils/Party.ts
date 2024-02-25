@@ -17,7 +17,7 @@ const partyNameFromSlug = (slug: string) => {
     default:
       "Other";
   }
-}
+};
 
 const partyCssClassFromSlug = (slug: string) => {
   // TODO: Styles for SNP/Plaid (and Reform?)
@@ -39,9 +39,6 @@ const partyCssClassFromSlug = (slug: string) => {
     default:
       "";
   }
-}
-
-export {
-  partyNameFromSlug,
-  partyCssClassFromSlug,
 };
+
+export { partyNameFromSlug, partyCssClassFromSlug };

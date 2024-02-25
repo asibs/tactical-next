@@ -84,9 +84,15 @@ export default async function ConstituencyPage({
                 <Row>
                   <Col>
                     <h3
-                      className={`${rubik.className} party ${partyCssClassFromSlug(constituencyData.recommendation.partySlug)}`}
+                      className={`${
+                        rubik.className
+                      } party ${partyCssClassFromSlug(
+                        constituencyData.recommendation.partySlug,
+                      )}`}
                     >
-                      {partyNameFromSlug(constituencyData.recommendation.partySlug)}
+                      {partyNameFromSlug(
+                        constituencyData.recommendation.partySlug,
+                      )}
                     </h3>
                   </Col>
                 </Row>
@@ -113,17 +119,14 @@ export default async function ConstituencyPage({
           <p>{JSON.stringify(constituencyData)}</p>
           */}
         </>
-      )
-      }
+      )}
 
-      {
-        !constituencyData && (
-          <>
-            <h1>{params.slug}</h1>
-            <p>No data found for this constituency!</p>
-          </>
-        )
-      }
+      {!constituencyData && (
+        <>
+          <h1>{params.slug}</h1>
+          <p>No data found for this constituency!</p>
+        </>
+      )}
     </>
   );
 }

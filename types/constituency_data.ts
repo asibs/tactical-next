@@ -44,7 +44,7 @@ type PartyVoteResult = {
 type OtherVoteData = {
   targetSeatData: TargetSeat[];
   conservativeWinUnlikely: boolean;
-}
+};
 
 // Whether this is a target seat for the given party
 type TargetSeat = {
