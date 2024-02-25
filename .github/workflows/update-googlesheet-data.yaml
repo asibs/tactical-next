@@ -45,18 +45,81 @@ jobs:
       - name: Write results
         run: |
           # Write the results to the data file
-          # TODO: Improve the format by actually mapping to nice JSON, eg:
-          # jq ".results[0].result.formatted | map({
-          #   constituency: {
-          #     slug: .constituencySlug,
-          #     name: .constituencyName,
-          #     mySocietyCode: .constituencyMySocietyCode
-          #   },
-          #   recommendation: {
-          #     partyName: .recommendedPartyName
-          #   }
-          # })" sample_output.json
-          jq ".results[0].result.formatted" /tmp/gsheet_action_results.json > data/constituency.json
+          jq '.results[0].result.formatted | map({
+            constituencyIdentifiers: {
+              slug: ."STT Slug",
+              name: ."Name",
+              mySocietyCode: ."Short Code"
+            },
+            recommendation: {
+              partySlug: ."TV Advice",
+              reason: ."TV Explanation"
+            },
+            impliedPreviousResult: {
+              partyVoteResults: [
+                {
+                  partySlug: "Con",
+                  votePercent: ."Implied Vote Share: Con"
+                },
+                {
+                  partySlug: "Lab",
+                  votePercent: ."Implied Vote Share: Lab"
+                },
+                {
+                  partySlug: "LD",
+                  votePercent: ."Implied Vote Share: LD"
+                },
+                {
+                  partySlug: "Green",
+                  votePercent: ."Implied Vote Share: Green"
+                },
+                {
+                  partySlug: "Reform",
+                  votePercent: ."Implied Vote Share: Reform"
+                },
+                {
+                  partySlug: "SNP",
+                  votePercent: ."Implied Vote Share: SNP"
+                },
+                {
+                  partySlug: "PC",
+                  votePercent: ."Implied Vote Share: PC"
+                }
+              ]
+            },
+            pollingResults: {
+              partyVoteResults: [
+                {
+                  partySlug: "Con",
+                  votePercent: ."MRP Vote Share Con"
+                },
+                {
+                  partySlug: "Lab",
+                  votePercent: ."MRP Vote Share Lab"
+                },
+                {
+                  partySlug: "LD",
+                  votePercent: ."MRP Vote Share LD"
+                },
+                {
+                  partySlug: "Green",
+                  votePercent: ."MRP Vote Share Green"
+                },
+                {
+                  partySlug: "Reform",
+                  votePercent: ."MRP Vote Share Reform"
+                },
+                {
+                  partySlug: "SNP",
+                  votePercent: ."MRP Vote Share SNP"
+                },
+                {
+                  partySlug: "PC",
+                  votePercent: ."MRP Vote Share PC"
+                }
+              ]
+            }
+          })' /tmp/gsheet_action_results.json > data/constituency.json
           # Add the updates to git
           git add data/constituency.json
       - name: Commit Changes and Create Pull Request

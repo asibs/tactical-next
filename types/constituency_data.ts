@@ -2,7 +2,7 @@ type ConstituencyData = {
   constituencyIdentifiers: ConstituencyIdentifiers;
   recommendation: Recommendation;
   impliedPreviousResult: VoteResult;
-  expectedPollsResult: VoteResult;
+  pollingResults: VoteResult;
 }
 
 type ConstituencyIdentifiers = {
