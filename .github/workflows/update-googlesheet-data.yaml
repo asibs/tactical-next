@@ -124,7 +124,20 @@ jobs:
               ]
             },
             otherVoteData: {
-              targetSeatData: [],
+              targetSeatData: [
+                {
+                  partySlug: "Lab",
+                  likelyTarget: (."Labour Non-Target" | (if . == "non-target" then "NO" else "UNKNOWN" end))
+                },
+                {
+                  partySlug: "LD",
+                  likelyTarget: (."Lib Dem Top 50 MRP" | (if . == "" then "YES" else "NO" end))
+                },
+                {
+                  partySlug: "Green",
+                  likelyTarget: (."Green Target" | (if . == "TRUE" then "YES" else "NO" end))
+                }
+              ],
               conservativeWinUnlikely: (."Con Can'\''t Win" | (if . == "TRUE" then true else false end))
             }
           })' /tmp/gsheet_action_results.json > data/constituency.json
