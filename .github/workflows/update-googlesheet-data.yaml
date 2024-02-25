@@ -131,7 +131,7 @@ jobs:
                 },
                 {
                   partySlug: "LD",
-                  likelyTarget: (."Lib Dem Top 50 MRP" | (if . == "" then "YES" else "NO" end))
+                  likelyTarget: (."Lib Dem Top 50 MRP" | (if . == "" then "NO" else "YES" end))
                 },
                 {
                   partySlug: "Green",
