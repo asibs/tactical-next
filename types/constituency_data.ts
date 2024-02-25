@@ -4,6 +4,7 @@ type ConstituencyData = {
   recommendation: Recommendation;
   impliedPreviousResult: VoteResult;
   pollingResults: VoteResult;
+  otherVoteData: OtherVoteData;
 };
 
 // Strings used to identify constituencies
@@ -26,7 +27,9 @@ type Recommendation = {
 // - Predicted - polling carried out gives us an indicative idea of the result of an upcoming
 //   election
 type VoteResult = {
-  partyVoteResults: VoteResult[];
+  winningParty: string;
+  biggestProgressiveParty: string;
+  partyVoteResults: PartyVoteResult[];
   // In future we may want to add other data like turnout
 };
 
@@ -35,4 +38,16 @@ type PartyVoteResult = {
   partySlug: string;
   votePercent: number;
   // In future we might want to add other data like actual vote count, candidate name(s), etc
+};
+
+// Any other data we use in the tactical vote calculation
+type OtherVoteData = {
+  targetSeatData: TargetSeat[];
+  conservativeWinUnlikely: boolean;
+}
+
+// Whether this is a target seat for the given party
+type TargetSeat = {
+  partySlug: string;
+  likelyTarget: "YES" | "NO" | "UNKNOWN";
 };

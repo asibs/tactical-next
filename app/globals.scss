@@ -90,11 +90,19 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 
 /* GLOBAL DEFAULT STYLES */
 
+/* TYPOGRAPHY */
+body {
+  font-size: 18px;
+}
+
+html, body {
+  background-color: var(--bs-gray-300);
+}
+
 // Header
 header {
   background-color: var(--bs-black);
   color: var(--bs-white);
-  font-size: 18px;
 }
 
 header h1 {
@@ -252,4 +260,24 @@ div.party-conservative {
     padding-top: 6rem !important;
     padding-bottom: 6rem !important;
   }
+}
+
+/* SECTIONS */
+section {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.section-light {
+  background-color: var(--bs-gray-200);
+  /*box-shadow: inset 0px -1px 0px 0px var(--bs-gray-300);*/
+  border-top: 2px solid var(--bs-gray-100);
+  border-bottom: 2px solid var(--bs-gray-400);
+}
+
+.section-dark {
+  background-color: var(--bs-gray-800);
+  /*box-shadow: inset 0px -2px 0px 0px var(--bs-gray-900);*/
+  border-top: 2px solid var(--bs-gray-700);
+  border-bottom: 2px solid var(--bs-gray-900);
 }

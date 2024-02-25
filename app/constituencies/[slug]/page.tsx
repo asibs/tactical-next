@@ -1,5 +1,9 @@
 import Header from "@/components/Header";
+import LocalTeamBox from "@/components/info_box/LocalTeamBox";
+import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
+import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { rubik } from "@/utils/Fonts";
+import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 import { readFileSync } from "fs";
 import { unstable_cache } from "next/cache";
 import getConfig from "next/config";
@@ -32,7 +36,7 @@ export async function generateStaticParams() {
   // TODO: Get constituencies from cached spreadsheet data
   // const constituencies = ["isle-of-wight-west", "isle-of-wight-east"];
 
-  const constituenciesData = await getConstituencyData();
+  const constituenciesData: ConstituencyData[] = await getConstituencyData();
 
   return constituenciesData.map((c: any) => ({
     slug: c["constituencySlug"],
@@ -46,9 +50,9 @@ export default async function ConstituencyPage({
 }: {
   params: { slug: string };
 }) {
-  const constituenciesData = await getConstituencyData();
+  const constituenciesData: ConstituencyData[] = await getConstituencyData();
   const constituencyData = constituenciesData.filter(
-    (c: any) => c["constituencySlug"] === params.slug,
+    (c: any) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
 
   return (
@@ -58,7 +62,7 @@ export default async function ConstituencyPage({
           <Header backgroundImage="FESTIVAL_CROWD">
             <Container className="py-4 py-md-6">
               <h1 className={rubik.className}>
-                {constituencyData["constituencyName"]}
+                {constituencyData.constituencyIdentifiers.name}
               </h1>
               <p>
                 Bookmark this page and check back before the election for
@@ -80,10 +84,22 @@ export default async function ConstituencyPage({
                 <Row>
                   <Col>
                     <h3
-                      className={`${rubik.className} party party-${constituencyData["recommendedPartySlug"]}`}
+                      className={`${rubik.className} party ${partyCssClassFromSlug(constituencyData.recommendation.partySlug)}`}
                     >
-                      {constituencyData["recommendedPartyName"]}
+                      {partyNameFromSlug(constituencyData.recommendation.partySlug)}
                     </h3>
+                  </Col>
+                </Row>
+
+                <Row xs={1} lg={3}>
+                  <Col md={7}>
+                    <TacticalReasoningBox constituencyData={constituencyData} />
+                  </Col>
+                  <Col md={7}>
+                    <LocalTeamBox />
+                  </Col>
+                  <Col md={7}>
+                    <PlanToVoteBox />
                   </Col>
                 </Row>
               </Container>
@@ -97,14 +113,17 @@ export default async function ConstituencyPage({
           <p>{JSON.stringify(constituencyData)}</p>
           */}
         </>
-      )}
+      )
+      }
 
-      {!constituencyData && (
-        <>
-          <h1>{params.slug}</h1>
-          <p>No data found for this constituency!</p>
-        </>
-      )}
+      {
+        !constituencyData && (
+          <>
+            <h1>{params.slug}</h1>
+            <p>No data found for this constituency!</p>
+          </>
+        )
+      }
     </>
   );
 }
