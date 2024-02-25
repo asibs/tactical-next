@@ -16,7 +16,7 @@ console.log(`***** dbPath is [${dbPath}] *****`);
 // TODO: Handle errors and return appropriate errorMessage useful for debugging...!
 export async function GET(
   request: NextRequest,
-  { params }: { params: { postcode: string; address: string[] } },
+  { params }: { params: { postcode: string; address?: string[] } },
 ) {
   console.log("IN SERVER FUNCTION");
   function sleep(ms: number) {
@@ -37,13 +37,13 @@ export async function GET(
   // });
 
   //read & normalize postcode
-  const normalizedPostcode = normalizePostcode(postcode);
+  const normalizedPostcode = normalizePostcode(params.postcode);
 
   //validate the postcode
   if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
-    console.log(`Postcode ${postcode} is not valid!`);
+    console.log(`Postcode ${params.postcode} is not valid!`);
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
+      postcode: params.postcode,
       constituencies: [],
       errorCode: "POSTCODE_INVALID",
     };
@@ -78,8 +78,8 @@ export async function GET(
   if (!constituencies || constituencies.length == 0) {
     console.log(`Postcode ${normalizedPostcode} not found in DB!`);
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
-      addressSlug: addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: [],
       errorCode: "POSTCODE_NOT_FOUND",
     };
@@ -89,8 +89,8 @@ export async function GET(
   if (constituencies.length == 1) {
     console.log(`Single constituency found for postcode ${normalizedPostcode}`);
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
-      addressSlug: addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
     return NextResponse.json(response);
@@ -101,8 +101,8 @@ export async function GET(
       `Multiple constituencies found for postcode ${normalizedPostcode}`,
     );
     const response: ConstituencyLookupResponse = {
-      postcode: postcode,
-      addressSlug: addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
     return NextResponse.json(response);
