@@ -14,8 +14,20 @@ const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
 // TODO: Handle errors and return appropriate errorMessage useful for debugging...!
-export async function GET(request: NextRequest, { params }: { params: { postcode: string, address: string[] } }) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { postcode: string; address: string[] } },
+) {
   console.log("IN SERVER FUNCTION");
+  function sleep(ms: number) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+  console.log(`${new Date().toLocaleString()} - SLEEPING`);
+  await sleep(5000);
+  console.log(`${new Date().toLocaleString()} - FINISHED SLEEPING`);
+
   const postcode = params.postcode;
   const addressSlug = params.address?.[0];
 
