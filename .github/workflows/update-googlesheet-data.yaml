@@ -45,6 +45,17 @@ jobs:
       - name: Write results
         run: |
           # Write the results to the data file
+          # TODO: Improve the format by actually mapping to nice JSON, eg:
+          # jq ".results[0].result.formatted | map({
+          #   constituency: {
+          #     slug: .constituencySlug,
+          #     name: .constituencyName,
+          #     mySocietyCode: .constituencyMySocietyCode
+          #   },
+          #   recommendation: {
+          #     partyName: .recommendedPartyName
+          #   }
+          # })" sample_output.json
           jq ".results[0].result.formatted" /tmp/gsheet_action_results.json > data/constituency.json
           # Add the updates to git
           git add data/constituency.json
