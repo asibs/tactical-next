@@ -46,8 +46,8 @@ const fetchApi = async (
     console.log("Making API call to constituency lookup route");
     const response = await fetch(
       "/api/constituency_lookup/" +
-      postcode +
-      (addressSlug ? "/" + addressSlug : ""),
+        postcode +
+        (addressSlug ? "/" + addressSlug : ""),
     );
 
     if (response.ok) {
@@ -153,10 +153,10 @@ const PostcodeLookup = () => {
     } else {
       return null;
     }
-  },
-    [apiResponse, formState.constituencyIndex]
+  }, [apiResponse, formState.constituencyIndex]);
+  console.log(
+    `lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}]`,
   );
-  console.log(`lastSelectedConstituency [${JSON.stringify(lastSelectedConstituency)}]`);
 
   const lookupPostcode = async (
     postcode: string,
@@ -276,8 +276,8 @@ const PostcodeLookup = () => {
               {!lastSelectedConstituency?.name
                 ? ""
                 : lastSelectedConstituency.name.length < 31
-                  ? lastSelectedConstituency.name
-                  : lastSelectedConstituency.name.substring(0, 27) + "..."}
+                ? lastSelectedConstituency.name
+                : lastSelectedConstituency.name.substring(0, 27) + "..."}
             </InputGroup.Text>
           )}
         </InputGroup>
@@ -297,10 +297,12 @@ const PostcodeLookup = () => {
               name="constituency"
               size="lg"
               defaultValue=""
-              onChange={(e) => setFormState({
-                ...formState,
-                constituencyIndex: parseInt(e.target.value),
-              })}
+              onChange={(e) =>
+                setFormState({
+                  ...formState,
+                  constituencyIndex: parseInt(e.target.value),
+                })
+              }
             >
               <option selected disabled value="" style={{ display: "none" }}>
                 Select Constituency
@@ -401,7 +403,7 @@ const PostcodeLookup = () => {
           </Col>
         </Row>
       </Form>
-    </Container >
+    </Container>
   );
 };
 
