@@ -1,3 +1,4 @@
+// import * as fs from 'fs';
 import { NextRequest, NextResponse } from "next/server";
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
@@ -7,38 +8,31 @@ import { validatePostcode, normalizePostcode } from "@/utils/Postcodes";
 // Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
 export const runtime = "nodejs";
 
-const fs = require("fs");
-
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
 let db: Database | null = null;
 const dbPath = path.join(process.cwd(), "data", "postcodes.db");
 console.log(`***** dbPath is [${dbPath}] *****`);
 
 // TODO: Handle errors and return appropriate errorMessage useful for debugging...!
-// TODO: Next.js doesn't cache POSTs - potentially change to a GET of format:
-// constituency_lookup/{postcode}/{addressSlug}
-// which should enable caching
-export async function POST(request: NextRequest) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { postcode: string; address?: string[] } },
+) {
   console.log("IN SERVER FUNCTION");
-  console.log(request);
 
-  const requestBody: ConstituencyLookupRequest = await request.json();
-  console.log(requestBody);
-
-  console.log("***** FILES IN DATA DIRECTORY *****");
-  fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
-    console.log(file);
-  });
+  // console.log("***** FILES IN DATA DIRECTORY *****");
+  // fs.readdirSync(path.join(process.cwd(), "data")).forEach((file: any) => {
+  //   console.log(`- ${file}`);
+  // });
 
   //read & normalize postcode
-  const normalizedPostcode = normalizePostcode(requestBody?.postcode || "");
+  const normalizedPostcode = normalizePostcode(params.postcode);
 
   //validate the postcode
   if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
-    console.log(`Postcode ${requestBody?.postcode} is not valid!`);
+    console.log(`Postcode ${params.postcode} is not valid!`);
     const response: ConstituencyLookupResponse = {
-      postcode: requestBody?.postcode,
-      addressSlug: requestBody.addressSlug,
+      postcode: params.postcode,
       constituencies: [],
       errorCode: "POSTCODE_INVALID",
     };
@@ -70,13 +64,11 @@ export async function POST(request: NextRequest) {
   );
   console.timeEnd("query-postcode-database");
 
-  console.log(`Found constituencues ${constituencies} from database`);
-
   if (!constituencies || constituencies.length == 0) {
     console.log(`Postcode ${normalizedPostcode} not found in DB!`);
     const response: ConstituencyLookupResponse = {
-      postcode: requestBody.postcode,
-      addressSlug: requestBody.addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: [],
       errorCode: "POSTCODE_NOT_FOUND",
     };
@@ -86,8 +78,8 @@ export async function POST(request: NextRequest) {
   if (constituencies.length == 1) {
     console.log(`Single constituency found for postcode ${normalizedPostcode}`);
     const response: ConstituencyLookupResponse = {
-      postcode: requestBody.postcode,
-      addressSlug: requestBody.addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
     return NextResponse.json(response);
@@ -98,8 +90,8 @@ export async function POST(request: NextRequest) {
       `Multiple constituencies found for postcode ${normalizedPostcode}`,
     );
     const response: ConstituencyLookupResponse = {
-      postcode: requestBody.postcode,
-      addressSlug: requestBody.addressSlug,
+      postcode: params.postcode,
+      addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
     return NextResponse.json(response);

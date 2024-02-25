@@ -2,7 +2,16 @@
 
 import { useRouter } from "next/navigation";
 
-import { Container, Form, Button, FormCheck, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Form,
+  Button,
+  FormCheck,
+  Row,
+  Col,
+  Spinner,
+  InputGroup,
+} from "react-bootstrap";
 
 import {
   normalizePostcode,
@@ -12,7 +21,7 @@ import {
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 const errorCodeToErrorMessage = (code: ErrorCode) => {
   switch (code) {
@@ -25,19 +34,112 @@ const errorCodeToErrorMessage = (code: ErrorCode) => {
   }
 };
 
+const lookupCache: {
+  [key: string]: Promise<ConstituencyLookupResponse | null> | null;
+} = {};
+
+const fetchApi = async (
+  postcode: string,
+  addressSlug?: string,
+): Promise<ConstituencyLookupResponse | null> => {
+  try {
+    console.log("Making API call to constituency lookup route");
+    const response = await fetch(
+      "/api/constituency_lookup/" +
+        postcode +
+        (addressSlug ? "/" + addressSlug : ""),
+    );
+
+    if (response.ok) {
+      return response.json();
+    } else {
+      return null;
+    }
+  } catch {
+    return null;
+  }
+};
+
+type ReqControl = {
+  time: number;
+  timerID: ReturnType<typeof setTimeout> | null;
+  rateLimit: number;
+  lastLookup: string | null;
+};
+
+const reqControl: ReqControl = {
+  time: 0,
+  timerID: null,
+  lastLookup: null,
+  rateLimit: 3000,
+};
+
+// throttled apiFetch
+const throttledApi = async (
+  postcode: string,
+  addressSlug?: string,
+): Promise<ConstituencyLookupResponse | null> => {
+  //TODO handle address lookups in the cache if/when we use DemoClub API
+  if (lookupCache.hasOwnProperty(postcode)) {
+    const cached = await lookupCache[postcode];
+    if (cached) {
+      return cached;
+    }
+  }
+
+  // Cancel existing delayed request
+  if (reqControl.timerID && reqControl.lastLookup) {
+    clearTimeout(reqControl.timerID);
+    console.log("Cancelled a lookup", reqControl.lastLookup);
+    lookupCache[reqControl.lastLookup] = null;
+  }
+
+  // TODO handle address lookups in the cache.
+  reqControl.lastLookup = postcode;
+
+  if (reqControl.time + reqControl.rateLimit < Date.now()) {
+    //Last request was more than rate limit ago.
+    reqControl.time = Date.now();
+    lookupCache[postcode] = fetchApi(postcode, addressSlug);
+  } else {
+    //Need to delay the request.
+    lookupCache[postcode] = new Promise((resolve) => {
+      let cancelled: boolean = true;
+      reqControl.timerID = setTimeout(
+        () => {
+          cancelled = false;
+          reqControl.timerID = null;
+          reqControl.time = Date.now();
+          resolve(fetchApi(postcode, addressSlug));
+        },
+        reqControl.rateLimit - (Date.now() - reqControl.time),
+      );
+      // If a request is cancelled we still need to resovle the promise.
+      setTimeout(
+        () => {
+          if (cancelled == true) {
+            resolve(null);
+          }
+        },
+        reqControl.rateLimit + 100 - (Date.now() - reqControl.time),
+      );
+    });
+  }
+
+  return lookupCache[postcode];
+};
+
 type FormData = {
-  postcode: string;
   emailOptIn: boolean;
-  constituencySlug: string;
-  addressSlug: string;
+  constituencyIndex: number | false;
+  addressIndex: number | false;
   email: string;
 };
 
 const initialFormState: FormData = {
-  postcode: "",
   emailOptIn: false,
-  constituencySlug: "",
-  addressSlug: "",
+  constituencyIndex: false,
+  addressIndex: false,
   email: "",
 };
 
@@ -49,123 +151,115 @@ const PostcodeLookup = () => {
   // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
 
   const [formState, setFormState] = useState<FormData>(initialFormState);
-  const [apiResponse, setApiResponse] =
-    useState<ConstituencyLookupResponse | null>(null);
-  const [apiInProgress, setApiInProgress] = useState<boolean>(false);
+  const [apiResponse, setApiResponse] = useState<
+    ConstituencyLookupResponse | false | null
+  >(null);
   const [error, setError] = useState<ErrorCode | null>(null);
 
-  const callApi = async (userPostcode: string, addressSlug?: string) => {
-    // Avoid calling the API multiple time concurrently from fast user input...
-    if (apiInProgress) {
-      console.log("Skipping concurrent API call");
-      return;
+  const validPostcode = useRef("");
+
+  const lastSelectedConstituency = useMemo(() => {
+    if (
+      apiResponse &&
+      apiResponse.constituencies?.length > 0 &&
+      apiResponse.postcode == validPostcode.current &&
+      formState.constituencyIndex !== false
+    ) {
+      return apiResponse.constituencies[formState.constituencyIndex];
+    } else {
+      return null;
+    }
+  }, [apiResponse, formState.constituencyIndex]);
+
+  const lookupConstituency = async (
+    postcode: string,
+    addressSlug?: string,
+  ): Promise<ConstituencyLookupResponse | null> => {
+    setApiResponse(false);
+    setError(null);
+
+    const responseJson = await throttledApi(postcode, addressSlug);
+
+    if (postcode != validPostcode.current) {
+      //This request no longer mathes the most recent.
+      return null;
     }
 
-    setApiInProgress(true);
-
-    try {
-      const requestBody: ConstituencyLookupRequest = {
-        postcode: userPostcode,
-        addressSlug: addressSlug,
-      };
-      console.log("Making API call to constituency lookup route");
-      const response = await fetch("/api/constituency_lookup", {
-        method: "POST",
-        body: JSON.stringify(requestBody),
-      });
-
-      if (response.ok) {
-        const responseJson: ConstituencyLookupResponse = await response.json();
-        setApiResponse(responseJson);
-        setError(responseJson.errorCode || null);
-      } else {
-        setError("SERVER_ERROR");
-      }
-    } catch {
-      setError("SERVER_ERROR");
+    if (responseJson == null) {
+      console.log("SERVER ERROR");
+      // a server error for the most recent lookup!
+      // TODO update the UI to communicate server error
+      setApiResponse(null); // clear the spinner
+      return null;
     }
 
-    setApiInProgress(false);
+    // The response postcode doesn't match the last one entered.
+    if (responseJson.postcode !== postcode) {
+      //The server has responded with a different postcode
+      //to the one we sent it!
+      console.log("THIS SHOULD NEVER HAPPEN!");
+
+      // TODO update the UI to communicate server error
+      setApiResponse(false); // clear the spinner
+      return null;
+    }
+
+    setApiResponse(responseJson);
+    setError(responseJson.errorCode || null);
+
+    if (responseJson.constituencies.length == 1) {
+      setFormState({ ...formState, constituencyIndex: 0 });
+    } else {
+      setFormState({ ...formState, constituencyIndex: false });
+    }
+
+    return responseJson;
   };
 
   const postcodeChanged = async (userPostcode: string) => {
-    // Update the stored / displayed postcode
-    setFormState({ ...formState, postcode: userPostcode });
-
     const normalizedPostcode = normalizePostcode(userPostcode);
 
-    // If the postcode looks valid, and it's not the same as the last postcode we looked
-    // up in the API, pre-load the results so we can imediately show the constituency /
-    // address drop-down if necessary.
     if (
-      validatePostcode.test(normalizedPostcode) &&
-      (!apiResponse || apiResponse.postcode != normalizedPostcode)
+      validPostcode.current == normalizedPostcode &&
+      apiResponse &&
+      apiResponse.postcode == normalizedPostcode
     ) {
-      // Postcode has changed, so leave out the addressSlug in the API call - even if
-      // one is/was selected, it's a different postcode now, so irrelevant!
-      await callApi(normalizedPostcode);
+      //We're already displaying the response for this postcode!
+      return;
+    }
+
+    // If the entered postcode is valid look store it and look it up.
+    if (validatePostcode.test(normalizedPostcode)) {
+      validPostcode.current = normalizedPostcode;
+      await lookupConstituency(normalizedPostcode);
     }
   };
 
   const submitForm = async () => {
-    const normalizedPostcode = normalizePostcode(formState.postcode);
+    if (lastSelectedConstituency) {
+      // TODO: Validate email & submit to AN form to subscribe them.
+      // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
+      router.push(`/constituencies/${lastSelectedConstituency.slug}`);
+      return;
+    }
 
     // VALIDATION
-    if (!normalizedPostcode || !validatePostcode.test(normalizedPostcode)) {
+    // no postcode or invalid postcode
+    if (
+      !validPostcode.current ||
+      !apiResponse ||
+      !apiResponse.constituencies ||
+      apiResponse.constituencies.length == 0
+    ) {
       // User hasn't input anything or invalid postcode
-      setApiResponse(null);
       setError("POSTCODE_INVALID");
       return;
     }
 
-    // TODO: Validate email if emailOptIn is set
-    // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
-
-    // CALL API IF NECESSARY
-    if (!apiResponse || apiResponse.postcode != normalizedPostcode) {
-      // The postcode SHOULD have already been looked up by the postcodeChanged handler,
-      // but it's possible that a slow pre-load API call blocked a subsequent postcode
-      // change by the user (because we prevent concurrent API calls). If the form
-      // postcode and last API postcode don't match, call the API.
-      console.log("SUBMIT HANDLER: postcode changed, calling API");
-      await callApi(formState.postcode);
-    } else if (
-      formState.addressSlug &&
-      (!apiResponse || apiResponse.addressSlug != formState.addressSlug)
-    ) {
-      // Postcode has not changed, but the selected address has, so we need to call the
-      // API to find the constituency for this address
-      await callApi(formState.postcode, formState.addressSlug);
-      console.log("SUBMIT HANDLER: addressSlug changed, calling API");
+    //not selected constituency or address
+    if (apiResponse.constituencies.length > 1 && !formState.constituencyIndex) {
+      //TODO: Set error for unclear constituency
     }
-
-    // SHOW ERRORS
-    if (!apiResponse) {
-      // TODO: Show error to user based on failed API call!
-      return;
-    }
-
-    if (apiResponse.errorCode) {
-      // Error - do nothing (component will automatically show the error)
-      return;
-    }
-
-    if (apiResponse.constituencies.length == 1) {
-      // Only one constituency returned by API - redirect
-      // TODO: Subscribe email via ActionNetwork API now their constituency is known
-      console.log(
-        "SUBMIT HANDLER: Only one constituency from API, redirecting",
-      );
-      router.push(`/constituencies/${apiResponse.constituencies[0].slug}`);
-    } else if (formState.constituencySlug) {
-      // User has explicitly selected their constituency from the drop-down - redirect
-      // TODO: Subscribe email via ActionNetwork API now their constituency is known
-      console.log("SUBMIT HANDLER: User selected constituency, redirecting");
-      router.push(`/constituencies/${formState.constituencySlug}`);
-    }
-
-    // If API returned multiple possible constituencies, the component will
-    // automatically show a select for the constituencies or addresses
   };
 
   return (
@@ -178,16 +272,26 @@ const PostcodeLookup = () => {
         <p className="fw-bold text-900">
           Vote tactically at the General Election
         </p>
-
-        <Form.Control
-          name="postcode"
-          size="lg"
-          type="text"
-          placeholder="Your Postcode"
-          pattern={postcodeInputPattern}
-          onChange={(e) => postcodeChanged(e.target.value)}
-          className="my-3"
-        />
+        <InputGroup className="my-3">
+          <Form.Control
+            name="postcode"
+            size="lg"
+            type="text"
+            placeholder="Your Postcode"
+            pattern={postcodeInputPattern}
+            onChange={(e) => postcodeChanged(e.target.value)}
+            className="invalid-text-greyed"
+          />
+          {lastSelectedConstituency && (
+            <InputGroup.Text>
+              {!lastSelectedConstituency?.name
+                ? ""
+                : lastSelectedConstituency.name.length < 31
+                ? lastSelectedConstituency.name
+                : lastSelectedConstituency.name.substring(0, 27) + "..."}
+            </InputGroup.Text>
+          )}
+        </InputGroup>
 
         {error && (
           <p className="fw-bold fst-italic">{errorCodeToErrorMessage(error)}</p>
@@ -205,14 +309,17 @@ const PostcodeLookup = () => {
               size="lg"
               defaultValue=""
               onChange={(e) =>
-                setFormState({ ...formState, constituencySlug: e.target.value })
+                setFormState({
+                  ...formState,
+                  constituencyIndex: parseInt(e.target.value),
+                })
               }
             >
               <option selected disabled value="" style={{ display: "none" }}>
                 Select Constituency
               </option>
-              {apiResponse.constituencies.map((c) => (
-                <option key={c.slug} value={c.slug}>
+              {apiResponse.constituencies.map((c, idx) => (
+                <option key={c.slug} value={idx}>
                   {c.name}
                 </option>
               ))}
@@ -257,7 +364,7 @@ const PostcodeLookup = () => {
                 onChange={(e) =>
                   setFormState({ ...formState, email: e.target.value })
                 }
-                className="my-2"
+                className="my-2 invalid-text-greyed"
               />
               <p style={{ fontSize: "0.75em" }}>
                 We store your email address, postcode, and constituency, so we
@@ -274,9 +381,21 @@ const PostcodeLookup = () => {
               variant="light"
               size="lg"
               type="submit"
-              disabled={apiInProgress}
-              aria-disabled={apiInProgress}
+              disabled={!lastSelectedConstituency}
+              aria-disabled={!lastSelectedConstituency}
             >
+              {apiResponse === false && (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    area-hidden="true"
+                  />
+                  <span className="visually-hidden">Loading...</span>{" "}
+                </>
+              )}
               <span className={`${rubik.className} fw-bold`}>Go</span>
             </Button>
           </Col>

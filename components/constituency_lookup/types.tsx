@@ -14,11 +14,6 @@ type Address = {
 
 type ErrorCode = "POSTCODE_INVALID" | "POSTCODE_NOT_FOUND" | "SERVER_ERROR";
 
-type ConstituencyLookupRequest = {
-  postcode: string;
-  addressSlug?: string;
-};
-
 type ConstituencyLookupResponse = {
   postcode: string;
   addressSlug?: string;
