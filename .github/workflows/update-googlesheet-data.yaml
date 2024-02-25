@@ -56,6 +56,8 @@ jobs:
               reason: ."TV Explanation"
             },
             impliedPreviousResult: {
+              winningParty: ."Implied Vote Share: Winner",
+              biggestProgressiveParty: ."Implied Vote Share: Biggest Progressive Party",
               partyVoteResults: [
                 {
                   partySlug: "Con",
@@ -88,6 +90,8 @@ jobs:
               ]
             },
             pollingResults: {
+              winningParty: ."MRP Vote Share Winner",
+              biggestProgressiveParty: ."MRP Vote Share Biggest Progressive Party",
               partyVoteResults: [
                 {
                   partySlug: "Con",
@@ -118,6 +122,10 @@ jobs:
                   votePercent: (."MRP Vote Share PC" | gsub("%"; "") | tonumber)
                 }
               ]
+            },
+            otherVoteData: {
+              targetSeatData: [],
+              conservativeWinUnlikely: (."Con Can'\''t Win" | (if . == "TRUE" then true else false end))
             }
           })' /tmp/gsheet_action_results.json > data/constituency.json
           # Add the updates to git
