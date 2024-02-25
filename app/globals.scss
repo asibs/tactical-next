@@ -88,7 +88,7 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 @import "bootstrap/scss/bootstrap";
 // @import "../node_modules/bootstrap/scss/bootstrap";
 
-/* GLOBAL DEFAULT STYLES */
+/***** GLOBAL DEFAULT STYLES *****/
 
 /* TYPOGRAPHY */
 body {
@@ -99,7 +99,7 @@ html, body {
   background-color: var(--bs-gray-300);
 }
 
-// Header
+/* HEADER */
 header {
   background-color: var(--bs-black);
   color: var(--bs-white);
@@ -115,7 +115,7 @@ header h1 {
   }
 }
 
-// Headings
+/* TEXT HEADINGS */
 h1,
 h2,
 h3,
@@ -127,7 +127,8 @@ h6 {
   text-transform: uppercase;
 }
 
-// Checkbox
+/* FORM INPUTS */
+// Set checkbox size & style
 input[type="checkbox"] {
   width: 22px;
   height: 22px;
@@ -156,7 +157,12 @@ button:focus {
   border-color: var(--bs-gray-600) !important;
 }
 
-// Party styles
+// Custom validation for postcode & email text inputs
+.invalid-text-greyed:invalid {
+  color: var(--bs-gray-600);
+}
+
+/* PARTY STYLES */
 h3.party {
   font-size: 8vmax;
   font-weight: 800;
@@ -221,7 +227,7 @@ div.party-conservative {
   background-color: rgba(var(--bs-blue-rgb), 1);
 }
 
-// Add padding-y-6 classes
+/* EXTRA PADDING CLASSES (py-6 / py-sm-6 / etc) */
 .py-6 {
   padding-top: 6rem !important;
   padding-bottom: 6rem !important;
