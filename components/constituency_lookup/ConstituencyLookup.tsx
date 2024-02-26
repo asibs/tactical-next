@@ -147,6 +147,7 @@ type FormData = {
   constituencyIndex: number | false;
   addressIndex: number | false;
   email: string;
+  subscribed: string | null;
 };
 
 const initialFormState: FormData = {
@@ -154,6 +155,7 @@ const initialFormState: FormData = {
   constituencyIndex: false,
   addressIndex: false,
   email: "",
+  subscribed: null,
 };
 
 const PostcodeLookup = () => {
@@ -163,7 +165,10 @@ const PostcodeLookup = () => {
   // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-validation-and-error-handling
   // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
 
-  const [formState, setFormState] = useState<FormData>(initialFormState);
+  const [formState, setFormState] = useState<FormData>({
+    ...initialFormState,
+    subscribed: window?.localStorage.getItem("Subscribed"),
+  });
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
@@ -314,6 +319,7 @@ const PostcodeLookup = () => {
       );
 
       if (responseAN.ok) {
+        window?.localStorage.setItem("Subscribed", Date.now().toString());
         router.push(`/constituencies/${lastSelectedConstituency.slug}`);
         return;
       } else {
@@ -418,64 +424,64 @@ const PostcodeLookup = () => {
             </Form.Select>
           </div>
         )}
-
-        <div className="my-3">
-          <FormCheck name="emailOptIn">
-            <div>
-              <FormCheckInput
-                checked={formState.emailOptIn}
-                onChange={() =>
-                  setFormState({
-                    ...formState,
-                    emailOptIn: !formState.emailOptIn,
-                  })
-                }
-                className="me-2"
-              />
-              <FormCheckLabel
-                onClick={() =>
-                  setFormState({
-                    ...formState,
-                    emailOptIn: !formState.emailOptIn,
-                  })
-                }
-              >
-                <strong>Join with your email</strong> to stick together
-              </FormCheckLabel>
-            </div>
-          </FormCheck>
-
-          {formState.emailOptIn && (
-            <>
-              <InputGroup className="my-3" hasValidation>
-                <Form.Control
-                  name="email"
-                  size="lg"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formState.email}
-                  onChange={(e) =>
-                    setFormState({ ...formState, email: e.target.value })
+        {!formState.subscribed && (
+          <div className="my-3">
+            <FormCheck name="emailOptIn">
+              <div>
+                <FormCheckInput
+                  checked={formState.emailOptIn}
+                  onChange={() =>
+                    setFormState({
+                      ...formState,
+                      emailOptIn: !formState.emailOptIn,
+                    })
                   }
-                  className="my-2 invalid-text-greyed"
-                  isInvalid={emailError ? true : false}
+                  className="me-2"
                 />
-                {emailError && (
-                  <Form.Control.Feedback type="invalid">
-                    {emailErrorCodeToErrorMessage(emailError)}
-                  </Form.Control.Feedback>
-                )}
+                <FormCheckLabel
+                  onClick={() =>
+                    setFormState({
+                      ...formState,
+                      emailOptIn: !formState.emailOptIn,
+                    })
+                  }
+                >
+                  <strong>Join with your email</strong> to stick together
+                </FormCheckLabel>
+              </div>
+            </FormCheck>
 
-                <p style={{ fontSize: "0.75em" }}>
-                  We store your email address, postcode, and constituency, so we
-                  can send you exactly the information you need, and the actions
-                  to take.
-                </p>
-              </InputGroup>
-            </>
-          )}
-        </div>
+            {formState.emailOptIn && (
+              <>
+                <InputGroup className="my-3" hasValidation>
+                  <Form.Control
+                    name="email"
+                    size="lg"
+                    type="email"
+                    placeholder="Your Email"
+                    value={formState.email}
+                    onChange={(e) =>
+                      setFormState({ ...formState, email: e.target.value })
+                    }
+                    className="my-2 invalid-text-greyed"
+                    isInvalid={emailError ? true : false}
+                  />
+                  {emailError && (
+                    <Form.Control.Feedback type="invalid">
+                      {emailErrorCodeToErrorMessage(emailError)}
+                    </Form.Control.Feedback>
+                  )}
 
+                  <p style={{ fontSize: "0.75em" }}>
+                    We store your email address, postcode, and constituency, so
+                    we can send you exactly the information you need, and the
+                    actions to take.
+                  </p>
+                </InputGroup>
+              </>
+            )}
+          </div>
+        )}
         <Row className="d-flex justify-content-between my-3">
           <Col xs={4} className="d-grid">
             <Button
