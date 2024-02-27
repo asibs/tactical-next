@@ -15,6 +15,12 @@ const TacticalReasoningBox = ({
 }: {
   constituencyData: ConstituencyData;
 }) => {
+  const partyTargetSeat = (partySlug: string) => {
+    return constituencyData.otherVoteData.targetSeatData.find(
+      (target) => target.partySlug === partySlug,
+    );
+  };
+
   const recommendedParty = constituencyData.recommendation.partySlug;
   const recommendedPartyName = partyNameFromSlug(recommendedParty);
 
@@ -27,10 +33,7 @@ const TacticalReasoningBox = ({
     constituencyData.pollingResults.biggestProgressiveParty;
 
   const recommendedPartyTargetSeat =
-    constituencyData.otherVoteData.targetSeatData.some(
-      (target) =>
-        target.partySlug == recommendedParty && target.likelyTarget == "YES",
-    );
+    partyTargetSeat(recommendedParty)?.likelyTarget === "YES";
 
   const closeSeat = !constituencyData.otherVoteData.conservativeWinUnlikely;
 
@@ -51,8 +54,8 @@ const TacticalReasoningBox = ({
         </p>
 
         {/* Show previous biggest progressive if it matches our recommendation AND they weren't the winner */}
-        {recommendedParty == previousBiggestProgressive &&
-          recommendedParty != previousWinner && (
+        {recommendedParty === previousBiggestProgressive &&
+          recommendedParty !== previousWinner && (
             <p>
               <FaChartSimple
                 className="me-2"
@@ -63,8 +66,23 @@ const TacticalReasoningBox = ({
             </p>
           )}
 
+        {/* If we're not recommending the biggest 2019 progressive party, check if it's NOT a target seat for them */}
+        {recommendedParty !== previousBiggestProgressive &&
+          partyTargetSeat(previousBiggestProgressive)?.likelyTarget ===
+            "NO" && (
+            <p>
+              <FaChartSimple
+                className="me-2"
+                style={{ color: "var(--bs-green)" }}
+              />
+              {partyNameFromSlug(previousBiggestProgressive)} received the most
+              progressive votes here in 2019, but they&apos;re not targetting
+              this seat in 2024
+            </p>
+          )}
+
         {/* Show polling biggest progressive if it matches our recommendation */}
-        {recommendedParty == pollingBiggestProgressive && (
+        {recommendedParty === pollingBiggestProgressive && (
           <p>
             <FaChartLine
               className="me-2"
