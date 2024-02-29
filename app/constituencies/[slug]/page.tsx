@@ -103,7 +103,7 @@ export default async function ConstituencyPage({
                     <TacticalReasoningBox constituencyData={constituencyData} />
                   </Col>
                   <Col md={7}>
-                    <ImpliedChart constituencyData={constituencyData}/>
+                    <ImpliedChart constituencyData={constituencyData} />
                   </Col>
                   <Col md={7}>
                     <PlanToVoteBox />

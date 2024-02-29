@@ -14,7 +14,16 @@ type ConstituencyIdentifiers = {
   mySocietyCode: string;
 };
 
-type PartySlug = "Lab"|"Con"|"LD"|"PC"|"Reform"|"Green"|"SNP"|"Other"|"Speaker";
+type PartySlug =
+  | "Lab"
+  | "Con"
+  | "LD"
+  | "PC"
+  | "Reform"
+  | "Green"
+  | "SNP"
+  | "Other"
+  | "Speaker";
 
 // Data about the tactical recommendation we're using
 type Recommendation = {

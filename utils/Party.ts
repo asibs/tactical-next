@@ -19,7 +19,7 @@ const partyNameFromSlug = (slug: PartySlug): string => {
   }
 };
 
-const partyColorFromSlug = (slug: PartySlug) => { 
+const partyColorFromSlug = (slug: PartySlug) => {
   switch (slug) {
     case "Con":
       return "var(--bs-blue)";
@@ -37,7 +37,6 @@ const partyColorFromSlug = (slug: PartySlug) => {
       return "";
     default:
       return "var(--bs-black)";
-
   }
 };
 
@@ -63,4 +62,4 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
   }
 };
 
-export {partyColorFromSlug, partyNameFromSlug, partyCssClassFromSlug };
+export { partyColorFromSlug, partyNameFromSlug, partyCssClassFromSlug };
