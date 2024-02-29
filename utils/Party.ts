@@ -1,4 +1,4 @@
-const partyNameFromSlug = (slug: string) => {
+const partyNameFromSlug = (slug: PartySlug): string => {
   switch (slug) {
     case "Con":
       return "Conservative";
@@ -15,11 +15,33 @@ const partyNameFromSlug = (slug: string) => {
     case "Reform":
       return "Reform UK";
     default:
-      "Other";
+      return "Other";
   }
 };
 
-const partyCssClassFromSlug = (slug: string) => {
+const partyColorFromSlug = (slug: PartySlug) => { 
+  switch (slug) {
+    case "Con":
+      return "var(--bs-blue)";
+    case "Lab":
+      return "var(--bs-red)";
+    case "LD":
+      return "var(--bs-orange)";
+    case "Green":
+      return "var(--bs-green)";
+    case "SNP":
+      return "var(--bs-yellow)";
+    case "PC":
+      return "#005B54";
+    case "Reform":
+      return "";
+    default:
+      return "var(--bs-black)";
+
+  }
+};
+
+const partyCssClassFromSlug = (slug: PartySlug) => {
   // TODO: Styles for SNP/Plaid (and Reform?)
   switch (slug) {
     case "Con":
@@ -37,8 +59,8 @@ const partyCssClassFromSlug = (slug: string) => {
     case "Reform":
       return "";
     default:
-      "";
+      return "";
   }
 };
 
-export { partyNameFromSlug, partyCssClassFromSlug };
+export {partyColorFromSlug, partyNameFromSlug, partyCssClassFromSlug };
