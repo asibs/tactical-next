@@ -39,13 +39,27 @@ const ImpliedChart = ({
   });
 
   chart.setOption({
+    grid: {
+      left: 40,
+      right: 10,
+      top: 10,
+      bottom: 100,
+    },
     xAxis: {
       data: axisArray,
       axisLabel: {
         rotate: 45,
       },
     },
-    yAxis: {},
+    yAxis: [
+      {
+        type: "value",
+        axisLabel: {
+          formatter: "{value}%",
+        },
+      },
+    ],
+
     series: [
       {
         type: "bar",
