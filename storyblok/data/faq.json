@@ -2,7 +2,7 @@
   "story": {
     "name": "FAQ",
     "created_at": "2023-12-09T13:34:06.457Z",
-    "published_at": "2024-03-02T18:47:36.933Z",
+    "published_at": "2024-03-02T23:08:51.872Z",
     "id": 416705707,
     "uuid": "09349e3a-47d9-481a-96fd-7592bad2b461",
     "content": {
@@ -14,7 +14,7 @@
           "_uid": "fc434369-168b-4029-84c1-e41bbc3103f3",
           "content": [
             {
-              "_uid": "f9c113c1-cb7f-4843-b342-f17a239e81fa",
+              "_uid": "3d0b5e6f-da98-4820-90a3-3dee706a3cd3",
               "text": {
                 "type": "doc",
                 "content": [
@@ -47,7 +47,306 @@
                   }
                 ]
               },
-              "title": "HOW DOES TACTICAL VOTING WORK?",
+              "title": "How does tactical voting work?",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "356f99be-6d8d-47c6-a880-a8e9f40afb15",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Yes, we agree!",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Ideally our system of elections would be fairer, counting all votes equally, measuring votes proportionally.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Which is why we're supporters of Proportional Representation, which would almost remove the need for voting tactically.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Not only would it make government more representative, people voting with their ideals, goals, and their hearts... it would also make it much harder to game our elections.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We're members of the ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Make Votes Matter Alliance",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.makevotesmatter.org.uk/the-pr-alliance",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", along with a huge number of other organisations.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Tactical voting sucks!",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "1eefe489-fa91-4906-a65c-29ce6927d269",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "This is a project by ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Forward Democracy",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://forwarddemocracy.com/",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", which was started in 2023 and gave tactical voting advice for the May 2023 local elections.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Forward Democracy also run ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "The Movement Forward",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://mvtfwd.com/",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " and ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Swap My Vote",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://swapmyvote.uk/",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We're a group of so-far unpaid volunteers (with the exception of modest crowdfunding) who have been working on democracy projects since at least 2015. Individually much longer.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We are not affiliated with any political party, or financed by them.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Who runs this website?",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "e44e3635-961b-4323-97da-2ffed051d5b8",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "No, we recommend whichever progressive party we believe is most likely to beat the Tories in each area.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "#000000"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Do you favour one party over another?",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "e0c28898-3651-4702-8e85-7f8a9e94394e",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "This platform was first built for local elections in 2023, and we've updated it to work for general elections too.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We aim to continue the development of this platform and support campaigns to help people show up and own their future!",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You can ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "donate to our Crowdfunder",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.crowdfunder.co.uk/p/stopthetories",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ", or get in touch to talk about larger or ongoing support.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "How you can support this project",
               "component": "toggle_text",
               "text_shown_initially": false
             }
@@ -74,7 +373,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1709405256,
+  "cv": 1709420931,
   "rels": [],
   "links": []
 }
