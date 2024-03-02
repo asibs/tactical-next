@@ -32,12 +32,6 @@ const getConstituencyData = unstable_cache(
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  // TODO: Call spreadsheet data module to reload & cache spreadsheet constituency data
-  // const posts = await fetch('https://.../posts').then((res) => res.json())
-
-  // TODO: Get constituencies from cached spreadsheet data
-  // const constituencies = ["isle-of-wight-west", "isle-of-wight-east"];
-
   const constituenciesData: ConstituencyData[] = await getConstituencyData();
 
   return constituenciesData.map((c: any) => ({
@@ -132,13 +126,6 @@ export default async function ConstituencyPage({
               </Container>
             </section>
           </main>
-
-          {/* DEBUG DATA */}
-          {/*
-          <h5>{constituencyData["constituency_name"]}</h5>
-          <h6>Tactical Vote: {constituencyData["recommendation"]}</h6>
-          <p>{JSON.stringify(constituencyData)}</p>
-          */}
         </>
       )}
 

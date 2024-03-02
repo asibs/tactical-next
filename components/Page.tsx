@@ -2,20 +2,18 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Header from "./Header";
 import { PageStoryblok } from "@/storyblok/types/storyblok-types";
 import { rubik } from "@/utils/Fonts";
+import { Container } from "react-bootstrap";
 
 const Page = ({ blok }: { blok: PageStoryblok }) => {
   return (
     <>
       <Header backgroundImage={blok.page_title_background}>
-        <h1
-          className={`${rubik.className} text-100`}
-          style={{ fontSize: "6vmax", fontWeight: "bolder" }}
-        >
-          {blok.page_title}
-        </h1>
+        <Container className="py-4 py-md-6">
+          <h1 className={rubik.className}>{blok.page_title}</h1>
+        </Container>
       </Header>
 
-      <main className="text-center mt-4" {...storyblokEditable(blok)}>
+      <main className="py-5" {...storyblokEditable(blok)}>
         {blok.page_content.map((nestedBlok) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
