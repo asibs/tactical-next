@@ -34,7 +34,7 @@ const partyColorFromSlug = (slug: PartySlug) => {
     case "PC":
       return "#005B54";
     case "Reform":
-      return "";
+      return "var(--bs-teal)";
     default:
       return "var(--bs-black)";
   }

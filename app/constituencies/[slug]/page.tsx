@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import LocalTeamBox from "@/components/info_box/LocalTeamBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
+import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { rubik } from "@/utils/Fonts";
@@ -103,11 +104,20 @@ export default async function ConstituencyPage({
                     <TacticalReasoningBox constituencyData={constituencyData} />
                   </Col>
                   <Col md={7}>
-                    <ImpliedChart constituencyData={constituencyData} />
+                    <LocalTeamBox />
                   </Col>
                   <Col md={7}>
                     <PlanToVoteBox />
                   </Col>
+                </Row>
+                <Row xs={1} lg={3}>
+                  <Col md={7}>
+                    <ImpliedChart constituencyData={constituencyData} />
+                  </Col>
+                  <Col md={7}>
+                    <MRPChart constituencyData={constituencyData} />
+                  </Col>
+                  <Col md={7}></Col>
                 </Row>
               </Container>
             </section>
