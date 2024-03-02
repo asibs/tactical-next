@@ -44,12 +44,13 @@ const MovementSection = () => {
             </h2>
           </Col>
         </Row>
+      </Container>
 
+      <Container fluid className="p-0 mb-4 mb-md-5">
         <Row
           xs={4}
           md={6}
-          className="g-0 mb-4 mb-md-5"
-          style={{ margin: "0px calc(50% - 50vw)", width: "100vw" }}
+          className="g-0"
         >
           {Object.keys(people).map((key) => {
             // TS isn't smart enough to work out `key` is just the keys from the people object,
@@ -70,8 +71,10 @@ const MovementSection = () => {
             );
           })}
         </Row>
+      </Container>
 
-        {/* PLAN */}
+      {/* PLAN */}
+      <Container>
         <Row xs={1} md={2}>
           <Col>
             <h3 className={`${rubik.className} fw-bolder fs-5`}>We show up</h3>
@@ -99,7 +102,7 @@ const MovementSection = () => {
           </Col>
         </Row>
       </Container>
-    </section>
+    </section >
   );
 };
 
