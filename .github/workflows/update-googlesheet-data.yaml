@@ -63,47 +63,47 @@ jobs:
                 {
                   partySlug: "Con",
                   votePercent: (."Implied Vote Share: Con" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: Conv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: Conv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Lab",
                   votePercent: (."Implied Vote Share: Lab" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: Labv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: Labv" // 0 | tonumber)
                 },
                 {
                   partySlug: "LD",
                   votePercent: (."Implied Vote Share: LD" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: LDv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: LDv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Green",
                   votePercent: (."Implied Vote Share: Green" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: Grnv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: Grnv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Reform",
                   votePercent: (."Implied Vote Share: Reform" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: Brxv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: Brxv" // 0 | tonumber)
                 },
                 {
                   partySlug: "SNP",
                   votePercent: (."Implied Vote Share: SNP" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: SNPv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: SNPv" // 0 | tonumber)
                 },
                 {
                   partySlug: "PC",
                   votePercent: (."Implied Vote Share: PC" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: PCv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: PCv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Other",
                   votePercent: (."Implied Vote Share: Tot oths" | gsub("%"; "") | tonumber),
-                  rawVote: (."Impied Raw: TotOthv" // 0 | tonumber)
+                  rawVote: (."Implied Raw: TotOthv" // 0 | tonumber)
                 },
                 {
                   partySlug: "NonVoter",
                   votePercent: 0,
-                  rawVote: (."Impied Raw: non-voter" // 0 | tonumber)
+                  rawVote: (."Implied Raw: non-voter" // 0 | tonumber)
                 }
               ]
             },
