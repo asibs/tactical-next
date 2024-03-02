@@ -53,7 +53,7 @@ jobs:
             },
             recommendation: {
               partySlug: ."TV Advice",
-              reason: ."Manual TV Explanation"
+              reason: ."Manual TV Explanation",
               reasonUrl: ."Manual TV Explanation Source"
             },
             impliedPreviousResult: {
