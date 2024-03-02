@@ -2,7 +2,7 @@
   "story": {
     "name": "Footer",
     "created_at": "2023-12-09T18:53:56.246Z",
-    "published_at": "2023-12-11T01:53:08.493Z",
+    "published_at": "2024-03-02T18:38:53.869Z",
     "id": 416706550,
     "uuid": "63903b08-be76-463b-ab23-9b4bf16e1c58",
     "content": {
@@ -10,9 +10,10 @@
       "links": [
         {
           "_uid": "da8b0331-e12d-45e2-95e6-e914353a0fb5",
-          "link_url": "/",
+          "button": true,
+          "link_url": "/donate",
           "component": "footer_internal_link",
-          "link_name": "Home"
+          "link_name": "Donate"
         },
         {
           "_uid": "0b36df35-a266-4d35-b604-4b26b1000078",
@@ -21,40 +22,36 @@
           "link_name": "About"
         },
         {
-          "_uid": "35f00c4d-c6b7-4cee-8ad8-56bfe34d4f74",
-          "link_url": "/donate",
-          "component": "footer_internal_link",
-          "link_name": "Donate"
-        },
-        {
-          "_uid": "f43ba7c3-5ef8-4831-bec1-54269dcad39c",
-          "link_url": "/volunteer",
-          "component": "footer_internal_link",
-          "link_name": "Volunteer"
-        },
-        {
           "_uid": "873ca8f7-c450-429b-b0d0-3cf8f61fb4e4",
+          "button": false,
           "link_url": "/faq",
           "component": "footer_internal_link",
           "link_name": "FAQ"
         },
         {
+          "_uid": "f43ba7c3-5ef8-4831-bec1-54269dcad39c",
+          "link_url": "/privacy",
+          "component": "footer_internal_link",
+          "link_name": "Privacy"
+        },
+        {
+          "_uid": "35f00c4d-c6b7-4cee-8ad8-56bfe34d4f74",
+          "link_url": "/data",
+          "component": "footer_internal_link",
+          "link_name": "Data"
+        },
+        {
           "_uid": "f7a38960-2c5f-4e37-be20-3d6a69d08a2e",
           "link_url": "/team",
           "component": "footer_internal_link",
-          "link_name": "Meet The Team"
+          "link_name": "Team"
         },
         {
           "_uid": "a5ebcbd1-938d-4440-869c-77729d9adbe5",
+          "button": false,
           "link_url": "/contact",
           "component": "footer_internal_link",
           "link_name": "Contact"
-        },
-        {
-          "_uid": "fe9004f2-3756-47b3-820f-d5e8b4c95c26",
-          "link_url": "https://themovementforward.com/privacy/",
-          "component": "footer_external_link",
-          "link_name": "Privacy Policy"
         }
       ],
       "component": "footer"
@@ -76,7 +73,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1702259588,
+  "cv": 1709405256,
   "rels": [],
   "links": []
 }
