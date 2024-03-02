@@ -17,7 +17,9 @@ const link = (
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok,
 ) => {
   {
-    const className = `btn ${blok.button ? "btn-light" : "btn-link"} btn-sm fw-bold text-start`;
+    const className = `btn ${
+      blok.button ? "btn-light" : "btn-link"
+    } btn-sm fw-bold text-start`;
 
     switch (blok.component) {
       case "footer_internal_link":
@@ -28,7 +30,12 @@ const link = (
         );
       case "footer_external_link":
         return (
-          <a href={blok.link_url} target="_blank" rel="noreferrer" className={className}>
+          <a
+            href={blok.link_url}
+            target="_blank"
+            rel="noreferrer"
+            className={className}
+          >
             {blok.link_name}
           </a>
         );

@@ -8,21 +8,19 @@ import Header from "@/components/Header";
 import { rubik } from "@/utils/Fonts";
 
 export default function Donate() {
-  const url = "https://www.crowdfunder.co.uk/p/stopthetories"
+  const url = "https://www.crowdfunder.co.uk/p/stopthetories";
 
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => router.push(url), 2000);
-  }, [router])
+  }, [router]);
 
   return (
     <>
       <Header backgroundImage="FESTIVAL_CROWD">
         <Container className="py-4 py-md-6">
-          <h1 className={rubik.className}>
-            Donate
-          </h1>
+          <h1 className={rubik.className}>Donate</h1>
         </Container>
       </Header>
 
@@ -31,13 +29,20 @@ export default function Donate() {
           <Container>
             <Row>
               <Col>
-                <h4 className="pb-5">Redirecting you to our crowdfunder page</h4>
+                <h4 className="pb-5">
+                  Redirecting you to our crowdfunder page
+                </h4>
                 <p>
                   <a href={url} target="_blank" rel="noreferrer">
-                    Please click here if you&apos;re not redirected automatically after 3 seconds
+                    Please click here if you&apos;re not redirected
+                    automatically after 3 seconds
                   </a>
                 </p>
-                <p><a href={url} target="_blank" rel="noreferrer">{url}</a></p>
+                <p>
+                  <a href={url} target="_blank" rel="noreferrer">
+                    {url}
+                  </a>
+                </p>
               </Col>
             </Row>
           </Container>
