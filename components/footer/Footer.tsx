@@ -8,119 +8,142 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import mvmtFrwdLogo from "@/assets/movement-forward-logo-bw.png";
+import mvmtFrwdQrCode from "@/assets/movement-forward-qr-code-tight.png";
 
 import {
+  FaBell,
   FaDiscord,
+  FaFileArrowDown,
+  FaMagnifyingGlass,
   FaMastodon,
+  FaPuzzlePiece,
   FaSquareFacebook,
   FaSquareInstagram,
   FaSquareThreads,
   FaSquareTwitter,
+  FaSquareWhatsapp,
   FaTelegram,
 } from "react-icons/fa6";
 import { MdGroups2 } from "react-icons/md";
+import { Button, ButtonGroup } from "react-bootstrap";
+import { rubik } from "@/utils/Fonts";
 
 const Footer = ({ blok }: { blok: FooterStoryblok }) => (
   <footer {...storyblokEditable(blok)}>
-    <Container className="p-5">
-      <Row xs={4} sm={8} className="text-center g-4">
-        <Col>
-          <a href="https://twitter.com/mvtfwd" target="_blank" rel="noreferrer">
-            <FaSquareTwitter className="fs-1 text-pink-strong" />
-          </a>
+    <Container>
+      <Row>
+        {/* FOOTER CALL TO ACTION BUTTONS */}
+        <Col sm={10} md={6} lg={4} xl={4} className="pb-4">
+          <ButtonGroup vertical size="lg" className="w-100">
+            <Link
+              href="/reminders"
+              className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
+            >
+              <FaBell className="me-2" />
+              Join the voting movement
+            </Link>
+            <Link
+              href="/constituencies"
+              className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
+            >
+              <FaMagnifyingGlass className="me-2" />
+              Browse constituencies
+            </Link>
+            <Link
+              href="/volunteer"
+              className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
+            >
+              <FaPuzzlePiece className="me-2" />
+              Volunteer
+            </Link>
+            <Link
+              href="/downloads"
+              className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
+            >
+              <FaFileArrowDown className="me-2" />
+              Downloads and resources
+            </Link>
+          </ButtonGroup>
         </Col>
-        <Col>
-          <a
-            href="https://facebook.com/mvtfwd"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaSquareFacebook className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-        <Col>
-          <a
-            href="https://www.threads.net/@mvtfwd"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaSquareThreads className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-        <Col>
-          <a
-            href="https://instagram.com/mvtfwd"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaSquareInstagram className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-        <Col>
-          <a
-            href="https://indieweb.social/@MVTFWD"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaMastodon className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-        <Col>
-          <a
-            href="https://themovementforward.com/discord"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaDiscord className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-        <Col>
-          <a href="https://t.me/MVTFWD" target="_blank" rel="noreferrer">
-            <FaTelegram className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-        <Col>
-          <a
-            href="https://facebook.com/groups/MVTFWD"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <MdGroups2 className="fs-1 text-pink-strong" />
-          </a>
-        </Col>
-      </Row>
 
-      <Row className="pt-5">
-        <Col>
-          <Row>
-            <Col className="text-start">
+        {/* QR CODE */}
+        <Col sm={10} md={5} lg={3} xl={4} className="pb-4 px-xl-5">
+          <a
+            href="https://shop.mvtfwd.com/stickers"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              src={mvmtFrwdQrCode}
+              alt="Movement Forward QR Code"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </a>
+        </Col>
+
+        <Col sm={10} md={10} lg={5} xl={4} className="pb-4">
+          {/* MOVEMENT FORWARD LOGO */}
+          <p>
+            <a href="https://mvtfwd.com/links" target="_blank" rel="noreferrer">
+              <Image
+                src={mvmtFrwdLogo}
+                alt="Movement Forward Logo"
+                style={{ width: "4rem", height: "4rem" }}
+              />
+              <span className="mx-2 fw-bold">@MVTFWD</span>
+            </a>
+          </p>
+
+          {/* MOVEMENT FORWARD SOCIAL LINKS */}
+          <ul className="list-inline my-3">
+            <li className="list-inline-item">
               <a
-                href="https://mvtfwd.com/links"
+                href="https://twitter.com/mvtfwd"
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>
-                  <Image
-                    src={mvmtFrwdLogo}
-                    alt="Movement Forward logo"
-                    style={{ width: "4dvh", height: "4dvh" }}
-                  />
-                </span>
-                <span className="px-1">
-                  <b>@MVTFWD</b>
-                </span>
+                <FaSquareTwitter className="fs-1" />
               </a>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col>© 2023 Forward Democracy Limited</Col>
-          </Row>
-        </Col>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://facebook.com/mvtfwd" target="_blank">
+                <FaSquareFacebook className="fs-1" />
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://instagram.com/mvtfwd" target="_blank">
+                <FaSquareInstagram className="fs-1" />
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://threads.net/mvtfwd" target="_blank">
+                <FaSquareThreads className="fs-1" />
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://mvtfwd.com/whatsapp" target="_blank">
+                <FaSquareWhatsapp className="fs-1" />
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://mvtfwd.com/volunteer" target="_blank">
+                <FaDiscord className="fs-1" />
+              </a>
+            </li>
+          </ul>
 
-        <Col>
-          <Row xs={1} sm={2} md={4} className="text-end">
+          {/* COPYRIGHT */}
+          <p className="my-3">
+            A Movement Forward initiative
+            <br />© 2024 Forward Democracy Limited
+          </p>
+
+          {/* FOOTER LINKS */}
+          <Row xs={4} className="py-3">
             {blok.links.map((link) => (
-              <StoryblokComponent blok={link} key={link._uid} />
+              <Col className="p-1" key={link._uid}>
+                <StoryblokComponent blok={link} />
+              </Col>
             ))}
           </Row>
         </Col>
