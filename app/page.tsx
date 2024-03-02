@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import ConstituencyLookup from "@/components/constituency_lookup/ConstituencyLookup";
+import MovementSection from "@/components/sections/MovementSection";
 // import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 import { rubik } from "@/utils/Fonts";
 import { Col, Container, Row } from "react-bootstrap";
@@ -32,6 +33,8 @@ export default async function Index() {
           </Row>
         </Container>
       </Header>
+
+      <MovementSection />
     </>
   );
 }
