@@ -288,3 +288,11 @@ section {
   border-top: 2px solid var(--bs-gray-700);
   border-bottom: 2px solid var(--bs-gray-900);
 }
+
+/* FOOTER */
+footer {
+  background: var(--bs-gray-300);
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  border-top: 2px solid var(--bs-gray-100);
+}

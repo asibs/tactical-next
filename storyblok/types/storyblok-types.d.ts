@@ -1,4 +1,4 @@
-import { StoryblokStory } from "storyblok-generate-ts";
+import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface FeatureStoryblok {
   name?: string;
@@ -17,6 +17,7 @@ export interface FooterStoryblok {
 export interface FooterExternalLinkStoryblok {
   link_name: string;
   link_url: string;
+  button?: boolean;
   _uid: string;
   component: "footer_external_link";
   [k: string]: any;
@@ -25,6 +26,7 @@ export interface FooterExternalLinkStoryblok {
 export interface FooterInternalLinkStoryblok {
   link_name: string;
   link_url: string;
+  button?: boolean;
   _uid: string;
   component: "footer_internal_link";
   [k: string]: any;
