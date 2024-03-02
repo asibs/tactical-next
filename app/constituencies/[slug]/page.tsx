@@ -57,6 +57,16 @@ export default async function ConstituencyPage({
     (c: any) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
 
+  constituencyData.impliedPreviousResult.partyVoteResults.sort(
+    // sort implied results on votePercent instead
+    // of raw so nonVoters stay last.
+    (a, b) => b.votePercent - a.votePercent,
+  );
+
+  constituencyData.pollingResults.partyVoteResults.sort(
+    (a, b) => b.votePercent - a.votePercent,
+  );
+
   return (
     <>
       {constituencyData && (

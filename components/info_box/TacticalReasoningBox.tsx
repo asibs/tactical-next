@@ -34,11 +34,6 @@ const TacticalReasoningBox = ({
 
   const closeSeat = !constituencyData.otherVoteData.conservativeWinUnlikely;
 
-  const sortedPreviousResults =
-    constituencyData.impliedPreviousResult.partyVoteResults.sort(
-      (a, b) => b.votePercent - a.votePercent,
-    );
-
   return (
     <InfoBox>
       <>

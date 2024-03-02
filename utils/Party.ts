@@ -14,6 +14,31 @@ const partyNameFromSlug = (slug: PartySlug): string => {
       return "Plaid Cymru";
     case "Reform":
       return "Reform UK";
+    case "NonVoter":
+      return "Non Voters";
+    default:
+      return "Other";
+  }
+};
+
+const shortPartyNameFromSlug = (slug: PartySlug): string => {
+  switch (slug) {
+    case "Con":
+      return "Tory";
+    case "Lab":
+      return "Labour";
+    case "LD":
+      return "Lib Dem";
+    case "Green":
+      return "Green";
+    case "SNP":
+      return "SNP";
+    case "PC":
+      return "Plaid";
+    case "Reform":
+      return "Reform";
+    case "NonVoter":
+      return "Non Voters";
     default:
       return "Other";
   }
@@ -22,19 +47,23 @@ const partyNameFromSlug = (slug: PartySlug): string => {
 const partyColorFromSlug = (slug: PartySlug) => {
   switch (slug) {
     case "Con":
-      return "var(--bs-blue)";
+      return "var(--con-party-color)";
     case "Lab":
-      return "var(--bs-red)";
+      return "var(--lab-party-color)";
     case "LD":
-      return "var(--bs-orange)";
+      return "var(--ld-party-color)";
     case "Green":
-      return "var(--bs-green)";
+      return "var(--green-party-color)";
     case "SNP":
-      return "var(--bs-yellow)";
+      return "var(--snp-party-color)";
     case "PC":
-      return "#005B54";
+      return "var(--pc-party-color)";
     case "Reform":
-      return "var(--bs-teal)";
+      return "var(--reform-party-color)";
+    case "NonVoter":
+      return "var(--mvtfwd-pink-strong)";
+    case "Other":
+      return "var(--other-party-color)";
     default:
       return "var(--bs-black)";
   }
@@ -62,4 +91,9 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
   }
 };
 
-export { partyColorFromSlug, partyNameFromSlug, partyCssClassFromSlug };
+export {
+  partyColorFromSlug,
+  partyNameFromSlug,
+  shortPartyNameFromSlug,
+  partyCssClassFromSlug,
+};

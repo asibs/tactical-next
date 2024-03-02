@@ -23,6 +23,7 @@ type PartySlug =
   | "Green"
   | "SNP"
   | "Other"
+  | "NonVoter"
   | "Speaker";
 
 // Data about the tactical recommendation we're using
@@ -48,6 +49,7 @@ type VoteResult = {
 type PartyVoteResult = {
   partySlug: PartySlug;
   votePercent: number;
+  rawVote?: number;
   // In future we might want to add other data like actual vote count, candidate name(s), etc
 };
 

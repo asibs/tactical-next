@@ -9,6 +9,7 @@ const ImpliedChart = ({
 }) => {
   const svgStr = svgChart(
     constituencyData.impliedPreviousResult.partyVoteResults,
+    true,
   );
 
   return (

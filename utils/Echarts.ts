@@ -1,7 +1,10 @@
 import * as echarts from "echarts";
-import { partyColorFromSlug, partyNameFromSlug } from "./Party";
+import { partyColorFromSlug, shortPartyNameFromSlug } from "./Party";
 
-const getChartData = (partyData: PartyVoteResult[]) => {
+const getChartData = (
+  partyData: PartyVoteResult[],
+  rawVote: boolean = false,
+) => {
   const axisArray: string[] = [];
   const seriesArray: {
     value: number;
@@ -12,28 +15,22 @@ const getChartData = (partyData: PartyVoteResult[]) => {
 
   for (let i = 0; i < partyData.length; i++) {}
   partyData.forEach((resultData: PartyVoteResult) => {
-    if (resultData.votePercent > 0) {
-      axisArray.push(partyNameFromSlug(resultData.partySlug));
+    let voteValue = rawVote ? resultData.rawVote : resultData.votePercent;
+    if (voteValue && voteValue > 0) {
+      axisArray.push(shortPartyNameFromSlug(resultData.partySlug));
 
-      if (resultData.votePercent < 15) {
-        seriesArray.push({
-          value: resultData.votePercent,
-          itemStyle: { color: partyColorFromSlug(resultData.partySlug) },
-        });
-      } else {
-        seriesArray.push({
-          value: resultData.votePercent,
-          itemStyle: { color: partyColorFromSlug(resultData.partySlug) },
-        });
-      }
+      seriesArray.push({
+        value: voteValue,
+        itemStyle: { color: partyColorFromSlug(resultData.partySlug) },
+      });
     }
   });
 
   return { axisArray: axisArray, seriesArray: seriesArray };
 };
 
-const svgChart = (partyData: PartyVoteResult[]) => {
-  const { axisArray, seriesArray } = getChartData(partyData);
+const svgChart = (partyData: PartyVoteResult[], rawVote: boolean = false) => {
+  const { axisArray, seriesArray } = getChartData(partyData, rawVote);
 
   const chart = echarts.init(null, null, {
     renderer: "svg", // must use SVG rendering mode
@@ -72,6 +69,13 @@ const svgChart = (partyData: PartyVoteResult[]) => {
       },
     ],
   });
+
+  if (rawVote) {
+    chart.setOption({
+      grid: { left: 50 },
+      yAxis: { axisLabel: { formatter: "{value}" } },
+    });
+  }
 
   return chart.renderToSVGString();
 };
