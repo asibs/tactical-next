@@ -13,7 +13,6 @@ const getChartData = (
     };
   }[] = [];
 
-  for (let i = 0; i < partyData.length; i++) {}
   partyData.forEach((resultData: PartyVoteResult) => {
     let voteValue = rawVote ? resultData.rawVote : resultData.votePercent;
     if (voteValue && voteValue > 0) {
