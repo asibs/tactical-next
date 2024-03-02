@@ -8,10 +8,6 @@ import TwoColumnLayout from "@/components/page_layout/TwoColumnLayout";
 import ThreeColumnLayout from "@/components/page_layout/ThreeColumnLayout";
 import RichText from "@/components/page_content/RichText";
 import Page from "@/components/Page";
-
-import Grid from "@/components/Grid";
-import Feature from "@/components/Feature";
-import Teaser from "@/components/Teaser";
 import ToggleText from "@/components/page_content/ToggleText";
 
 export const ComponentsMap: SbReactComponentsMap = {
@@ -30,8 +26,4 @@ export const ComponentsMap: SbReactComponentsMap = {
   toggle_text: ToggleText,
   // Generic page
   page: Page,
-  // Legacy Storyblok components - TODO: Delete
-  feature: Feature,
-  grid: Grid,
-  teaser: Teaser,
 };

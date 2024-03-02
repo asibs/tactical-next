@@ -1,29 +1,6 @@
 {
   "components": [
     {
-      "name": "feature",
-      "display_name": null,
-      "created_at": "2023-10-13T23:08:12.180Z",
-      "updated_at": "2023-10-13T23:08:12.180Z",
-      "id": 4719860,
-      "schema": {
-        "name": {
-          "type": "text"
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "feature",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null
-    },
-    {
       "name": "footer",
       "display_name": null,
       "created_at": "2023-11-12T21:15:54.072Z",
@@ -121,29 +98,6 @@
       "color": null,
       "icon": null,
       "component_group_name": "footer"
-    },
-    {
-      "name": "grid",
-      "display_name": null,
-      "created_at": "2023-10-13T23:08:12.162Z",
-      "updated_at": "2023-10-13T23:08:12.162Z",
-      "id": 4719859,
-      "schema": {
-        "columns": {
-          "type": "bloks"
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "grid",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null
     },
     {
       "name": "navbar",
@@ -301,13 +255,13 @@
       "name": "rich_text",
       "display_name": null,
       "created_at": "2023-12-09T13:27:17.586Z",
-      "updated_at": "2023-12-09T13:32:28.232Z",
+      "updated_at": "2024-03-02T22:33:36.303Z",
       "id": 5010502,
       "schema": {
         "text": {
           "type": "richtext",
           "required": true,
-          "allow_custom_attributes": false,
+          "allow_custom_attributes": true,
           "customize_toolbar": true,
           "toolbar": [
             "bold",
@@ -319,7 +273,6 @@
             "highlight",
             "hrule",
             "italic",
-            "link",
             "anchor",
             "olist",
             "paragraph",
@@ -334,7 +287,8 @@
             "h3",
             "h4",
             "h5",
-            "h6"
+            "h6",
+            "link"
           ],
           "restrict_type": "",
           "restrict_components": false,
@@ -353,29 +307,6 @@
       "color": null,
       "icon": null,
       "component_group_name": "page content"
-    },
-    {
-      "name": "teaser",
-      "display_name": null,
-      "created_at": "2023-10-13T23:08:12.142Z",
-      "updated_at": "2023-10-13T23:08:12.142Z",
-      "id": 4719858,
-      "schema": {
-        "headline": {
-          "type": "text"
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "teaser",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": null
     },
     {
       "name": "three_column_layout",

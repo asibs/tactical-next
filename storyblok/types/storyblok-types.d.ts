@@ -1,12 +1,5 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
-export interface FeatureStoryblok {
-  name?: string;
-  _uid: string;
-  component: "feature";
-  [k: string]: any;
-}
-
 export interface FooterStoryblok {
   links: (FooterInternalLinkStoryblok | FooterExternalLinkStoryblok)[];
   _uid: string;
@@ -29,28 +22,6 @@ export interface FooterInternalLinkStoryblok {
   button?: boolean;
   _uid: string;
   component: "footer_internal_link";
-  [k: string]: any;
-}
-
-export interface GridStoryblok {
-  columns?: (
-    | FeatureStoryblok
-    | FooterStoryblok
-    | FooterExternalLinkStoryblok
-    | FooterInternalLinkStoryblok
-    | GridStoryblok
-    | NavbarStoryblok
-    | NavbarLinkStoryblok
-    | OneColumnLayoutStoryblok
-    | PageStoryblok
-    | RichTextStoryblok
-    | TeaserStoryblok
-    | ThreeColumnLayoutStoryblok
-    | ToggleTextStoryblok
-    | TwoColumnLayoutStoryblok
-  )[];
-  _uid: string;
-  component: "grid";
   [k: string]: any;
 }
 
@@ -111,13 +82,6 @@ export interface RichTextStoryblok {
   text: RichtextStoryblok;
   _uid: string;
   component: "rich_text";
-  [k: string]: any;
-}
-
-export interface TeaserStoryblok {
-  headline?: string;
-  _uid: string;
-  component: "teaser";
   [k: string]: any;
 }
 
