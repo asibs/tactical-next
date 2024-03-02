@@ -167,7 +167,7 @@ jobs:
           # Add the updates to git
           git add data/constituency.json
       - name: Commit Changes and Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6.0.1
         with:
           # Note: Need to use a Personal Access Token here, NOT the standard
           # secrets.GITHUB_TOKEN - if we use the standard Github Actions GITHUB_TOKEN
