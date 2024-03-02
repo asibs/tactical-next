@@ -96,7 +96,7 @@ jobs:
                 },
                 {
                   partySlug: "Other",
-                  votePercent: (."Implied Vote Share: Tot oths%" | gsub("%"; "") | tonumber),
+                  votePercent: (."Implied Vote Share: Tot oths" | gsub("%"; "") | tonumber),
                   rawVote: (."Impied Raw: TotOthv" | tonumber)
                 },
                 {
