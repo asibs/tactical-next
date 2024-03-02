@@ -86,7 +86,12 @@ jobs:
                 {
                   partySlug: "PC",
                   votePercent: (."Implied Vote Share: PC" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Other",
+                  votePercent: (."Implied Vote Share: Tot oths%" | gsub("%"; "") | tonumber)
                 }
+
               ]
             },
             pollingResults: {
