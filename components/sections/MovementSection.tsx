@@ -47,11 +47,7 @@ const MovementSection = () => {
       </Container>
 
       <Container fluid className="p-0 mb-4 mb-md-5">
-        <Row
-          xs={4}
-          md={6}
-          className="g-0"
-        >
+        <Row xs={4} md={6} className="g-0">
           {Object.keys(people).map((key) => {
             // TS isn't smart enough to work out `key` is just the keys from the people object,
             // so thinks they might not be a valid key for the object...
@@ -102,7 +98,7 @@ const MovementSection = () => {
           </Col>
         </Row>
       </Container>
-    </section >
+    </section>
   );
 };
 
