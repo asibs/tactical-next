@@ -40,7 +40,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
               className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
             >
               <FaBell className="me-2" />
-              Join this voting movement
+              Join the voting movement
             </Link>
             <Link
               href="/constituencies"
