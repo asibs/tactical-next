@@ -138,7 +138,12 @@ jobs:
                 {
                   partySlug: "PC",
                   votePercent: (."MRP Vote Share PC" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Other",
+                  votePercent: (."MRP Vote Share Other" | gsub("%"; "") | tonumber)
                 }
+ 
               ]
             },
             otherVoteData: {
