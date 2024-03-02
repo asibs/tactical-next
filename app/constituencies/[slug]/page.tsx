@@ -90,10 +90,11 @@ export default async function ConstituencyPage({
                 <Row>
                   <Col>
                     <h3
-                      className={`${rubik.className
-                        } party ${partyCssClassFromSlug(
-                          constituencyData.recommendation.partySlug,
-                        )}`}
+                      className={`${
+                        rubik.className
+                      } party ${partyCssClassFromSlug(
+                        constituencyData.recommendation.partySlug,
+                      )}`}
                     >
                       {partyNameFromSlug(
                         constituencyData.recommendation.partySlug,

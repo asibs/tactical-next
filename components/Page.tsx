@@ -9,11 +9,7 @@ const Page = ({ blok }: { blok: PageStoryblok }) => {
     <>
       <Header backgroundImage={blok.page_title_background}>
         <Container className="py-4 py-md-6">
-          <h1
-            className={rubik.className}
-          >
-            {blok.page_title}
-          </h1>
+          <h1 className={rubik.className}>{blok.page_title}</h1>
         </Container>
       </Header>
 

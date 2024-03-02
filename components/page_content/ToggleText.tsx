@@ -26,7 +26,7 @@ const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
               style={{
                 transition: "transform 0.3s ease 0s",
                 transform: `rotate(${visible ? 90 : 0}deg)`,
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             />
           </Col>
@@ -37,9 +37,7 @@ const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
               aria-expanded={visible}
               style={{ cursor: "pointer" }}
             >
-              <h2 className={rubik.className}>
-                {blok.title}
-              </h2>
+              <h2 className={rubik.className}>{blok.title}</h2>
             </Row>
             <Row>
               <Collapse in={visible}>
@@ -49,7 +47,6 @@ const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
           </Col>
         </Row>
       </Container>
-
 
       {/*
       <div
