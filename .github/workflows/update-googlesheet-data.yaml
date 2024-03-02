@@ -33,7 +33,7 @@ jobs:
               {
                 "command": "getData",
                 "args": {
-                  "range": "${{ vars.GSHEET_WORKSHEET_AND_RANGE }}",
+                  "range": "'TV Advice - EXPORT'!A:AR",
                   "hasHeaderRow": true
                 }
               }
@@ -53,7 +53,8 @@ jobs:
             },
             recommendation: {
               partySlug: ."TV Advice",
-              reason: ."TV Explanation"
+              reason: ."Manual TV Explanation",
+              reasonUrl: ."Manual TV Explanation Source"
             },
             impliedPreviousResult: {
               winningParty: ."Implied Vote Share: Winner",
@@ -61,31 +62,48 @@ jobs:
               partyVoteResults: [
                 {
                   partySlug: "Con",
-                  votePercent: (."Implied Vote Share: Con" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: Con" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: Conv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Lab",
-                  votePercent: (."Implied Vote Share: Lab" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: Lab" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: Labv" // 0 | tonumber)
                 },
                 {
                   partySlug: "LD",
-                  votePercent: (."Implied Vote Share: LD" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: LD" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: LDv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Green",
-                  votePercent: (."Implied Vote Share: Green" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: Green" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: Grnv" // 0 | tonumber)
                 },
                 {
                   partySlug: "Reform",
-                  votePercent: (."Implied Vote Share: Reform" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: Reform" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: Brxv" // 0 | tonumber)
                 },
                 {
                   partySlug: "SNP",
-                  votePercent: (."Implied Vote Share: SNP" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: SNP" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: SNPv" // 0 | tonumber)
                 },
                 {
                   partySlug: "PC",
-                  votePercent: (."Implied Vote Share: PC" | gsub("%"; "") | tonumber)
+                  votePercent: (."Implied Vote Share: PC" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: PCv" // 0 | tonumber)
+                },
+                {
+                  partySlug: "Other",
+                  votePercent: (."Implied Vote Share: Tot oths" | gsub("%"; "") | tonumber),
+                  rawVote: (."Implied Raw: TotOthv" // 0 | tonumber)
+                },
+                {
+                  partySlug: "NonVoter",
+                  votePercent: 0,
+                  rawVote: (."Implied Raw: non-voter" // 0 | tonumber)
                 }
               ]
             },
@@ -120,7 +138,12 @@ jobs:
                 {
                   partySlug: "PC",
                   votePercent: (."MRP Vote Share PC" | gsub("%"; "") | tonumber)
+                },
+                {
+                  partySlug: "Other",
+                  votePercent: (."MRP Vote Share Other" | gsub("%"; "") | tonumber)
                 }
+
               ]
             },
             otherVoteData: {

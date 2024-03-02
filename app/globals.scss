@@ -88,6 +88,21 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 @import "bootstrap/scss/bootstrap";
 // @import "../node_modules/bootstrap/scss/bootstrap";
 
+/***** GLOBAL CSS VARIABLES *****/
+
+:root {
+  --mvtfwd-pink-strong: #ff66ff;
+  --con-party-color: #0087dc;
+  --lab-party-color: #e4003b;
+  --ld-party-color: #faa61a;
+  --green-party-color: #02a95b;
+  --pc-party-color: #005b54;
+  --reform-party-color: #12b6cf;
+  //SNP color reduced lightenss to make it clearer in charts.
+  --snp-party-color: #fcec50;
+  --other-party-color: var(--bs-gray-600);
+}
+
 /***** GLOBAL DEFAULT STYLES *****/
 
 /* TYPOGRAPHY */

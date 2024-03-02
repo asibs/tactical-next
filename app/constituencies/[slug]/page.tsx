@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import LocalTeamBox from "@/components/info_box/LocalTeamBox";
+import ImpliedChart from "@/components/info_box/ImpliedChart";
+import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { rubik } from "@/utils/Fonts";
@@ -55,6 +57,16 @@ export default async function ConstituencyPage({
     (c: any) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
 
+  constituencyData.impliedPreviousResult.partyVoteResults.sort(
+    // sort implied results on votePercent instead
+    // of raw so nonVoters stay last.
+    (a, b) => b.votePercent - a.votePercent,
+  );
+
+  constituencyData.pollingResults.partyVoteResults.sort(
+    (a, b) => b.votePercent - a.votePercent,
+  );
+
   return (
     <>
       {constituencyData && (
@@ -107,6 +119,15 @@ export default async function ConstituencyPage({
                   <Col md={7}>
                     <PlanToVoteBox />
                   </Col>
+                </Row>
+                <Row xs={1} lg={3}>
+                  <Col md={7}>
+                    <ImpliedChart constituencyData={constituencyData} />
+                  </Col>
+                  <Col md={7}>
+                    <MRPChart constituencyData={constituencyData} />
+                  </Col>
+                  <Col md={7}></Col>
                 </Row>
               </Container>
             </section>
