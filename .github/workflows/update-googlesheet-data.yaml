@@ -33,7 +33,7 @@ jobs:
               {
                 "command": "getData",
                 "args": {
-                  "range": "${{ vars.GSHEET_WORKSHEET_AND_RANGE }}",
+                  "range": "'TV Advice - EXPORT'!A:AR",
                   "hasHeaderRow": true
                 }
               }
@@ -53,7 +53,8 @@ jobs:
             },
             recommendation: {
               partySlug: ."TV Advice",
-              reason: ."TV Explanation"
+              reason: ."Manual TV Explanation"
+              reasonUrl: ."Manual TV Explanation Source"
             },
             impliedPreviousResult: {
               winningParty: ."Implied Vote Share: Winner",
