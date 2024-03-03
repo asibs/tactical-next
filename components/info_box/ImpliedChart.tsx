@@ -14,9 +14,7 @@ const ImpliedChart = ({
   return (
     <InfoBox>
       <>
-        <h3 className="fs-5">
-          2019 Election Results (Implied)
-        </h3>
+        <h3 className="fs-5">2019 Election Results (Implied)</h3>
         <p>The 2019 implied results from your constituency:</p>
         <div
           className="d-flex justify-content-center"

@@ -66,9 +66,7 @@ export default async function ConstituencyPage({
         <>
           <Header backgroundImage="FESTIVAL_CROWD">
             <Container className="py-4 py-md-6">
-              <h1>
-                {constituencyData.constituencyIdentifiers.name}
-              </h1>
+              <h1>{constituencyData.constituencyIdentifiers.name}</h1>
               <p>
                 Bookmark this page and check back before the election for
                 updated info.
@@ -81,9 +79,7 @@ export default async function ConstituencyPage({
               <Container>
                 <Row>
                   <Col>
-                    <h2 className="pb-3">
-                      The tactical vote is
-                    </h2>
+                    <h2 className="pb-3">The tactical vote is</h2>
                   </Col>
                 </Row>
                 <Row>

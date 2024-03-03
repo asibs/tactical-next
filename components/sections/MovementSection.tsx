@@ -74,9 +74,7 @@ const MovementSection = () => {
         <Row xs={1} md={2}>
           <Col>
             <h3 className="fw-bolder fs-5">We show up</h3>
-            <h4 className="fw-bolder fs-2">
-              To get the tories out
-            </h4>
+            <h4 className="fw-bolder fs-2">To get the tories out</h4>
             <p>
               In many places around the country, if we vote together for the
               most likely candidate to beat the Tory, out votes demolish them
@@ -84,12 +82,8 @@ const MovementSection = () => {
             </p>
           </Col>
           <Col>
-            <h3 className="fw-bolder fs-5">
-              We stick together
-            </h3>
-            <h4 className="fw-bolder fs-2">
-              To influence the next government
-            </h4>
+            <h3 className="fw-bolder fs-5">We stick together</h3>
+            <h4 className="fw-bolder fs-2">To influence the next government</h4>
             <p>
               A bigger influence on the next government than the media that
               currently shape the narrative. We stick together offering our
