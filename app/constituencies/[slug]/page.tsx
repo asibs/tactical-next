@@ -1,3 +1,4 @@
+import { Col, Container, Row } from "react-bootstrap";
 import Header from "@/components/Header";
 import LocalTeamBox from "@/components/info_box/LocalTeamBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
@@ -5,36 +6,14 @@ import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
-import { readFileSync } from "fs";
-import { unstable_cache } from "next/cache";
-import getConfig from "next/config";
-import path from "path";
-import { Col, Container, Row } from "react-bootstrap";
-
-const { serverRuntimeConfig } = getConfig() || {};
-
-const getConstituencyData = unstable_cache(
-  // Cache data function
-  async () => {
-    console.debug(
-      `constituencies/[slug]/page.tsx: Updating cached constituencies data`,
-    );
-    const filePath = path.join(process.cwd(), "data", "constituency.json");
-    const fileContent = readFileSync(filePath, "utf8");
-    return JSON.parse(fileContent);
-  },
-  // Cache key
-  [`data/constituency.json.${serverRuntimeConfig.appVersion}`],
-  // Cache options
-  { revalidate: false }, // Cache will never refresh
-);
+import { getConstituencyData } from "@/utils/constituencyData";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   const constituenciesData: ConstituencyData[] = await getConstituencyData();
 
-  return constituenciesData.map((c: any) => ({
-    slug: c["constituencySlug"],
+  return constituenciesData.map((c: ConstituencyData) => ({
+    slug: c.constituencyIdentifiers.slug,
   }));
 }
 
@@ -47,7 +26,7 @@ export default async function ConstituencyPage({
 }) {
   const constituenciesData: ConstituencyData[] = await getConstituencyData();
   const constituencyData = constituenciesData.filter(
-    (c: any) => c.constituencyIdentifiers.slug === params.slug,
+    (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
 
   constituencyData.impliedPreviousResult.partyVoteResults.sort(
