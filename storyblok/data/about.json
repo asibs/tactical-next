@@ -1,0 +1,156 @@
+{
+  "story": {
+    "name": "About",
+    "created_at": "2024-03-02T23:25:02.921Z",
+    "published_at": "2024-03-03T11:16:57.834Z",
+    "id": 454239014,
+    "uuid": "88c84a75-daf0-4abc-ade9-1927585b59c7",
+    "content": {
+      "_uid": "a668bef6-f1af-40aa-85b2-264971aa87f8",
+      "component": "page",
+      "page_title": "About us",
+      "page_content": [
+        {
+          "_uid": "8761ac29-0f68-4445-b702-f327883138a3",
+          "content": [
+            {
+              "_uid": "dd55ae11-190f-4f8c-ab5d-3323b52f862c",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "heading",
+                    "attrs": {
+                      "level": 3
+                    },
+                    "content": [
+                      {
+                        "text": "THE GOAL IS TO TOTALLY DOMINATE THE NARRATIVE AT THE NEXT ELECTION.",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We're taking tactical voting mainstream, making it clear that it was us - ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "the voters",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " - who showed up to use our votes to remove the Tories.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "But we shouldn't have to do that!",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Really we want to be able to vote ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "for",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "italic"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " something, not forced to vote against things.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "So we're also showing up to make sure the next government understands that we want ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Proportional Representation",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      },
+                      {
+                        "text": ". So we can vote with our hearts, voting ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "for",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "italic"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " the things we care about.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "component": "rich_text"
+            }
+          ],
+          "component": "one_column_layout"
+        }
+      ],
+      "page_title_background": "NONE"
+    },
+    "slug": "about",
+    "full_slug": "about",
+    "sort_by_date": null,
+    "position": -40,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": null,
+    "meta_data": null,
+    "group_id": "45c8438b-354b-442f-ae91-908d1074b641",
+    "first_published_at": "2024-03-03T11:16:57.834Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1709464617,
+  "rels": [],
+  "links": []
+}
