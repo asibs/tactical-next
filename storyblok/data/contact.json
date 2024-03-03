@@ -1,0 +1,223 @@
+{
+  "story": {
+    "name": "Contact",
+    "created_at": "2024-03-03T11:28:46.883Z",
+    "published_at": "2024-03-03T12:20:35.012Z",
+    "id": 454244104,
+    "uuid": "2241a2fe-f47f-47e2-b040-dc16f8832933",
+    "content": {
+      "_uid": "ce2e14f0-0f74-421b-8a26-dcbe05ba3f92",
+      "component": "page",
+      "page_title": "Contact",
+      "page_content": [
+        {
+          "_uid": "92226126-80b4-4034-b822-f8d745f8eff4",
+          "content": [
+            {
+              "_uid": "e3fbbbab-8e3a-418f-959f-156f2dda14af",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "heading",
+                    "attrs": {
+                      "level": 3
+                    },
+                    "content": [
+                      {
+                        "text": "SOCIAL MEDIA",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Twitter ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "@MVTFWD",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://twitter.com/MVTFWD",
+                              "uuid": null,
+                              "anchor": null,
+                              "custom": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " | ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "@GetTheToryOut",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://twitter.com/GetTheToryOut",
+                              "uuid": null,
+                              "anchor": null,
+                              "custom": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Instagram ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "@MVTFWD",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://instagram.com/MVTFWD",
+                              "uuid": null,
+                              "anchor": null,
+                              "custom": null,
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Facebook ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "@The Movement Forward",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.facebook.com/MVTFWD/",
+                              "uuid": null,
+                              "anchor": null,
+                              "custom": {},
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Threads ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "@MVTFWD",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.threads.net/@mvtfwd",
+                              "uuid": null,
+                              "anchor": null,
+                              "custom": {},
+                              "target": "_blank",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          },
+                          {
+                            "type": "underline"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "component": "rich_text"
+            }
+          ],
+          "component": "one_column_layout"
+        }
+      ],
+      "page_title_background": "NONE"
+    },
+    "slug": "contact",
+    "full_slug": "contact",
+    "sort_by_date": null,
+    "position": -50,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": null,
+    "meta_data": null,
+    "group_id": "68eca75d-71ab-4db9-ae7f-6ce4dd082734",
+    "first_published_at": "2024-03-03T11:34:51.848Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1709468446,
+  "rels": [],
+  "links": []
+}
