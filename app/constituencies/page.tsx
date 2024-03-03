@@ -1,10 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
-import {
-  partyColorFromSlug,
-  partyNameFromSlug,
-} from "@/utils/Party";
+import { partyColorFromSlug, partyNameFromSlug } from "@/utils/Party";
 import { getConstituencyData, majority } from "@/utils/constituencyData";
 
 export default async function ConstituencySummaryPage() {
