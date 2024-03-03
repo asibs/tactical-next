@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import ActionNetworkSubscriptionForm from "@/components/ActionNetworkSubscriptionForm";
 
 export default function Donate() {
-
   return (
     <>
       <Header backgroundImage="NONE">
@@ -17,14 +16,27 @@ export default function Donate() {
         <section className="section-light">
           <Container>
             <Row>
-              <Col xs={12} md={{ span: 8, offset: 2 }} xxl={{ span: 6, offset: 3 }}>
+              <Col
+                xs={12}
+                md={{ span: 8, offset: 2 }}
+                xxl={{ span: 6, offset: 3 }}
+              >
                 <h3>We&apos;ll email you what you need, when you need it.</h3>
-                <p>Get our newsletter, updates, and the important alerts you need just at the right times.</p>
+                <p>
+                  Get our newsletter, updates, and the important alerts you need
+                  just at the right times.
+                </p>
 
                 <ActionNetworkSubscriptionForm />
 
                 <p className="fs-6">
-                  <a href="https://themovementforward.com/privacy/" target="_blank" rel="noreferrer">Privacy Policy</a>
+                  <a
+                    href="https://themovementforward.com/privacy/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Privacy Policy
+                  </a>
                 </p>
               </Col>
             </Row>
