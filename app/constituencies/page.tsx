@@ -64,6 +64,33 @@ export default async function ConstituencySummaryPage() {
             </Row>
           </Container>
         </section>
+
+        <section className="section-light">
+          <Container>
+            <Row className="pb-4">
+              <Col>
+                <h3>Non-Tory Seats</h3>
+                <p className="fst-italic">Based on converting 2019 voting patterns to new constituency boundaries</p>
+              </Col>
+            </Row>
+
+            <Row>
+              <h5>Let's keep them out of Tory hands</h5>
+            </Row>
+
+            <Row xs={2} md={3} lg={4} xl={5} xxl={6} className="g-1">
+              {nonTorySeats.map((c) => (
+                <Col>
+                  <Link href={`/constituencies/${c.constituencyIdentifiers.slug}`}>
+                    <span className="badge rounded-pill w-100 h-100 text-wrap align-middle" style={{ backgroundColor: partyColorFromSlug(c.impliedPreviousResult.biggestProgressiveParty) }}>
+                      {c.constituencyIdentifiers.name}
+                    </span>
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </section>
       </main >
     </>
   );
