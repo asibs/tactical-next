@@ -62,6 +62,7 @@ const MovementSection = () => {
                   src={image}
                   alt={`Photo of ${name}`}
                   style={{ width: "100%", height: "100%" }}
+                  placeholder="blur"
                 />
               </Col>
             );
