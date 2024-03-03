@@ -46,8 +46,8 @@ const fetchApi = async (
     console.log("Making API call to constituency lookup route");
     const response = await fetch(
       "/api/constituency_lookup/" +
-        postcode +
-        (addressSlug ? "/" + addressSlug : ""),
+      postcode +
+      (addressSlug ? "/" + addressSlug : ""),
     );
 
     if (response.ok) {
@@ -268,7 +268,7 @@ const PostcodeLookup = () => {
       style={{ fontSize: "18px" }}
     >
       <Form action={submitForm} noValidate>
-        <h3 className={`${rubik.className} fw-bolder`}>Vote the Tories out</h3>
+        <h3 className="fw-bolder">Vote the Tories out</h3>
         <p className="fw-bold text-900">
           Vote tactically at the General Election
         </p>
@@ -287,8 +287,8 @@ const PostcodeLookup = () => {
               {!lastSelectedConstituency?.name
                 ? ""
                 : lastSelectedConstituency.name.length < 31
-                ? lastSelectedConstituency.name
-                : lastSelectedConstituency.name.substring(0, 27) + "..."}
+                  ? lastSelectedConstituency.name
+                  : lastSelectedConstituency.name.substring(0, 27) + "..."}
             </InputGroup.Text>
           )}
         </InputGroup>

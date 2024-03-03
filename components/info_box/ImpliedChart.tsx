@@ -1,5 +1,4 @@
 import InfoBox from "./InfoBox";
-import { rubik } from "@/utils/Fonts";
 import { svgChart } from "@/utils/Echarts";
 
 const ImpliedChart = ({
@@ -15,7 +14,7 @@ const ImpliedChart = ({
   return (
     <InfoBox>
       <>
-        <h3 className={`${rubik.className} fs-5`}>
+        <h3 className="fs-5">
           2019 Election Results (Implied)
         </h3>
         <p>The 2019 implied results from your constituency:</p>

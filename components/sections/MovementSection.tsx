@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { rubik } from "@/utils/Fonts";
 import { Col, Container, Row } from "react-bootstrap";
 
 import asifKapadia from "@/assets/supporter_portraits/asif-kapadia-540.webp";
@@ -39,7 +38,7 @@ const MovementSection = () => {
         {/* PEOPLE */}
         <Row>
           <Col className="pb-3 pb-md-5">
-            <h2 className={`${rubik.className} fw-bolder fs-1`}>
+            <h2 className="fw-bolder fs-1">
               Join A Movement building voter power, beyond this election.
             </h2>
           </Col>
@@ -73,8 +72,8 @@ const MovementSection = () => {
       <Container>
         <Row xs={1} md={2}>
           <Col>
-            <h3 className={`${rubik.className} fw-bolder fs-5`}>We show up</h3>
-            <h4 className={`${rubik.className} fw-bolder fs-2`}>
+            <h3 className="fw-bolder fs-5">We show up</h3>
+            <h4 className="fw-bolder fs-2">
               To get the tories out
             </h4>
             <p>
@@ -84,10 +83,10 @@ const MovementSection = () => {
             </p>
           </Col>
           <Col>
-            <h3 className={`${rubik.className} fw-bolder fs-5`}>
+            <h3 className="fw-bolder fs-5">
               We stick together
             </h3>
-            <h4 className={`${rubik.className} fw-bolder fs-2`}>
+            <h4 className="fw-bolder fs-2">
               To influence the next government
             </h4>
             <p>
