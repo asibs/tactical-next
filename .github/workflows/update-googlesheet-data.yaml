@@ -43,9 +43,8 @@ jobs:
       - name: Output full results
         run: |
           cat /tmp/gsheet_action_results.json
-      - name: Write results
+      - name: Write internal json datafile
         run: |
-          # Write the results to the data file
           jq '.results[0].result.formatted | map({
             constituencyIdentifiers: {
               slug: ."STT Slug",
@@ -165,8 +164,49 @@ jobs:
               conservativeWinUnlikely: (."Con Can'\''t Win" | (if . == "TRUE" then true else false end))
             }
           })' /tmp/gsheet_action_results.json > data/constituency.json
+
           # Add the updates to git
           git add data/constituency.json
+      - name: Write public-facing CSV
+        run: |
+          new_csv_name=$(date +%Y%m%d_%H%M).csv
+          # 1 - Build a list of regular expressions which match the allowed columns
+          # 2 - Build the list of column names by adding all keys from the formatted
+          #     results, and only selecting those matching one of the allowed regex
+          # 3 - Map each record (row) to an array of the values of the allowed columns
+          # 4 - Output the allowed column headers and each row to CSV format
+          jq -r '(
+              [
+                "^Short Code$", "^Name$", "^Country$",
+                "^Implied Vote Share", "^Implied Raw", "^MRP Vote Share",
+                "^Green Target$", "^Labour Non-Target$", "^Lib Dem Top 50 MRP$",
+                "^TV Advice$"
+              ]
+            ) as $allowColRegexes |
+            (
+              [
+                .results[0].result.formatted[0] | keys_unsorted | .[] |
+                select(
+                  . as $colname | any(
+                    $allowColRegexes[]; . as $allowColRegex | $colname | test($allowColRegex)
+                  )
+                )
+              ]
+            ) as $colnames |
+            .results[0].result.formatted | map(. as $row | $colnames | map($row[.])) as $rows |
+            $colnames, $rows[] | @csv
+          ' /tmp/gsheet_action_results.json > public/data/$new_csv_name
+
+          # Check if the new file is any different from the most recent one
+          if cmp -s "public/data/$new_csv_name" "public/data/latest.csv"; then
+              # Files the same - delete 'new' file
+              rm public/data/$new_csv_name
+          else
+              # Files different - copy new data to latest.csv & add both to Git
+              rm public/data/latest.csv
+              cp public/data/$new_csv_name public/data/latest.csv
+              git add public/data/$new_csv_name public/data/latest.csv
+          fi
       - name: Commit Changes and Create Pull Request
         uses: peter-evans/create-pull-request@v6.0.1
         with:
