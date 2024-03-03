@@ -74,6 +74,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
               src={mvmtFrwdQrCode}
               alt="Movement Forward QR Code"
               style={{ width: "100%", height: "auto" }}
+              placeholder="blur"
             />
           </a>
         </Col>
@@ -86,6 +87,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
                 src={mvmtFrwdLogo}
                 alt="Movement Forward Logo"
                 style={{ width: "4rem", height: "4rem" }}
+                placeholder="blur"
               />
               <span className="mx-2 fw-bold">@MVTFWD</span>
             </a>
