@@ -2,7 +2,7 @@
   "story": {
     "name": "Footer",
     "created_at": "2023-12-09T18:53:56.246Z",
-    "published_at": "2024-03-02T18:38:53.869Z",
+    "published_at": "2024-03-03T12:20:46.436Z",
     "id": 416706550,
     "uuid": "63903b08-be76-463b-ab23-9b4bf16e1c58",
     "content": {
@@ -29,9 +29,10 @@
           "link_name": "FAQ"
         },
         {
-          "_uid": "f43ba7c3-5ef8-4831-bec1-54269dcad39c",
-          "link_url": "/privacy",
-          "component": "footer_internal_link",
+          "_uid": "deae1de0-2d1d-4668-a94e-b27b5af0ea36",
+          "button": false,
+          "link_url": "https://themovementforward.com/privacy/",
+          "component": "footer_external_link",
           "link_name": "Privacy"
         },
         {
@@ -73,7 +74,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1709464617,
+  "cv": 1709468446,
   "rels": [],
   "links": []
 }
