@@ -60,6 +60,34 @@ export default async function ConstituencyPage({
     (a, b) => b.votePercent - a.votePercent,
   );
 
+  let tacticalTitle = "";
+  let progressive1st: PartySlug | null = null;
+  let progressive2nd: PartySlug | null = null;
+  const conCantWin = constituencyData.otherVoteData.conservativeWinUnlikely;
+  const recommendation = constituencyData.recommendation.partySlug;
+
+  if (recommendation) {
+    if (conCantWin) {
+      // Clear recommendation, Con can't win
+      tacticalTitle = "This seat is safe ";
+    } else {
+      // Clear recommendation, Con can win
+      tacticalTitle = "The tactical vote is";
+    }
+  } else {
+    if (conCantWin) {
+      // No recommendation, Con can't win
+      tacticalTitle = "This seat is";
+      progressive1st =
+        constituencyData.pollingResults.partyVoteResults[0].partySlug;
+      progressive2nd =
+        constituencyData.pollingResults.partyVoteResults[1].partySlug;
+    } else {
+      // No recommendation, Con can win
+      tacticalTitle = "Too soon to tell";
+    }
+  }
+
   return (
     <>
       {constituencyData && (
@@ -79,20 +107,42 @@ export default async function ConstituencyPage({
               <Container>
                 <Row>
                   <Col>
-                    <h2 className="pb-3">The tactical vote is</h2>
+                    <h2 className="pb-3">{tacticalTitle}</h2>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h3
-                      className={`party ${partyCssClassFromSlug(
-                        constituencyData.recommendation.partySlug,
-                      )}`}
-                    >
-                      {partyNameFromSlug(
-                        constituencyData.recommendation.partySlug,
-                      )}
-                    </h3>
+                    {recommendation ? (
+                      <h3
+                        className={`party ${partyCssClassFromSlug(
+                          constituencyData.recommendation.partySlug,
+                        )}`}
+                      >
+                        {partyNameFromSlug(
+                          constituencyData.recommendation.partySlug,
+                        )}
+                      </h3>
+                    ) : conCantWin && progressive1st && progressive2nd ? (
+                      <>
+                        <h3 className="contest">
+                          <span
+                            className={partyCssClassFromSlug(progressive1st)}
+                          >
+                            {partyNameFromSlug(progressive1st)}
+                          </span>
+                          &nbsp;vs&nbsp;
+                          <span
+                            className={`${partyCssClassFromSlug(
+                              progressive2nd,
+                            )}`}
+                          >
+                            {partyNameFromSlug(progressive2nd)}
+                          </span>
+                        </h3>
+                      </>
+                    ) : (
+                      <h3 className="party"></h3>
+                    )}
                   </Col>
                 </Row>
 

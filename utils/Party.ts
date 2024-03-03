@@ -15,7 +15,7 @@ const partyNameFromSlug = (slug: PartySlug): string => {
     case "Reform":
       return "Reform UK";
     case "NonVoter":
-      return "Non Voters";
+      return "Didn't Vote";
     default:
       return "Other";
   }
@@ -38,7 +38,7 @@ const shortPartyNameFromSlug = (slug: PartySlug): string => {
     case "Reform":
       return "Reform";
     case "NonVoter":
-      return "Non Voters";
+      return "Didn't Vote";
     default:
       return "Other";
   }
@@ -81,11 +81,11 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
     case "Green":
       return "party-green";
     case "SNP":
-      return "";
+      return "party-snp";
     case "PC":
-      return "";
+      return "party-pc";
     case "Reform":
-      return "";
+      return "party-reform";
     default:
       return "";
   }

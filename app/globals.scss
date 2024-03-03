@@ -92,14 +92,14 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 
 :root {
   --mvtfwd-pink-strong: #ff66ff;
-  --con-party-color: #0087dc;
-  --lab-party-color: #e4003b;
-  --ld-party-color: #faa61a;
-  --green-party-color: #02a95b;
+  --con-party-color: var(--bs-blue); //#0087dc;
+  --lab-party-color: var(--bs-red); //#e4003b;
+  --ld-party-color: var(--bs-orange); //#faa61a;
+  --green-party-color: var(--bs-green); //#02a95b;
   --pc-party-color: #005b54;
-  --reform-party-color: #12b6cf;
+  --reform-party-color: var(--bs-cyan); // #12b6cf;
   //SNP color reduced lightenss to make it clearer in charts.
-  --snp-party-color: #fcec50;
+  --snp-party-color: var(--bs-yellow); //#fcec50;
   --other-party-color: var(--bs-gray-600);
 }
 
@@ -180,6 +180,17 @@ button:focus {
 }
 
 /* PARTY STYLES */
+h3.contest {
+  font-size: 4vmax;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--bs-gray-800);
+}
+
+h3.contest span {
+  font-size: 6vmax;
+}
+
 h3.party {
   font-size: 8vmax;
   font-weight: 800;
@@ -188,8 +199,9 @@ h3.party {
 
 h3.party-labour,
 svg.party-labour,
+span.party-labour,
 i.party-labour {
-  color: var(--bs-red);
+  color: var(--lab-party-color);
 }
 
 div.party-labour {
@@ -204,6 +216,7 @@ div.party-labour {
 
 h3.party-libdem,
 svg.party-libdem,
+span.party-libdem,
 i.party-libdem {
   color: var(--bs-orange);
 }
@@ -220,6 +233,7 @@ div.party-libdem {
 
 h3.party-green,
 svg.party-green,
+span.party-green,
 i.party-green {
   color: var(--bs-green);
 }
@@ -234,8 +248,26 @@ div.party-green {
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
+h3.party-snp,
+svg.party-snp,
+span.party-snp,
+i.party-snp {
+  color: var(--snp-party-color);
+}
+
+div.party-snp {
+  background-color: rgba(var(--bs-yellow-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-yellow-rgb), 1),
+    rgba(var(--bs-yellow-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
 h3.party-conservative,
 svg.party-conservative,
+span.party-conservative,
 i.party-conservative {
   color: var(--bs-blue);
 }

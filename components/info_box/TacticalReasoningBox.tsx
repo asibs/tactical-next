@@ -31,7 +31,7 @@ const TacticalReasoningBox = ({
         target.partySlug == recommendedParty && target.likelyTarget == "YES",
     );
 
-  const closeSeat = !constituencyData.otherVoteData.conservativeWinUnlikely;
+  const conCantWin = !constituencyData.otherVoteData.conservativeWinUnlikely;
 
   return (
     <InfoBox>
@@ -78,7 +78,7 @@ const TacticalReasoningBox = ({
         )}
 
         {/* Check if this is a close seat */}
-        {closeSeat && (
+        {conCantWin && (
           <p>
             <FaTriangleExclamation
               className="me-2"
