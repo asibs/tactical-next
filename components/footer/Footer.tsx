@@ -15,17 +15,14 @@ import {
   FaDiscord,
   FaFileArrowDown,
   FaMagnifyingGlass,
-  FaMastodon,
   FaPuzzlePiece,
   FaSquareFacebook,
   FaSquareInstagram,
   FaSquareThreads,
   FaSquareTwitter,
   FaSquareWhatsapp,
-  FaTelegram,
 } from "react-icons/fa6";
-import { MdGroups2 } from "react-icons/md";
-import { Button, ButtonGroup } from "react-bootstrap";
+import { ButtonGroup } from "react-bootstrap";
 import { rubik } from "@/utils/Fonts";
 
 const Footer = ({ blok }: { blok: FooterStoryblok }) => (

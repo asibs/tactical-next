@@ -1,6 +1,6 @@
+import { rubik } from "@/utils/Fonts";
 import "./globals.scss";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import StoryblokProvider from "@/storyblok/components/StoryblokProvider";
@@ -10,9 +10,6 @@ import { ComponentsMap } from "@/storyblok/components/ComponentsMap";
 // Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
 export const revalidate = 0;
-
-// TODO: Decide whether we want Inter at all or just use default fonts?
-const inter = Inter({ subsets: ["latin"] });
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
@@ -35,7 +32,11 @@ export default function RootLayout({
     console.debug("layout.tsx: Enabling live-editing");
     return (
       <StoryblokProvider>
-        <html lang="en">
+        {/*
+        Adding rubik.variable here makes the --font-rubik CSS var available
+        (used in globals.scss to style headers, etc)
+        */}
+        <html lang="en" className={rubik.variable}>
           {/* <body className={inter.className}> */}
           <body>
             <StoryblokWrapper slug="layout/navigation" />
@@ -48,7 +49,7 @@ export default function RootLayout({
   } else {
     console.debug("layout.tsx: Disabling live-editing");
     return (
-      <html lang="en">
+      <html lang="en" className={rubik.variable}>
         {/* <body className={inter.className}> */}
         <body>
           <StoryblokWrapper slug="layout/navigation" />

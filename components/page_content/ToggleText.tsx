@@ -8,8 +8,6 @@ import { useState } from "react";
 import { Col, Collapse, Container, Row } from "react-bootstrap";
 import { FaCircleChevronRight } from "react-icons/fa6";
 
-import { rubik } from "@/utils/Fonts";
-
 const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
   const [visible, setVisible] = useState(blok.text_shown_initially);
 
@@ -37,7 +35,7 @@ const ToggleText = ({ blok }: { blok: ToggleTextStoryblok }) => {
               aria-expanded={visible}
               style={{ cursor: "pointer" }}
             >
-              <h2 className={rubik.className}>{blok.title}</h2>
+              <h2>{blok.title}</h2>
             </Row>
             <Row>
               <Collapse in={visible}>

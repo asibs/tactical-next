@@ -4,7 +4,6 @@ import ImpliedChart from "@/components/info_box/ImpliedChart";
 import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
-import { rubik } from "@/utils/Fonts";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 import { readFileSync } from "fs";
 import { unstable_cache } from "next/cache";
@@ -67,9 +66,7 @@ export default async function ConstituencyPage({
         <>
           <Header backgroundImage="FESTIVAL_CROWD">
             <Container className="py-4 py-md-6">
-              <h1 className={rubik.className}>
-                {constituencyData.constituencyIdentifiers.name}
-              </h1>
+              <h1>{constituencyData.constituencyIdentifiers.name}</h1>
               <p>
                 Bookmark this page and check back before the election for
                 updated info.
@@ -82,17 +79,13 @@ export default async function ConstituencyPage({
               <Container>
                 <Row>
                   <Col>
-                    <h2 className={`${rubik.className} pb-3`}>
-                      The tactical vote is
-                    </h2>
+                    <h2 className="pb-3">The tactical vote is</h2>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
                     <h3
-                      className={`${
-                        rubik.className
-                      } party ${partyCssClassFromSlug(
+                      className={`party ${partyCssClassFromSlug(
                         constituencyData.recommendation.partySlug,
                       )}`}
                     >

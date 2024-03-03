@@ -1,5 +1,4 @@
 import InfoBox from "./InfoBox";
-import { rubik } from "@/utils/Fonts";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 
 import {
@@ -37,7 +36,7 @@ const TacticalReasoningBox = ({
   return (
     <InfoBox>
       <>
-        <h3 className={`${rubik.className} fs-5`}>Why?</h3>
+        <h3 className="fs-5">Why?</h3>
 
         {/* Always show previous general election winner */}
         <p>

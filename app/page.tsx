@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import ConstituencyLookup from "@/components/constituency_lookup/ConstituencyLookup";
 import MovementSection from "@/components/sections/MovementSection";
-import { rubik } from "@/utils/Fonts";
 import { Col, Container, Row } from "react-bootstrap";
 
 export default async function Index() {
@@ -11,12 +10,12 @@ export default async function Index() {
         <Container className="py-4 py-md-6">
           <Row xs={1} md={2}>
             <Col md={4} lg={5} xl={7}>
-              <h1 className={rubik.className}>
+              <h1>
                 Your vote IS
                 <br />
                 your power
               </h1>
-              <h3 className={rubik.className}>
+              <h3>
                 Join the movement that sticks together using it&apos;s votes
                 collectively for change.
               </h3>

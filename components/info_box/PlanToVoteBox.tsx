@@ -1,5 +1,4 @@
 import InfoBox from "./InfoBox";
-import { rubik } from "@/utils/Fonts";
 
 import {
   FaPenClip,
@@ -12,7 +11,7 @@ const PlanToVoteBox = () => {
   return (
     <InfoBox>
       <>
-        <h3 className={`${rubik.className} fs-5`}>Your Plan</h3>
+        <h3 className="fs-5">Your Plan</h3>
         <p>
           <a
             href="https://www.gov.uk/register-to-vote"

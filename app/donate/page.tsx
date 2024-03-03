@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
 import Header from "@/components/Header";
-import { rubik } from "@/utils/Fonts";
 
 export default function Donate() {
   const url = "https://www.crowdfunder.co.uk/p/stopthetories";
@@ -20,7 +19,7 @@ export default function Donate() {
     <>
       <Header backgroundImage="FESTIVAL_CROWD">
         <Container className="py-4 py-md-6">
-          <h1 className={rubik.className}>Donate</h1>
+          <h1>Donate</h1>
         </Container>
       </Header>
 

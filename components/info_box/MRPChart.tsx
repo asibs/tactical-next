@@ -1,5 +1,4 @@
 import InfoBox from "./InfoBox";
-import { rubik } from "@/utils/Fonts";
 import { svgChart } from "@/utils/Echarts";
 
 const MRPChart = ({
@@ -12,9 +11,7 @@ const MRPChart = ({
   return (
     <InfoBox>
       <>
-        <h3 className={`${rubik.className} fs-5`}>
-          Constituency Regression Polls
-        </h3>
+        <h3 className="fs-5">Constituency Regression Polls</h3>
         <p>Average of last 6 months MRP models:</p>
         <div
           className="d-flex justify-content-center"

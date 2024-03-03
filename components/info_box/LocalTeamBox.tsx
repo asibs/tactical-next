@@ -8,7 +8,7 @@ const LocalTeamBox = () => {
   return (
     <InfoBox>
       <>
-        <h3 className={`${rubik.className} fs-5`}>Your Constituency Team</h3>
+        <h3 className="fs-5">Your Constituency Team</h3>
         <p>
           People in your local Movement Forward community are coming together to
           use their voting power.
