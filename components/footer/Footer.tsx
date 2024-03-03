@@ -46,13 +46,15 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
               <FaMagnifyingGlass className="me-2" />
               Browse constituencies
             </Link>
-            <Link
-              href="/volunteer"
+            <a
+              href="https://themovementforward.com/volunteer/"
+              target="_blank"
+              rel="noreferrer"
               className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
             >
               <FaPuzzlePiece className="me-2" />
               Volunteer
-            </Link>
+            </a>
             <Link
               href="/downloads"
               className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
