@@ -29,6 +29,7 @@ const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
             alt="StopTheTories.vote logo"
             className="d-inline-block me-2"
             style={{ width: "2rem", height: "2rem" }}
+            placeholder="blur"
           />
           <span>StopTheTories</span>
           <span className="fw-bolder fst-italic">.Vote</span>
