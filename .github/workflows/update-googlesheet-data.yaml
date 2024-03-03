@@ -16,10 +16,11 @@ jobs:
     steps:
       - name: Checkout latest code from main branch
         uses: actions/checkout@v4
-      # TODO: This action doesn't work for downloading large volumes of data to an ENV
-      # Look into changing the Google Action so we can download to a temp file instead
-      # For now, can manually download a CSV from Google Sheet and convert using:
-      # csvtojson constituencies.csv | jq > constituency.json
+      # Currently using a fork of https://github.com/jroehl/gsheet.action/ which adds
+      # the ability to output to file rather than using the standard GitHub Action
+      # output to an ENV. Outputting to ENV doesn't work when downloading large volumes
+      # of data. If/when this PR is merged we can go back to using the original repo:
+      # https://github.com/jroehl/gsheet.action/pull/615
       - uses: asibs/gsheet.action.asibs@release
         name: Download latest data from Google Sheets
         id: download_gsheets_data
