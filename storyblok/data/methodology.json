@@ -1,0 +1,60 @@
+{
+  "story": {
+    "name": "Methodology",
+    "created_at": "2024-03-03T21:50:48.333Z",
+    "published_at": "2024-03-03T21:53:26.412Z",
+    "id": 454250319,
+    "uuid": "2d948b88-3a5b-4a5f-8d36-5844e90e21fe",
+    "content": {
+      "_uid": "48701a3c-1545-49c1-a74e-f7ce810db3d6",
+      "component": "page",
+      "page_title": "Methodology",
+      "page_content": [
+        {
+          "_uid": "a49cefc7-bede-480e-b246-27e8fbcf1e49",
+          "content": [
+            {
+              "_uid": "2a713e7a-963b-4d96-9e44-c7bc1768e33e",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "TODO: Explain our methodology for making tactical voting recommendations.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "component": "rich_text"
+            }
+          ],
+          "component": "one_column_layout"
+        }
+      ],
+      "page_title_background": "NONE"
+    },
+    "slug": "methodology",
+    "full_slug": "methodology",
+    "sort_by_date": null,
+    "position": -60,
+    "tag_list": [],
+    "is_startpage": false,
+    "parent_id": null,
+    "meta_data": null,
+    "group_id": "517b0502-656f-4a68-9e98-0e3fcbf09f61",
+    "first_published_at": "2024-03-03T21:53:26.412Z",
+    "release_id": null,
+    "lang": "default",
+    "path": null,
+    "alternates": [],
+    "default_full_slug": null,
+    "translated_slugs": null
+  },
+  "cv": 1709502806,
+  "rels": [],
+  "links": []
+}
