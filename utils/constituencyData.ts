@@ -21,7 +21,7 @@ const getConstituencyData = unstable_cache(
   { revalidate: false }, // Cache will never refresh
 );
 
-/** 
+/**
  * Returns a measure of the majority achieved by the winning party in the given VoteResult.
  * The majority calculated by this method uses the delta between the _vote percent_ achieved
  * by the winning & runner-up parties. It uses vote percent because this is present on all
@@ -30,16 +30,22 @@ const getConstituencyData = unstable_cache(
  */
 const majority = (voteResult: VoteResult) => {
   const winner = voteResult.winningParty;
-  const runnerUp = voteResult.partyVoteResults.sort((a, b) => b.votePercent - a.votePercent)[1].partySlug;
+  const runnerUp = voteResult.partyVoteResults.sort(
+    (a, b) => b.votePercent - a.votePercent,
+  )[1].partySlug;
 
   const winnerVotePercent = votePercent(voteResult, winner);
   const runnerUpVotePercent = votePercent(voteResult, runnerUp);
 
   return winnerVotePercent - runnerUpVotePercent;
-}
+};
 
 const votePercent = (voteResult: VoteResult, partySlug: string) => {
-  return voteResult.partyVoteResults.find(partyResult => partyResult.partySlug === partySlug)?.votePercent || 0.0;
-}
+  return (
+    voteResult.partyVoteResults.find(
+      (partyResult) => partyResult.partySlug === partySlug,
+    )?.votePercent || 0.0
+  );
+};
 
-export { getConstituencyData, majority, votePercent }
+export { getConstituencyData, majority, votePercent };
