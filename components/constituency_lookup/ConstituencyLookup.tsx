@@ -18,6 +18,7 @@ import {
   postcodeInputPattern,
   validatePostcode,
 } from "@/utils/Postcodes";
+import { submitANForm } from "@/utils/AnApiSubmission";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
@@ -155,6 +156,7 @@ const PostcodeLookup = () => {
     ConstituencyLookupResponse | false | null
   >(null);
   const [error, setError] = useState<ErrorCode | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const validPostcode = useRef("");
 
@@ -236,14 +238,44 @@ const PostcodeLookup = () => {
   };
 
   const submitForm = async () => {
-    if (lastSelectedConstituency) {
+    if (lastSelectedConstituency && !formState.emailOptIn) {
       // TODO: Validate email & submit to AN form to subscribe them.
       // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
       router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       return;
+    } else if (
+      lastSelectedConstituency &&
+      formState.emailOptIn &&
+      formState.email &&
+      formRef.current &&
+      !formRef.current.email.validity.typeMismatch
+    ) {
+      //TODO set source codes from current url params.
+      const anResponse = await submitANForm(
+        formState.email,
+        validPostcode.current,
+        lastSelectedConstituency,
+        process.env.NEXT_PUBLIC_AN_POSTCODE_FORM || "",
+      );
+
+      if (anResponse.ok) {
+        router.push(`/constituencies/${lastSelectedConstituency.slug}`);
+      } else {
+        //TODO set error for failed signup
+      }
     }
 
     // VALIDATION
+    // Invalid email
+    if (
+      formState.emailOptIn &&
+      formState.email &&
+      formRef.current &&
+      formRef.current.email.validity.typeMismatch
+    ) {
+      //TODO set error for an invalid email address
+    }
+
     // no postcode or invalid postcode
     if (
       !validPostcode.current ||
@@ -267,7 +299,7 @@ const PostcodeLookup = () => {
       className="rounded-3 bg-pink-strong p-3 shadow text-100"
       style={{ fontSize: "18px" }}
     >
-      <Form action={submitForm} noValidate>
+      <Form ref={formRef} action={submitForm} noValidate>
         <h3 className="fw-bolder">Vote the Tories out</h3>
         <p className="fw-bold text-900">
           Vote tactically at the General Election
