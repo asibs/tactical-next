@@ -326,7 +326,7 @@ const PostcodeLookup = () => {
             type="text"
             placeholder="Your Postcode"
             pattern={postcodeInputPattern}
-            isInvalid={postError ? true : false}
+            isInvalid={!!postError}
             onChange={(e) => postcodeChanged(e.target.value)}
             className="invalid-text-greyed"
           />
@@ -412,7 +412,7 @@ const PostcodeLookup = () => {
                   type="email"
                   placeholder="Your Email"
                   value={formState.email}
-                  isInvalid={emailError ? true : false}
+                  isInvalid={!!emailError}
                   onChange={(e) => {
                     setFormState({ ...formState, email: e.target.value });
                     if (!e.target.validity.typeMismatch) {
