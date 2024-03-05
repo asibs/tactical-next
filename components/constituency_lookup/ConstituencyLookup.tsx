@@ -27,7 +27,8 @@ import { useMemo, useRef, useState } from "react";
 const postcodeErrorToErrorMessage = (code: AllPostCodeErrorCode) => {
   switch (code) {
     case "POSTCODE_INVALID":
-      return "Oops, that postcode doesn't look right to us. Please try again or contact us.";
+      return "Oops, that postcode doesn't look right to us. Please try again or contact us."; // TODO make contact us a link?
+
     case "POSTCODE_NOT_FOUND":
       return "Oops, we can't find that postcode. Please try again or contact us.";
     case "UNCLEAR_CONSTITUENCY":
@@ -284,9 +285,8 @@ const PostcodeLookup = () => {
     // Invalid email
     if (
       formState.emailOptIn &&
-      formState.email &&
-      formRef.current &&
-      formRef.current.email.validity.typeMismatch
+      (!formState.email ||
+        (formRef.current && formRef.current.email.validity.typeMismatch))
     ) {
       setEmailError("EMAIL_INVALID");
     }
@@ -319,13 +319,14 @@ const PostcodeLookup = () => {
         <p className="fw-bold text-900">
           Vote tactically at the General Election
         </p>
-        <InputGroup className="my-3">
+        <InputGroup className="my-3" hasValidation>
           <Form.Control
             name="postcode"
             size="lg"
             type="text"
             placeholder="Your Postcode"
             pattern={postcodeInputPattern}
+            isInvalid={postError ? true : false}
             onChange={(e) => postcodeChanged(e.target.value)}
             className="invalid-text-greyed"
           />
@@ -338,13 +339,13 @@ const PostcodeLookup = () => {
                 : lastSelectedConstituency.name.substring(0, 27) + "..."}
             </InputGroup.Text>
           )}
+          <Form.Control.Feedback
+            className="fw-bold fst-italic px-2 pt-0 mt-1 mb-2 text-white"
+            type="invalid"
+          >
+            {postError ? postcodeErrorToErrorMessage(postError) : ""}
+          </Form.Control.Feedback>
         </InputGroup>
-
-        {postError && (
-          <p className="fw-bold fst-italic">
-            {postcodeErrorToErrorMessage(postError)}
-          </p>
-        )}
 
         {apiResponse && apiResponse.constituencies.length > 1 && (
           <div className="my-3">
@@ -404,23 +405,29 @@ const PostcodeLookup = () => {
 
           {formState.emailOptIn && (
             <>
-              <Form.Control
-                name="email"
-                size="lg"
-                type="email"
-                placeholder="Your Email"
-                value={formState.email}
-                onChange={(e) =>
-                  setFormState({ ...formState, email: e.target.value })
-                }
-                className="my-2 invalid-text-greyed"
-              />
-              {emailError && (
-                <p className="fw-bold fst-italic">
-                  {emailErrorToErrorMessage(emailError)}
-                </p>
-              )}
-
+              <InputGroup hasValidation>
+                <Form.Control
+                  name="email"
+                  size="lg"
+                  type="email"
+                  placeholder="Your Email"
+                  value={formState.email}
+                  isInvalid={emailError ? true : false}
+                  onChange={(e) => {
+                    setFormState({ ...formState, email: e.target.value });
+                    if (!e.target.validity.typeMismatch) {
+                      setEmailError(null);
+                    }
+                  }}
+                  className="my-2 invalid-text-greyed"
+                />
+                <Form.Control.Feedback
+                  className="fw-bold fst-italic px-2 pt-0 mt-0 mb-2 text-white"
+                  type="invalid"
+                >
+                  {emailError ? emailErrorToErrorMessage(emailError) : ""}
+                </Form.Control.Feedback>
+              </InputGroup>
               <p style={{ fontSize: "0.75em" }}>
                 We store your email address, postcode, and constituency, so we
                 can send you exactly the information you need, and the actions
