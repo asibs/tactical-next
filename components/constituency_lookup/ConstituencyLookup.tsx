@@ -24,12 +24,28 @@ import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 import { useMemo, useRef, useState } from "react";
 
-const errorCodeToErrorMessage = (code: ErrorCode) => {
+const postcodeErrorToErrorMessage = (code: AllPostCodeErrorCode) => {
   switch (code) {
     case "POSTCODE_INVALID":
       return "Oops, that postcode doesn't look right to us. Please try again or contact us.";
     case "POSTCODE_NOT_FOUND":
       return "Oops, we can't find that postcode. Please try again or contact us.";
+    case "UNCLEAR_CONSTITUENCY":
+      return "Please select your address or your constituency from the list.";
+    case "SERVER_ERROR":
+      return "Something went wrong looking up your constituency.";
+    //TODO add in a link for them to find their constituency in a list
+    default:
+      return "";
+  }
+};
+
+const emailErrorToErrorMessage = (code: EmailErrorCode) => {
+  switch (code) {
+    case "EMAIL_INVALID":
+      return "Please add a valid email address.";
+    case "SERVER_ERROR":
+      return "Something went wrong signing you up. Please try again?";
     default:
       return "";
   }
@@ -155,7 +171,8 @@ const PostcodeLookup = () => {
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
-  const [error, setError] = useState<ErrorCode | null>(null);
+  const [postError, setPostError] = useState<AllPostCodeErrorCode | null>(null);
+  const [emailError, setEmailError] = useState<EmailErrorCode | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const validPostcode = useRef("");
@@ -178,7 +195,7 @@ const PostcodeLookup = () => {
     addressSlug?: string,
   ): Promise<ConstituencyLookupResponse | null> => {
     setApiResponse(false);
-    setError(null);
+    setPostError(null);
 
     const responseJson = await throttledApi(postcode, addressSlug);
 
@@ -190,7 +207,7 @@ const PostcodeLookup = () => {
     if (responseJson == null) {
       console.log("SERVER ERROR");
       // a server error for the most recent lookup!
-      // TODO update the UI to communicate server error
+      setPostError("SERVER_ERROR");
       setApiResponse(null); // clear the spinner
       return null;
     }
@@ -200,14 +217,14 @@ const PostcodeLookup = () => {
       //The server has responded with a different postcode
       //to the one we sent it!
       console.log("THIS SHOULD NEVER HAPPEN!");
+      setPostError("SERVER_ERROR");
 
-      // TODO update the UI to communicate server error
       setApiResponse(false); // clear the spinner
       return null;
     }
 
     setApiResponse(responseJson);
-    setError(responseJson.errorCode || null);
+    setPostError(responseJson.errorCode || null);
 
     if (responseJson.constituencies.length == 1) {
       setFormState({ ...formState, constituencyIndex: 0 });
@@ -239,8 +256,6 @@ const PostcodeLookup = () => {
 
   const submitForm = async () => {
     if (lastSelectedConstituency && !formState.emailOptIn) {
-      // TODO: Validate email & submit to AN form to subscribe them.
-      // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
       router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       return;
     } else if (
@@ -261,7 +276,7 @@ const PostcodeLookup = () => {
       if (anResponse.ok) {
         router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       } else {
-        //TODO set error for failed signup
+        setEmailError("SERVER_ERROR"); //AN doesn't give error codes on failure
       }
     }
 
@@ -273,7 +288,7 @@ const PostcodeLookup = () => {
       formRef.current &&
       formRef.current.email.validity.typeMismatch
     ) {
-      //TODO set error for an invalid email address
+      setEmailError("EMAIL_INVALID");
     }
 
     // no postcode or invalid postcode
@@ -284,13 +299,13 @@ const PostcodeLookup = () => {
       apiResponse.constituencies.length == 0
     ) {
       // User hasn't input anything or invalid postcode
-      setError("POSTCODE_INVALID");
+      setPostError("POSTCODE_INVALID");
       return;
     }
 
     //not selected constituency or address
     if (apiResponse.constituencies.length > 1 && !formState.constituencyIndex) {
-      //TODO: Set error for unclear constituency
+      setPostError("UNCLEAR_CONSTITUENCY");
     }
   };
 
@@ -325,8 +340,10 @@ const PostcodeLookup = () => {
           )}
         </InputGroup>
 
-        {error && (
-          <p className="fw-bold fst-italic">{errorCodeToErrorMessage(error)}</p>
+        {postError && (
+          <p className="fw-bold fst-italic">
+            {postcodeErrorToErrorMessage(postError)}
+          </p>
         )}
 
         {apiResponse && apiResponse.constituencies.length > 1 && (
@@ -398,6 +415,12 @@ const PostcodeLookup = () => {
                 }
                 className="my-2 invalid-text-greyed"
               />
+              {emailError && (
+                <p className="fw-bold fst-italic">
+                  {emailErrorToErrorMessage(emailError)}
+                </p>
+              )}
+
               <p style={{ fontSize: "0.75em" }}>
                 We store your email address, postcode, and constituency, so we
                 can send you exactly the information you need, and the actions

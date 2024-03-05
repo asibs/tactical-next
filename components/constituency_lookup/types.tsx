@@ -12,13 +12,19 @@ type Address = {
   slug: string;
 };
 
-type ErrorCode = "POSTCODE_INVALID" | "POSTCODE_NOT_FOUND" | "SERVER_ERROR";
+type PostCodeErrorCode =
+  | "POSTCODE_INVALID"
+  | "POSTCODE_NOT_FOUND"
+  | "SERVER_ERROR";
+type AllPostCodeErrorCode = PostCodeErrorCode | "UNCLEAR_CONSTITUENCY";
+
+type EmailErrorCode = "EMAIL_INVALID" | "SERVER_ERROR";
 
 type ConstituencyLookupResponse = {
   postcode: string;
   addressSlug?: string;
   constituencies: Constituency[];
   addresses?: Address[];
-  errorCode?: ErrorCode;
+  errorCode?: PostCodeErrorCode;
   errorMessage?: string;
 };
