@@ -22,7 +22,7 @@ import { submitANForm } from "@/utils/AnApiSubmission";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 
 const postcodeErrorToErrorMessage = (code: PostCodeErrorCode) => {
   switch (code) {
@@ -168,6 +168,7 @@ const PostcodeLookup = () => {
   // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-validation-and-error-handling
   // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
 
+  const [subscribed, setSubscribed] = useState<string | null | false>(false);
   const [formState, setFormState] = useState<FormData>(initialFormState);
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
@@ -177,6 +178,13 @@ const PostcodeLookup = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const validPostcode = useRef("");
+
+  useEffect(() => {
+    //string = subscription Date.now()
+    //null = not subscribed on client
+    //false = on server
+    setSubscribed(window.localStorage.getItem("fwd-subscribed"));
+  }, []);
 
   const lastSelectedConstituency = useMemo(() => {
     if (
@@ -277,6 +285,7 @@ const PostcodeLookup = () => {
       );
 
       if (anResponse.ok) {
+        window.localStorage.setItem("fwd-subscribed", Date.now().toString());
         router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       } else {
         setEmailError("SERVER_ERROR"); //AN doesn't give error codes on failure
@@ -381,66 +390,69 @@ const PostcodeLookup = () => {
             </Form.Select>
           </div>
         )}
-
-        <div className="my-3">
-          <FormCheck name="emailOptIn">
-            <div>
-              <FormCheckInput
-                checked={formState.emailOptIn}
-                onChange={() =>
-                  setFormState({
-                    ...formState,
-                    emailOptIn: !formState.emailOptIn,
-                  })
-                }
-                className="me-2"
-              />
-              <FormCheckLabel
-                onClick={() =>
-                  setFormState({
-                    ...formState,
-                    emailOptIn: !formState.emailOptIn,
-                  })
-                }
-              >
-                <strong>Join with your email</strong> to stick together
-              </FormCheckLabel>
-            </div>
-          </FormCheck>
-
-          {formState.emailOptIn && (
-            <>
-              <InputGroup hasValidation>
-                <Form.Control
-                  name="email"
-                  size="lg"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formState.email}
-                  isInvalid={!!emailError}
-                  onChange={(e) => {
-                    setFormState({ ...formState, email: e.target.value });
-                    if (!e.target.validity.typeMismatch) {
-                      setEmailError(null);
-                    }
-                  }}
-                  className="my-2 invalid-text-greyed"
+        {subscribed ? (
+          <div className="my-3"></div>
+        ) : (
+          <div className="my-3">
+            <FormCheck name="emailOptIn">
+              <div>
+                <FormCheckInput
+                  checked={formState.emailOptIn}
+                  onChange={() =>
+                    setFormState({
+                      ...formState,
+                      emailOptIn: !formState.emailOptIn,
+                    })
+                  }
+                  className="me-2"
                 />
-                <Form.Control.Feedback
-                  className="fw-bold fst-italic px-2 pt-0 mt-0 mb-2 text-white"
-                  type="invalid"
+                <FormCheckLabel
+                  onClick={() =>
+                    setFormState({
+                      ...formState,
+                      emailOptIn: !formState.emailOptIn,
+                    })
+                  }
                 >
-                  {emailError ? emailErrorToErrorMessage(emailError) : ""}
-                </Form.Control.Feedback>
-              </InputGroup>
-              <p style={{ fontSize: "0.75em" }}>
-                We store your email address, postcode, and constituency, so we
-                can send you exactly the information you need, and the actions
-                to take.
-              </p>
-            </>
-          )}
-        </div>
+                  <strong>Join with your email</strong> to stick together
+                </FormCheckLabel>
+              </div>
+            </FormCheck>
+
+            {formState.emailOptIn && (
+              <>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    name="email"
+                    size="lg"
+                    type="email"
+                    placeholder="Your Email"
+                    value={formState.email}
+                    isInvalid={!!emailError}
+                    onChange={(e) => {
+                      setFormState({ ...formState, email: e.target.value });
+                      if (!e.target.validity.typeMismatch) {
+                        setEmailError(null);
+                      }
+                    }}
+                    className="my-2 invalid-text-greyed"
+                  />
+                  <Form.Control.Feedback
+                    className="fw-bold fst-italic px-2 pt-0 mt-0 mb-2 text-white"
+                    type="invalid"
+                  >
+                    {emailError ? emailErrorToErrorMessage(emailError) : ""}
+                  </Form.Control.Feedback>
+                </InputGroup>
+                <p style={{ fontSize: "0.75em" }}>
+                  We store your email address, postcode, and constituency, so we
+                  can send you exactly the information you need, and the actions
+                  to take.
+                </p>
+              </>
+            )}
+          </div>
+        )}
 
         <Row className="d-flex justify-content-between my-3">
           <Col xs={4} className="d-grid">
