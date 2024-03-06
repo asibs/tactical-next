@@ -24,7 +24,7 @@ import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
 import { useMemo, useRef, useState } from "react";
 
-const postcodeErrorToErrorMessage = (code: AllPostCodeErrorCode) => {
+const postcodeErrorToErrorMessage = (code: PostCodeErrorCode) => {
   switch (code) {
     case "POSTCODE_INVALID":
       return "Oops, that postcode doesn't look right to us. Please try again or contact us."; // TODO make contact us a link?
@@ -172,7 +172,7 @@ const PostcodeLookup = () => {
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
-  const [postError, setPostError] = useState<AllPostCodeErrorCode | null>(null);
+  const [postError, setPostError] = useState<PostCodeErrorCode | null>(null);
   const [emailError, setEmailError] = useState<EmailErrorCode | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
 
