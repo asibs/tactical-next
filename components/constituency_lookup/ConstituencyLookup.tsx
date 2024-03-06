@@ -304,7 +304,10 @@ const PostcodeLookup = () => {
     }
 
     //not selected constituency or address
-    if (apiResponse.constituencies.length > 1 && !formState.constituencyIndex) {
+    if (
+      apiResponse.constituencies.length > 1 &&
+      formState.constituencyIndex === false
+    ) {
       setPostError("UNCLEAR_CONSTITUENCY");
     }
   };
