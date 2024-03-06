@@ -1,9 +1,41 @@
+type AnSubmission = {
+  person: {
+    postal_addresses: [
+      {
+        postal_code: string;
+        country: string;
+      },
+    ];
+    email_addresses: [
+      {
+        address: string;
+        status: string;
+      },
+    ];
+    custom_fields: {
+      constituency_2024: string;
+      constituency_slug: string;
+    };
+  };
+  triggers: {
+    autoresponse: {
+      enabled: boolean;
+    };
+  };
+  "action_network:referrer_data": {
+    source?: string;
+    website: string;
+  };
+  add_tags?: string[];
+};
+
 const submitANForm = async (
   email: string,
   postcode: string,
   constituency: Constituency,
   anFormUrl: string,
-  sourceCode: string = "",
+  addTags: string[],
+  sourceCode: string,
 ): Promise<Response> => {
   if (!email || !anFormUrl) {
     return Response.error();
@@ -18,7 +50,7 @@ const submitANForm = async (
   const an_constituency_name: string =
     an_name_map[constituency.name] || constituency.name;
 
-  const requestJson = {
+  const requestJson: AnSubmission = {
     person: {
       postal_addresses: [
         {
@@ -47,6 +79,10 @@ const submitANForm = async (
       website: "https://stopthetories.vote",
     },
   };
+
+  if (addTags.length > 0) {
+    requestJson.add_tags = addTags;
+  }
 
   return fetch(new URL(anFormUrl || ""), {
     method: "POST",

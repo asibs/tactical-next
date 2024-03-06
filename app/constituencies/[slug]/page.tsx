@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Header from "@/components/Header";
-import LocalTeamBox from "@/components/info_box/LocalTeamBox";
+import ActionBox from "@/components/info_box/ActionBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
 import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
@@ -80,7 +80,7 @@ export default async function ConstituencyPage({
                     <TacticalReasoningBox constituencyData={constituencyData} />
                   </Col>
                   <Col md={7}>
-                    <LocalTeamBox />
+                    <ActionBox constituencyData={constituencyData} />
                   </Col>
                   <Col md={7}>
                     <PlanToVoteBox />
