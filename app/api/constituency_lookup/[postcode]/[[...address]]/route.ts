@@ -8,6 +8,73 @@ import { validatePostcode, normalizePostcode } from "@/utils/Postcodes";
 // Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
 export const runtime = "nodejs";
 
+type DCData = {
+  boundary_changes?: {
+    current_constituencies_official_identifier: string;
+    current_constituencies_name: string;
+    new_constituencies_official_identifier: string;
+    new_constituencies_name: string;
+    CHANGE_TYPE: string;
+  };
+  addresses?: {
+    address: string;
+    postcode: string;
+    slug: string;
+    url: string;
+  }[];
+};
+
+const dc_base_url = "https://developers.democracyclub.org.uk/api/v1/";
+const dc_params = `/?auth_token=${process.env.DC_API_KEY}&parl_boundaries=1`;
+
+async function fetch_dc_api(
+  postcode: string,
+  addressSlug = "",
+): Promise<DCData | null> {
+  let dc_json;
+
+  if (!addressSlug) {
+    console.log("DC Postcode Lookup");
+    const dc_res = await fetch(
+      dc_base_url + "postcode/" + postcode + dc_params,
+    );
+    if (dc_res.ok) {
+      dc_json = await dc_res.json();
+
+      console.log(dc_json);
+      if (dc_json.address_picker && dc_json.addresses.length > 0) {
+        return { addresses: dc_json.addresses };
+      } else if (dc_json.parl_boundary_changes) {
+        return { boundary_changes: dc_json.parl_boundary_changes };
+      } else {
+        return null;
+      }
+    } else {
+      console.log("Democracy Club lookup failed!", dc_res, await dc_res.text());
+      return null;
+    }
+  } else {
+    console.log("DC Address Lookup:");
+    console.log(dc_base_url + "address/" + addressSlug + dc_params);
+    const dc_res = await fetch(
+      dc_base_url + "address/" + addressSlug + dc_params,
+    );
+    if (dc_res.ok) {
+      dc_json = await dc_res.json();
+      console.log(dc_json);
+      if (dc_json.parl_boundary_changes) {
+        return { boundary_changes: dc_json.parl_boundary_changes };
+      } else {
+        return null;
+      }
+    } else {
+      console.log("DC ERROR", await dc_res.text());
+    }
+  }
+
+  return null;
+}
+
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
 let db: Database | null = null;
 const dbPath = path.join(process.cwd(), "data", "postcodes.db");
@@ -54,6 +121,7 @@ export async function GET(
   console.time("query-postcode-database");
   const constituencies = await db.all(
     `SELECT
+      pcon.gss,
       pcon.slug,
       pcon.name
     FROM postcode_lookup
@@ -84,16 +152,44 @@ export async function GET(
     };
     return NextResponse.json(response);
   } else {
-    // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
-    // specific address, rather than us expecting to know (or find out) their constituency.
     console.log(
       `Multiple constituencies found for postcode ${normalizedPostcode}`,
     );
+
     const response: ConstituencyLookupResponse = {
       postcode: params.postcode,
       addressSlug: params.address?.[0],
       constituencies: constituencies,
     };
+
+    const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+
+    if (dc_data?.boundary_changes) {
+      //Democracy Club data shows this postcode has a single constituency
+      const gss =
+        dc_data.boundary_changes.new_constituencies_official_identifier.substring(
+          4,
+        );
+      const dc_constituency = constituencies.filter((constituency) => {
+        return constituency.gss == gss;
+      });
+
+      if (dc_constituency.length === 1) {
+        response.constituencies = dc_constituency;
+      } else {
+        console.log(JSON.stringify(dc_data));
+        console.log(
+          "DC returned boundary change data but it didn't match a single db record??",
+        );
+      }
+    } else if (dc_data?.addresses && dc_data.addresses.length > 0) {
+      response.addresses = dc_data.addresses.map((dc_addr) => {
+        return { name: dc_addr.address, slug: dc_addr.slug };
+      });
+    }
+
+    // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
+    // specific address, rather than us expecting to know (or find out) their constituency.
     return NextResponse.json(response);
   }
 }

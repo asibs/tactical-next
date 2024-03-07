@@ -80,7 +80,7 @@ const throttledApi = async (
   addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
   //TODO handle address lookups in the cache if/when we use DemoClub API
-  if (lookupCache.hasOwnProperty(postcode)) {
+  if (!addressSlug && lookupCache.hasOwnProperty(postcode)) {
     const cached = await lookupCache[postcode];
     if (cached) {
       return cached;
@@ -178,6 +178,7 @@ const PostcodeLookup = () => {
     setApiResponse(false);
     setError(null);
 
+    console.log("Lookup Constituency", postcode, addressSlug);
     const responseJson = await throttledApi(postcode, addressSlug);
 
     if (postcode != validPostcode.current) {
@@ -308,12 +309,17 @@ const PostcodeLookup = () => {
               name="constituency"
               size="lg"
               defaultValue=""
-              onChange={(e) =>
-                setFormState({
-                  ...formState,
-                  constituencyIndex: parseInt(e.target.value),
-                })
-              }
+              onChange={(e) => {
+                if (e.target.value.length > 2) {
+                  console.log("lookup address");
+                  lookupConstituency(validPostcode.current, e.target.value);
+                } else {
+                  setFormState({
+                    ...formState,
+                    constituencyIndex: parseInt(e.target.value),
+                  });
+                }
+              }}
             >
               <option selected disabled value="" style={{ display: "none" }}>
                 Select Constituency
@@ -323,6 +329,14 @@ const PostcodeLookup = () => {
                   {c.name}
                 </option>
               ))}
+
+              {apiResponse.addresses
+                ? apiResponse.addresses.map((c, idx) => (
+                    <option key={c.slug} value={c.slug}>
+                      {c.name}
+                    </option>
+                  ))
+                : ""}
             </Form.Select>
           </div>
         )}
