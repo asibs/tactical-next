@@ -18,17 +18,35 @@ import {
   postcodeInputPattern,
   validatePostcode,
 } from "@/utils/Postcodes";
+import { submitANForm } from "@/utils/AnApiSubmission";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 
-const errorCodeToErrorMessage = (code: ErrorCode) => {
+const postcodeErrorToErrorMessage = (code: PostCodeErrorCode) => {
   switch (code) {
     case "POSTCODE_INVALID":
-      return "Oops, that postcode doesn't look right to us. Please try again or contact us.";
+      return "Oops, that postcode doesn't look right to us. Please try again or contact us."; // TODO make contact us a link?
+
     case "POSTCODE_NOT_FOUND":
       return "Oops, we can't find that postcode. Please try again or contact us.";
+    case "UNCLEAR_CONSTITUENCY":
+      return "Please select your address or your constituency from the list.";
+    case "SERVER_ERROR":
+      return "Something went wrong looking up your constituency.";
+    //TODO add in a link for them to find their constituency in a list
+    default:
+      return "";
+  }
+};
+
+const emailErrorToErrorMessage = (code: EmailErrorCode) => {
+  switch (code) {
+    case "EMAIL_INVALID":
+      return "Please add a valid email address.";
+    case "SERVER_ERROR":
+      return "Something went wrong signing you up. Please try again?";
     default:
       return "";
   }
@@ -150,13 +168,23 @@ const PostcodeLookup = () => {
   // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-validation-and-error-handling
   // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
 
+  const [subscribed, setSubscribed] = useState<string | null | false>(false);
   const [formState, setFormState] = useState<FormData>(initialFormState);
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
-  const [error, setError] = useState<ErrorCode | null>(null);
+  const [postError, setPostError] = useState<PostCodeErrorCode | null>(null);
+  const [emailError, setEmailError] = useState<EmailErrorCode | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const validPostcode = useRef("");
+
+  useEffect(() => {
+    //string = subscription Date.now()
+    //null = not subscribed on client
+    //false = on server
+    setSubscribed(window.localStorage.getItem("fwd-subscribed"));
+  }, []);
 
   const lastSelectedConstituency = useMemo(() => {
     if (
@@ -176,7 +204,7 @@ const PostcodeLookup = () => {
     addressSlug?: string,
   ): Promise<ConstituencyLookupResponse | null> => {
     setApiResponse(false);
-    setError(null);
+    setPostError(null);
 
     const responseJson = await throttledApi(postcode, addressSlug);
 
@@ -188,7 +216,7 @@ const PostcodeLookup = () => {
     if (responseJson == null) {
       console.log("SERVER ERROR");
       // a server error for the most recent lookup!
-      // TODO update the UI to communicate server error
+      setPostError("SERVER_ERROR");
       setApiResponse(null); // clear the spinner
       return null;
     }
@@ -198,14 +226,14 @@ const PostcodeLookup = () => {
       //The server has responded with a different postcode
       //to the one we sent it!
       console.log("THIS SHOULD NEVER HAPPEN!");
+      setPostError("SERVER_ERROR");
 
-      // TODO update the UI to communicate server error
       setApiResponse(false); // clear the spinner
       return null;
     }
 
     setApiResponse(responseJson);
-    setError(responseJson.errorCode || null);
+    setPostError(responseJson.errorCode || null);
 
     if (responseJson.constituencies.length == 1) {
       setFormState({ ...formState, constituencyIndex: 0 });
@@ -236,14 +264,44 @@ const PostcodeLookup = () => {
   };
 
   const submitForm = async () => {
-    if (lastSelectedConstituency) {
-      // TODO: Validate email & submit to AN form to subscribe them.
-      // TODO: Do we want/need a separate error field for email so we can show if BOTH postcode and email are invalid in one pass?
+    if (lastSelectedConstituency && !formState.emailOptIn) {
       router.push(`/constituencies/${lastSelectedConstituency.slug}`);
       return;
+    } else if (
+      lastSelectedConstituency &&
+      formState.emailOptIn &&
+      formState.email &&
+      formRef.current &&
+      !formRef.current.email.validity.typeMismatch
+    ) {
+      //TODO set source codes from current url params.
+      const anResponse = await submitANForm(
+        formState.email,
+        validPostcode.current,
+        lastSelectedConstituency,
+        process.env.NEXT_PUBLIC_AN_POSTCODE_FORM || "",
+        ["stop the tories", "movement forward", "election reminders", "join"],
+        "", // source codes,
+      );
+
+      if (anResponse.ok) {
+        window.localStorage.setItem("fwd-subscribed", Date.now().toString());
+        router.push(`/constituencies/${lastSelectedConstituency.slug}`);
+      } else {
+        setEmailError("SERVER_ERROR"); //AN doesn't give error codes on failure
+      }
     }
 
     // VALIDATION
+    // Invalid email
+    if (
+      formState.emailOptIn &&
+      (!formState.email ||
+        (formRef.current && formRef.current.email.validity.typeMismatch))
+    ) {
+      setEmailError("EMAIL_INVALID");
+    }
+
     // no postcode or invalid postcode
     if (
       !validPostcode.current ||
@@ -252,13 +310,16 @@ const PostcodeLookup = () => {
       apiResponse.constituencies.length == 0
     ) {
       // User hasn't input anything or invalid postcode
-      setError("POSTCODE_INVALID");
+      setPostError("POSTCODE_INVALID");
       return;
     }
 
     //not selected constituency or address
-    if (apiResponse.constituencies.length > 1 && !formState.constituencyIndex) {
-      //TODO: Set error for unclear constituency
+    if (
+      apiResponse.constituencies.length > 1 &&
+      formState.constituencyIndex === false
+    ) {
+      setPostError("UNCLEAR_CONSTITUENCY");
     }
   };
 
@@ -267,18 +328,19 @@ const PostcodeLookup = () => {
       className="rounded-3 bg-pink-strong p-3 shadow text-100"
       style={{ fontSize: "18px" }}
     >
-      <Form action={submitForm} noValidate>
+      <Form ref={formRef} action={submitForm} noValidate>
         <h3 className="fw-bolder">Vote the Tories out</h3>
         <p className="fw-bold text-900">
           Vote tactically at the General Election
         </p>
-        <InputGroup className="my-3">
+        <InputGroup className="my-3" hasValidation>
           <Form.Control
             name="postcode"
             size="lg"
             type="text"
             placeholder="Your Postcode"
             pattern={postcodeInputPattern}
+            isInvalid={!!postError}
             onChange={(e) => postcodeChanged(e.target.value)}
             className="invalid-text-greyed"
           />
@@ -291,11 +353,13 @@ const PostcodeLookup = () => {
                 : lastSelectedConstituency.name.substring(0, 27) + "..."}
             </InputGroup.Text>
           )}
+          <Form.Control.Feedback
+            className="fw-bold fst-italic px-2 pt-0 mt-1 mb-2 text-white"
+            type="invalid"
+          >
+            {postError ? postcodeErrorToErrorMessage(postError) : ""}
+          </Form.Control.Feedback>
         </InputGroup>
-
-        {error && (
-          <p className="fw-bold fst-italic">{errorCodeToErrorMessage(error)}</p>
-        )}
 
         {apiResponse && apiResponse.constituencies.length > 1 && (
           <div className="my-3">
@@ -326,54 +390,69 @@ const PostcodeLookup = () => {
             </Form.Select>
           </div>
         )}
+        {subscribed ? (
+          <div className="my-3"></div>
+        ) : (
+          <div className="my-3">
+            <FormCheck name="emailOptIn">
+              <div>
+                <FormCheckInput
+                  checked={formState.emailOptIn}
+                  onChange={() =>
+                    setFormState({
+                      ...formState,
+                      emailOptIn: !formState.emailOptIn,
+                    })
+                  }
+                  className="me-2"
+                />
+                <FormCheckLabel
+                  onClick={() =>
+                    setFormState({
+                      ...formState,
+                      emailOptIn: !formState.emailOptIn,
+                    })
+                  }
+                >
+                  <strong>Join with your email</strong> to stick together
+                </FormCheckLabel>
+              </div>
+            </FormCheck>
 
-        <div className="my-3">
-          <FormCheck name="emailOptIn">
-            <div>
-              <FormCheckInput
-                checked={formState.emailOptIn}
-                onChange={() =>
-                  setFormState({
-                    ...formState,
-                    emailOptIn: !formState.emailOptIn,
-                  })
-                }
-                className="me-2"
-              />
-              <FormCheckLabel
-                onClick={() =>
-                  setFormState({
-                    ...formState,
-                    emailOptIn: !formState.emailOptIn,
-                  })
-                }
-              >
-                <strong>Join with your email</strong> to stick together
-              </FormCheckLabel>
-            </div>
-          </FormCheck>
-
-          {formState.emailOptIn && (
-            <>
-              <Form.Control
-                name="email"
-                size="lg"
-                type="email"
-                placeholder="Your Email"
-                value={formState.email}
-                onChange={(e) =>
-                  setFormState({ ...formState, email: e.target.value })
-                }
-                className="my-2 invalid-text-greyed"
-              />
-              <p style={{ fontSize: "0.75em" }}>
-                We store your email address, postcode, and constituency, so we
-                can send you exactly the information you need, and the actions
-                to take.
-              </p>
-            </>
-          )}
-        </div>
+            {formState.emailOptIn && (
+              <>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    name="email"
+                    size="lg"
+                    type="email"
+                    placeholder="Your Email"
+                    value={formState.email}
+                    isInvalid={!!emailError}
+                    onChange={(e) => {
+                      setFormState({ ...formState, email: e.target.value });
+                      if (!e.target.validity.typeMismatch) {
+                        setEmailError(null);
+                      }
+                    }}
+                    className="my-2 invalid-text-greyed"
+                  />
+                  <Form.Control.Feedback
+                    className="fw-bold fst-italic px-2 pt-0 mt-0 mb-2 text-white"
+                    type="invalid"
+                  >
+                    {emailError ? emailErrorToErrorMessage(emailError) : ""}
+                  </Form.Control.Feedback>
+                </InputGroup>
+                <p style={{ fontSize: "0.75em" }}>
+                  We store your email address, postcode, and constituency, so we
+                  can send you exactly the information you need, and the actions
+                  to take.
+                </p>
+              </>
+            )}
+          </div>
+        )}
 
         <Row className="d-flex justify-content-between my-3">
           <Col xs={4} className="d-grid">
