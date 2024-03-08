@@ -5,7 +5,7 @@
 type Constituency = {
   name: string;
   slug: string;
-  gss: string;
+  gss?: string;
 };
 
 type Address = {
