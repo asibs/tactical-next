@@ -148,11 +148,11 @@ export async function GET(
     //see if DC api will give us anything useful
     //TODO might be worth setting a timeout on this?
     //TODO remove this if statement, (here so we can see DC API failure!)
-    let dc_data = null;
-    if (normalizedPostcode != "DE30GU")
-      dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+    //let dc_data = null;
+    //if (normalizedPostcode != "DE30GU")
+    // dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
-    // const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+    const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
     // See if DC data can return a more useful response.
     // Possibly it just matches 1 constituency in which case return that
