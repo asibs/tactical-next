@@ -29,50 +29,33 @@ const dc_params = `/?auth_token=${process.env.DC_API_KEY}&parl_boundaries=1`;
 
 async function fetch_dc_api(
   postcode: string,
-  addressSlug = "",
+  addressSlug?: string,
 ): Promise<DCData | null> {
-  let dc_json;
+  const dc_url =
+    dc_base_url +
+    (addressSlug ? "address/" + addressSlug : "postcode/" + postcode) +
+    dc_params;
 
-  if (!addressSlug) {
-    console.log("DC Postcode Lookup");
-    const dc_res = await fetch(
-      dc_base_url + "postcode/" + postcode + dc_params,
-    );
-    if (dc_res.ok) {
-      dc_json = await dc_res.json();
+  const dc_res = await fetch(dc_url);
 
-      console.log(dc_json);
-      if (dc_json.address_picker && dc_json.addresses.length > 0) {
-        return { addresses: dc_json.addresses };
-      } else if (dc_json.parl_boundary_changes) {
-        return { boundary_changes: dc_json.parl_boundary_changes };
-      } else {
-        return null;
-      }
+  if (dc_res.ok) {
+    const dc_json = await dc_res.json();
+    if (
+      !addressSlug &&
+      dc_json.address_picker &&
+      dc_json.addresses.length > 0
+    ) {
+      return { addresses: dc_json.addresses };
+    } else if (dc_json.parl_boundary_changes) {
+      return { boundary_changes: dc_json.parl_boundary_changes };
     } else {
-      console.log("Democracy Club lookup failed!", dc_res, await dc_res.text());
+      console.log("DC No Useful Response", await dc_res.json());
       return null;
     }
   } else {
-    console.log("DC Address Lookup:");
-    console.log(dc_base_url + "address/" + addressSlug + dc_params);
-    const dc_res = await fetch(
-      dc_base_url + "address/" + addressSlug + dc_params,
-    );
-    if (dc_res.ok) {
-      dc_json = await dc_res.json();
-      console.log(dc_json);
-      if (dc_json.parl_boundary_changes) {
-        return { boundary_changes: dc_json.parl_boundary_changes };
-      } else {
-        return null;
-      }
-    } else {
-      console.log("DC ERROR", await dc_res.text());
-    }
+    console.log("DC ERROR", await dc_res.text());
+    return null;
   }
-
-  return null;
 }
 
 // Declare the DB outside the func & lazy-load, so it can be cached across calls
@@ -162,8 +145,18 @@ export async function GET(
       constituencies: constituencies,
     };
 
-    const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+    //see if DC api will give us anything useful
+    //TODO might be worth setting a timeout on this?
+    //TODO remove this if statement, (here so we can see DC API failure!)
+    let dc_data = null;
+    if (normalizedPostcode != "DE30GU")
+      dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
+    // const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+
+    // See if DC data can return a more useful response.
+    // Possibly it just matches 1 constituency in which case return that
+    // Possibly it gives us an address picker which we can return.
     if (dc_data?.boundary_changes) {
       //Democracy Club data shows this postcode has a single constituency
       const gss =

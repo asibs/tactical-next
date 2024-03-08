@@ -79,9 +79,9 @@ const throttledApi = async (
   postcode: string,
   addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
-  //TODO handle address lookups in the cache if/when we use DemoClub API
+  addressSlug = addressSlug || "";
   if (!addressSlug && lookupCache.hasOwnProperty(postcode)) {
-    const cached = await lookupCache[postcode];
+    const cached = await lookupCache[postcode + addressSlug];
     if (cached) {
       return cached;
     }
@@ -94,16 +94,15 @@ const throttledApi = async (
     lookupCache[reqControl.lastLookup] = null;
   }
 
-  // TODO handle address lookups in the cache.
   reqControl.lastLookup = postcode;
 
   if (reqControl.time + reqControl.rateLimit < Date.now()) {
     //Last request was more than rate limit ago.
     reqControl.time = Date.now();
-    lookupCache[postcode] = fetchApi(postcode, addressSlug);
+    lookupCache[postcode + addressSlug] = fetchApi(postcode, addressSlug);
   } else {
     //Need to delay the request.
-    lookupCache[postcode] = new Promise((resolve) => {
+    lookupCache[postcode + addressSlug] = new Promise((resolve) => {
       let cancelled: boolean = true;
       reqControl.timerID = setTimeout(
         () => {
@@ -126,7 +125,7 @@ const throttledApi = async (
     });
   }
 
-  return lookupCache[postcode];
+  return lookupCache[postcode + addressSlug];
 };
 
 type FormData = {
@@ -233,6 +232,10 @@ const PostcodeLookup = () => {
     if (validatePostcode.test(normalizedPostcode)) {
       validPostcode.current = normalizedPostcode;
       await lookupConstituency(normalizedPostcode);
+      return;
+    } else {
+      //Otherwise reset the display of selected postcode
+      setApiResponse(null);
     }
   };
 
@@ -299,46 +302,75 @@ const PostcodeLookup = () => {
         )}
 
         {apiResponse && apiResponse.constituencies.length > 1 && (
-          <div className="my-3">
-            <p className="mb-1" style={{ fontSize: "0.75em" }}>
-              We can&apos;t work out exactly which constituency you&apos;re in -
-              please select one of the {apiResponse.constituencies.length}{" "}
-              options:
-            </p>
-            <Form.Select
-              name="constituency"
-              size="lg"
-              defaultValue=""
-              onChange={(e) => {
-                if (e.target.value.length > 2) {
-                  console.log("lookup address");
-                  lookupConstituency(validPostcode.current, e.target.value);
-                } else {
-                  setFormState({
-                    ...formState,
-                    constituencyIndex: parseInt(e.target.value),
-                  });
-                }
-              }}
-            >
-              <option selected disabled value="" style={{ display: "none" }}>
-                Select Constituency
-              </option>
-              {apiResponse.constituencies.map((c, idx) => (
-                <option key={c.slug} value={idx}>
-                  {c.name}
-                </option>
-              ))}
-
-              {apiResponse.addresses
-                ? apiResponse.addresses.map((c, idx) => (
+          <>
+            {apiResponse.addresses ? (
+              <div className="my-3">
+                <p className="mb-1" style={{ fontSize: "0.75em" }}>
+                  We can&apos;t work out exactly which constituency you&apos;re
+                  in - please select your address:
+                </p>
+                <Form.Select
+                  name="address"
+                  size="lg"
+                  defaultValue=""
+                  onChange={(e) =>
+                    lookupConstituency(validPostcode.current, e.target.value)
+                  }
+                >
+                  <option
+                    selected
+                    disabled
+                    value=""
+                    style={{ display: "none" }}
+                  >
+                    Select Address
+                  </option>
+                  {apiResponse.addresses.map((c) => (
                     <option key={c.slug} value={c.slug}>
                       {c.name}
                     </option>
-                  ))
-                : ""}
-            </Form.Select>
-          </div>
+                  ))}
+                </Form.Select>
+              </div>
+            ) : (
+              <div className="my-3">
+                <p className="mb-1" style={{ fontSize: "0.75em" }}>
+                  We can&apos;t work out exactly which constituency you&apos;re
+                  in - please select one of the{" "}
+                  {apiResponse.constituencies.length} options:
+                </p>
+                <Form.Select
+                  name="constituency"
+                  size="lg"
+                  defaultValue=""
+                  onChange={(e) => {
+                    if (e.target.value.length > 2) {
+                      lookupConstituency(validPostcode.current, e.target.value);
+                    } else {
+                      setFormState({
+                        ...formState,
+                        constituencyIndex: parseInt(e.target.value),
+                      });
+                    }
+                  }}
+                >
+                  <option
+                    selected
+                    disabled
+                    value=""
+                    style={{ display: "none" }}
+                  >
+                    Select Constituency
+                  </option>
+                  {apiResponse.constituencies.map((c, idx) => (
+                    <option key={c.slug} value={idx}>
+                      {c.name}
+                    </option>
+                  ))}
+                </Form.Select>
+              </div>
+            )}
+          </>
         )}
 
         <div className="my-3">
