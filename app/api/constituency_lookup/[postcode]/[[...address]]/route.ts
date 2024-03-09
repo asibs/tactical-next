@@ -7,6 +7,7 @@ import { validatePostcode, normalizePostcode } from "@/utils/Postcodes";
 
 // Force using 'nodejs' rather than 'edge' - edge won't have the filesystem containing SQLite
 export const runtime = "nodejs";
+export const revalidate = 3600;
 
 type DCData = {
   boundary_changes?: {
