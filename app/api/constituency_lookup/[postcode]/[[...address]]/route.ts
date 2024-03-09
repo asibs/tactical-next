@@ -26,7 +26,12 @@ type DCData = {
 };
 
 const dc_base_url = "https://developers.democracyclub.org.uk/api/v1/";
-const dc_params = `/?auth_token=${process.env.DC_API_KEY}&parl_boundaries=1`;
+const dc_params =
+  "/?" +
+  new URLSearchParams({
+    auth_token: process.env.DC_API_KEY || "",
+    parl_boundaries: "1",
+  }).toString();
 
 async function fetch_dc_api(
   postcode: string,
@@ -37,7 +42,7 @@ async function fetch_dc_api(
     (addressSlug ? "address/" + addressSlug : "postcode/" + postcode) +
     dc_params;
 
-  const dc_res = await fetch(dc_url);
+  const dc_res = await fetch(dc_url, { signal: AbortSignal.timeout(5000) });
 
   if (dc_res.ok) {
     const dc_json = await dc_res.json();
@@ -147,13 +152,12 @@ export async function GET(
     };
 
     //see if DC api will give us anything useful
-    //TODO might be worth setting a timeout on this?
-    //TODO remove this if statement, (here so we can see DC API failure!)
-    //let dc_data = null;
-    //if (normalizedPostcode != "DE30GU")
-    // dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+    //TODO remove this if statement, (here so we can test DC API failure!)
+    let dc_data = null;
+    if (normalizedPostcode != "DE30GU")
+      dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
-    const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+    //const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
     // See if DC data can return a more useful response.
     // Possibly it just matches 1 constituency in which case return that
@@ -164,9 +168,7 @@ export async function GET(
         dc_data.boundary_changes.new_constituencies_official_identifier.substring(
           4,
         );
-      const dc_constituency = constituencies.filter((constituency) => {
-        return constituency.gss == gss;
-      });
+      const dc_constituency = constituencies.filter((c) => c.gss === gss);
 
       if (dc_constituency.length === 1) {
         response.constituencies = dc_constituency;
@@ -177,9 +179,10 @@ export async function GET(
         );
       }
     } else if (dc_data?.addresses && dc_data.addresses.length > 0) {
-      response.addresses = dc_data.addresses.map((dc_addr) => {
-        return { name: dc_addr.address, slug: dc_addr.slug };
-      });
+      response.addresses = dc_data.addresses.map((addr) => ({
+        name: addr.address,
+        slug: addr.slug,
+      }));
     }
 
     // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
