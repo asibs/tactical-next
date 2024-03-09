@@ -100,7 +100,7 @@ const throttledApi = async (
   addressSlug = addressSlug || "";
   const cacheKey = postcode + addressSlug;
 
-  if (!addressSlug && lookupCache.hasOwnProperty(postcode)) {
+  if (lookupCache.hasOwnProperty(postcode)) {
     const cached = await lookupCache[cacheKey];
     if (cached) {
       return cached;
