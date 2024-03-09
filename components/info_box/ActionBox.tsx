@@ -51,13 +51,19 @@ const ActionBox = ({
   const [emailError, setEmailError] = useState<EmailErrorCode | null>(null);
   const [checkError, setCheckError] = useState<"MISSING_CONSENT" | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const [subCount, setSubCount] = useState<number>(0);
 
   useEffect(() => {
     //string = subscription Date.now()
     //null = not subscribed on client
     //false = on server
     setSubscribed(window.localStorage.getItem("fwd-subscribed"));
-  }, []);
+    fetch(
+      "../api/signup_count/" + constituencyData.constituencyIdentifiers.slug,
+    )
+      .then((res) => res.json())
+      .then((data) => setSubCount(data.count));
+  }, [constituencyData.constituencyIdentifiers.slug]);
 
   const submitForm = async () => {
     if (
@@ -66,6 +72,12 @@ const ActionBox = ({
       formRef.current &&
       !formRef.current.email.validity.typeMismatch
     ) {
+      //TODO make this more robust (only counting when we should?)
+      fetch(
+        "../api/signup_count/" + constituencyData.constituencyIdentifiers.slug,
+        { method: "POST" },
+      ); // may as well count them now.
+
       //TODO set source codes from current url params.
       const anResponse = await submitANForm(
         formState.email,
@@ -117,8 +129,8 @@ const ActionBox = ({
         <>
           <h3 className="fs-5">Be counted!</h3>
           <p>
-            There are <span className="fw-bold">XXX</span> tactical voters
-            signed up so far!
+            There are <span className="fw-bold">{subCount}</span> tactical
+            voters signed up so far!
           </p>
           <p>
             We need <span className="fw-bold">YYYY</span> tactical pledges to
