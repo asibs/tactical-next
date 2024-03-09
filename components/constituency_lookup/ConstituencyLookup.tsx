@@ -98,8 +98,10 @@ const throttledApi = async (
   addressSlug?: string,
 ): Promise<ConstituencyLookupResponse | null> => {
   addressSlug = addressSlug || "";
+  const cacheKey = postcode + addressSlug;
+
   if (!addressSlug && lookupCache.hasOwnProperty(postcode)) {
-    const cached = await lookupCache[postcode + addressSlug];
+    const cached = await lookupCache[cacheKey];
     if (cached) {
       return cached;
     }
@@ -112,15 +114,15 @@ const throttledApi = async (
     lookupCache[reqControl.lastLookup] = null;
   }
 
-  reqControl.lastLookup = postcode;
+  reqControl.lastLookup = cacheKey;
 
   if (reqControl.time + reqControl.rateLimit < Date.now()) {
     //Last request was more than rate limit ago.
     reqControl.time = Date.now();
-    lookupCache[postcode + addressSlug] = fetchApi(postcode, addressSlug);
+    lookupCache[cacheKey] = fetchApi(postcode, addressSlug);
   } else {
     //Need to delay the request.
-    lookupCache[postcode + addressSlug] = new Promise((resolve) => {
+    lookupCache[cacheKey] = new Promise((resolve) => {
       let cancelled: boolean = true;
       reqControl.timerID = setTimeout(
         () => {
@@ -143,7 +145,7 @@ const throttledApi = async (
     });
   }
 
-  return lookupCache[postcode + addressSlug];
+  return lookupCache[cacheKey];
 };
 
 type FormData = {
