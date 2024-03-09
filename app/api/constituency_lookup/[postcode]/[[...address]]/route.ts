@@ -108,7 +108,7 @@ export async function GET(
 
   // Query the database
   console.time("query-postcode-database");
-  const constituencies = await db.all(
+  const db_constituencies = await db.all(
     `SELECT
       pcon.gss,
       pcon.slug,
@@ -121,7 +121,7 @@ export async function GET(
   );
   console.timeEnd("query-postcode-database");
 
-  if (!constituencies || constituencies.length == 0) {
+  if (!db_constituencies || db_constituencies.length == 0) {
     console.log(`Postcode ${normalizedPostcode} not found in DB!`);
     const response: ConstituencyLookupResponse = {
       postcode: params.postcode,
@@ -132,12 +132,12 @@ export async function GET(
     return NextResponse.json(response);
   }
 
-  if (constituencies.length == 1) {
+  if (db_constituencies.length == 1) {
     console.log(`Single constituency found for postcode ${normalizedPostcode}`);
     const response: ConstituencyLookupResponse = {
       postcode: params.postcode,
       addressSlug: params.address?.[0],
-      constituencies: constituencies,
+      constituencies: db_constituencies,
     };
     return NextResponse.json(response);
   } else {
@@ -148,7 +148,7 @@ export async function GET(
     const response: ConstituencyLookupResponse = {
       postcode: params.postcode,
       addressSlug: params.address?.[0],
-      constituencies: constituencies,
+      constituencies: db_constituencies,
     };
 
     //see if DC api will give us anything useful
@@ -168,13 +168,15 @@ export async function GET(
         dc_data.boundary_changes.new_constituencies_official_identifier.substring(
           4,
         );
-      const dc_constituency = constituencies.filter((c) => c.gss === gss);
+      const dc_constituency = db_constituencies.filter((c) => c.gss === gss);
 
       if (dc_constituency.length === 1) {
         response.constituencies = dc_constituency;
       } else {
-        console.log(JSON.stringify(dc_data));
-        console.log(
+        //TODO some way to get vercel to notify us of this error since it shows
+        //a problem in our or DC data (once DC have fixed their NI & Scottish codes)
+        console.error(JSON.stringify(dc_data));
+        console.error(
           "DC returned boundary change data but it didn't match a single db record??",
         );
       }
@@ -185,8 +187,6 @@ export async function GET(
       }));
     }
 
-    // TODO: Use DemocracyClub API to lookup postcode and populate the addresses array, so users can select their
-    // specific address, rather than us expecting to know (or find out) their constituency.
     return NextResponse.json(response);
   }
 }
