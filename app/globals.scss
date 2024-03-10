@@ -90,6 +90,7 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 
 /***** GLOBAL CSS VARIABLES *****/
 
+// IF YOU CHANGE THESE, ALSO UPDATE THEM IN /app/api/opengraph/route.tsx
 :root {
   --mvtfwd-pink-strong: #ff66ff;
   --con-party-color: #0087dc;
