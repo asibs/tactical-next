@@ -3,8 +3,6 @@
 /* eslint jsx-a11y/alt-text: 0 */
 
 import { ImageResponse } from "next/server";
-import { partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyData } from "@/utils/constituencyData";
 
 // Route segment config
 export const runtime = "edge";
@@ -33,16 +31,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
    * specific way, etc.
    */
   try {
-    // const constituenciesData: ConstituencyData[] = await getConstituencyData();
-    // const constituencyData = constituenciesData.filter(
-    //   (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
-    // )[0];
-
-    // const constituencyName = constituencyData.constituencyIdentifiers.name;
-    // const partySlug = constituencyData.recommendation.partySlug;
-    // const partyName = partyNameFromSlug(partySlug as PartySlug);
-    // const partyColor = partyColorFromSlug(partySlug as PartySlug);
-
     const constituencyName = "TEST PCON";
     const partyName = "TEST PARTY";
     const partyColor = "red";
@@ -135,27 +123,3 @@ export default async function Image({ params }: { params: { slug: string } }) {
     });
   }
 }
-
-// We can't use the normal partyColorFromSlug in /utils/Party.ts because
-// ImageResponse doesn't have access to our CSS styles, so we need to
-// hardcode specific color codes here.
-const partyColorFromSlug = (slug: PartySlug): string => {
-  switch (slug) {
-    case "Con":
-      return "#0087dc";
-    case "Lab":
-      return "#e4003b";
-    case "LD":
-      return "#faa61a";
-    case "Green":
-      return "#02a95b";
-    case "SNP":
-      return "#fcec50";
-    case "PC":
-      return "#005b54";
-    case "Reform":
-      return "#12b6cf";
-    default:
-      return "#e9ecef";
-  }
-};
