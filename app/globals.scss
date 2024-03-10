@@ -115,6 +115,13 @@ body {
   background-color: var(--bs-gray-300);
 }
 
+/* NAVBAR */
+.brand-text {
+  @include media-breakpoint-down(sm) {
+    font-size: rfs-fluid-value(1rem);
+  }
+}
+
 /* HEADER */
 header {
   background-color: var(--bs-black);
