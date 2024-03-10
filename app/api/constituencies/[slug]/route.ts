@@ -25,14 +25,20 @@ export async function GET(
   )[0];
 
   if (constituencyData) {
+    console.log(`Found constituency data for ${params.slug}`);
+    console.log(`constituencyIdentifiers ${constituencyData.constituencyIdentifiers}`);
+    console.log(`partySlug ${constituencyData.recommendation.partySlug}`);
+    console.log(`partyName ${partyNameFromSlug(constituencyData.recommendation.partySlug)}`);
+
     return Response.json({
       constituencyIdentifiers: constituencyData.constituencyIdentifiers,
       recommendation: {
         partySlug: constituencyData.recommendation.partySlug,
-        partyName: partyNameFromSlug(constituencyData.recommendation.partySlug)
-      }
+        partyName: partyNameFromSlug(constituencyData.recommendation.partySlug),
+      },
     });
   } else {
+    console.log(`No constituency data found for ${params.slug}`);
     return new Response(null, { status: 404 });
   }
 }

@@ -32,24 +32,32 @@ export default async function Image({ params }: { params: { slug: string } }) {
    * rather than the sitewide CSS / bootstrap, you need to load images & fonts in a
    * specific way, etc.
    */
-  console.log(`CONSTITUENCY OPENGRAPH-IMAGE: Attempting to generate image for ${params.slug}`);
+  console.log(
+    `CONSTITUENCY OPENGRAPH-IMAGE: Attempting to generate image for ${params.slug}`,
+  );
 
   try {
     // This doesn't work, because uses fs and edge doesn't have it...
-    // Would need to find another way to 
+    // Would need to find another way to
     // const constituenciesData: ConstituencyData[] = await getConstituencyData();
     // const constituencyData = constituenciesData.filter(
     //   (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
     // )[0];
 
-    const constituencyData = await fetch(`/api/constituencies/${params.slug}`).then((res) => res.json());
-    console.log(`CONSTITUENCY OPENGRAPH-IMAGE: Successfully fetched data from API for ${params.slug}`);
+    const constituencyData = await fetch(
+      `/api/constituencies/${params.slug}`,
+    ).then((res) => res.json());
+    console.log(
+      `CONSTITUENCY OPENGRAPH-IMAGE: Successfully fetched data from API for ${params.slug}`,
+    );
 
     const constituencyName = constituencyData.constituencyIdentifiers.name;
     const partySlug = constituencyData.recommendation.partySlug;
     const partyName = partyNameFromSlug(partySlug as PartySlug);
     const partyColor = partyColorFromSlug(partySlug as PartySlug);
-    console.log(`CONSTITUENCY OPENGRAPH-IMAGE: slug=${params.slug}, constituencyName=${constituencyName}, partySlug=${partySlug}, partyName=${partyName}, partyColor=${partyColor}`);
+    console.log(
+      `CONSTITUENCY OPENGRAPH-IMAGE: slug=${params.slug}, constituencyName=${constituencyName}, partySlug=${partySlug}, partyName=${partyName}, partyColor=${partyColor}`,
+    );
 
     // const constituencyName = "TEST PCON";
     // const partyName = "TEST PARTY";
@@ -63,7 +71,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
       new URL("/assets/share-base-image-crowd-3.jpg", import.meta.url),
     ).then((res) => res.arrayBuffer());
 
-    console.log(`CONSTITUENCY OPENGRAPH-IMAGE: Rendering image for ${params.slug}`);
+    console.log(
+      `CONSTITUENCY OPENGRAPH-IMAGE: Rendering image for ${params.slug}`,
+    );
     return new ImageResponse(
       (
         <div
@@ -138,7 +148,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
       },
     );
   } catch (e: any) {
-    console.log(`CONSTITUENCY OPENGRAPH-IMAGE: Error rendering image for ${params.slug}: ${e.message}`);
+    console.log(
+      `CONSTITUENCY OPENGRAPH-IMAGE: Error rendering image for ${params.slug}: ${e.message}`,
+    );
     return new Response(`Failed to generate the image`, {
       status: 500,
     });
