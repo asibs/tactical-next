@@ -1,6 +1,7 @@
 import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 import { readdir } from "fs/promises";
 import path from "path";
+import { toTitleCase } from "@/utils/text";
 
 /* This is a catch-all for top-level pages. This is to make it easy for users to add new
  * top-level pages just using Storyblok and the storyblok-published github action.
@@ -31,9 +32,18 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  return {
+    title: toTitleCase(params.slug),
+  };
+}
+
 // Multiple versions of this page will be statically generated
 // using the `params` returned by `generateStaticParams`
 export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  return <StoryblokWrapper slug={slug} />;
+  return <StoryblokWrapper slug={params.slug} />;
 }

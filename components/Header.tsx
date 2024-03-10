@@ -1,7 +1,6 @@
 import React from "react";
 
-import festivalCrowsBackground from "../assets/header-crowd-background-bw.webp";
-import { Container, Row, Col } from "react-bootstrap";
+import festivalCrowsBackground from "@/assets/header-crowd-background-bw.webp";
 
 interface Props {
   backgroundImage: string;
