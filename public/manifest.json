@@ -1,0 +1,28 @@
+{
+  "name": "StopTheTories.Vote",
+  "short_name": "Stop The Tories",
+  "description": "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon1.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon2.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
