@@ -87,9 +87,6 @@ const TacticalReasoningBox = ({
             This is a close seat, tactical voting can work very well here.
           </p>
         )}
-        {/* <p>
-          <img src="../assets/img/clipboard-image.png" style="width:100%;">
-        </p> */}
       </>
     </InfoBox>
   );
