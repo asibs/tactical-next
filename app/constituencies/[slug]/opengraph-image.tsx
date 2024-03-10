@@ -40,7 +40,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     ).then((res) => res.arrayBuffer());
 
     const baseImageData = await fetch(
-      new URL("/assets/share-base-image-crowd-2.jpg", import.meta.url),
+      new URL("/assets/share-base-image-crowd-3.jpg", import.meta.url),
     ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
