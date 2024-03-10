@@ -23,10 +23,12 @@ export const metadata: Metadata = {
     default: "Stop The Tories .Vote",
     template: "%s | Stop The Tories .Vote",
   },
-  description: "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
+  description:
+    "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
   openGraph: {
     title: "StopTheTories.Vote",
-    description: "Your vote is your power. Find out how to use it tactically to Stop The Tories and influence the next government.",
+    description:
+      "Your vote is your power. Find out how to use it tactically to Stop The Tories and influence the next government.",
     url: "https://stopthetories.vote",
     siteName: "StopTheTories.Vote",
     locale: "en_GB",
@@ -35,7 +37,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Stop The Tories .Vote",
-    description: "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
+    description:
+      "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
     // images: ["https://nextjs.org/og.png"], // Must be an absolute URL
   },
   manifest: "/manifest.json",

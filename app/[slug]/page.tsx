@@ -32,10 +32,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   return {
     title: toTitleCase(params.slug),
-  }
+  };
 }
 
 // Multiple versions of this page will be statically generated
