@@ -35,9 +35,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
     const partyName = "TEST PARTY";
     const partyColor = "red";
 
-    const rubikBolderFontData = await fetch(
-      new URL("/assets/fonts/Rubik-ExtraBold.ttf", import.meta.url),
-    ).then((res) => res.arrayBuffer());
+    // const rubikBolderFontData = await fetch(
+    //   new URL("/assets/fonts/Rubik-ExtraBold.ttf", import.meta.url),
+    // ).then((res) => res.arrayBuffer());
 
     const baseImageData = await fetch(
       new URL("/assets/share-base-image-crowd-2.jpg", import.meta.url),
@@ -106,14 +106,14 @@ export default async function Image({ params }: { params: { slug: string } }) {
       {
         width: 1200,
         height: 630,
-        fonts: [
-          {
-            name: "Rubik",
-            data: rubikBolderFontData,
-            style: "normal",
-            weight: 800,
-          },
-        ],
+        // fonts: [
+        //   {
+        //     name: "Rubik",
+        //     data: rubikBolderFontData,
+        //     style: "normal",
+        //     weight: 800,
+        //   },
+        // ],
       },
     );
   } catch (e: any) {
