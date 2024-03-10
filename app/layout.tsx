@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     title: "Stop The Tories .Vote",
     description:
       "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
-    // images: ["https://nextjs.org/og.png"], // Must be an absolute URL
   },
   manifest: "/manifest.json",
 };
