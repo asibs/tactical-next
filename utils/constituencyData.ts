@@ -8,11 +8,10 @@ const { serverRuntimeConfig } = getConfig() || {};
 const getConstituencyData = unstable_cache(
   // Cache data function
   async () => {
-    console.debug(
-      `constituencies/[slug]/page.tsx: Updating cached constituencies data`,
-    );
+    console.debug("constituencyData: Updating cached constituencies data");
     const filePath = path.join(process.cwd(), "data", "constituency.json");
     const fileContent = readFileSync(filePath, "utf8");
+    console.debug("constituencyData: Fetched file content");
     return JSON.parse(fileContent);
   },
   // Cache key

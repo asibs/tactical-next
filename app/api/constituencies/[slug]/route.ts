@@ -20,18 +20,18 @@ export async function GET(
   console.log(`GENERATING API RESPONSE FOR CONSTITUENCY ${params.slug}`);
 
   const constituenciesData: ConstituencyData[] = await getConstituencyData();
+  console.log("Successfully fetched constituencies data");
   const constituencyData = constituenciesData.filter(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
 
   if (constituencyData) {
-    console.log(`Found constituency data for ${params.slug}`);
     console.log(
-      `constituencyIdentifiers ${constituencyData.constituencyIdentifiers}`,
-    );
-    console.log(`partySlug ${constituencyData.recommendation.partySlug}`);
-    console.log(
-      `partyName ${partyNameFromSlug(
+      `Found constituency data for ${params.slug}, constituencyIdentifiers ${
+        constituencyData.constituencyIdentifiers
+      }, partySlug ${
+        constituencyData.recommendation.partySlug
+      }, partyName ${partyNameFromSlug(
         constituencyData.recommendation.partySlug,
       )}`,
     );
