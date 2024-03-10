@@ -43,7 +43,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     // const partyName = partyNameFromSlug(partySlug as PartySlug);
     // const partyColor = partyColorFromSlug(partySlug as PartySlug);
 
-    const constituencyName = "TEST PCON"
+    const constituencyName = "TEST PCON";
     const partyName = "TEST PARTY";
     const partyColor = "red";
 
@@ -70,6 +70,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
             flexWrap: "nowrap",
           }}
         >
+          {/*
+          // @ts-ignore*/}
           <img width="1200" height="630" src={baseImageData} />
 
           <div

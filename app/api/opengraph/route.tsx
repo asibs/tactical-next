@@ -58,6 +58,8 @@ export async function GET(request: Request) {
             flexWrap: "nowrap",
           }}
         >
+          {/*
+          // @ts-ignore*/}
           <img width="1200" height="630" src={baseImageData} />
 
           <div
