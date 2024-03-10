@@ -26,9 +26,15 @@ export async function GET(
 
   if (constituencyData) {
     console.log(`Found constituency data for ${params.slug}`);
-    console.log(`constituencyIdentifiers ${constituencyData.constituencyIdentifiers}`);
+    console.log(
+      `constituencyIdentifiers ${constituencyData.constituencyIdentifiers}`,
+    );
     console.log(`partySlug ${constituencyData.recommendation.partySlug}`);
-    console.log(`partyName ${partyNameFromSlug(constituencyData.recommendation.partySlug)}`);
+    console.log(
+      `partyName ${partyNameFromSlug(
+        constituencyData.recommendation.partySlug,
+      )}`,
+    );
 
     return Response.json({
       constituencyIdentifiers: constituencyData.constituencyIdentifiers,
