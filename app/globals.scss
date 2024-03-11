@@ -313,9 +313,15 @@ section {
 }
 
 /* FOOTER */
-footer {
-  background: var(--bs-gray-300);
+.footer {
+  background-color: var(--bs-gray-300);
   padding-top: 3rem;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
   border-top: 2px solid var(--bs-gray-100);
+  border-bottom: 2px solid var(--bs-gray-400);
+}
+
+.footer-dark {
+  background-color: var(--bs-gray-400);
+  border-top: 2px solid var(--bs-gray-300);
 }
