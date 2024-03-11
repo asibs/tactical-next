@@ -20,7 +20,7 @@ export async function generateStaticParams() {
     params: {
       constituencyName: k,
       partySlug: v,
-    }
+    },
   }));
 }
 
