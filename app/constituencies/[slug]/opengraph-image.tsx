@@ -44,7 +44,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     // )[0];
 
     const constituencyData = await fetch(
-      new URL(`/api/constituencies/${params.slug}`, import.meta.url)
+      new URL(`/api/constituencies/${params.slug}`, import.meta.url),
     ).then((res) => res.json());
     console.log(
       `CONSTITUENCY OPENGRAPH-IMAGE: Successfully fetched data from API for ${params.slug}`,
