@@ -7,18 +7,20 @@ const { serverRuntimeConfig } = getConfig() || {};
 
 const getConstituencyData = unstable_cache(
   // Cache data function
-  async () => {
-    console.debug("constituencyData: Updating cached constituencies data");
-    const filePath = path.join(process.cwd(), "data", "constituency.json");
-    const fileContent = readFileSync(filePath, "utf8");
-    console.debug("constituencyData: Fetched file content");
-    return JSON.parse(fileContent);
-  },
+  async () => getConstituencyDataUncached(),
   // Cache key
   [`data/constituency.json.${serverRuntimeConfig.appVersion}`],
   // Cache options
   { revalidate: false }, // Cache will never refresh
 );
+
+const getConstituencyDataUncached = async () => {
+  console.debug("constituencyData: fetching constituencies data");
+  const filePath = path.join(process.cwd(), "data", "constituency.json");
+  const fileContent = readFileSync(filePath, "utf8");
+  console.debug("constituencyData: fetched constituencies data from file");
+  return JSON.parse(fileContent);
+};
 
 /**
  * Returns a measure of the majority achieved by the winning party in the given VoteResult.
@@ -47,4 +49,9 @@ const votePercent = (voteResult: VoteResult, partySlug: string) => {
   );
 };
 
-export { getConstituencyData, majority, votePercent };
+export {
+  getConstituencyData,
+  getConstituencyDataUncached,
+  majority,
+  votePercent,
+};

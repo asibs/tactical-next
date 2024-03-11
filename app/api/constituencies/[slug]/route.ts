@@ -1,10 +1,11 @@
 import { partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyData } from "@/utils/constituencyData";
+import { getConstituencyDataUncached } from "@/utils/constituencyData";
 import { NextRequest } from "next/server";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
+  const constituenciesData: ConstituencyData[] =
+    await getConstituencyDataUncached();
 
   return constituenciesData.map((c: ConstituencyData) => ({
     slug: c.constituencyIdentifiers.slug,
@@ -19,7 +20,8 @@ export async function GET(
 ) {
   console.log(`GENERATING API RESPONSE FOR CONSTITUENCY ${params.slug}`);
 
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
+  const constituenciesData: ConstituencyData[] =
+    await getConstituencyDataUncached();
   console.log("Successfully fetched constituencies data");
   const constituencyData = constituenciesData.filter(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
