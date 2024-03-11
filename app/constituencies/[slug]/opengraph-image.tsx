@@ -2,35 +2,25 @@
 /* eslint @next/next/no-img-element: 0 */
 /* eslint jsx-a11y/alt-text: 0 */
 
-import { ImageResponse } from "next/server";
-import { partyNameFromSlug } from "@/utils/Party";
 import { constituencyToRecommendation } from "@/data/constituencyToRecommendation";
+import { partyNameFromSlug } from "@/utils/Party";
+import { ImageResponse } from "next/server";
 
+// Route segment config
 export const runtime = "edge";
-
-// dynamicParams=false SHOULD return 404 for any params not returned by
-// generateStaticParams, but this doesn't seem to work for edge functions, presumably
-// because static rendering doesn't work on the edge...
-//
-// If we want to only allow certain combos of params, we would need to validate the
-// params in the GET request...
-export const dynamicParams = false;
+export const dynamic = "force-static";
 export const revalidate = false;
 
-// Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams() {
-  return Object.entries(constituencyToRecommendation).map((k, v) => ({
-    params: {
-      constituencyName: k,
-      partySlug: v,
-    },
-  }));
-}
+// Image metadata
+export const alt = "Find your tactical vote now!";
+export const size = {
+  width: 1200,
+  height: 630,
+};
+export const contentType = "image/png";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { constituencyName: string; partySlug: string } },
-) {
+// Image generation
+export default async function Image({ params }: { params: { slug: string } }) {
   /* Generates an opengraph image for the given constituencyName and partySlug.
    *
    * Uses Next.js ImageResponse:
@@ -45,10 +35,51 @@ export async function GET(
    * specific way, etc.
    */
   console.log(
-    `Generating image for ${params.constituencyName} & ${params.partySlug}`,
+    `CONSTITUENCY OPENGRAPH-IMAGE: Attempting to generate image for ${params.slug}`,
   );
 
   try {
+    // This doesn't work, because uses fs and edge doesn't have it...
+    // const constituenciesData: ConstituencyData[] = await getConstituencyData();
+    // const constituencyData = constituenciesData.filter(
+    //   (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
+    // )[0];
+
+    // This also doesn't work, because the api routes don't exist at build-time
+    // const constituencyData = await fetch(
+    //   new URL(`/api/constituencies/${params.slug}`, import.meta.url),
+    // ).then((res) => res.json());
+    // console.log(
+    //   `CONSTITUENCY OPENGRAPH-IMAGE: Successfully fetched data from API for ${params.slug}`,
+    // );
+    // const constituencyName = constituencyData.constituencyIdentifiers.name;
+    // const partySlug = constituencyData.recommendation.partySlug;
+    // const partyName = partyNameFromSlug(partySlug as PartySlug);
+    // const partyColor = partyColorFromSlug(partySlug as PartySlug);
+    // console.log(
+    //   `CONSTITUENCY OPENGRAPH-IMAGE: slug=${params.slug}, constituencyName=${constituencyName}, partySlug=${partySlug}, partyName=${partyName}, partyColor=${partyColor}`,
+    // );
+
+    const constituencyData = constituencyToRecommendation.find(
+      (i) => i.constituencySlug === params.slug,
+    );
+    if (!constituencyData) {
+      return new Response(`Invalid constituency slug: ${params.slug}`, {
+        status: 404,
+      });
+    }
+    const constituencyName = constituencyData.constituencyName;
+    const partyName = partyNameFromSlug(
+      constituencyData.partySlug as PartySlug,
+    );
+    const partyColor = partyColorFromSlug(
+      constituencyData.partySlug as PartySlug,
+    );
+
+    // const constituencyName = "TEST PCON";
+    // const partyName = "TEST PARTY";
+    // const partyColor = "red";
+
     const rubikBolderFontData = await fetch(
       new URL("/assets/fonts/Rubik-ExtraBold.woff", import.meta.url),
     ).then((res) => res.arrayBuffer());
@@ -57,11 +88,9 @@ export async function GET(
       new URL("/assets/share-base-image-crowd-3.jpg", import.meta.url),
     ).then((res) => res.arrayBuffer());
 
-    const constituencyName = params.constituencyName;
-    const partySlug = params.partySlug;
-    const partyName = partyNameFromSlug(partySlug as PartySlug);
-    const partyColor = partyColorFromSlug(partySlug as PartySlug);
-
+    console.log(
+      `CONSTITUENCY OPENGRAPH-IMAGE: Rendering image for ${params.slug}`,
+    );
     return new ImageResponse(
       (
         <div
@@ -136,7 +165,9 @@ export async function GET(
       },
     );
   } catch (e: any) {
-    console.log(`${e.message}`);
+    console.log(
+      `CONSTITUENCY OPENGRAPH-IMAGE: Error rendering image for ${params.slug}: ${e.message}`,
+    );
     return new Response(`Failed to generate the image`, {
       status: 500,
     });

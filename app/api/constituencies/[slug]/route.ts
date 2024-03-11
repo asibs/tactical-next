@@ -5,6 +5,10 @@ import {
 } from "@/utils/constituencyData";
 import { NextRequest } from "next/server";
 
+export const dynamic = "error"; // Error unless rendering statically
+export const dynamicParams = false; // Don't allow params not in generateStaticParams
+export const revalidate = false; // Never revalidate, always use cached version
+
 // The cached version of constituency data doesn't seem to work in this file - because it's an API route perhaps?
 
 // Return a list of `params` to populate the [slug] dynamic segment

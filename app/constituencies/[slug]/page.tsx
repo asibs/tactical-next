@@ -39,21 +39,21 @@ export async function generateMetadata({
       siteName: "StopTheTories.Vote",
       locale: "en_GB",
       type: "website",
-      images: [
-        {
-          url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
-          alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
-        },
-      ],
+      // images: [
+      //   {
+      //     url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
+      //     alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      //   },
+      // ],
     },
     twitter: {
       card: "summary_large_image",
       title: "Stop The Tories .Vote",
       description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
-      images: {
-        url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
-        alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
-      },
+      // images: {
+      //   url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
+      //   alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      // },
     },
   };
 }
