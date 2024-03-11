@@ -1,15 +1,16 @@
 import { partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyDataUncached } from "@/utils/constituencyData";
+import {
+  getConstituencyData,
+  getConstituencySlugs,
+} from "@/utils/constituencyData";
 import { NextRequest } from "next/server";
+
+// The cached version of constituency data doesn't seem to work in this file - because it's an API route perhaps?
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituenciesData: ConstituencyData[] =
-    await getConstituencyDataUncached();
-
-  return constituenciesData.map((c: ConstituencyData) => ({
-    slug: c.constituencyIdentifiers.slug,
-  }));
+  const constituencySlugs = await getConstituencySlugs(false);
+  return constituencySlugs.map((slug) => ({ slug: slug }));
 }
 
 // Multiple versions of this page will be statically generated
@@ -20,12 +21,11 @@ export async function GET(
 ) {
   console.log(`GENERATING API RESPONSE FOR CONSTITUENCY ${params.slug}`);
 
-  const constituenciesData: ConstituencyData[] =
-    await getConstituencyDataUncached();
+  const constituencyData: ConstituencyData = await getConstituencyData(
+    params.slug,
+    false,
+  );
   console.log("Successfully fetched constituencies data");
-  const constituencyData = constituenciesData.filter(
-    (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
-  )[0];
 
   if (constituencyData) {
     console.log(

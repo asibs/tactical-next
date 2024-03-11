@@ -2,10 +2,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { partyColorFromSlug, partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyData, majority } from "@/utils/constituencyData";
+import { getConstituenciesData, majority } from "@/utils/constituencyData";
 
 export default async function ConstituencySummaryPage() {
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
+  const constituenciesData: ConstituencyData[] = await getConstituenciesData();
   const torySeats = constituenciesData
     .filter(
       (c: ConstituencyData) => c.impliedPreviousResult.winningParty === "Con",

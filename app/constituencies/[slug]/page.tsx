@@ -6,15 +6,56 @@ import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyData } from "@/utils/constituencyData";
+import {
+  getConstituencyData,
+  getConstituencySlugs,
+} from "@/utils/constituencyData";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
+  const constituencySlugs = await getConstituencySlugs();
+  return constituencySlugs.map((slug) => ({ slug: slug }));
+}
 
-  return constituenciesData.map((c: ConstituencyData) => ({
-    slug: c.constituencyIdentifiers.slug,
-  }));
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const constituencyData: ConstituencyData = await getConstituencyData(
+    params.slug,
+  );
+  const constituencyName = constituencyData.constituencyIdentifiers.name;
+  const partySlug = constituencyData.recommendation.partySlug;
+  const partyName = partyNameFromSlug(partySlug);
+
+  return {
+    title: `Stop The Toris in ${constituencyName}`,
+    description: `Vote ${partyName} in ${constituencyName} to Stop The Tories`,
+    openGraph: {
+      title: "Stop The Tories .Vote",
+      description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      url: "https://stopthetories.vote",
+      siteName: "StopTheTories.Vote",
+      locale: "en_GB",
+      type: "website",
+      images: [
+        {
+          url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
+          alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Stop The Tories .Vote",
+      description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      images: {
+        url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
+        alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      },
+    },
+  };
 }
 
 // Multiple versions of this page will be statically generated
@@ -24,10 +65,9 @@ export default async function ConstituencyPage({
 }: {
   params: { slug: string };
 }) {
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
-  const constituencyData = constituenciesData.filter(
-    (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
-  )[0];
+  const constituencyData: ConstituencyData = await getConstituencyData(
+    params.slug,
+  );
 
   if (constituencyData) {
     constituencyData.impliedPreviousResult.partyVoteResults.sort(
