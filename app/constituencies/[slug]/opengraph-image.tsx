@@ -3,7 +3,6 @@
 /* eslint jsx-a11y/alt-text: 0 */
 
 import { partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyData } from "@/utils/constituencyData";
 import { ImageResponse } from "next/server";
 
 // Route segment config
@@ -45,7 +44,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     // )[0];
 
     const constituencyData = await fetch(
-      `/api/constituencies/${params.slug}`,
+      new URL(`/api/constituencies/${params.slug}`, import.meta.url)
     ).then((res) => res.json());
     console.log(
       `CONSTITUENCY OPENGRAPH-IMAGE: Successfully fetched data from API for ${params.slug}`,
