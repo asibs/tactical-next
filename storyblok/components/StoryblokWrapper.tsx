@@ -31,12 +31,6 @@ export default async function StoryblokWrapper({ slug }: params) {
         `cdn/stories/${slug}`,
         sbParams,
       );
-      // console.log("LIVE-EDITING DATA IS: ", storyblokResponse.data);
-      // console.log("LIVE-EDITING STORY IS: ", storyblokResponse.data.story);
-      // console.log(
-      //   "LIVE-EDITING CONTENT IS: ",
-      //   storyblokResponse.data.story.content,
-      // );
       return <StoryblokStory story={storyblokResponse.data.story} />;
     } catch {
       return (
@@ -47,7 +41,6 @@ export default async function StoryblokWrapper({ slug }: params) {
       );
     }
   } else {
-    console.debug("StoryblokWrapper.tsx: Disabling live-editing");
     /* When live-editing is disabled, we use the local filesystem containing the story JSON,
      * and cache it indefinitely so pages are statically generated at build-time.
      *

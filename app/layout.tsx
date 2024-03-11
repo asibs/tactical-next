@@ -67,7 +67,6 @@ export default function RootLayout({
       </StoryblokProvider>
     );
   } else {
-    console.debug("layout.tsx: Disabling live-editing");
     return (
       <html lang="en" className={rubik.variable}>
         {/* <body className={inter.className}> */}

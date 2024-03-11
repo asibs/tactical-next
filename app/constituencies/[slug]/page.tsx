@@ -81,6 +81,8 @@ export default async function ConstituencyPage({
     );
   }
 
+  console.log(`Generating Constituency Page for ${params.slug}`);
+
   return (
     <>
       {constituencyData && (
