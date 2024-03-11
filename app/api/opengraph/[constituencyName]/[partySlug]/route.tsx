@@ -16,14 +16,15 @@ export const revalidate = false;
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  return Object.entries(constituencyToRecommendation).map((k, v) => (
-    { constituencyName: k, partySlug: v }
-  ));
+  return Object.entries(constituencyToRecommendation).map((k, v) => ({
+    constituencyName: k,
+    partySlug: v,
+  }));
 }
 
 export async function GET(
   request: Request,
-  { params }: { params: { constituencyName: string, partySlug: string } }
+  { params }: { params: { constituencyName: string; partySlug: string } },
 ) {
   /* Generates an opengraph image for the given constituencyName and partySlug.
    *
@@ -38,7 +39,9 @@ export async function GET(
    * rather than the sitewide CSS / bootstrap, you need to load images & fonts in a
    * specific way, etc.
    */
-  console.log(`Generating image for ${params.constituencyName} & ${params.partySlug}`);
+  console.log(
+    `Generating image for ${params.constituencyName} & ${params.partySlug}`,
+  );
 
   try {
     const rubikBolderFontData = await fetch(
