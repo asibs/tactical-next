@@ -17,8 +17,10 @@ export const revalidate = false;
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   return Object.entries(constituencyToRecommendation).map((k, v) => ({
-    constituencyName: k,
-    partySlug: v,
+    params: {
+      constituencyName: k,
+      partySlug: v,
+    }
   }));
 }
 
