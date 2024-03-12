@@ -1,5 +1,4 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { generateOG } from "@/utils/OgStatic";
 import Header from "@/components/Header";
 import ActionBox from "@/components/info_box/ActionBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
@@ -23,15 +22,13 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
+  console.log("Getting data for:", params.slug);
   const constituencyData: ConstituencyData = await getConstituencyData(
     params.slug,
   );
   const constituencyName = constituencyData.constituencyIdentifiers.name;
   const partySlug = constituencyData.recommendation.partySlug;
   const partyName = partyNameFromSlug(partySlug);
-
-  //TODO bail if it fails
-  console.log("OG generation", await generateOG(constituencyData));
 
   return {
     title: `Stop The Toris in ${constituencyName}`,
@@ -45,7 +42,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: `/og/og-${params.slug}.svg`,
+          url: `/constituencies/${params.slug}/og.png`,
           alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
         },
       ],
@@ -55,7 +52,7 @@ export async function generateMetadata({
       title: "Stop The Tories .Vote",
       description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
       images: {
-        url: `/og/og-${params.slug}.svg`,
+        url: `/constituencies/${params.slug}/og.png`,
         alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
       },
     },
