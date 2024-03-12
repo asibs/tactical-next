@@ -31,6 +31,7 @@
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
+    "satori": "^0.10.13",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "storyblok-rich-text-react-renderer": "^2.9.1"

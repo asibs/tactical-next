@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { generateOG } from "@/utils/OgStatic";
 import Header from "@/components/Header";
 import ActionBox from "@/components/info_box/ActionBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
@@ -29,6 +30,9 @@ export async function generateMetadata({
   const partySlug = constituencyData.recommendation.partySlug;
   const partyName = partyNameFromSlug(partySlug);
 
+  //TODO bail if it fails
+  console.log("OG generation", await generateOG(constituencyData));
+
   return {
     title: `Stop The Toris in ${constituencyName}`,
     description: `Vote ${partyName} in ${constituencyName} to Stop The Tories`,
@@ -39,21 +43,21 @@ export async function generateMetadata({
       siteName: "StopTheTories.Vote",
       locale: "en_GB",
       type: "website",
-      // images: [
-      //   {
-      //     url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
-      //     alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
-      //   },
-      // ],
+      images: [
+        {
+          url: `/og/og-${params.slug}.svg`,
+          alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: "Stop The Tories .Vote",
       description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
-      // images: {
-      //   url: `/api/opengraph?constituencyName=${constituencyName}&partySlug=${partySlug}`,
-      //   alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
-      // },
+      images: {
+        url: `/og/og-${params.slug}.svg`,
+        alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      },
     },
   };
 }
