@@ -157,12 +157,12 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
       </Container>
     </section>
 
-    <section className="footer-dark">
+    <section className="footer-dark" style={{ fontSize: "14px" }}>
       <Container>
         <Row>
           <Col xs="auto">
             {/* POSTCODE LOOKUP ATTRIBUTION */}
-            <p className="fs-6">
+            <p className="mb-1">
               Postcode lookup contains data from{" "}
               <a
                 href="https://democracyclub.org.uk/"
@@ -187,25 +187,24 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
               >
                 MySociety
               </a>
-              :
-              <ul>
-                <li>
-                  Contains OS data © Crown copyright and database right 2024
-                </li>
-                <li>
-                  Contains Royal Mail data © Royal Mail copyright and Database
-                  right 2024
-                </li>
-                <li>
-                  Contains GeoPlace data © Local Government Information House
-                  Limited copyright and database right 2024
-                </li>
-                <li>
-                  Source: Office for National Statistics licensed under the Open
-                  Government Licence v.3.0
-                </li>
-              </ul>
             </p>
+            <ul>
+              <li>
+                Contains OS data © Crown copyright and database right 2024
+              </li>
+              <li>
+                Contains Royal Mail data © Royal Mail copyright and Database
+                right 2024
+              </li>
+              <li>
+                Contains GeoPlace data © Local Government Information House
+                Limited copyright and database right 2024
+              </li>
+              <li>
+                Source: Office for National Statistics licensed under the Open
+                Government Licence v.3.0
+              </li>
+            </ul>
           </Col>
         </Row>
       </Container>
