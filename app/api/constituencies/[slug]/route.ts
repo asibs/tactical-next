@@ -36,7 +36,9 @@ export async function GET(
       `Found constituency data for ${params.slug},
       constituencyIdentifiers ${constituencyData.constituencyIdentifiers},
       partySlug ${constituencyData.recommendation.partySlug},
-      partyName ${partyNameFromSlug(constituencyData.recommendation.partySlug)}`
+      partyName ${partyNameFromSlug(
+        constituencyData.recommendation.partySlug,
+      )}`,
     );
 
     return Response.json({

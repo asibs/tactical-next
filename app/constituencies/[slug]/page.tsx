@@ -6,7 +6,10 @@ import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
-import { getConstituenciesData, getConstituencySlugs } from "@/utils/constituencyData";
+import {
+  getConstituenciesData,
+  getConstituencySlugs,
+} from "@/utils/constituencyData";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
