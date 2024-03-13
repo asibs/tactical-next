@@ -18,7 +18,9 @@ type params = {
 
 export default async function StoryblokWrapper({ slug }: params) {
   if (process.env.ENABLE_STORYBLOK_LIVE_EDITING === "true") {
-    console.debug("StoryblokWrapper.tsx: Enabling live-editing");
+    console.debug(
+      "StoryblokWrapper.tsx: Enabling live-editing (should be disabled in Prod!)",
+    );
     // When live-editing is enabled, we get data from the Storyblok API
 
     let sbParams: ISbStoriesParams = {
@@ -47,7 +49,6 @@ export default async function StoryblokWrapper({ slug }: params) {
       );
     }
   } else {
-    console.debug("StoryblokWrapper.tsx: Disabling live-editing");
     /* When live-editing is disabled, we use the local filesystem containing the story JSON,
      * and cache it indefinitely so pages are statically generated at build-time.
      *

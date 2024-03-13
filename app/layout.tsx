@@ -49,7 +49,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   if (process.env.ENABLE_STORYBLOK_LIVE_EDITING === "true") {
-    console.debug("layout.tsx: Enabling live-editing");
+    console.debug(
+      "layout.tsx: Enabling live-editing (should be disabled in Prod!)",
+    );
     return (
       <StoryblokProvider>
         {/*
@@ -67,10 +69,8 @@ export default function RootLayout({
       </StoryblokProvider>
     );
   } else {
-    console.debug("layout.tsx: Disabling live-editing");
     return (
       <html lang="en" className={rubik.variable}>
-        {/* <body className={inter.className}> */}
         <body>
           <StoryblokWrapper slug="layout/navigation" />
           {children}
