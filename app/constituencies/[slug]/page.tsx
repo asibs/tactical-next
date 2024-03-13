@@ -6,15 +6,12 @@ import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
-import { getConstituencyData } from "@/utils/constituencyData";
+import { getConstituenciesData, getConstituencySlugs } from "@/utils/constituencyData";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
-
-  return constituenciesData.map((c: ConstituencyData) => ({
-    slug: c.constituencyIdentifiers.slug,
-  }));
+  const constituencySlugs = await getConstituencySlugs();
+  return constituencySlugs.map((slug) => ({ slug: slug }));
 }
 
 // Multiple versions of this page will be statically generated
@@ -24,7 +21,7 @@ export default async function ConstituencyPage({
 }: {
   params: { slug: string };
 }) {
-  const constituenciesData: ConstituencyData[] = await getConstituencyData();
+  const constituenciesData: ConstituencyData[] = await getConstituenciesData();
   const constituencyData = constituenciesData.filter(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
   )[0];

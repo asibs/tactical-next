@@ -5,21 +5,58 @@ import getConfig from "next/config";
 
 const { serverRuntimeConfig } = getConfig() || {};
 
-const getConstituencyData = unstable_cache(
-  // Cache data function
-  async () => {
-    console.debug(
-      `constituencies/[slug]/page.tsx: Updating cached constituencies data`,
+const getConstituencyData = async (
+  constituencySlug: string,
+  cached: boolean = true,
+): Promise<ConstituencyData> => {
+  const constituenciesData = await getConstituenciesData(cached);
+  const constituencyData = constituenciesData.find(
+    (c: ConstituencyData) =>
+      c.constituencyIdentifiers.slug === constituencySlug,
+  );
+
+  if (!constituencyData) {
+    throw new Error(
+      `getConstituencyData: Unable to find constituencySlug=${constituencySlug}`,
     );
-    const filePath = path.join(process.cwd(), "data", "constituency.json");
-    const fileContent = readFileSync(filePath, "utf8");
-    return JSON.parse(fileContent);
-  },
+  }
+
+  return constituencyData;
+};
+
+const getConstituencySlugs = async (
+  cached: boolean = true,
+): Promise<string[]> => {
+  const constituenciesData = await getConstituenciesData(cached);
+  return constituenciesData.map(
+    (c: ConstituencyData) => c.constituencyIdentifiers.slug,
+  );
+};
+
+const getConstituenciesData = async (
+  cached: boolean = true,
+): Promise<ConstituencyData[]> => {
+  return cached
+    ? await getConstituenciesDataCached()
+    : await getConstituenciesDataUncached();
+};
+
+const getConstituenciesDataCached = unstable_cache(
+  // Cache data function
+  async () => getConstituenciesDataUncached(),
   // Cache key
   [`data/constituency.json.${serverRuntimeConfig.appVersion}`],
   // Cache options
   { revalidate: false }, // Cache will never refresh
 );
+
+const getConstituenciesDataUncached = async () => {
+  console.debug("constituencyData: fetching constituencies data");
+  const filePath = path.join(process.cwd(), "data", "constituency.json");
+  const fileContent = readFileSync(filePath, "utf8");
+  console.debug("constituencyData: fetched constituencies data from file");
+  return JSON.parse(fileContent);
+};
 
 /**
  * Returns a measure of the majority achieved by the winning party in the given VoteResult.
@@ -48,4 +85,10 @@ const votePercent = (voteResult: VoteResult, partySlug: string) => {
   );
 };
 
-export { getConstituencyData, majority, votePercent };
+export {
+  getConstituencySlugs,
+  getConstituencyData,
+  getConstituenciesData,
+  majority,
+  votePercent,
+};
