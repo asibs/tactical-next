@@ -8,6 +8,7 @@ import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 import {
   getConstituenciesData,
+  getConstituencyData,
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 
@@ -17,6 +18,49 @@ export async function generateStaticParams() {
   return constituencySlugs.map((slug) => ({ slug: slug }));
 }
 
+// Generate page metadata for each statically generated constituency page
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  console.log("Getting data for:", params.slug);
+  const constituencyData: ConstituencyData = await getConstituencyData(
+    params.slug,
+  );
+  const constituencyName = constituencyData.constituencyIdentifiers.name;
+  const partySlug = constituencyData.recommendation.partySlug;
+  const partyName = partyNameFromSlug(partySlug);
+
+  return {
+    title: `Stop The Toris in ${constituencyName}`,
+    description: `Vote ${partyName} in ${constituencyName} to Stop The Tories`,
+    openGraph: {
+      title: "Stop The Tories .Vote",
+      description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      url: "https://stopthetories.vote",
+      siteName: "StopTheTories.Vote",
+      locale: "en_GB",
+      type: "website",
+      images: [
+        {
+          url: `/constituencies/${params.slug}/og.png`,
+          alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Stop The Tories .Vote",
+      description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      images: {
+        url: `/constituencies/${params.slug}/og.png`,
+        alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      },
+    },
+  };
+}
+
 // Multiple versions of this page will be statically generated
 // using the `params` returned by `generateStaticParams`
 export default async function ConstituencyPage({
@@ -24,10 +68,9 @@ export default async function ConstituencyPage({
 }: {
   params: { slug: string };
 }) {
-  const constituenciesData: ConstituencyData[] = await getConstituenciesData();
-  const constituencyData = constituenciesData.filter(
-    (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
-  )[0];
+  const constituencyData: ConstituencyData = await getConstituencyData(
+    params.slug,
+  );
 
   if (constituencyData) {
     constituencyData.impliedPreviousResult.partyVoteResults.sort(
