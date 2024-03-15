@@ -59,7 +59,6 @@ export default function RootLayout({
         (used in globals.scss to style headers, etc)
         */}
         <html lang="en" className={rubik.variable}>
-          {/* <body className={inter.className}> */}
           <body>
             <StoryblokWrapper slug="layout/navigation" />
             {children}
