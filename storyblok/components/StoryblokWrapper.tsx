@@ -36,7 +36,7 @@ export default async function StoryblokWrapper({ slug }: params) {
       );
       return <StoryblokStory story={storyblokResponse.data.story} />;
     } catch {
-      notFound()
+      notFound();
     }
   } else {
     /* When live-editing is disabled, we use the local filesystem containing the story JSON,
@@ -76,7 +76,7 @@ export default async function StoryblokWrapper({ slug }: params) {
     if (data) {
       return <StoryblokComponent blok={data.story.content} />;
     } else {
-      notFound()
+      notFound();
     }
   }
 }
