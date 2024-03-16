@@ -37,10 +37,11 @@ export default function Error({
         <section className="section-light">
           <Container className="pb-5">
             <Row className="pb-5">
-              <Col>
+              <Col className="text-center">
                 <Button
+                  size="lg"
                   variant="dark"
-                  className="fw-bolder"
+                  className="fw-bolder px-5"
                   onClick={
                     // Attempt to recover by trying to re-render the segment
                     () => reset()
@@ -53,7 +54,7 @@ export default function Error({
             </Row>
 
             <Row>
-              <Col>
+              <Col className="text-center">
                 <h4>
                   <Link href="/">Back to Stop The Tories homepage</Link>
                 </h4>
