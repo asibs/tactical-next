@@ -46,7 +46,8 @@ export default function Error({
                     () => reset()
                   }
                 >
-                  <FaArrowRotateRight className="me-2" />Try Again
+                  <FaArrowRotateRight className="me-2" />
+                  Try Again
                 </Button>
               </Col>
             </Row>
@@ -59,8 +60,8 @@ export default function Error({
               </Col>
             </Row>
           </Container>
-        </section >
-      </main >
+        </section>
+      </main>
     </>
   );
 }
