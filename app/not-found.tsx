@@ -4,7 +4,8 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import Header from "@/components/Header";
 
-export default function TeamPage() {
+// Custom 404 page
+export default function NotFound() {
   return (
     <>
       <Header backgroundImage="NONE">

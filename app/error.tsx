@@ -9,6 +9,10 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import Header from "@/components/Header";
 import { FaArrowRotateRight } from "react-icons/fa6";
 
+// Error boundary. See:
+// https://nextjs.org/docs/app/building-your-application/routing/error-handling
+//
+// The top-level layout should still be rendered from here.
 export default function Error({
   error,
   reset,
