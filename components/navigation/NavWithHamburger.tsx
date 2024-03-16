@@ -43,7 +43,9 @@ const NavWithHamburger = ({ blok }: { blok: NavbarStoryblok }) => {
             placeholder="blur"
           />
           <span className={styles.hamburgerBrandText}>StopTheTories</span>
-          <span className={`${styles.hamburgerBrandText} fw-bolder fst-italic`}>.Vote</span>
+          <span className={`${styles.hamburgerBrandText} fw-bolder fst-italic`}>
+            .Vote
+          </span>
         </Navbar.Brand>
 
         {/* Right-aligned section - always shown links & hamburger */}

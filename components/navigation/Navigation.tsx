@@ -32,7 +32,9 @@ const Navigation = () => {
             placeholder="blur"
           />
           <span className={styles.brandText}>StopTheTories</span>
-          <span className={`${styles.brandText} fw-bolder fst-italic`}>.Vote</span>
+          <span className={`${styles.brandText} fw-bolder fst-italic`}>
+            .Vote
+          </span>
         </Navbar.Brand>
 
         {/* Right-aligned section - always shown links */}
