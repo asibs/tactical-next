@@ -14,7 +14,7 @@ import logo from "@/assets/stop-the-tories-logo-transparent.png";
 import { rubik } from "@/utils/Fonts";
 import { FaBoltLightning, FaMagnifyingGlass } from "react-icons/fa6";
 
-import styles from "./navWithHambuger.module.css";
+import styles from "./styles.module.css";
 
 // Navbar with a hamburger menu which is never expanded, and is populated via Storyblok
 // so non-dev users can add items to the hamburger menu easily.
@@ -42,8 +42,8 @@ const NavWithHamburger = ({ blok }: { blok: NavbarStoryblok }) => {
             style={{ width: "2rem", height: "2rem" }}
             placeholder="blur"
           />
-          <span className={styles.brandText}>StopTheTories</span>
-          <span className={`${styles.brandText} fw-bolder fst-italic`}>
+          <span className="hamburger-brand-text">StopTheTories</span>
+          <span className="hamburger-brand-text fw-bolder fst-italic">
             .Vote
           </span>
         </Navbar.Brand>

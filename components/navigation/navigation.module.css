@@ -1,6 +1,0 @@
-/* Below 360px, the Navigation component won't naturally fit, so start to scale down the text */
-.brandText {
-  @media (max-width: 359.98px) {
-    font-size: 5.25vw;
-  }
-}
