@@ -9,6 +9,10 @@ import {
   getStoryblokApi,
 } from "@storyblok/react/rsc";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
+// TODO: Storyblok generated pages are currently server-side rendered rather than static
+// Investigate why, and fix...
 
 const { serverRuntimeConfig } = getConfig() || {};
 
@@ -41,12 +45,7 @@ export default async function StoryblokWrapper({ slug }: params) {
       // );
       return <StoryblokStory story={storyblokResponse.data.story} />;
     } catch {
-      return (
-        <div>
-          <h2>Page Not Found</h2>
-          <Link href="/">Return Home</Link>
-        </div>
-      );
+      notFound();
     }
   } else {
     /* When live-editing is disabled, we use the local filesystem containing the story JSON,
@@ -89,12 +88,7 @@ export default async function StoryblokWrapper({ slug }: params) {
     if (data) {
       return <StoryblokComponent blok={data.story.content} />;
     } else {
-      return (
-        <div>
-          <h2>Page Not Found</h2>
-          <Link href="/">Return Home</Link>
-        </div>
-      );
+      notFound();
     }
   }
 }

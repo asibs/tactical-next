@@ -10,6 +10,14 @@ import {
   getConstituenciesData,
   getConstituencySlugs,
 } from "@/utils/constituencyData";
+import { notFound } from "next/navigation";
+
+export const dynamicParams = false; // Don't allow params not in generateStaticParams
+
+// TODO: This page currently needs to be Server-side rendered, presumably because of
+// the action box client-side component which fetches the count of users in the
+// constituency and changes the content based on localStorage. Investigate whether
+// Incremental Static Regeneration would be possible with this page...?
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
@@ -29,86 +37,78 @@ export default async function ConstituencyPage({
     (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
 
-  if (constituencyData) {
-    constituencyData.impliedPreviousResult.partyVoteResults.sort(
-      // sort implied results on votePercent instead
-      // of raw so nonVoters stay last.
-      (a, b) => b.votePercent - a.votePercent,
-    );
-
-    constituencyData.pollingResults.partyVoteResults.sort(
-      (a, b) => b.votePercent - a.votePercent,
-    );
+  if (!constituencyData) {
+    // This should never happen because dynamic params is false, and the method of
+    // getting constituency data above should be consistent with generateStaticParams,
+    // but this is a belt-and-braces approach
+    notFound();
   }
+
+  constituencyData.impliedPreviousResult.partyVoteResults.sort(
+    // sort implied results on votePercent instead
+    // of raw so nonVoters stay last.
+    (a, b) => b.votePercent - a.votePercent,
+  );
+
+  constituencyData.pollingResults.partyVoteResults.sort(
+    (a, b) => b.votePercent - a.votePercent,
+  );
 
   return (
     <>
-      {constituencyData && (
-        <>
-          <Header backgroundImage="FESTIVAL_CROWD">
-            <Container className="py-4 py-md-6">
-              <h1>{constituencyData.constituencyIdentifiers.name}</h1>
-              <p>
-                Bookmark this page and check back before the election for
-                updated info.
-              </p>
-            </Container>
-          </Header>
+      <Header backgroundImage="FESTIVAL_CROWD">
+        <Container className="py-4 py-md-6">
+          <h1>{constituencyData.constituencyIdentifiers.name}</h1>
+          <p>
+            Bookmark this page and check back before the election for updated
+            info.
+          </p>
+        </Container>
+      </Header>
 
-          <main>
-            <section id="section-advice" className="section-light">
-              <Container>
-                <Row>
-                  <Col>
-                    <h2 className="pb-3">The tactical vote is</h2>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <h3
-                      className={`party ${partyCssClassFromSlug(
-                        constituencyData.recommendation.partySlug,
-                      )}`}
-                    >
-                      {partyNameFromSlug(
-                        constituencyData.recommendation.partySlug,
-                      )}
-                    </h3>
-                  </Col>
-                </Row>
+      <main>
+        <section id="section-advice" className="section-light">
+          <Container>
+            <Row>
+              <Col>
+                <h2 className="pb-3">The tactical vote is</h2>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <h3
+                  className={`party ${partyCssClassFromSlug(
+                    constituencyData.recommendation.partySlug,
+                  )}`}
+                >
+                  {partyNameFromSlug(constituencyData.recommendation.partySlug)}
+                </h3>
+              </Col>
+            </Row>
 
-                <Row xs={1} lg={3}>
-                  <Col md={7}>
-                    <TacticalReasoningBox constituencyData={constituencyData} />
-                  </Col>
-                  <Col md={7}>
-                    <ActionBox constituencyData={constituencyData} />
-                  </Col>
-                  <Col md={7}>
-                    <PlanToVoteBox />
-                  </Col>
-                </Row>
-                <Row xs={1} lg={3}>
-                  <Col md={7}>
-                    <ImpliedChart constituencyData={constituencyData} />
-                  </Col>
-                  <Col md={7}>
-                    <MRPChart constituencyData={constituencyData} />
-                  </Col>
-                  <Col md={7}></Col>
-                </Row>
-              </Container>
-            </section>
-          </main>
-        </>
-      )}
-
-      {!constituencyData && (
-        <>
-          <h1>{params.slug}</h1>
-          <p>No data found for this constituency!</p>
-        </>
-      )}
+            <Row xs={1} lg={3}>
+              <Col md={7}>
+                <TacticalReasoningBox constituencyData={constituencyData} />
+              </Col>
+              <Col md={7}>
+                <ActionBox constituencyData={constituencyData} />
+              </Col>
+              <Col md={7}>
+                <PlanToVoteBox />
+              </Col>
+            </Row>
+            <Row xs={1} lg={3}>
+              <Col md={7}>
+                <ImpliedChart constituencyData={constituencyData} />
+              </Col>
+              <Col md={7}>
+                <MRPChart constituencyData={constituencyData} />
+              </Col>
+              <Col md={7}></Col>
+            </Row>
+          </Container>
+        </section>
+      </main>
     </>
   );
 }
