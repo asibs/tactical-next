@@ -1,6 +1,7 @@
 import { rubik } from "@/utils/Fonts";
 import "./globals.scss";
 import type { Metadata } from "next";
+import Navigation from "@/components/navigation/Navigation";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import StoryblokProvider from "@/storyblok/components/StoryblokProvider";
@@ -59,9 +60,10 @@ export default function RootLayout({
         (used in globals.scss to style headers, etc)
         */}
         <html lang="en" className={rubik.variable}>
-          {/* <body className={inter.className}> */}
           <body>
-            <StoryblokWrapper slug="layout/navigation" />
+            {/* Only use Storyblok if we want to render the nav with hamburger */}
+            {/* <StoryblokWrapper slug="layout/navigation" /> */}
+            <Navigation />
             {children}
             <StoryblokWrapper slug="layout/footer" />
           </body>
@@ -72,7 +74,9 @@ export default function RootLayout({
     return (
       <html lang="en" className={rubik.variable}>
         <body>
-          <StoryblokWrapper slug="layout/navigation" />
+          {/* Only use Storyblok if we want to render the nav with hamburger */}
+          {/* <StoryblokWrapper slug="layout/navigation" /> */}
+          <Navigation />
           {children}
           <StoryblokWrapper slug="layout/footer" />
         </body>

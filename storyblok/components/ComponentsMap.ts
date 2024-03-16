@@ -1,6 +1,5 @@
 import { SbReactComponentsMap } from "@storyblok/react/rsc";
 
-import Navigation from "@/components/navigation/Navigation";
 import Footer from "@/components/footer/Footer";
 import FooterLink from "@/components/footer/FooterLink";
 import OneColumnLayout from "@/components/page_layout/OneColumnLayout";
@@ -9,10 +8,11 @@ import ThreeColumnLayout from "@/components/page_layout/ThreeColumnLayout";
 import RichText from "@/components/page_content/RichText";
 import Page from "@/components/Page";
 import ToggleText from "@/components/page_content/ToggleText";
+import NavWithHamburger from "@/components/navigation/NavWithHamburger";
 
 export const ComponentsMap: SbReactComponentsMap = {
   // Navigation
-  navbar: Navigation,
+  navbar: NavWithHamburger,
   // Footer
   footer: Footer,
   footer_internal_link: FooterLink,
