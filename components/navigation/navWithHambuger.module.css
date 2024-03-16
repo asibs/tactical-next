@@ -1,0 +1,6 @@
+/* Below 385px, the NavWithHamburger component won't naturally fit, so start to scale down the text */
+.brandText {
+  @media (max-width: 384.98px) {
+    font-size: 4vw;
+  }
+}

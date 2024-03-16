@@ -12,7 +12,7 @@ import logo from "@/assets/stop-the-tories-logo-transparent.png";
 import { rubik } from "@/utils/Fonts";
 import { FaBoltLightning, FaMagnifyingGlass } from "react-icons/fa6";
 
-import styles from "./nav.module.css";
+import styles from "./navigation.module.css";
 
 // Navbar which just includes our main call to actions, which are (currently) the search
 // & join buttons. These are always displayed on the navbar, and there is no hamburger
