@@ -9,6 +9,7 @@ import {
   getStoryblokApi,
 } from "@storyblok/react/rsc";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const { serverRuntimeConfig } = getConfig() || {};
 
@@ -33,20 +34,9 @@ export default async function StoryblokWrapper({ slug }: params) {
         `cdn/stories/${slug}`,
         sbParams,
       );
-      // console.log("LIVE-EDITING DATA IS: ", storyblokResponse.data);
-      // console.log("LIVE-EDITING STORY IS: ", storyblokResponse.data.story);
-      // console.log(
-      //   "LIVE-EDITING CONTENT IS: ",
-      //   storyblokResponse.data.story.content,
-      // );
       return <StoryblokStory story={storyblokResponse.data.story} />;
     } catch {
-      return (
-        <div>
-          <h2>Page Not Found</h2>
-          <Link href="/">Return Home</Link>
-        </div>
-      );
+      notFound()
     }
   } else {
     /* When live-editing is disabled, we use the local filesystem containing the story JSON,
@@ -83,18 +73,10 @@ export default async function StoryblokWrapper({ slug }: params) {
     );
 
     const data = await getLocalStorybookData();
-    // console.log("SERVER DATA IS: ", JSON.stringify(data));
-    // console.log("SERVER STORY IS: ", JSON.stringify(data.story));
-    // console.log("SERVER CONTENT IS: ", JSON.stringify(data.story.content));
     if (data) {
       return <StoryblokComponent blok={data.story.content} />;
     } else {
-      return (
-        <div>
-          <h2>Page Not Found</h2>
-          <Link href="/">Return Home</Link>
-        </div>
-      );
+      notFound()
     }
   }
 }
