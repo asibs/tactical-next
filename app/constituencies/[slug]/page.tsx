@@ -11,7 +11,6 @@ import {
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 
-export const dynamic = "error"; // Error unless rendering statically
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
 export const revalidate = false; // Never revalidate, always use cached version
 
