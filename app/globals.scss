@@ -105,6 +105,19 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 
 /***** GLOBAL DEFAULT STYLES *****/
 
+// TODO: Many of these could be Next.js CSS Modules as they only affect a single component
+// (eg. Header, Navbar, Footer, etc). See:
+// https://nextjs.org/docs/app/building-your-application/styling/css-modules
+//
+// However, Next.js CSS Modules appear to be buggy - I tried using them for the Nav /
+// NavWithHamburger (see PR https://github.com/asibs/tactical-next/pull/70), but classes
+// with different names & styles in different CSS module files were getting combined in
+// the build process, so the resulting minified CSS had the same styling for both named
+// classes...
+//
+// If/when we upgrade to Next 14, see if this still happens, and if not maybe extract a
+// bunch of this global CSS into modules where it doesn't really have to be global.
+
 /* TYPOGRAPHY */
 body {
   font-size: 18px;
@@ -116,9 +129,17 @@ body {
 }
 
 /* NAVBAR */
+/* Below 360px, the Navigation component won't naturally fit, so start to scale down the text */
 .brand-text {
-  @include media-breakpoint-down(sm) {
-    font-size: rfs-fluid-value(1rem);
+  @media (max-width: 359.98px) {
+    font-size: 5.25vw;
+  }
+}
+
+/* Below 385px, the NavWithHamburger component won't naturally fit, so start to scale down the text */
+.hamburger-brand-text {
+  @media (max-width: 384.98px) {
+    font-size: 4vw;
   }
 }
 
