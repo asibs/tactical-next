@@ -12,7 +12,11 @@ import {
 } from "@/utils/constituencyData";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
-export const revalidate = false; // Never revalidate, always use cached version
+
+// TODO: This page currently needs to be Server-side rendered because it has a client
+// component (the action box) which fetches the count of users in the constituency.
+// This data could be fetched on the server side, and we could use Incremental Static
+// Regeneration to re-render the page every X mins, which may be more efficient...
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
