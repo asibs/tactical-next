@@ -32,14 +32,16 @@ export default function GlobalError({
   return (
     <html lang="en" className={rubik.variable}>
       <body>
-        <Container className="py-4 py-md-6">
-          <h2>Oops, something went wrong</h2>
-        </Container>
+        <header className="bg-black text-white">
+          <Container className="py-4 py-md-6">
+            <h2>Oops, something went wrong</h2>
+          </Container>
+        </header>
 
         <main>
           <section className="section-light">
             <Container className="pb-5">
-              <Row>
+              <Row className="pb-5">
                 <Col>
                   <Button
                     variant="dark"
@@ -49,11 +51,16 @@ export default function GlobalError({
                       () => reset()
                     }
                   >
-                    <FaArrowRotateRight /> Try Again
+                    <FaArrowRotateRight className="me-2" />
+                    Try Again
                   </Button>
+                </Col>
+              </Row>
 
+              <Row>
+                <Col>
                   <h4>
-                    <Link href="/">Go to the Stop The Tories homepage</Link>
+                    <Link href="/">Back to Stop The Tories homepage</Link>
                   </h4>
                 </Col>
               </Row>
