@@ -1,3 +1,6 @@
+"use client";
+// Navbar needs to be a client component - it's interactive
+
 import Image from "next/image";
 import Link from "next/link";
 

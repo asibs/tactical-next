@@ -6,6 +6,7 @@ import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import StoryblokProvider from "@/storyblok/components/StoryblokProvider";
 import StoryblokWrapper from "@/storyblok/components/StoryblokWrapper";
 import { ComponentsMap } from "@/storyblok/components/ComponentsMap";
+import Navigation from "@/components/navigation/Navigation";
 
 // Force next.js not to cache API calls by default. This means caching is OPT-IN rather than OPT-OUT.
 // This avoids issues with the Storyblok js client, which has it's own built-in caching, and Next.js caching interferes with this...
@@ -60,7 +61,7 @@ export default function RootLayout({
         */}
         <html lang="en" className={rubik.variable}>
           <body>
-            <StoryblokWrapper slug="layout/navigation" />
+            <Navigation />
             {children}
             <StoryblokWrapper slug="layout/footer" />
           </body>
@@ -71,7 +72,7 @@ export default function RootLayout({
     return (
       <html lang="en" className={rubik.variable}>
         <body>
-          <StoryblokWrapper slug="layout/navigation" />
+          <Navigation />
           {children}
           <StoryblokWrapper slug="layout/footer" />
         </body>
