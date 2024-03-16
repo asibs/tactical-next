@@ -1,3 +1,7 @@
+"use client";
+// Navbar needs to be a client component
+// (even tho this navbar doesn't use a collapse, it still fails without use client)
+
 import Image from "next/image";
 import Link from "next/link";
 
