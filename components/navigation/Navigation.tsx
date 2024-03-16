@@ -15,7 +15,6 @@ import { rubik } from "@/utils/Fonts";
 import { FaBoltLightning, FaMagnifyingGlass } from "react-icons/fa6";
 
 const Navigation = ({ blok }: { blok: NavbarStoryblok }) => {
-  throw new Error("TEST");
   return (
     <Navbar
       {...storyblokEditable(blok)}
