@@ -1,8 +1,8 @@
-"use client" // Error components must be Client Components
+"use client"; // Error components must be Client Components
 
 import Link from "next/link";
 
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 import { Button, Col, Container, Row } from "react-bootstrap";
 
@@ -13,13 +13,13 @@ export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
+    console.error(error);
+  }, [error]);
 
   return (
     <>
@@ -54,5 +54,5 @@ export default function Error({
         </section>
       </main>
     </>
-  )
+  );
 }

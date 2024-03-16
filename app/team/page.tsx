@@ -37,9 +37,7 @@ export default function TeamPage() {
               </Col>
               <Col>
                 <h3>Josh Russell</h3>
-                <p>
-                  Our Lord & saviour.
-                </p>
+                <p>Our Lord & saviour.</p>
               </Col>
             </Row>
 
@@ -47,9 +45,11 @@ export default function TeamPage() {
               <Col className="text-end">
                 <h3>Andrew Sibley</h3>
                 <p>
-                  Software developer with experience building tech for political & social campaigning.
+                  Software developer with experience building tech for political
+                  & social campaigning.
                   <br />
-                  Has voted for all the major progressive parties in England at one point or another.
+                  Has voted for all the major progressive parties in England at
+                  one point or another.
                 </p>
               </Col>
               <Col xs={4} md={3} lg={2}>
