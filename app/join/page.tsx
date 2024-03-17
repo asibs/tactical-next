@@ -9,7 +9,7 @@ export default function Donate() {
     <>
       <Header backgroundImage="NONE">
         <Container className="py-4 py-md-6">
-          <h1>Get @MVTFWD reminders</h1>
+          <h1>Join the movement</h1>
         </Container>
       </Header>
 
@@ -22,12 +22,6 @@ export default function Donate() {
                 md={{ span: 8, offset: 2 }}
                 xxl={{ span: 6, offset: 3 }}
               >
-                <h3>We&apos;ll email you what you need, when you need it.</h3>
-                <p>
-                  Get our newsletter, updates, and the important alerts you need
-                  just at the right times.
-                </p>
-
                 <SignupForm />
               </Col>
             </Row>

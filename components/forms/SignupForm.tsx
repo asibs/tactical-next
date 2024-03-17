@@ -88,12 +88,12 @@ const SignupForm = () => {
       className="rounded-3 bg-pink-strong p-3 shadow text-100"
       style={{ fontSize: "18px" }}
     >
+      <h3>Stick together and vote for change.</h3>
+      <p>
+        We&apos;ll email you what you need, when you need it - newsletters, updates,
+        and important alerts you need just at the right times.
+      </p>
       <Form ref={formRef} action={submitForm} noValidate>
-        <h3 className="fw-bolder">Vote the Tories out</h3>
-        <p className="fw-bold text-900">
-          Vote tactically at the General Election
-        </p>
-
         {/* Email text field */}
         <InputGroup hasValidation>
           <Form.Control
