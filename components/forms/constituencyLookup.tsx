@@ -44,8 +44,8 @@ const fetchApi = async (
     console.log("Making API call to constituency lookup route");
     const response = await fetch(
       "/api/constituency_lookup/" +
-      postcode +
-      (addressSlug ? "/" + addressSlug : ""),
+        postcode +
+        (addressSlug ? "/" + addressSlug : ""),
     );
 
     if (response.ok) {
@@ -170,7 +170,12 @@ const ConstituencyLookup = ({
     } else {
       setConstituency(null);
     }
-  }, [apiResponse, formState.constituencyIndex, validPostcode, setConstituency]);
+  }, [
+    apiResponse,
+    formState.constituencyIndex,
+    validPostcode,
+    setConstituency,
+  ]);
 
   const lookupConstituency = async (
     postcode: string,
@@ -260,8 +265,8 @@ const ConstituencyLookup = ({
             {!constituency.name
               ? ""
               : constituency.name.length < 31
-                ? constituency.name
-                : constituency.name.substring(0, 27) + "..."}
+              ? constituency.name
+              : constituency.name.substring(0, 27) + "..."}
           </InputGroup.Text>
         )}
         <Form.Control.Feedback
