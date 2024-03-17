@@ -90,8 +90,8 @@ const SignupForm = () => {
     >
       <h3>Stick together and vote for change.</h3>
       <p>
-        We&apos;ll email you what you need, when you need it - newsletters, updates,
-        and important alerts you need just at the right times.
+        We&apos;ll email you what you need, when you need it - newsletters,
+        updates, and important alerts you need just at the right times.
       </p>
       <Form ref={formRef} action={submitForm} noValidate>
         {/* Email text field */}
