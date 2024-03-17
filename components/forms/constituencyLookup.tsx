@@ -1,16 +1,19 @@
 "use client";
 
-import {
-  Form,
-  InputGroup,
-} from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 
 import {
   normalizePostcode,
   postcodeInputPattern,
   validatePostcode,
 } from "@/utils/Postcodes";
-import { Dispatch, MutableRefObject, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 const postcodeErrorMessage = (errorCode: PostCodeErrorCode) => {
   switch (errorCode) {
@@ -141,12 +144,20 @@ interface IProps {
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const ConstituencyLookup = ({ validPostcode, constituency, setConstituency, loading, setLoading }: IProps) => {
+const ConstituencyLookup = ({
+  validPostcode,
+  constituency,
+  setConstituency,
+  loading,
+  setLoading,
+}: IProps) => {
   const [formState, setFormState] = useState<FormData>(initialFormState);
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
-  const [postcodeError, setPostcodeError] = useState<PostCodeErrorCode | null>(null);
+  const [postcodeError, setPostcodeError] = useState<PostCodeErrorCode | null>(
+    null,
+  );
 
   useEffect(() => {
     if (
@@ -157,9 +168,9 @@ const ConstituencyLookup = ({ validPostcode, constituency, setConstituency, load
     ) {
       setConstituency(apiResponse.constituencies[formState.constituencyIndex]);
     } else {
-      return setConstituency(null);
+      setConstituency(null);
     }
-  }, [apiResponse, formState.constituencyIndex]);
+  }, [apiResponse, formState.constituencyIndex, validPostcode, setConstituency]);
 
   const lookupConstituency = async (
     postcode: string,
@@ -266,8 +277,8 @@ const ConstituencyLookup = ({ validPostcode, constituency, setConstituency, load
           {apiResponse.addresses ? (
             <div className="my-3">
               <p className="mb-1" style={{ fontSize: "0.75em" }}>
-                We can&apos;t work out exactly which constituency you&apos;re
-                in - please select your address:
+                We can&apos;t work out exactly which constituency you&apos;re in
+                - please select your address:
               </p>
               <Form.Select
                 name="address"
@@ -277,12 +288,7 @@ const ConstituencyLookup = ({ validPostcode, constituency, setConstituency, load
                   lookupConstituency(validPostcode.current, e.target.value)
                 }
               >
-                <option
-                  selected
-                  disabled
-                  value=""
-                  style={{ display: "none" }}
-                >
+                <option selected disabled value="" style={{ display: "none" }}>
                   Select Address
                 </option>
                 {apiResponse.addresses.map((c) => (
@@ -295,9 +301,9 @@ const ConstituencyLookup = ({ validPostcode, constituency, setConstituency, load
           ) : (
             <div className="my-3">
               <p className="mb-1" style={{ fontSize: "0.75em" }}>
-                We can&apos;t work out exactly which constituency you&apos;re
-                in - please select one of the{" "}
-                {apiResponse.constituencies.length} options:
+                We can&apos;t work out exactly which constituency you&apos;re in
+                - please select one of the {apiResponse.constituencies.length}{" "}
+                options:
               </p>
               <Form.Select
                 name="constituency"
@@ -314,12 +320,7 @@ const ConstituencyLookup = ({ validPostcode, constituency, setConstituency, load
                   }
                 }}
               >
-                <option
-                  selected
-                  disabled
-                  value=""
-                  style={{ display: "none" }}
-                >
+                <option selected disabled value="" style={{ display: "none" }}>
                   Select Constituency
                 </option>
                 {apiResponse.constituencies.map((c, idx) => (

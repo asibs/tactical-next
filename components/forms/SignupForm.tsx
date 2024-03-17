@@ -15,7 +15,7 @@ import { submitANForm } from "@/utils/AnApiSubmission";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ConstituencyLookup from "./constituencyLookup";
 
 const emailErrorMessage = (code: EmailErrorCode) => {
@@ -57,7 +57,10 @@ const SignupForm = () => {
   const submitForm = async () => {
     if (!formState.emailOptIn) {
       // TODO: Set error message - need to opt-in to subscribe
-    } else if (!formRef.current || formRef.current.email.validity.typeMismatch) {
+    } else if (
+      !formRef.current ||
+      formRef.current.email.validity.typeMismatch
+    ) {
       // TODO: Set error message - invalid email
     } else if (!constituency) {
       // TODO: Set error message - input email / select constituency
@@ -153,9 +156,8 @@ const SignupForm = () => {
           </FormCheck>
 
           <p style={{ fontSize: "0.75em" }}>
-            We store your email address, postcode, and constituency, so we
-            can send you exactly the information you need, and the actions
-            to take.
+            We store your email address, postcode, and constituency, so we can
+            send you exactly the information you need, and the actions to take.
           </p>
         </div>
 
