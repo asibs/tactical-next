@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Header from "@/components/Header";
 import ActionNetworkSubscriptionForm from "@/components/ActionNetworkSubscriptionForm";
+import SignupForm from "@/components/forms/SignupForm";
 
 export default function Donate() {
   return (
@@ -27,17 +28,7 @@ export default function Donate() {
                   just at the right times.
                 </p>
 
-                <ActionNetworkSubscriptionForm />
-
-                <p className="fs-6">
-                  <a
-                    href="https://themovementforward.com/privacy/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Privacy Policy
-                  </a>
-                </p>
+                <SignupForm />
               </Col>
             </Row>
           </Container>
