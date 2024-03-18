@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import josh from "@/assets/team_portraits/josh.webp";
 import andrew from "@/assets/team_portraits/andrew.webp";
 import james from "@/assets/team_portraits/james.webp";
+import jon from "@/assets/team_portraits/jon.webp";
 
 function TeamMember({
   children,
@@ -94,11 +95,11 @@ export default function TeamPage() {
             >
               <h3>Andrew Sibley</h3>
               <p>
-                Software developer with experience building tech for political &
-                social campaigning.
+                A software engineer with experience building tech for political
+                & social campaigning.
                 <br />
-                Has voted for all the major progressive parties in England at
-                one point or another.
+                Andrew has voted for all the major progressive parties in
+                England at one point or another.
               </p>
             </TeamMember>
 
@@ -121,6 +122,26 @@ export default function TeamPage() {
                 electoral reform.
                 <br />A keen sea kayaker, James has a background in software
                 development from fin-tech to museum exhibits.
+              </p>
+            </TeamMember>
+
+            <TeamMember imgSrc={jon} imgAlt="Photo of Jon Morter" align="right">
+              <h3>
+                <a
+                  href="https://twitter.com/jonmorter"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Jon Morter
+                </a>
+              </h3>
+              <p>
+                Dubbed a &quot;social media hellraiser&quot; by the New York
+                Times, beat the X Factor to No.1... twice, and worked with The
+                Rolling Stones.
+                <br />
+                Jon is a huge advocate of tactical voting due to living in one
+                of the safest Tory seats in the country.
               </p>
             </TeamMember>
           </Container>
