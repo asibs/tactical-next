@@ -70,7 +70,7 @@ jobs:
           # Personal Access Token as the GHA_TOKEN env variable in your deployed app.
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           base: main
-          branch: auto/metadata-changes
+          branch: auto/constituency-data-changes
           commit-message: Latest metadata data from Google Sheets
           committer: GitHub Action Bot - Constituency Data <noreply@github.com>
           author: GitHub Action Bot - Constituency Data <noreply@github.com>
