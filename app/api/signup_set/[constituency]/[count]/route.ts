@@ -11,8 +11,7 @@ export async function POST(
 ) {
   const sentKey = request.headers.get("Authorization") || "";
 
-  //TODO stop resuing the DC club API key!
-  const correctKey = process.env.DC_API_KEY || "";
+  const correctKey = process.env.SET_SIGNUP_COUNT_API_KEY || "";
 
   if (
     sentKey === "" ||
