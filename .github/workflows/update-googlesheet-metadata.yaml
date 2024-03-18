@@ -46,17 +46,9 @@ jobs:
           cat /tmp/gsheet_action_results.json
       - name: Write internal json metadata json
         run: |
-          cat /tmp/gsheet_action_results.json > data/metadata.json
-          #- name: Write internal json datafile
-          #run: |
-          #jq '.results[0].result.formatted | map({
-          #MetaData: {
-          #source_type: ."source_type",
-          #description: ."description",
-          #url: ."url"
-          #},
-          #})' /tmp/gsheet_action_results.json > data/metadata.json
-          #
+          jq '.results[0].result.formatted | group_by( .source_type)[] | {(.[0].source_type): [.[] | { "description" : .description, "url" : .url   } ]}' /tmp/gsheet_action_results.json > /tmp/jq_interim.json
+          jq -s 'reduce .[] as $item (null; . + $item)' /tmp/jq_interim.json > data/metadata.json
+
           # Add the updates to git
           git add data/metadata.json
       - name: Commit Changes and Create Pull Request
