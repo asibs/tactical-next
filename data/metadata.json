@@ -1,0 +1,32 @@
+{
+  "2019_implied": [
+    {
+      "description": "2019 implied general election results from by Professors Colin Rallings and Michael Thrasher.",
+      "url": "https://news.sky.com/story/boundary-changes-how-the-electoral-impact-of-the-new-political-battlegrounds-are-calculated-13046695"
+    }
+  ],
+  "mrp_poll": [
+    {
+      "description": "YouGov MRP",
+      "url": "https://yougov.co.uk/politics/articles/48371-yougov-mrp-shows-labour-would-win-1997-style-landslide-if-election-were-held-today"
+    },
+    {
+      "description": "Electoral Calculus MRP",
+      "url": "https://www.electoralcalculus.co.uk/blogs/ec_vipoll_20240215.html"
+    }
+  ],
+  "party_target_seats": [
+    {
+      "description": "Assumed Lib Dem target seats calcualted from top 50 MRP polling",
+      "url": "see MRP Polls"
+    },
+    {
+      "description": "Green party published target seats",
+      "url": "https://www.theguardian.com/politics/2023/oct/06/greens-head-to-brighton-targeting-four-seats-at-next-election"
+    },
+    {
+      "description": "Labour party published 'non-battleground' seat list",
+      "url": "https://labourlist.org/2023/12/labour-seats-candidate-selections-apply-constituencies/"
+    }
+  ]
+}
