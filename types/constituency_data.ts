@@ -24,7 +24,8 @@ type PartySlug =
   | "SNP"
   | "Other"
   | "NonVoter"
-  | "Speaker";
+  | "Speaker"
+  | "None";
 
 // Data about the tactical recommendation we're using
 type Recommendation = {
