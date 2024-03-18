@@ -5,6 +5,7 @@ on:
   # Allows workflow to be called via HTTP calls to GitHub (with correct auth, etc)
   repository_dispatch:
     types: [update-googlesheet-data]
+  pull_request:
 
 permissions:
   contents: write
