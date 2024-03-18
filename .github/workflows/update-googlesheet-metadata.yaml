@@ -43,7 +43,10 @@ jobs:
           outputFile: /tmp/gsheet_action_results.json
       - name: Output full results
         run: |
-          cat /tmp/gsheet_action_results.json > data/metradata.json
+          cat /tmp/gsheet_action_results.json
+      - name: Write internal json metadata json
+        run: |
+          cat /tmp/gsheet_action_results.json > data/metadata.json
           #- name: Write internal json datafile
           #run: |
           #jq '.results[0].result.formatted | map({
