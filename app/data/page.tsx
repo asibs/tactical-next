@@ -3,7 +3,7 @@ import { opendirSync } from "fs";
 import Link from "next/link";
 import path from "path";
 import { Col, Container, Row } from "react-bootstrap";
-import { getMetadata } from "@/utils/Metadata";
+import metadata from "@/data/metadata.json";
 
 const getFilenames = () => {
   const dataDirPath = path.join(process.cwd(), "public", "data");
@@ -21,7 +21,6 @@ const getFilenames = () => {
 
 export default function DataPage() {
   const filenames: string[] = getFilenames();
-  const metadata = getMetadata();
 
   return (
     <>
