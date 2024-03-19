@@ -93,8 +93,7 @@ export default function DataPage() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {" "}
-                      mySociety short code{" "}
+                      mySociety short code
                     </a>{" "}
                     for a constituency (based on the three letter IDs for new
                     constituencies created by Philip Brown and Alasdair Rae)
@@ -148,10 +147,13 @@ export default function DataPage() {
                     <b>Implied Vote Share / Implied Raw</b> - Was sourced from:
                     <ul>
                       <li>
-                        {" "}
-                        <a href="{metadata?.implied_2019?.[0].url}">
+                        <a
+                          href={metadata?.implied_2019?.[0].url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           {metadata?.implied_2019?.[0].description}
-                        </a>{" "}
+                        </a>
                       </li>
                     </ul>
                   </li>
@@ -160,7 +162,13 @@ export default function DataPage() {
                     <ul>
                       {metadata.mrp_poll.map((metaDatum) => (
                         <li key={metaDatum.description}>
-                          <a href={metaDatum.url}> {metaDatum.description} </a>{" "}
+                          <a
+                            href={metaDatum.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {metaDatum.description}
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -171,9 +179,12 @@ export default function DataPage() {
                       {metadata.party_target_seats.map((metaDatum) => (
                         <li key={metaDatum.description}>
                           {metaDatum.url ? (
-                            <a href={metaDatum.url}>
-                              {" "}
-                              {metaDatum.description}{" "}
+                            <a
+                              href={metaDatum.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {metaDatum.description}
                             </a>
                           ) : (
                             metaDatum.description
