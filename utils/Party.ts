@@ -61,7 +61,7 @@ const partyColorFromSlug = (slug: PartySlug) => {
     case "Reform":
       return "var(--reform-party-color)";
     case "NonVoter":
-      return "var(--mvtfwd-pink-strong)";
+      return "var(--mf-pink-strong)";
     case "Other":
       return "var(--other-party-color)";
     default:
