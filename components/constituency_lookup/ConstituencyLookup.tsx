@@ -497,9 +497,9 @@ const PostcodeLookup = () => {
                 </Form.Control.Feedback>
               </InputGroup>
               <p className="small">
-                You&apos;re opting in to receive emails. We store your email address,
-                postcode, and constituency, so we can send you exactly the
-                information you need.
+                You&apos;re opting in to receive emails. We store your email
+                address, postcode, and constituency, so we can send you exactly
+                the information you need.
               </p>
             </>
           )}
