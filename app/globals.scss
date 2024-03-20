@@ -332,17 +332,6 @@ select option:invalid {
   border-color: var(--bs-gray-900);
 }
 
-// Set focus style on all inputs
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="checkbox"]:focus,
-select:focus,
-select option:focus,
-button:focus {
-  box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.5) !important;
-  border-color: var(--bs-gray-600) !important;
-}
-
 // Custom validation for postcode & email text inputs
 .invalid-text-greyed:invalid {
   color: var(--bs-gray-600);
