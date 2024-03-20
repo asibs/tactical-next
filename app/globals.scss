@@ -323,12 +323,8 @@ footer svg:hover {
 }
 // Set validation error style on all inputs
 input[type="text"].is-invalid,
-input[type="email"].is-invalid,
-input[type="text"]:invalid,
-input[type="email"]:invalid,
-select:invalid,
-select option:invalid {
-  box-shadow: 0 0 0px 2px rgba(0, 0, 196, 0.5) !important;
+input[type="email"].is-invalid {
+  box-shadow: 0 0 0px 2px rgba(var(--bs-black-rgb), 0.5) !important;
   border-color: var(--bs-gray-900);
 }
 
