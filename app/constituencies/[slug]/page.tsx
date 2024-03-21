@@ -54,6 +54,37 @@ export default async function ConstituencyPage({
     (a, b) => b.votePercent - a.votePercent,
   );
 
+  if (constituencyData.recommendation.partySlug === "None") {
+    return (
+      <>
+        <Header backgroundImage="FESTIVAL_CROWD">
+          <Container className="py-4 py-md-6">
+            <h1>{constituencyData.constituencyIdentifiers.name}</h1>
+            <p>We&apos;re not planning to give tactical advice in this seat.</p>
+          </Container>
+        </Header>
+        <main>
+          <section id="section-advice" className="section-light">
+            <Container>
+              <Row>
+                <Col>
+                  <h2 className="pb-3">
+                    No advice because: {constituencyData.recommendation.reason}
+                  </h2>
+                </Col>
+              </Row>
+              <Row xs={1} lg={3}>
+                <Col md={7}>
+                  <PlanToVoteBox />
+                </Col>
+              </Row>
+            </Container>
+          </section>
+        </main>
+      </>
+    );
+  }
+
   return (
     <>
       <Header backgroundImage="FESTIVAL_CROWD">

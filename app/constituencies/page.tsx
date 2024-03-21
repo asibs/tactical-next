@@ -5,7 +5,9 @@ import { partyColorFromSlug, partyNameFromSlug } from "@/utils/Party";
 import { getConstituenciesData, majority } from "@/utils/constituencyData";
 
 export default async function ConstituencySummaryPage() {
-  const constituenciesData: ConstituencyData[] = await getConstituenciesData();
+  const constituenciesData: ConstituencyData[] = (
+    await getConstituenciesData()
+  ).filter((c: ConstituencyData) => c.recommendation.partySlug !== "None");
   const torySeats = constituenciesData
     .filter(
       (c: ConstituencyData) => c.impliedPreviousResult.winningParty === "Con",
