@@ -3,6 +3,7 @@ import { opendirSync } from "fs";
 import Link from "next/link";
 import path from "path";
 import { Col, Container, Row } from "react-bootstrap";
+import metadata from "@/data/metadata.json";
 
 const getFilenames = () => {
   const dataDirPath = path.join(process.cwd(), "public", "data");
@@ -81,11 +82,11 @@ export default function DataPage() {
             </Row>
 
             <Row className="pb-4">
-              <h5>Data Overview</h5>
+              <h5>Field Descriptions</h5>
               <p>
                 <ul>
                   <li>
-                    <b>Short Code</b> - The
+                    <b>Short Code</b> - The{" "}
                     <a
                       href="https://www.mysociety.org/2023/09/12/navigating-the-new-constituencies/"
                       target="_blank"
@@ -98,37 +99,98 @@ export default function DataPage() {
                   </li>
                   <li>
                     <b>Implied Vote Share / Implied Raw</b> - These columns show
-                    the
-                    <em>implied</em> result for the new constituency boundaries
-                    based on 2019 voting patterns. This data has been taken from
-                    the analysis carried out by TODO - Reference and link.
+                    the <em>implied</em> result for the new constituency
+                    boundaries based on 2019 voting patterns.
                   </li>
                   <li>
-                    <b>MRP Vote Share</b> - These columns show the vote share
-                    each party is <em>projected</em> to get based on the average
-                    of multiple MRP polls. We use the most recent MRPs from TODO
-                    (companies and links), and take the mean of the predicted
-                    vote percentage for each party in each constituency.
+                    <b>MRP Vote Share</b> - These columns show the{" "}
+                    <em>projected</em> vote share in each constituency based on
+                    multiple{" "}
+                    <a
+                      href="https://en.wikipedia.org/wiki/Multilevel_regression_with_poststratification"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      MRP polls.
+                    </a>{" "}
+                    We use recent MRPs, and take the mean of the predicted vote
+                    percentage for each party in each constituency.
                   </li>
                   <li>
                     <b>Green Target</b> - Whether this is a Green Party target
-                    seat, according to their public list of target seats here -
-                    TODO link.
+                    seat, according to their public list of target seats.
                   </li>
                   <li>
-                    <b>Labour Non-Target</b> - Whether this is a non-target seat
-                    for Labour, according to their public list of non-target
-                    seats here - TODO link.
+                    <b>Labour Non-Target</b> - Whether this is a Labour
+                    &quot;non-battleground&quot; seat , according to their
+                    published list of &quot;non-battleground&quot; seats.
                   </li>
                   <li>
                     <b>Lib Dem Top 50 MRP</b> - Whether this is in the top 50
-                    most winnable seats for the Liberal Democrats, according to
-                    TODO - explanation and link.
+                    Liberal Democrat seats according to the averaged MRP
+                    polling.
                   </li>
                   <li>
                     <b>TV Advice</b> - The party StopTheTories.Vote is
                     recommending as the best placed to win the seat and keep the
                     Tories out.
+                  </li>
+                </ul>
+              </p>
+            </Row>
+            <Row className="pb-4">
+              <h5>Data Sources</h5>
+              <p>
+                <ul>
+                  <li>
+                    <b>Implied Vote Share / Implied Raw</b> - Was sourced from:
+                    <ul>
+                      <li>
+                        <a
+                          href={metadata?.implied_2019?.[0].url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {metadata?.implied_2019?.[0].description}
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>MRP Vote Share</b> - Is currently calculated from:
+                    <ul>
+                      {metadata.mrp_poll.map((metaDatum) => (
+                        <li key={metaDatum.description}>
+                          <a
+                            href={metaDatum.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {metaDatum.description}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li>
+                    <b>Party Target Seats</b> - Are sourced from:
+                    <ul>
+                      {metadata.party_target_seats.map((metaDatum) => (
+                        <li key={metaDatum.description}>
+                          {metaDatum.url ? (
+                            <a
+                              href={metaDatum.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {metaDatum.description}
+                            </a>
+                          ) : (
+                            metaDatum.description
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 </ul>
               </p>
