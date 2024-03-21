@@ -9,7 +9,7 @@ export default async function Index() {
       <Header backgroundImage="FESTIVAL_CROWD">
         <Container className="py-4 py-md-6">
           <Row xs={1} md={2}>
-            <Col md={4} lg={5} xl={7}>
+            <Col md={4} lg={5} xl={7} className="pb-3">
               <h1>
                 Your vote IS
                 <br />
