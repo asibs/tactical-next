@@ -651,6 +651,20 @@ section h3.party {
   text-transform: uppercase;
 }
 
+span.party-too-soon,
+h3.party-too-soon,
+svg.party-too-soon,
+i.party-too-soon {
+  color: var(--bs-gray-600);
+}
+
+span.party-your-heart,
+h3.party-your-heart,
+svg.party-your-heart,
+i.party-your-heart {
+  color: var(--mf-pink);
+}
+
 span.party-labour,
 h3.party-labour,
 svg.party-labour,
@@ -683,6 +697,20 @@ div.party-libdem {
   );
   box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
   /*border: solid 1px var(--bs-gray-300);*/
+}
+
+span.party-plaid,
+h3.party-plaid,
+svg.party-plaid,
+i.party-plaid {
+  color: var(--pc-party-color);
+}
+
+span.party-snp,
+h3.party-snp,
+svg.party-snp,
+i.party-snp {
+  color: var(--snp-party-color);
 }
 
 span.party-green,

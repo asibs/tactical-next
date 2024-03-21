@@ -56,6 +56,30 @@ export default async function ConstituencyPage({
     (a, b) => b.votePercent - a.votePercent,
   );
 
+  let tacticalVoteHeader = "";
+  let tacticalVoteAdvice = "";
+  let tacticalVoteClass = "";
+
+  if (constituencyData.otherVoteData.conservativeWinUnlikely) {
+    tacticalVoteHeader = "Tories unlikely to win here";
+    tacticalVoteAdvice = "Vote with your heart";
+    tacticalVoteClass = "party-your-heart";
+  } else {
+    tacticalVoteHeader = "The Tactical Vote is";
+
+    if (constituencyData.recommendation.partySlug) {
+      tacticalVoteAdvice = partyNameFromSlug(
+        constituencyData.recommendation.partySlug,
+      );
+      tacticalVoteClass = partyCssClassFromSlug(
+        constituencyData.recommendation.partySlug,
+      );
+    } else {
+      tacticalVoteClass = "party-too-soon";
+      tacticalVoteAdvice = "Too Soon to call";
+    }
+  }
+
   if (constituencyData.recommendation.partySlug === "None") {
     return (
       <>
@@ -107,13 +131,9 @@ export default async function ConstituencyPage({
           <Container>
             <Row>
               <Col>
-                <h2>The tactical vote is</h2>
-                <h3
-                  className={`party ${partyCssClassFromSlug(
-                    constituencyData.recommendation.partySlug,
-                  )}`}
-                >
-                  {partyNameFromSlug(constituencyData.recommendation.partySlug)}
+                <h2>{tacticalVoteHeader}</h2>
+                <h3 className={`party ${tacticalVoteClass}`}>
+                  {tacticalVoteAdvice}
                 </h3>
                 <p>
                   <a href="#section-info">Why?</a>
@@ -162,20 +182,34 @@ export default async function ConstituencyPage({
           <Container>
             <Row>
               <Col className="pb-3">
-                <h2>
-                  Why vote{" "}
-                  <span
-                    className={`party ${partyCssClassFromSlug(
-                      constituencyData.recommendation.partySlug,
-                    )}`}
-                  >
-                    {partyNameFromSlug(
-                      constituencyData.recommendation.partySlug,
-                    )}
-                  </span>{" "}
-                  here?
-                </h2>
-                <h3>({constituencyData.constituencyIdentifiers.name})</h3>
+                {constituencyData.otherVoteData.conservativeWinUnlikely ? (
+                  <>
+                    <h2>Why Tories Won&apos;t Win Here</h2>
+                    <h3>({constituencyData.constituencyIdentifiers.name})</h3>
+                  </>
+                ) : constituencyData.recommendation.partySlug ? (
+                  <>
+                    <h2>
+                      Why vote{" "}
+                      <span
+                        className={`party ${partyCssClassFromSlug(
+                          constituencyData.recommendation.partySlug,
+                        )}`}
+                      >
+                        {partyNameFromSlug(
+                          constituencyData.recommendation.partySlug,
+                        )}
+                      </span>{" "}
+                      here?
+                    </h2>
+                    <h3>({constituencyData.constituencyIdentifiers.name})</h3>
+                  </>
+                ) : (
+                  <>
+                    <h2>Why it&apos;s too soon to call here</h2>
+                    <h3>({constituencyData.constituencyIdentifiers.name})</h3>
+                  </>
+                )}
               </Col>
             </Row>
 

@@ -7,9 +7,9 @@ const partyNameFromSlug = (slug: PartySlug): string => {
     case "LD":
       return "Liberal Democrat";
     case "Green":
-      return "Green";
+      return "Green Party";
     case "SNP":
-      return "SNP";
+      return "The SNP";
     case "PC":
       return "Plaid Cymru";
     case "Reform":
@@ -81,9 +81,9 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
     case "Green":
       return "party-green";
     case "SNP":
-      return "";
+      return "party-snp";
     case "PC":
-      return "";
+      return "party-plaid";
     case "Reform":
       return "";
     default:
