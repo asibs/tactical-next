@@ -22,7 +22,6 @@ const ImpliedChart = ({
           new boundaries.
         </p>
         <div
-          className="d-flex justify-content-center"
           style={{ width: "100%" }}
           dangerouslySetInnerHTML={{ __html: svgStr }}
         />

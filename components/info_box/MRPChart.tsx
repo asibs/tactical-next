@@ -23,7 +23,6 @@ const MRPChart = ({
         </p>
         <div
           style={{ width: "100%" }}
-          className="d-flex justify-content-center"
           dangerouslySetInnerHTML={{ __html: svgStr }}
         />
       </>
