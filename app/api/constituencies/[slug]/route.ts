@@ -11,7 +11,7 @@ export const revalidate = false; // Never revalidate, always use cached version
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituencySlugs = await getConstituencySlugs();
+  const constituencySlugs = getConstituencySlugs();
   return constituencySlugs.map((slug) => ({ slug: slug }));
 }
 
@@ -21,26 +21,9 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { slug: string } },
 ) {
-  console.log(`GENERATING API RESPONSE FOR CONSTITUENCY ${params.slug}`);
-
-  // The cached version of constituency data doesn't seem to work in this file - because
-  // it's an API route perhaps?
-  const constituencyData: ConstituencyData = await getConstituencyData(
-    params.slug,
-    false,
-  );
-  console.log("Successfully fetched constituencies data");
+  const constituencyData: ConstituencyData = getConstituencyData(params.slug);
 
   if (constituencyData) {
-    console.log(
-      `Found constituency data for ${params.slug},
-      constituencyIdentifiers ${constituencyData.constituencyIdentifiers},
-      partySlug ${constituencyData.recommendation.partySlug},
-      partyName ${partyNameFromSlug(
-        constituencyData.recommendation.partySlug,
-      )}`,
-    );
-
     return Response.json({
       constituencyIdentifiers: constituencyData.constituencyIdentifiers,
       recommendation: {

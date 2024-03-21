@@ -24,7 +24,9 @@ export async function generateStaticParams() {
   const files = await readdir(directory);
 
   // Get rid of the .json extension
-  const slugs = files.map((file) => file.substring(0, file.indexOf(".")));
+  const slugs = files
+    .map((file) => file.substring(0, file.indexOf(".")))
+    .filter((slug) => slug !== "");
   console.log("Top-level static slugs:", slugs);
 
   return slugs.map((c) => ({
