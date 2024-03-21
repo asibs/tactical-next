@@ -1,4 +1,3 @@
-import InfoBox from "./InfoBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 
 import {
@@ -34,14 +33,12 @@ const TacticalReasoningBox = ({
   const closeSeat = !constituencyData.otherVoteData.conservativeWinUnlikely;
 
   return (
-    <InfoBox>
+    <div className="rounded-box info-area">
       <>
-        <h3 className="fs-5">Why?</h3>
-
         {/* Always show previous general election winner */}
         <p>
           <FaUser className={`me-2 ${partyCssClassFromSlug(previousWinner)}`} />
-          {partyNameFromSlug(previousWinner)} won here in 2019
+          <strong>{partyNameFromSlug(previousWinner)}</strong> won in 2019
         </p>
 
         {/* Show previous biggest progressive if it matches our recommendation AND they weren't the winner */}
@@ -52,8 +49,7 @@ const TacticalReasoningBox = ({
                 className="me-2"
                 style={{ color: "var(--bs-green)" }}
               />
-              {recommendedPartyName} received the most progressive votes here in
-              2019
+              <strong>{recommendedPartyName}</strong> were closest in 2019
             </p>
           )}
 
@@ -64,8 +60,7 @@ const TacticalReasoningBox = ({
               className="me-2"
               style={{ color: "var(--bs-green)" }}
             />
-            Polling indicates that {recommendedPartyName} have the best chance
-            of beating the Tory party here at the next election
+            Polls favour <strong>{recommendedPartyName}</strong> here
           </p>
         )}
 
@@ -73,11 +68,13 @@ const TacticalReasoningBox = ({
         {recommendedPartyTargetSeat && (
           <p>
             <FaBullseye className="me-2" style={{ color: "var(--bs-red)" }} />
-            This is a likely target seat for {recommendedPartyName}
+            Likely a <strong>{recommendedPartyName}</strong> target seat
           </p>
         )}
 
-        {/* Check if this is a close seat */}
+        {/* 
+        TODO motivational text based on whats required to get tories out
+        Check if this is a close seat 
         {closeSeat && (
           <p>
             <FaTriangleExclamation
@@ -86,9 +83,9 @@ const TacticalReasoningBox = ({
             />
             This is a close seat, tactical voting can work very well here.
           </p>
-        )}
+        )}*/}
       </>
-    </InfoBox>
+    </div>
   );
 };
 

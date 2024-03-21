@@ -592,6 +592,10 @@ footer {
 
 /* RESPONSIVE */
 
+[id] {
+  scroll-margin-top: 48px;
+}
+
 @include media-breakpoint-up(sm) {
   .py-sm-6 {
     padding-top: 6rem !important;
@@ -647,6 +651,7 @@ section h3.party {
   text-transform: uppercase;
 }
 
+span.party-labour,
 h3.party-labour,
 svg.party-labour,
 i.party-labour {
@@ -663,6 +668,7 @@ div.party-labour {
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
+span.party-libdem,
 h3.party-libdem,
 svg.party-libdem,
 i.party-libdem {
@@ -679,6 +685,7 @@ div.party-libdem {
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
+span.party-green,
 h3.party-green,
 svg.party-green,
 i.party-green {

@@ -34,16 +34,16 @@ const svgChart = (partyData: PartyVoteResult[], rawVote: boolean = false) => {
   const chart = echarts.init(null, null, {
     renderer: "svg", // must use SVG rendering mode
     ssr: true, // enable SSR
-    width: 350, // need to specify height and width
+    width: 416, // need to specify height and width
     height: 250,
   });
 
   chart.setOption({
     grid: {
-      left: 40,
-      right: 10,
-      top: 10,
-      bottom: 100,
+      left: 35,
+      right: 2,
+      top: 5,
+      bottom: 57,
     },
     xAxis: {
       data: axisArray,
@@ -76,7 +76,7 @@ const svgChart = (partyData: PartyVoteResult[], rawVote: boolean = false) => {
     });
   }
 
-  return chart.renderToSVGString();
+  return chart.renderToSVGString().replace('width="416" height="250" ', "");
 };
 
 export { svgChart };

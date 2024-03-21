@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import Link from "next/link";
 import Header from "@/components/Header";
 import ActionBox from "@/components/info_box/ActionBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
@@ -11,6 +12,7 @@ import {
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 import { notFound } from "next/navigation";
+import PostcodeLookup from "@/components/constituency_lookup/ConstituencyLookup";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
 
@@ -92,21 +94,20 @@ export default async function ConstituencyPage({
           <h1>{constituencyData.constituencyIdentifiers.name}</h1>
           <p>
             Bookmark this page and check back before the election for updated
-            info.
+            info. Not your constituency?{" "}
+            <a href="/" style={{ color: "white" }}>
+              Search here.
+            </a>
           </p>
         </Container>
       </Header>
 
       <main>
-        <section id="section-advice" className="section-light">
+        <section id="section-advice" className="section-darker">
           <Container>
             <Row>
               <Col>
-                <h2 className="pb-3">The tactical vote is</h2>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
+                <h2>The tactical vote is</h2>
                 <h3
                   className={`party ${partyCssClassFromSlug(
                     constituencyData.recommendation.partySlug,
@@ -114,28 +115,85 @@ export default async function ConstituencyPage({
                 >
                   {partyNameFromSlug(constituencyData.recommendation.partySlug)}
                 </h3>
+                <p>
+                  <a href="#section-info">Why?</a>
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+        <section id="section-join" className="section-dark">
+          <Container>
+            <Row>
+              <Col xs={8} md={12} className="pb-3">
+                <h2>be counted, stick together!</h2>
+              </Col>
+            </Row>
+            <Row xs={1} lg={3}>
+              <Col md={7} className="pb-3">
+                <PostcodeLookup />
+              </Col>
+              <Col md={7} className="pb-3">
+                <p style={{ fontSize: "26px" }}>
+                  <strong>Reasons to be counted</strong>
+                </p>
+                <p style={{ fontSize: "22px" }}>
+                  1. Show how many of us are voting tactically and not just for
+                  the party we&apos;re lending our vote to, and that we want our
+                  votes to count next time.
+                </p>
+                <p style={{ fontSize: "22px" }}>
+                  2. Our large numbers show that the country is rejecting the
+                  narrative the right wing media and think tanks spin.
+                </p>
+                <p style={{ fontSize: "22px" }}>
+                  3. Together we can be a huge independent influence on the next
+                  government, for Proportional Representation, and other
+                  crucial, common sense, policies.
+                </p>
+              </Col>
+              <Col md={7} className="pb-3">
+                <PlanToVoteBox />
+              </Col>
+            </Row>
+          </Container>
+        </section>
+        <section id="section-info" className="section-light">
+          <Container>
+            <Row>
+              <Col className="pb-3">
+                <h2>
+                  Why vote{" "}
+                  <span
+                    className={`party ${partyCssClassFromSlug(
+                      constituencyData.recommendation.partySlug,
+                    )}`}
+                  >
+                    {partyNameFromSlug(
+                      constituencyData.recommendation.partySlug,
+                    )}
+                  </span>{" "}
+                  here?
+                </h2>
+                <h3>({constituencyData.constituencyIdentifiers.name})</h3>
               </Col>
             </Row>
 
             <Row xs={1} lg={3}>
-              <Col md={7}>
+              <Col md={7} className="pb-3">
                 <TacticalReasoningBox constituencyData={constituencyData} />
+                <Link href="/methodology" className="small">
+                  <span style={{ color: "rgb(33, 37, 41)" }}>
+                    Read more about our process
+                  </span>
+                </Link>
               </Col>
-              <Col md={7}>
-                <ActionBox constituencyData={constituencyData} />
-              </Col>
-              <Col md={7}>
-                <PlanToVoteBox />
-              </Col>
-            </Row>
-            <Row xs={1} lg={3}>
-              <Col md={7}>
+              <Col md={7} className="pb-3">
                 <ImpliedChart constituencyData={constituencyData} />
               </Col>
               <Col md={7}>
                 <MRPChart constituencyData={constituencyData} />
               </Col>
-              <Col md={7}></Col>
             </Row>
           </Container>
         </section>
