@@ -16,14 +16,14 @@ const getConstituencyData = (constituencySlug: string) => {
   return constituencyData;
 };
 
-const getConstituencySlugs = (cached: boolean = true): string[] => {
-  const constituenciesData = getConstituenciesData(cached);
+const getConstituencySlugs = (): string[] => {
+  const constituenciesData = getConstituenciesData();
   return constituenciesData.map(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug,
   );
 };
 
-const getConstituenciesData = (cached: boolean = true): ConstituencyData[] => {
+const getConstituenciesData = (): ConstituencyData[] => {
   // Have to typecast as the json load doesn't know about our enums
   return constituencyJson as ConstituencyData[];
 };
