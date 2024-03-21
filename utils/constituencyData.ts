@@ -1,15 +1,7 @@
-import { readFileSync } from "fs";
-import path from "path";
-import { unstable_cache } from "next/cache";
-import getConfig from "next/config";
+import constituencyJson from "@/data/constituency.json";
 
-const { serverRuntimeConfig } = getConfig() || {};
-
-const getConstituencyData = async (
-  constituencySlug: string,
-  cached: boolean = true,
-): Promise<ConstituencyData> => {
-  const constituenciesData = await getConstituenciesData(cached);
+const getConstituencyData = (constituencySlug: string) => {
+  const constituenciesData = getConstituenciesData();
   const constituencyData = constituenciesData.find(
     (c: ConstituencyData) =>
       c.constituencyIdentifiers.slug === constituencySlug,
@@ -24,38 +16,16 @@ const getConstituencyData = async (
   return constituencyData;
 };
 
-const getConstituencySlugs = async (
-  cached: boolean = true,
-): Promise<string[]> => {
-  const constituenciesData = await getConstituenciesData(cached);
+const getConstituencySlugs = (): string[] => {
+  const constituenciesData = getConstituenciesData();
   return constituenciesData.map(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug,
   );
 };
 
-const getConstituenciesData = async (
-  cached: boolean = true,
-): Promise<ConstituencyData[]> => {
-  return cached
-    ? await getConstituenciesDataCached()
-    : await getConstituenciesDataUncached();
-};
-
-const getConstituenciesDataCached = unstable_cache(
-  // Cache data function
-  async () => getConstituenciesDataUncached(),
-  // Cache key
-  [`data/constituency.json.${serverRuntimeConfig.appVersion}`],
-  // Cache options
-  { revalidate: false }, // Cache will never refresh
-);
-
-const getConstituenciesDataUncached = async () => {
-  console.debug("constituencyData: fetching constituencies data");
-  const filePath = path.join(process.cwd(), "data", "constituency.json");
-  const fileContent = readFileSync(filePath, "utf8");
-  console.debug("constituencyData: fetched constituencies data from file");
-  return JSON.parse(fileContent);
+const getConstituenciesData = (): ConstituencyData[] => {
+  // Have to typecast as the json load doesn't know about our enums
+  return constituencyJson as ConstituencyData[];
 };
 
 /**
