@@ -449,7 +449,7 @@ const PostcodeLookup = () => {
         <div className="my-3"></div>
       ) : (
         <div className="my-3">
-          <FormCheck name="emailOptIn" className="custom-checkbox">
+          <FormCheck name="emailOptIn" className="form-check custom-checkbox">
             <FormCheckInput
               checked={formState.emailOptIn}
               onChange={() =>
