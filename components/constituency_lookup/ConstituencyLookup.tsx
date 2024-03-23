@@ -1,5 +1,6 @@
 "use client";
 
+// TODO: Delete this file, superseded by the forms folder
 import { useRouter } from "next/navigation";
 
 import {
@@ -64,8 +65,8 @@ const fetchApi = async (
     console.log("Making API call to constituency lookup route");
     const response = await fetch(
       "/api/constituency_lookup/" +
-        postcode +
-        (addressSlug ? "/" + addressSlug : ""),
+      postcode +
+      (addressSlug ? "/" + addressSlug : ""),
     );
 
     if (response.ok) {
@@ -355,8 +356,8 @@ const PostcodeLookup = () => {
               {!lastSelectedConstituency?.name
                 ? ""
                 : lastSelectedConstituency.name.length < 31
-                ? lastSelectedConstituency.name
-                : lastSelectedConstituency.name.substring(0, 27) + "..."}
+                  ? lastSelectedConstituency.name
+                  : lastSelectedConstituency.name.substring(0, 27) + "..."}
             </InputGroup.Text>
           )}
           <Form.Control.Feedback
