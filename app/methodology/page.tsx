@@ -19,7 +19,7 @@ export default function MethodologyPage() {
       <main>
         <section className="section-light">
           <Container>
-            <Row className="mb-4">
+            <Row className="mb-5">
               <Col>
                 <h2>Our Objectives</h2>
                 <ol className="fs-4 fw-bold">
@@ -40,7 +40,7 @@ export default function MethodologyPage() {
               </Col>
             </Row>
 
-            <Row className="mb-4">
+            <Row className="mb-5">
               <Col>
                 <h2>Our Methodology</h2>
                 <p className="fw-bold mt-3">
@@ -167,7 +167,7 @@ export default function MethodologyPage() {
               </Col>
             </Row>
 
-            <Row className="mb-4">
+            <Row className="mb-5">
               <Col>
                 <h2>Methodology FAQ</h2>
                 <ToggleText
@@ -308,7 +308,7 @@ export default function MethodologyPage() {
               </Col>
             </Row>
 
-            <Row className="mb-4">
+            <Row className="mb-5">
               <Col>
                 <p>
                   For questions not related to our methodology, please see our
