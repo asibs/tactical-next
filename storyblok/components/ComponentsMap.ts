@@ -2,12 +2,12 @@ import { SbReactComponentsMap } from "@storyblok/react/rsc";
 
 import Footer from "@/components/footer/Footer";
 import FooterLink from "@/components/footer/FooterLink";
-import OneColumnLayout from "@/components/page_layout/OneColumnLayout";
-import TwoColumnLayout from "@/components/page_layout/TwoColumnLayout";
-import ThreeColumnLayout from "@/components/page_layout/ThreeColumnLayout";
-import RichText from "@/components/page_content/RichText";
-import Page from "@/components/Page";
-import ToggleText from "@/components/page_content/ToggleText";
+import OneColumnLayout from "@/components/storybloks/page_layout/OneColumnLayout";
+import TwoColumnLayout from "@/components/storybloks/page_layout/TwoColumnLayout";
+import ThreeColumnLayout from "@/components/storybloks/page_layout/ThreeColumnLayout";
+import RichText from "@/components/storybloks/page_content/RichText";
+import Page from "@/components/storybloks/Page";
+import StoryblokToggleText from "@/components/storybloks/page_content/StoryblokToggleText";
 import NavWithHamburger from "@/components/navigation/NavWithHamburger";
 
 export const ComponentsMap: SbReactComponentsMap = {
@@ -23,7 +23,7 @@ export const ComponentsMap: SbReactComponentsMap = {
   three_column_layout: ThreeColumnLayout,
   // Page content
   rich_text: RichText,
-  toggle_text: ToggleText,
+  toggle_text: StoryblokToggleText,
   // Generic page
   page: Page,
 };
