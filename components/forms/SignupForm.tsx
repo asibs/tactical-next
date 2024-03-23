@@ -149,6 +149,7 @@ const SignupForm = () => {
                     emailOptIn: !formState.emailOptIn,
                   })
                 }
+                className="d-inline"
               >
                 <strong>Join with your email</strong> to stick together
               </FormCheckLabel>
