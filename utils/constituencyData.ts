@@ -55,10 +55,34 @@ const votePercent = (voteResult: VoteResult, partySlug: string) => {
   );
 };
 
+const sortOnMajority = (
+  constituenciesData: ConstituencyData[],
+  direction: "ASC" | "DESC" = "ASC",
+  result: "IMPLIED" | "POLL" = "IMPLIED",
+): ConstituencyData[] => {
+  return constituenciesData.sort((a, b) => {
+    const aMajority =
+      result === "IMPLIED"
+        ? majority(a.impliedPreviousResult)
+        : majority(a.pollingResults);
+    const bMajority =
+      result === "IMPLIED"
+        ? majority(b.impliedPreviousResult)
+        : majority(b.pollingResults);
+
+    if (direction === "ASC") {
+      return aMajority - bMajority;
+    } else {
+      return bMajority - aMajority;
+    }
+  });
+};
+
 export {
   getConstituencySlugs,
   getConstituencyData,
   getConstituenciesData,
   majority,
+  sortOnMajority,
   votePercent,
 };
