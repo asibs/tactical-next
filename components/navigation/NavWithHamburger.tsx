@@ -66,7 +66,7 @@ const NavWithHamburger = ({ blok }: { blok: NavbarStoryblok }) => {
                 <Link
                   className="btn btn-pink-strong text-white fw-bolder px-2 px-sm-3"
                   role="button"
-                  href="/reminders"
+                  href="/join"
                 >
                   <FaBoltLightning className="d-none d-sm-inline-block me-2" />
                   <span>Join</span>
