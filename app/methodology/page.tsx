@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import flowChart from "@/assets/methodology-flow-chart.png";
+import ToggleText from "@/components/ToggleText";
 
 export default function MethodologyPage() {
   return (
@@ -169,7 +170,141 @@ export default function MethodologyPage() {
             <Row className="mb-4">
               <Col>
                 <h2>Methodology FAQ</h2>
-                <p>TODO</p>
+                <ToggleText
+                  id="2019-results"
+                  chevronSize="fs-4"
+                  title={
+                    <h4>Why aren&apos;t you using the actual 2019 results?</h4>
+                  }
+                  content={
+                    <>
+                      <p>
+                        <a
+                          href="https://en.wikipedia.org/wiki/2023_Periodic_Review_of_Westminster_constituencies"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Westminster constituency boundaries were reviewed in
+                          2023
+                        </a>
+                        , and therefore many constituencies now have new
+                        geographic boundaries. Some constituencies have been
+                        abolished entirely and some new constituencies have been
+                        created.
+                      </p>
+                      <p>
+                        The 2019 general election was fought using the old
+                        constituencies and boundaries, and these results cannot
+                        be easily mapped onto the new constituency boundaries.
+                        However,{" "}
+                        <a
+                          href="https://interactive.news.sky.com/2024/doc/estimates-2019-general-election-result-new-constituencies-explainer.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Sky &amp; the BBC commissioned research
+                        </a>{" "}
+                        which estimates the vote share each party would have
+                        achieved in 2019 using the new constituency boundaries.
+                        We use these <em>implied</em> 2019 results in our
+                        methodology (see above).
+                      </p>
+                    </>
+                  }
+                />
+                <ToggleText
+                  id="byelection-results"
+                  chevronSize="fs-4"
+                  title={<h4>Why aren&apos;t you using byelection results?</h4>}
+                  content={
+                    <>
+                      <p>
+                        Byelections tend to have low turnout compared to general
+                        elections, and parties <em>may</em> be able to dedicate
+                        more resources to fighting a byelection campaign,
+                        because they&amp;re only fighting byelections in a small
+                        number of constituencies at any one time.
+                      </p>
+                      <p>
+                        Byelections will still also be using the old
+                        constituency boundaries, which means byelection results
+                        can be difficult to map directly onto the constituency
+                        boundaries which the 2024 election will be fought on.
+                      </p>
+                      <p>
+                        In constituencies where we manually override our
+                        automated advice, we will consider any relevant
+                        byelection results.
+                      </p>
+                    </>
+                  }
+                />
+                <ToggleText
+                  id="local-results"
+                  chevronSize="fs-4"
+                  title={
+                    <h4>Why aren&apos;t you using council election results?</h4>
+                  }
+                  content={
+                    <>
+                      <p>
+                        Council elections tend to have low turnout compared to
+                        general elections, and the issues they are fought on can
+                        be significantly different from those which are the
+                        focus in general elections.
+                      </p>
+                      <p>
+                        In constituencies where we manually override our
+                        automated advice, we will consider any relevant council
+                        election results.
+                      </p>
+                    </>
+                  }
+                />
+                <ToggleText
+                  id="manual-overrides"
+                  chevronSize="fs-4"
+                  title={
+                    <h4>
+                      Why don&apos;t your tactical voting recommendations match
+                      your methodology?
+                    </h4>
+                  }
+                  content={
+                    <>
+                      <p>
+                        We use the same methodology - described in detail above
+                        - on all seats in England, Scotland &amp; Wales. In some
+                        cases, this methodology cannot give a tactical vote
+                        recommendation, because it&apos;s not clear which
+                        progressive party is best placed to stop the tories.
+                      </p>
+                      <p>
+                        In these constituencies, we will manually make a
+                        recommendation. This may happen close to the election
+                        day, so that we can consider the most up-to-date
+                        information, and we can make the most informed &amp;
+                        accurate recommendation possible. When making
+                        recommendations manually, we consider the data used by
+                        our automated methodology - implied 2019 results, recent
+                        MRPs, target seat lists - as well as other data such as
+                        westminster byelections, local council elections in the
+                        area, etc.
+                      </p>
+                      <p>
+                        There may be other situations where we need to manually
+                        override our automated methodology, such as if the
+                        candidate for the recommended party stands aside.
+                      </p>
+                      <p>
+                        When manually making a recommendation, we always make
+                        this clear on the website and in our{" "}
+                        <Link href="/data">open data</Link>, and we cite the
+                        data we have used to come to our recommendation.
+                      </p>
+                    </>
+                  }
+                />
               </Col>
             </Row>
           </Container>
