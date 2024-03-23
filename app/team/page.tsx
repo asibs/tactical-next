@@ -85,7 +85,7 @@ export default function TeamPage() {
                   Josh Russell
                 </a>
               </h3>
-              <p>Our Lord & saviour.</p>
+              <p>TODO</p>
             </TeamMember>
 
             <TeamMember
@@ -118,8 +118,15 @@ export default function TeamPage() {
                 </a>
               </h3>
               <p>
-                Recently head of strategy at the Make Votes Matter campaign for
-                electoral reform.
+                Recently head of strategy at the{" "}
+                <a
+                  href="https://makevotesmatter.org.uk/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Make Votes Matter
+                </a>{" "}
+                campaign for electoral reform.
                 <br />A keen sea kayaker, James has a background in software
                 development from fin-tech to museum exhibits.
               </p>
