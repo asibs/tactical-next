@@ -307,6 +307,15 @@ export default function MethodologyPage() {
                 />
               </Col>
             </Row>
+
+            <Row className="mb-4">
+              <Col>
+                <p>
+                  For questions not related to our methodology, please see our
+                  main <Link href="/faq">FAQ page</Link>.
+                </p>
+              </Col>
+            </Row>
           </Container>
         </section>
       </main>
