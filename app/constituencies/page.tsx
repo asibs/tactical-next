@@ -2,7 +2,11 @@ import { Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { partyColorFromSlug, partyNameFromSlug } from "@/utils/Party";
-import { getConstituenciesData, majority, sortOnMajority } from "@/utils/constituencyData";
+import {
+  getConstituenciesData,
+  majority,
+  sortOnMajority,
+} from "@/utils/constituencyData";
 
 export default async function ConstituencySummaryPage() {
   // Get all constituencies EXCEPT those where we're explicitly making no recommendation (NI & Speaker)
@@ -10,14 +14,34 @@ export default async function ConstituencySummaryPage() {
     await getConstituenciesData()
   ).filter((c: ConstituencyData) => c.recommendation.partySlug !== "None");
 
-  const torySeats = constituenciesData.filter((c) => c.impliedPreviousResult.winningParty === "Con");
-  const torySeatsProgressiveAhead = sortOnMajority(torySeats.filter((c) => c.recommendation.partySlug && c.pollingResults.winningParty !== "Con"));
-  const torySeatsProgressiveBehind = sortOnMajority(torySeats.filter((c) => c.recommendation.partySlug && c.pollingResults.winningParty === "Con"));
-  const torySeatsNoRecommendation = sortOnMajority(torySeats.filter((c) => !c.recommendation.partySlug));
+  const torySeats = constituenciesData.filter(
+    (c) => c.impliedPreviousResult.winningParty === "Con",
+  );
+  const torySeatsProgressiveAhead = sortOnMajority(
+    torySeats.filter(
+      (c) =>
+        c.recommendation.partySlug && c.pollingResults.winningParty !== "Con",
+    ),
+  );
+  const torySeatsProgressiveBehind = sortOnMajority(
+    torySeats.filter(
+      (c) =>
+        c.recommendation.partySlug && c.pollingResults.winningParty === "Con",
+    ),
+  );
+  const torySeatsNoRecommendation = sortOnMajority(
+    torySeats.filter((c) => !c.recommendation.partySlug),
+  );
 
-  const nonTorySeats = constituenciesData.filter((c) => c.impliedPreviousResult.winningParty !== "Con");
-  const nonTorySeatsToryCanWin = sortOnMajority(nonTorySeats.filter((c) => !c.otherVoteData.conservativeWinUnlikely))
-  const nonTorySeatsToryCantWin = sortOnMajority(nonTorySeats.filter((c) => c.otherVoteData.conservativeWinUnlikely))
+  const nonTorySeats = constituenciesData.filter(
+    (c) => c.impliedPreviousResult.winningParty !== "Con",
+  );
+  const nonTorySeatsToryCanWin = sortOnMajority(
+    nonTorySeats.filter((c) => !c.otherVoteData.conservativeWinUnlikely),
+  );
+  const nonTorySeatsToryCantWin = sortOnMajority(
+    nonTorySeats.filter((c) => c.otherVoteData.conservativeWinUnlikely),
+  );
 
   return (
     <>
@@ -35,7 +59,10 @@ export default async function ConstituencySummaryPage() {
             <Row className="pb-4">
               <Col>
                 <h3>Target Tory Seats</h3>
-                <p className="mb-2">There are {torySeatsProgressiveAhead.length} Tory Constituencies* that we have a great chance of taking back!</p>
+                <p className="mb-2">
+                  There are {torySeatsProgressiveAhead.length} Tory
+                  Constituencies* that we have a great chance of taking back!
+                </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
                   boundaries
@@ -106,7 +133,10 @@ export default async function ConstituencySummaryPage() {
             <Row className="pb-4">
               <Col>
                 <h3>Tough Tory Seats</h3>
-                <p className="mb-2">There are {torySeatsProgressiveBehind.length} Tory Constituencies* that we need to work even harder to take back!</p>
+                <p className="mb-2">
+                  There are {torySeatsProgressiveBehind.length} Tory
+                  Constituencies* that we need to work even harder to take back!
+                </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
                   boundaries
@@ -177,7 +207,11 @@ export default async function ConstituencySummaryPage() {
             <Row className="pb-4">
               <Col>
                 <h3>Check Back Later</h3>
-                <p className="mb-2">There are {torySeatsNoRecommendation.length} Tory Constituencies* where we&apos;re still working out the tactical vote...</p>
+                <p className="mb-2">
+                  There are {torySeatsNoRecommendation.length} Tory
+                  Constituencies* where we&apos;re still working out the
+                  tactical vote...
+                </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
                   boundaries
@@ -248,12 +282,15 @@ export default async function ConstituencySummaryPage() {
 
         <section className="section-light">
           <Container>
-
             {/* NON-TORY SEATS, CAN BE WON BY A TORY */}
             <Row className="pb-4">
               <Col>
                 <h3>At Risk Non-Tory Seats</h3>
-                <p className="mb-2">There are {nonTorySeatsToryCanWin.length} non-Tory Constituencies* where we need to vote tactically to make sure the Tories don't win!</p>
+                <p className="mb-2">
+                  There are {nonTorySeatsToryCanWin.length} non-Tory
+                  Constituencies* where we need to vote tactically to make sure
+                  the Tories don&apos;t win!
+                </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
                   boundaries
@@ -285,7 +322,10 @@ export default async function ConstituencySummaryPage() {
             <Row className="pb-4">
               <Col>
                 <h3>Safe Non-Tory Seats</h3>
-                <p className="mb-2">There are {nonTorySeatsToryCantWin.length} non-Tory Constituencies* where you can safely vote with your heart</p>
+                <p className="mb-2">
+                  There are {nonTorySeatsToryCantWin.length} non-Tory
+                  Constituencies* where you can safely vote with your heart
+                </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
                   boundaries
@@ -301,7 +341,7 @@ export default async function ConstituencySummaryPage() {
                     <span
                       className="badge rounded-pill w-100 h-100 text-wrap align-middle"
                       style={{
-                        backgroundColor: "var(--mf-pink)"
+                        backgroundColor: "var(--mf-pink)",
                       }}
                     >
                       {c.constituencyIdentifiers.name}
@@ -310,7 +350,6 @@ export default async function ConstituencySummaryPage() {
                 </Col>
               ))}
             </Row>
-
           </Container>
         </section>
       </main>
