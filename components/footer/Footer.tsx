@@ -26,8 +26,8 @@ import { ButtonGroup } from "react-bootstrap";
 import { rubik } from "@/utils/Fonts";
 
 const Footer = ({ blok }: { blok: FooterStoryblok }) => (
-  <footer {...storyblokEditable(blok)}>
-    <section className="footer">
+  <>
+    <footer {...storyblokEditable(blok)}>
       <Container>
         <Row>
           {/* FOOTER CALL TO ACTION BUTTONS */}
@@ -143,73 +143,76 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
               A Movement Forward initiative
               <br />© 2024 Forward Democracy Limited
             </p>
-
-            {/* FOOTER LINKS */}
-            <Row xs={4} className="py-3">
+            <p className="my-3">
+              {/* FOOTER LINKS */}
               {blok.links.map((link) => (
-                <Col className="p-1" key={link._uid}>
-                  <StoryblokComponent blok={link} />
-                </Col>
+                <StoryblokComponent blok={link} key={link._uid} />
               ))}
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-
-    <section className="footer-dark" style={{ fontSize: "14px" }}>
-      <Container>
-        <Row>
-          <Col xs="auto">
-            {/* POSTCODE LOOKUP ATTRIBUTION */}
-            <p className="mb-1">
-              Postcode lookup contains data from{" "}
-              <a
-                href="https://democracyclub.org.uk/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                DemocracyClub
-              </a>
-              , the{" "}
-              <a
-                href="https://geoportal.statistics.gov.uk/datasets/3700342d3d184b0d92eae99a78d9c7a3/about"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ONS
-              </a>{" "}
-              &{" "}
-              <a
-                href="https://pages.mysociety.org/2025-constituencies/datasets/parliament_con_2025/0_1_4"
-                target="_blank"
-                rel="noreferrer"
-              >
-                MySociety
-              </a>
             </p>
-            <ul>
-              <li>
-                Contains OS data © Crown copyright and database right 2024
-              </li>
-              <li>
-                Contains Royal Mail data © Royal Mail copyright and Database
-                right 2024
-              </li>
-              <li>
-                Contains GeoPlace data © Local Government Information House
-                Limited copyright and database right 2024
-              </li>
-              <li>
-                Source: Office for National Statistics licensed under the Open
-                Government Licence v.3.0
-              </li>
-            </ul>
+            <p className="my-3 small">
+              We don&apos;t use cookies on this website.
+            </p>
           </Col>
         </Row>
       </Container>
-    </section>
-  </footer>
+
+      <section className="footer-dark" style={{ fontSize: "14px" }}>
+        <Container>
+          <Row>
+            <Col xs="auto">
+              {/* POSTCODE LOOKUP ATTRIBUTION */}
+              <p className="mb-1">
+                Postcode lookup contains data from{" "}
+                <a
+                  href="https://democracyclub.org.uk/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  DemocracyClub
+                </a>
+                , the{" "}
+                <a
+                  href="https://geoportal.statistics.gov.uk/datasets/3700342d3d184b0d92eae99a78d9c7a3/about"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ONS
+                </a>{" "}
+                &{" "}
+                <a
+                  href="https://pages.mysociety.org/2025-constituencies/datasets/parliament_con_2025/0_1_4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  MySociety
+                </a>
+              </p>
+              <ul>
+                <li>
+                  Contains OS data © Crown copyright and database right 2024
+                </li>
+                <li>
+                  Contains Royal Mail data © Royal Mail copyright and Database
+                  right 2024
+                </li>
+                <li>
+                  Contains GeoPlace data © Local Government Information House
+                  Limited copyright and database right 2024
+                </li>
+                <li>
+                  Source: Office for National Statistics licensed under the Open
+                  Government Licence v.3.0
+                </li>
+              </ul>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </footer>
+    <a className="btn btn-sm disabled brand-tag" role="button">
+      @MVTFWD
+    </a>
+  </>
 );
 
 export default Footer;

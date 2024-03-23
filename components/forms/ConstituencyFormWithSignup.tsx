@@ -2,27 +2,13 @@
 
 import { useRouter } from "next/navigation";
 
-import {
-  Container,
-  Form,
-  Button,
-  FormCheck,
-  Row,
-  Col,
-  Spinner,
-  InputGroup,
-} from "react-bootstrap";
+import { Form, Button, FormCheck, Spinner, InputGroup } from "react-bootstrap";
 
-import {
-  normalizePostcode,
-  postcodeInputPattern,
-  validatePostcode,
-} from "@/utils/Postcodes";
 import { submitANForm } from "@/utils/AnApiSubmission";
 import { rubik } from "@/utils/Fonts";
 import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import ConstituencyLookup from "./constituencyLookup";
 
 const emailErrorMessage = (code: EmailErrorCode) => {
@@ -133,129 +119,114 @@ const ConstituencyFormWithSignup = () => {
   };
 
   return (
-    <Container
-      className="rounded-3 bg-pink-strong p-3 shadow text-100"
-      style={{ fontSize: "18px" }}
-    >
-      <Form ref={formRef} action={submitForm} noValidate>
-        <h3 className="fw-bolder">Vote the Tories out</h3>
-        <p className="fw-bold text-900">
-          Vote tactically at the General Election
-        </p>
+    <Form className="form-search" ref={formRef} action={submitForm} noValidate>
+      <h3 className="fw-bolder">How to vote your Tory out</h3>
+      {/* Renders the postcode box, makes API calls, and if necessary shows an address/constituency picker */}
+      <ConstituencyLookup
+        validPostcode={validPostcode}
+        constituency={constituency}
+        setConstituency={setConstituency}
+        loading={constituencyApiLoading}
+        setLoading={setConstituencyApiLoading}
+      />
 
-        {/* Renders the postcode box, makes API calls, and if necessary shows an address/constituency picker */}
-        <ConstituencyLookup
-          validPostcode={validPostcode}
-          constituency={constituency}
-          setConstituency={setConstituency}
-          loading={constituencyApiLoading}
-          setLoading={setConstituencyApiLoading}
-        />
+      {subscribed ? (
+        <div className="my-3"></div>
+      ) : (
+        <div className="my-3">
+          <FormCheck name="emailOptIn" className="form-check custom-checkbox">
+            <FormCheckInput
+              checked={formState.emailOptIn}
+              onChange={() =>
+                setFormState({
+                  ...formState,
+                  emailOptIn: !formState.emailOptIn,
+                })
+              }
+            />
+            <FormCheckLabel
+              onClick={() =>
+                setFormState({
+                  ...formState,
+                  emailOptIn: !formState.emailOptIn,
+                })
+              }
+            >
+              <strong>Join up,</strong> be counted, stick together
+            </FormCheckLabel>
+          </FormCheck>
 
-        {subscribed ? (
-          <div className="my-3"></div>
-        ) : (
-          <div className="my-3">
-            <FormCheck name="emailOptIn">
-              <div>
-                <FormCheckInput
-                  checked={formState.emailOptIn}
-                  onChange={() =>
-                    setFormState({
-                      ...formState,
-                      emailOptIn: !formState.emailOptIn,
-                    })
-                  }
-                  className="me-2"
+          {formState.emailOptIn && (
+            <>
+              <InputGroup hasValidation className="my-3">
+                <Form.Control
+                  name="email"
+                  size="lg"
+                  type="email"
+                  placeholder="Your Email"
+                  value={formState.email}
+                  isInvalid={!!emailError}
+                  onChange={(e) => {
+                    setFormState({ ...formState, email: e.target.value });
+                    if (!e.target.validity.typeMismatch) {
+                      setEmailError(null);
+                    }
+                  }}
+                  className="invalid-text-greyed"
                 />
-                <FormCheckLabel
-                  onClick={() =>
-                    setFormState({
-                      ...formState,
-                      emailOptIn: !formState.emailOptIn,
-                    })
-                  }
+                <Form.Control.Feedback
+                  className="fw-bold fst-italic px-2 pt-1  text-white"
+                  type="invalid"
                 >
-                  <strong>Join with your email</strong> to stick together
-                </FormCheckLabel>
-              </div>
-            </FormCheck>
+                  {emailError ? emailErrorMessage(emailError) : ""}
+                </Form.Control.Feedback>
+              </InputGroup>
+              <p className="small">
+                You&apos;re opting in to receive emails. We store your email
+                address, postcode, and constituency, so we can send you exactly
+                the information you need.
+              </p>
+            </>
+          )}
+        </div>
+      )}
 
-            {formState.emailOptIn && (
-              <>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    name="email"
-                    size="lg"
-                    type="email"
-                    placeholder="Your Email"
-                    value={formState.email}
-                    isInvalid={!!emailError}
-                    onChange={(e) => {
-                      setFormState({ ...formState, email: e.target.value });
-                      if (!e.target.validity.typeMismatch) {
-                        setEmailError(null);
-                      }
-                    }}
-                    className="my-2 invalid-text-greyed"
-                  />
-                  <Form.Control.Feedback
-                    className="fw-bold fst-italic px-2 pt-0 mt-0 mb-2 text-white"
-                    type="invalid"
-                  >
-                    {emailError ? emailErrorMessage(emailError) : ""}
-                  </Form.Control.Feedback>
-                </InputGroup>
-                <p style={{ fontSize: "0.75em" }}>
-                  We store your email address, postcode, and constituency, so we
-                  can send you exactly the information you need, and the actions
-                  to take.
-                </p>
-              </>
-            )}
-          </div>
-        )}
-
-        <Row className="d-flex justify-content-between my-3">
-          <Col xs={4} className="d-grid">
-            <Button
-              variant="light"
-              size="lg"
-              type="submit"
-              disabled={!constituency}
-              aria-disabled={!constituency}
-            >
-              {constituencyApiLoading && (
-                <>
-                  <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    area-hidden="true"
-                  />
-                  <span className="visually-hidden">Loading...</span>{" "}
-                </>
-              )}
-              <span className={`${rubik.className} fw-bold`}>Go</span>
-            </Button>
-          </Col>
-          <Col className="align-self-center text-end">
-            <a
-              href="https://themovementforward.com/privacy/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-link btn-sm"
-              role="button"
-            >
-              <span className={`${rubik.className} fw-bold`}>
-                Privacy Policy
-              </span>
-            </a>
-          </Col>
-        </Row>
-      </Form>
-    </Container>
+      <div className="d-flex justify-content-between mt-3">
+        <Button
+          variant="light"
+          size="lg"
+          type="submit"
+          disabled={!constituency}
+          aria-disabled={!constituency}
+          style={{ width: "66%" }}
+        >
+          {constituencyApiLoading && (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                area-hidden="true"
+              />
+              <span className="visually-hidden">Loading...</span>{" "}
+            </>
+          )}
+          <span className={`${rubik.className} fw-bold`}>
+            {formState.emailOptIn ? "Go + Join" : "Go"}
+          </span>
+        </Button>
+        <a
+          href="https://themovementforward.com/privacy/"
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-link btn-sm"
+          role="button"
+        >
+          <span className={`${rubik.className} fw-bold`}>Privacy Policy</span>
+        </a>
+      </div>
+    </Form>
   );
 };
 

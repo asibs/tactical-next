@@ -171,6 +171,7 @@ const PostcodeLookup = () => {
 
   const [subscribed, setSubscribed] = useState<string | null | false>(false);
   const [formState, setFormState] = useState<FormData>(initialFormState);
+  const [formPostcode, setFormPostcode] = useState<string>("");
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
@@ -247,6 +248,8 @@ const PostcodeLookup = () => {
   };
 
   const postcodeChanged = async (userPostcode: string) => {
+    setFormPostcode(userPostcode);
+    setPostError(null);
     const normalizedPostcode = normalizePostcode(userPostcode);
 
     if (
@@ -330,81 +333,82 @@ const PostcodeLookup = () => {
   };
 
   return (
-    <Container
-      className="rounded-3 bg-pink-strong p-3 shadow text-100"
-      style={{ fontSize: "18px" }}
-    >
-      <Form ref={formRef} action={submitForm} noValidate>
-        <h3 className="fw-bolder">Vote the Tories out</h3>
-        <p className="fw-bold text-900">
-          Vote tactically at the General Election
-        </p>
-        <InputGroup className="my-3" hasValidation>
+    <Form className="form-search" ref={formRef} action={submitForm} noValidate>
+      <h3 className="fw-bolder">How to vote your Tory out</h3>
+      <InputGroup className="my-3" hasValidation>
+        <Form.Control
+          value={formPostcode}
+          name="postcode"
+          size="lg"
+          type="text"
+          placeholder="Your Postcode"
+          pattern={postcodeInputPattern}
+          isInvalid={!!postError}
+          onChange={(e) => postcodeChanged(e.target.value)}
+          className="invalid-text-greyed"
+          onBlur={(e) => {
+            if (!validatePostcode.test(normalizePostcode(e.target.value)))
+              setPostError("POSTCODE_INVALID");
+          }}
+        />
+        <Form.Control.Feedback
+          className="fw-bold fst-italic px-2 pt-1 text-white"
+          type="invalid"
+        >
+          {postError ? postcodeErrorToErrorMessage(postError) : ""}
+        </Form.Control.Feedback>
+      </InputGroup>
+
+      {lastSelectedConstituency && (
+        <InputGroup className="my-3">
           <Form.Control
-            name="postcode"
+            name="constituency-display"
             size="lg"
             type="text"
-            placeholder="Your Postcode"
-            pattern={postcodeInputPattern}
-            isInvalid={!!postError}
-            onChange={(e) => postcodeChanged(e.target.value)}
-            className="invalid-text-greyed"
+            value={lastSelectedConstituency.name}
+            readOnly
           />
-          {lastSelectedConstituency && (
-            <InputGroup.Text>
-              {!lastSelectedConstituency?.name
-                ? ""
-                : lastSelectedConstituency.name.length < 31
-                ? lastSelectedConstituency.name
-                : lastSelectedConstituency.name.substring(0, 27) + "..."}
-            </InputGroup.Text>
-          )}
-          <Form.Control.Feedback
-            className="fw-bold fst-italic px-2 pt-0 mt-1 mb-2 text-white"
-            type="invalid"
+          <Button
+            variant="secondary"
+            onClick={() => {
+              setApiResponse(null);
+              setFormPostcode("");
+            }}
           >
-            {postError ? postcodeErrorToErrorMessage(postError) : ""}
-          </Form.Control.Feedback>
+            CLEAR
+          </Button>
         </InputGroup>
+      )}
 
-        {apiResponse && apiResponse.constituencies.length > 1 && (
-          <>
-            {apiResponse.addresses ? (
-              <div className="my-3">
-                <p className="mb-1" style={{ fontSize: "0.75em" }}>
-                  We can&apos;t work out exactly which constituency you&apos;re
-                  in - please select your address:
-                </p>
-                <Form.Select
-                  name="address"
-                  size="lg"
-                  defaultValue=""
-                  onChange={(e) =>
-                    lookupConstituency(validPostcode.current, e.target.value)
-                  }
-                >
-                  <option
-                    selected
-                    disabled
-                    value=""
-                    style={{ display: "none" }}
-                  >
-                    Select Address
-                  </option>
+      {apiResponse && apiResponse.constituencies.length > 1 && (
+        <>
+          {apiResponse.addresses ? (
+            <div className="my-3">
+              <p className="small">Select your exact address</p>
+              <Form.Select
+                name="address"
+                size="lg"
+                defaultValue=""
+                onChange={(e) =>
+                  lookupConstituency(validPostcode.current, e.target.value)
+                }
+              >
+                <option selected disabled value="" style={{ display: "none" }}>
+                  Select Address
+                </option>
+                <optgroup label="address">
                   {apiResponse.addresses.map((c) => (
                     <option key={c.slug} value={c.slug}>
-                      {c.name}
+                      {c.name.toLowerCase()}
                     </option>
                   ))}
-                </Form.Select>
-              </div>
-            ) : (
+                </optgroup>
+              </Form.Select>
+            </div>
+          ) : (
+            !lastSelectedConstituency && (
               <div className="my-3">
-                <p className="mb-1" style={{ fontSize: "0.75em" }}>
-                  We can&apos;t work out exactly which constituency you&apos;re
-                  in - please select one of the{" "}
-                  {apiResponse.constituencies.length} options:
-                </p>
+                <p className="small">Select your constituency</p>
                 <Form.Select
                   name="constituency"
                   size="lg"
@@ -428,120 +432,118 @@ const PostcodeLookup = () => {
                   >
                     Select Constituency
                   </option>
-                  {apiResponse.constituencies.map((c, idx) => (
-                    <option key={c.slug} value={idx}>
-                      {c.name}
-                    </option>
-                  ))}
+                  <optgroup label="constituency">
+                    {apiResponse.constituencies.map((c, idx) => (
+                      <option key={c.slug} value={idx}>
+                        {c.name}
+                      </option>
+                    ))}
+                  </optgroup>
                 </Form.Select>
               </div>
-            )}
-          </>
-        )}
-        {subscribed ? (
-          <div className="my-3"></div>
-        ) : (
-          <div className="my-3">
-            <FormCheck name="emailOptIn">
-              <div>
-                <FormCheckInput
-                  checked={formState.emailOptIn}
-                  onChange={() =>
-                    setFormState({
-                      ...formState,
-                      emailOptIn: !formState.emailOptIn,
-                    })
-                  }
-                  className="me-2"
+            )
+          )}
+        </>
+      )}
+      {subscribed ? (
+        <div className="my-3"></div>
+      ) : (
+        <div className="my-3">
+          <FormCheck name="emailOptIn" className="form-check custom-checkbox">
+            <FormCheckInput
+              checked={formState.emailOptIn}
+              onChange={() =>
+                setFormState({
+                  ...formState,
+                  emailOptIn: !formState.emailOptIn,
+                })
+              }
+            />
+            <FormCheckLabel
+              onClick={() =>
+                setFormState({
+                  ...formState,
+                  emailOptIn: !formState.emailOptIn,
+                })
+              }
+            >
+              <strong>Join up,</strong> be counted, stick together
+            </FormCheckLabel>
+          </FormCheck>
+
+          {formState.emailOptIn && (
+            <>
+              <InputGroup hasValidation className="my-3">
+                <Form.Control
+                  name="email"
+                  size="lg"
+                  type="email"
+                  placeholder="Your Email"
+                  value={formState.email}
+                  isInvalid={!!emailError}
+                  onChange={(e) => {
+                    setFormState({ ...formState, email: e.target.value });
+                    if (!e.target.validity.typeMismatch) {
+                      setEmailError(null);
+                    }
+                  }}
+                  className="invalid-text-greyed"
                 />
-                <FormCheckLabel
-                  onClick={() =>
-                    setFormState({
-                      ...formState,
-                      emailOptIn: !formState.emailOptIn,
-                    })
-                  }
+                <Form.Control.Feedback
+                  className="fw-bold fst-italic px-2 pt-1  text-white"
+                  type="invalid"
                 >
-                  <strong>Join with your email</strong> to stick together
-                </FormCheckLabel>
-              </div>
-            </FormCheck>
+                  {emailError ? emailErrorToErrorMessage(emailError) : ""}
+                </Form.Control.Feedback>
+              </InputGroup>
+              <p className="small">
+                You&apos;re opting in to receive emails. We store your email
+                address, postcode, and constituency, so we can send you exactly
+                the information you need.
+              </p>
+            </>
+          )}
+        </div>
+      )}
 
-            {formState.emailOptIn && (
-              <>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    name="email"
-                    size="lg"
-                    type="email"
-                    placeholder="Your Email"
-                    value={formState.email}
-                    isInvalid={!!emailError}
-                    onChange={(e) => {
-                      setFormState({ ...formState, email: e.target.value });
-                      if (!e.target.validity.typeMismatch) {
-                        setEmailError(null);
-                      }
-                    }}
-                    className="my-2 invalid-text-greyed"
-                  />
-                  <Form.Control.Feedback
-                    className="fw-bold fst-italic px-2 pt-0 mt-0 mb-2 text-white"
-                    type="invalid"
-                  >
-                    {emailError ? emailErrorToErrorMessage(emailError) : ""}
-                  </Form.Control.Feedback>
-                </InputGroup>
-                <p style={{ fontSize: "0.75em" }}>
-                  We store your email address, postcode, and constituency, so we
-                  can send you exactly the information you need, and the actions
-                  to take.
-                </p>
-              </>
-            )}
-          </div>
-        )}
-
-        <Row className="d-flex justify-content-between my-3">
-          <Col xs={4} className="d-grid">
-            <Button
-              variant="light"
-              size="lg"
-              type="submit"
-              disabled={!lastSelectedConstituency}
-              aria-disabled={!lastSelectedConstituency}
-            >
-              {apiResponse === false && (
-                <>
-                  <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    area-hidden="true"
-                  />
-                  <span className="visually-hidden">Loading...</span>{" "}
-                </>
-              )}
-              <span className={`${rubik.className} fw-bold`}>Go</span>
-            </Button>
-          </Col>
-          <Col className="align-self-center text-end">
-            <a
-              href="https://themovementforward.com/privacy/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-link btn-sm"
-              role="button"
-            >
-              <span className={`${rubik.className} fw-bold`}>
-                Privacy Policy
-              </span>
-            </a>
-          </Col>
-        </Row>
-      </Form>
-    </Container>
+      <div className="d-flex justify-content-between mt-3">
+        <Button
+          variant="light"
+          size="lg"
+          type="submit"
+          disabled={!lastSelectedConstituency}
+          aria-disabled={!lastSelectedConstituency}
+          style={{ width: "66%" }}
+        >
+          {apiResponse === false && (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                area-hidden="true"
+              />
+              <span className="visually-hidden">Loading...</span>{" "}
+            </>
+          )}
+          <span className={`${rubik.className} fw-bold`}>
+            {formState.emailOptIn ? "Go + Join" : "Go"}
+          </span>
+        </Button>
+        <Button
+          href="https://themovementforward.com/privacy/"
+          as="a"
+          variant="link"
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-sm align-self-center"
+          role="button"
+        >
+          <span className={`${rubik.className} fw-bold`}>Privacy Policy</span>
+        </Button>
+      </div>
+    </Form>
   );
 };
 

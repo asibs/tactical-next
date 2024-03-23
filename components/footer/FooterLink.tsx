@@ -5,13 +5,12 @@ import {
 } from "@/storyblok/types/storyblok-types";
 import Link from "next/link";
 
-import Col from "react-bootstrap/Col";
-
+// TODO we only want links to Donate About Data Privacy
 const FooterLink = ({
   blok,
 }: {
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok;
-}) => <Col {...storyblokEditable(blok)}>{link(blok)}</Col>;
+}) => <>{link(blok)}</>;
 
 const link = (
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok,
