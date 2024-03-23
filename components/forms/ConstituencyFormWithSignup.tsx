@@ -175,6 +175,7 @@ const ConstituencyFormWithSignup = () => {
                       emailOptIn: !formState.emailOptIn,
                     })
                   }
+                  className="d-inline"
                 >
                   <strong>Join with your email</strong> to stick together
                 </FormCheckLabel>
