@@ -13,7 +13,9 @@ export default async function ConstituencySummaryPage() {
     await getConstituenciesData()
   ).filter((c: ConstituencyData) => c.recommendation.partySlug !== "None");
 
-  const constituencies = sortByMajority(torySeatsProgressiveBehind(constituenciesData));
+  const constituencies = sortByMajority(
+    torySeatsProgressiveBehind(constituenciesData),
+  );
   return (
     <>
       <Header backgroundImage="FESTIVAL_CROWD">
@@ -30,8 +32,8 @@ export default async function ConstituencySummaryPage() {
               <Col>
                 <h3>Tough Tory Seats</h3>
                 <p className="mb-2">
-                  There are {constituencies.length} Tory
-                  Constituencies* that we need to work even harder to take back!
+                  There are {constituencies.length} Tory Constituencies* that we
+                  need to work even harder to take back!
                 </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
@@ -43,7 +45,7 @@ export default async function ConstituencySummaryPage() {
             <ToryConstituencyTable constituencies={constituencies} />
           </Container>
         </section>
-      </main >
+      </main>
     </>
   );
 }

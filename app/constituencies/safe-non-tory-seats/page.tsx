@@ -31,8 +31,8 @@ export default async function ConstituencySummaryPage() {
               <Col>
                 <h3>Safe Non-Tory Seats</h3>
                 <p className="mb-2">
-                  There are {constituencies.length} non-Tory
-                  Constituencies* where you can safely vote with your heart
+                  There are {constituencies.length} non-Tory Constituencies*
+                  where you can safely vote with your heart
                 </p>
                 <p className="fst-italic">
                   * Based on converting 2019 voting patterns to new constituency
@@ -41,7 +41,10 @@ export default async function ConstituencySummaryPage() {
               </Col>
             </Row>
 
-            <NonToryConstituencyTable constituencies={constituencies} color={"IMPLIED"} />
+            <NonToryConstituencyTable
+              constituencies={constituencies}
+              color={"IMPLIED"}
+            />
           </Container>
         </section>
       </main>

@@ -17,9 +17,12 @@ export default async function ConstituencySummaryPage() {
     await getConstituenciesData()
   ).filter((c: ConstituencyData) => c.recommendation.partySlug !== "None");
 
-  const torySeatsProgressiveAheadCount = torySeatsProgressiveAhead(constituenciesData).length;
-  const torySeatsProgressiveBehindCount = torySeatsProgressiveBehind(constituenciesData).length;
-  const torySeatsNoRecommendationCount = torySeatsNoRecommendation(constituenciesData).length;
+  const torySeatsProgressiveAheadCount =
+    torySeatsProgressiveAhead(constituenciesData).length;
+  const torySeatsProgressiveBehindCount =
+    torySeatsProgressiveBehind(constituenciesData).length;
+  const torySeatsNoRecommendationCount =
+    torySeatsNoRecommendation(constituenciesData).length;
   const nonTorySeatsUnsafeCount = nonTorySeatsUnsafe(constituenciesData).length;
   const nonTorySeatsTorySafeCount = nonTorySeatsSafe(constituenciesData).length;
 
@@ -37,63 +40,92 @@ export default async function ConstituencySummaryPage() {
           <Container>
             <Row className="pb-3">
               <Col>
-                <h3><Link href="/constituencies/target-tory-seats">Target Tory Seats</Link></h3>
+                <h3>
+                  <Link href="/constituencies/target-tory-seats">
+                    Target Tory Seats
+                  </Link>
+                </h3>
                 <p className="mb-2">
                   There are {torySeatsProgressiveAheadCount} Tory
                   Constituencies* that we have a great chance of taking back!
                   <br />
-                  <Link href="/constituencies/target-tory-seats">See them all here.</Link>
+                  <Link href="/constituencies/target-tory-seats">
+                    See them all here.
+                  </Link>
                 </p>
               </Col>
             </Row>
 
             <Row className="pb-3">
               <Col>
-                <h3><Link href="/constituencies/tough-tory-seats">Tough Tory Seats</Link></h3>
+                <h3>
+                  <Link href="/constituencies/tough-tory-seats">
+                    Tough Tory Seats
+                  </Link>
+                </h3>
                 <p className="mb-2">
                   There are {torySeatsProgressiveBehindCount} Tory
                   Constituencies* that we need to work even harder to take back!
                   <br />
-                  <Link href="/constituencies/tough-tory-seats">See them all here.</Link>
+                  <Link href="/constituencies/tough-tory-seats">
+                    See them all here.
+                  </Link>
                 </p>
               </Col>
             </Row>
 
             <Row className="pb-3">
               <Col>
-                <h3><Link href="/constituencies/tory-seats-still-calculating">Tory Seats we&apos;re still working on</Link></h3>
+                <h3>
+                  <Link href="/constituencies/tory-seats-still-calculating">
+                    Tory Seats we&apos;re still working on
+                  </Link>
+                </h3>
                 <p className="mb-2">
                   There are {torySeatsNoRecommendationCount} Tory
                   Constituencies* where we&apos;re still working out the
                   tactical vote...
                   <br />
-                  <Link href="/constituencies/tory-seats-still-calculating">See them all here.</Link>
+                  <Link href="/constituencies/tory-seats-still-calculating">
+                    See them all here.
+                  </Link>
                 </p>
               </Col>
             </Row>
 
             <Row className="pb-3">
               <Col>
-                <h3><Link href="/constituencies/at-risk-non-tory-seats">At Risk Non-Tory Seats</Link></h3>
+                <h3>
+                  <Link href="/constituencies/at-risk-non-tory-seats">
+                    At Risk Non-Tory Seats
+                  </Link>
+                </h3>
                 <p className="mb-2">
-                  There are {nonTorySeatsUnsafeCount} non-Tory
-                  Constituencies* where we need to vote tactically to make sure
-                  the Tories don&apos;t win!
+                  There are {nonTorySeatsUnsafeCount} non-Tory Constituencies*
+                  where we need to vote tactically to make sure the Tories
+                  don&apos;t win!
                   <br />
-                  <Link href="/constituencies/at-risk-non-tory-seats">See them all here.</Link>
+                  <Link href="/constituencies/at-risk-non-tory-seats">
+                    See them all here.
+                  </Link>
                 </p>
               </Col>
             </Row>
 
-
             <Row className="pb-3">
               <Col>
-                <h3><Link href="/constituencies/safe-non-tory-seats">Safe Non-Tory Seats</Link></h3>
+                <h3>
+                  <Link href="/constituencies/safe-non-tory-seats">
+                    Safe Non-Tory Seats
+                  </Link>
+                </h3>
                 <p className="mb-2">
-                  There are {nonTorySeatsTorySafeCount} non-Tory
-                  Constituencies* where you can safely vote with your heart.
+                  There are {nonTorySeatsTorySafeCount} non-Tory Constituencies*
+                  where you can safely vote with your heart.
                   <br />
-                  <Link href="/constituencies/safe-non-tory-seats">See them all here.</Link>
+                  <Link href="/constituencies/safe-non-tory-seats">
+                    See them all here.
+                  </Link>
                 </p>
               </Col>
             </Row>

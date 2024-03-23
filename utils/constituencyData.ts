@@ -78,30 +78,54 @@ const sortByMajority = (
   });
 };
 
-const torySeats = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
-  constituenciesData.filter((c) => c.impliedPreviousResult.winningParty === "Con");
-
-const torySeatsProgressiveAhead = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
-  torySeats(constituenciesData).filter((c) =>
-    c.recommendation.partySlug && c.pollingResults.winningParty !== "Con",
+const torySeats = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
+  constituenciesData.filter(
+    (c) => c.impliedPreviousResult.winningParty === "Con",
   );
 
-const torySeatsProgressiveBehind = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
-  torySeats(constituenciesData).filter((c) =>
-    c.recommendation.partySlug && c.pollingResults.winningParty === "Con",
+const torySeatsProgressiveAhead = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
+  torySeats(constituenciesData).filter(
+    (c) =>
+      c.recommendation.partySlug && c.pollingResults.winningParty !== "Con",
   );
 
-const torySeatsNoRecommendation = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
+const torySeatsProgressiveBehind = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
+  torySeats(constituenciesData).filter(
+    (c) =>
+      c.recommendation.partySlug && c.pollingResults.winningParty === "Con",
+  );
+
+const torySeatsNoRecommendation = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
   torySeats(constituenciesData).filter((c) => !c.recommendation.partySlug);
 
-const nonTorySeats = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
-  constituenciesData.filter((c) => c.impliedPreviousResult.winningParty !== "Con");
+const nonTorySeats = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
+  constituenciesData.filter(
+    (c) => c.impliedPreviousResult.winningParty !== "Con",
+  );
 
-const nonTorySeatsSafe = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
-  nonTorySeats(constituenciesData).filter((c) => c.otherVoteData.conservativeWinUnlikely);
+const nonTorySeatsSafe = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
+  nonTorySeats(constituenciesData).filter(
+    (c) => c.otherVoteData.conservativeWinUnlikely,
+  );
 
-const nonTorySeatsUnsafe = (constituenciesData: ConstituencyData[]): ConstituencyData[] =>
-  nonTorySeats(constituenciesData).filter((c) => !c.otherVoteData.conservativeWinUnlikely);
+const nonTorySeatsUnsafe = (
+  constituenciesData: ConstituencyData[],
+): ConstituencyData[] =>
+  nonTorySeats(constituenciesData).filter(
+    (c) => !c.otherVoteData.conservativeWinUnlikely,
+  );
 
 export {
   getConstituencySlugs,
