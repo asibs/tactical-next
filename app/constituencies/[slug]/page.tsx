@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, ButtonGroup, Button } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
 import ActionBox from "@/components/info_box/ActionBox";
@@ -12,6 +12,12 @@ import {
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 import { notFound } from "next/navigation";
+import {
+  FaShare,
+  FaPuzzlePiece,
+  FaCopy,
+  FaHandHoldingHeart,
+} from "react-icons/fa6";
 import PostcodeLookup from "@/components/constituency_lookup/ConstituencyLookup";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
@@ -151,7 +157,30 @@ export default async function ConstituencyPage({
             </Row>
             <Row xs={1} lg={3}>
               <Col md={7} className="pb-3">
-                <PostcodeLookup />
+                <div className="form-search">
+                  <h3>Grow this movement</h3>
+                  <p>You&apos;re in! Now let&apos;s build our numbers</p>
+                  <ButtonGroup size="lg" vertical className="w-100 mb-0">
+                    {/* TODO share link and clipboard copy */}
+                    <Button href="#" variant="light">
+                      <FaShare /> Share with friends &amp; family
+                    </Button>
+                    <Button href="#" variant="light">
+                      <FaCopy />
+                      Copy link to this page
+                    </Button>
+                    <Button
+                      href="https://themovementforward.com/volunteer/"
+                      variant="light"
+                    >
+                      <FaPuzzlePiece /> Volunteer
+                    </Button>
+
+                    <Button href="/donate" variant="light">
+                      <FaHandHoldingHeart /> Support our crowdfunder
+                    </Button>
+                  </ButtonGroup>
+                </div>
               </Col>
               <Col md={7} className="pb-3">
                 <p style={{ fontSize: "26px" }}>

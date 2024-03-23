@@ -34,7 +34,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
           <Col sm={10} md={6} lg={4} xl={4} className="pb-4">
             <ButtonGroup vertical size="lg" className="w-100">
               <Link
-                href="/reminders"
+                href="/join"
                 className={`btn btn-dark btn-lg ${rubik.className} fw-bolder text-start lh-sm mb-1`}
               >
                 <FaBell className="me-2" />

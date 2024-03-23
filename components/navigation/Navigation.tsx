@@ -11,8 +11,6 @@ import logo from "@/assets/stop-the-tories-logo-transparent.png";
 import { rubik } from "@/utils/Fonts";
 import { FaBoltLightning, FaMagnifyingGlass } from "react-icons/fa6";
 
-import styles from "./styles.module.css";
-
 // Navbar which just includes our main call to actions, which are (currently) the search
 // & join buttons. These are always displayed on the navbar, and there is no hamburger
 // menu. Users need to scroll to the footer to see links to non-primary pages.
@@ -39,22 +37,11 @@ const Navigation = () => {
           <Navbar.Collapse>
             {/* pushes the buttons to the right */}
             <Nav as="ul" className="ms-auto"></Nav>
-            <Button
-              variant="dark"
-              href="/"
-              className="d-md-none d-inline-block"
-            >
-              <FaMagnifyingGlass className="mx-0" />
+            <Button variant="dark" href="/">
+              <FaMagnifyingGlass className="me-0 me-sm-2" />
+              <span className="d-none d-sm-inline-block">Search</span>
             </Button>
-            <Button
-              variant="dark"
-              href="/"
-              className="d-none d-md-inline-block"
-            >
-              <FaMagnifyingGlass />
-              Search
-            </Button>
-            <Button href="/reminders" className="ms-2">
+            <Button href="/join" className="ms-2">
               <FaBoltLightning className="d-none d-md-inline-block" />
               Join
             </Button>
