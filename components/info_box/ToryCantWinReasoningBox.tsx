@@ -8,7 +8,7 @@ import {
   FaTriangleExclamation,
 } from "react-icons/fa6";
 
-const TacticalReasoningBox = ({
+const ToryCantWinReasoningBox = ({
   constituencyData,
 }: {
   constituencyData: ConstituencyData;
@@ -89,4 +89,4 @@ const TacticalReasoningBox = ({
   );
 };
 
-export default TacticalReasoningBox;
+export default ToryCantWinReasoningBox;

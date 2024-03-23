@@ -1,5 +1,6 @@
-import InfoBox from "./InfoBox";
 import { svgChart } from "@/utils/Echarts";
+import metadata from "@/data/metadata.json";
+import Link from "next/link";
 
 const ImpliedChart = ({
   constituencyData,
@@ -12,16 +13,20 @@ const ImpliedChart = ({
   );
 
   return (
-    <InfoBox>
+    <div>
       <>
-        <h3 className="fs-5">2019 Election Results (Implied)</h3>
-        <p>The 2019 implied results from your constituency:</p>
+        <h3>2019 Results</h3>
+        <p>
+          Calculated by{" "}
+          <Link href={metadata.implied_2019[0].url}>BBC &amp; Sky</Link> using
+          new boundaries.
+        </p>
         <div
-          className="d-flex justify-content-center"
+          style={{ width: "100%" }}
           dangerouslySetInnerHTML={{ __html: svgStr }}
         />
       </>
-    </InfoBox>
+    </div>
   );
 };
 

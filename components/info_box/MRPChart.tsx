@@ -1,5 +1,6 @@
-import InfoBox from "./InfoBox";
 import { svgChart } from "@/utils/Echarts";
+import metadata from "@/data/metadata.json";
+import Link from "next/link";
 
 const MRPChart = ({
   constituencyData,
@@ -9,16 +10,23 @@ const MRPChart = ({
   const svgStr = svgChart(constituencyData.pollingResults.partyVoteResults);
 
   return (
-    <InfoBox>
+    <div>
       <>
-        <h3 className="fs-5">Constituency Regression Polls</h3>
-        <p>Average of last 6 months MRP models:</p>
+        <h3>Local MRP polling</h3>
+        <p>
+          Aggregate average of:{" "}
+          {metadata.mrp_poll.map((datum, idx) => (
+            <>
+              <Link href={datum.url}>Poll {idx + 1}</Link>{" "}
+            </>
+          ))}{" "}
+        </p>
         <div
-          className="d-flex justify-content-center"
+          style={{ width: "100%" }}
           dangerouslySetInnerHTML={{ __html: svgStr }}
         />
       </>
-    </InfoBox>
+    </div>
   );
 };
 

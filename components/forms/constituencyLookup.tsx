@@ -1,6 +1,6 @@
 "use client";
 
-import { Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 
 import {
   normalizePostcode,
@@ -159,6 +159,7 @@ const ConstituencyLookup = ({
     null,
   );
 
+  const [formPostcode, setFormPostcode] = useState("");
   useEffect(() => {
     if (
       apiResponse &&
@@ -225,6 +226,7 @@ const ConstituencyLookup = ({
   };
 
   const postcodeChanged = async (userPostcode: string) => {
+    setFormPostcode(userPostcode);
     const normalizedPostcode = normalizePostcode(userPostcode);
 
     if (
@@ -251,6 +253,7 @@ const ConstituencyLookup = ({
     <>
       <InputGroup className="my-3" hasValidation>
         <Form.Control
+          value={formPostcode}
           name="postcode"
           size="lg"
           type="text"
@@ -259,32 +262,45 @@ const ConstituencyLookup = ({
           isInvalid={!!postcodeError}
           onChange={(e) => postcodeChanged(e.target.value)}
           className="invalid-text-greyed"
+          onBlur={(e) => {
+            if (!validatePostcode.test(normalizePostcode(e.target.value)))
+              setPostcodeError("POSTCODE_INVALID");
+          }}
         />
-        {constituency && (
-          <InputGroup.Text>
-            {!constituency.name
-              ? ""
-              : constituency.name.length < 31
-              ? constituency.name
-              : constituency.name.substring(0, 27) + "..."}
-          </InputGroup.Text>
-        )}
         <Form.Control.Feedback
-          className="fw-bold fst-italic px-2 pt-0 mt-1 mb-2 text-white"
+          className="fw-bold fst-italic px-2 pt-1 text-white"
           type="invalid"
         >
           {postcodeError ? postcodeErrorMessage(postcodeError) : ""}
         </Form.Control.Feedback>
       </InputGroup>
 
+      {constituency && (
+        <InputGroup className="my-3">
+          <Form.Control
+            name="constituency-display"
+            size="lg"
+            type="text"
+            value={constituency.name}
+            readOnly
+          />
+          <Button
+            variant="secondary"
+            onClick={() => {
+              setApiResponse(null);
+              setFormPostcode("");
+            }}
+          >
+            CLEAR
+          </Button>
+        </InputGroup>
+      )}
+
       {apiResponse && apiResponse.constituencies.length > 1 && (
         <>
           {apiResponse.addresses ? (
             <div className="my-3">
-              <p className="mb-1" style={{ fontSize: "0.75em" }}>
-                We can&apos;t work out exactly which constituency you&apos;re in
-                - please select your address:
-              </p>
+              <p className="small">Select your exact address</p>
               <Form.Select
                 name="address"
                 size="lg"
@@ -296,45 +312,52 @@ const ConstituencyLookup = ({
                 <option selected disabled value="" style={{ display: "none" }}>
                   Select Address
                 </option>
-                {apiResponse.addresses.map((c) => (
-                  <option key={c.slug} value={c.slug}>
-                    {c.name}
-                  </option>
-                ))}
+                <optgroup label="address">
+                  {apiResponse.addresses.map((c) => (
+                    <option key={c.slug} value={c.slug}>
+                      {c.name.toLowerCase()}
+                    </option>
+                  ))}
+                </optgroup>
               </Form.Select>
             </div>
           ) : (
-            <div className="my-3">
-              <p className="mb-1" style={{ fontSize: "0.75em" }}>
-                We can&apos;t work out exactly which constituency you&apos;re in
-                - please select one of the {apiResponse.constituencies.length}{" "}
-                options:
-              </p>
-              <Form.Select
-                name="constituency"
-                size="lg"
-                defaultValue=""
-                onChange={(e) => {
-                  if (e.target.value.length > 2) {
-                    lookupConstituency(validPostcode.current, e.target.value);
-                  } else {
-                    setFormState({
-                      ...formState,
-                      constituencyIndex: parseInt(e.target.value),
-                    });
-                  }
-                }}
-              >
-                <option selected disabled value="" style={{ display: "none" }}>
-                  Select Constituency
-                </option>
-                {apiResponse.constituencies.map((c, idx) => (
-                  <option key={c.slug} value={idx}>
-                    {c.name}
+            !constituency && (
+              <div className="my-3">
+                <p className="small">Select your constituency</p>
+                <Form.Select
+                  name="constituency"
+                  size="lg"
+                  defaultValue=""
+                  onChange={(e) => {
+                    if (e.target.value.length > 2) {
+                      lookupConstituency(validPostcode.current, e.target.value);
+                    } else {
+                      setFormState({
+                        ...formState,
+                        constituencyIndex: parseInt(e.target.value),
+                      });
+                    }
+                  }}
+                >
+                  <option
+                    selected
+                    disabled
+                    value=""
+                    style={{ display: "none" }}
+                  >
+                    Select Constituency
                   </option>
-                ))}
-              </Form.Select>
-            </div>
+                  <optgroup label="constituency">
+                    {apiResponse.constituencies.map((c, idx) => (
+                      <option key={c.slug} value={idx}>
+                        {c.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                </Form.Select>
+              </div>
+            )
           )}
         </>
       )}
