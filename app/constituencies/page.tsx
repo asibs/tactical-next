@@ -283,7 +283,7 @@ export default async function ConstituencySummaryPage() {
         <section className="section-light">
           <Container>
             {/* NON-TORY SEATS, CAN BE WON BY A TORY */}
-            <Row className="pb-4">
+            <Row className="pb-3">
               <Col>
                 <h3>At Risk Non-Tory Seats</h3>
                 <p className="mb-2">
@@ -319,7 +319,7 @@ export default async function ConstituencySummaryPage() {
             </Row>
 
             {/* NON-TORY SEATS, CAN'T BE WON BY A TORY */}
-            <Row className="pb-4">
+            <Row className="pb-3">
               <Col>
                 <h3>Safe Non-Tory Seats</h3>
                 <p className="mb-2">
@@ -341,7 +341,9 @@ export default async function ConstituencySummaryPage() {
                     <span
                       className="badge rounded-pill w-100 h-100 text-wrap align-middle"
                       style={{
-                        backgroundColor: "var(--mf-pink)",
+                        backgroundColor: partyColorFromSlug(
+                          c.impliedPreviousResult.winningParty,
+                        ),
                       }}
                     >
                       {c.constituencyIdentifiers.name}
