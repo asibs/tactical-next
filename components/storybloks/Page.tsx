@@ -1,5 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
-import Header from "./Header";
+import Header from "@/components/Header";
 import { PageStoryblok } from "@/storyblok/types/storyblok-types";
 import { Container } from "react-bootstrap";
 
