@@ -2,7 +2,7 @@
   "story": {
     "name": "About",
     "created_at": "2024-03-02T23:25:02.921Z",
-    "published_at": "2024-03-03T11:16:57.834Z",
+    "published_at": "2024-03-24T01:46:15.173Z",
     "id": 454239014,
     "uuid": "88c84a75-daf0-4abc-ade9-1927585b59c7",
     "content": {
@@ -21,7 +21,7 @@
                   {
                     "type": "heading",
                     "attrs": {
-                      "level": 3
+                      "level": 2
                     },
                     "content": [
                       {
@@ -122,6 +122,185 @@
                         "type": "text"
                       }
                     ]
+                  },
+                  {
+                    "type": "heading",
+                    "attrs": {
+                      "level": 3
+                    },
+                    "content": [
+                      {
+                        "text": "Want to know more?",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bullet_list",
+                    "content": [
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Join the movement",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "/join",
+                                      "uuid": null,
+                                      "anchor": null,
+                                      "custom": {},
+                                      "target": "_self",
+                                      "linktype": "url"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": " to get the Tories out & influence the next government",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Find out more about our tactical voting  ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Methodology",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "/methodology",
+                                      "uuid": null,
+                                      "anchor": null,
+                                      "custom": {},
+                                      "target": "_self",
+                                      "linktype": "url"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": " and ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Data",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "/data",
+                                      "uuid": null,
+                                      "anchor": null,
+                                      "custom": {},
+                                      "target": "_self",
+                                      "linktype": "url"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Got questions? See our ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "FAQ",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "/faq",
+                                      "uuid": null,
+                                      "anchor": null,
+                                      "custom": {},
+                                      "target": "_self",
+                                      "linktype": "url"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "list_item",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Meet the team",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "/team",
+                                      "uuid": null,
+                                      "anchor": null,
+                                      "custom": {},
+                                      "target": "_self",
+                                      "linktype": "url"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": " & see how you can ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "stay in touch",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "/contact",
+                                      "uuid": null,
+                                      "anchor": null,
+                                      "custom": {},
+                                      "target": "_self",
+                                      "linktype": "url"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               },
@@ -150,7 +329,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1710704244,
+  "cv": 1711246607,
   "rels": [],
   "links": []
 }
