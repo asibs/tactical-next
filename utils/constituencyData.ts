@@ -57,20 +57,23 @@ const votePercent = (voteResult: VoteResult, partySlug: string) => {
 };
 
 const progressiveContenders = (constituencyData: ConstituencyData) => {
+  const VOTE_PERCENT_MARGIN = 20;
   const contenders: Set<PartySlug> = new Set();
 
+  // All progressives within VOTE_PERCENT_MARGIN of the MRP winner are contenders
   const pollWinner = constituencyData.pollingResults.partyVoteResults.sort(
     (a, b) => b.votePercent - a.votePercent,
   )[0];
   constituencyData.pollingResults.partyVoteResults.forEach((result) => {
     if (
       isProgressive(result.partySlug) &&
-      result.votePercent >= pollWinner.votePercent - 20
+      result.votePercent >= pollWinner.votePercent - VOTE_PERCENT_MARGIN
     ) {
       contenders.add(result.partySlug);
     }
   });
 
+  // The 2019 winner is a contender (if progressive)
   const impliedPreviousWinner =
     constituencyData.impliedPreviousResult.winningParty;
   if (isProgressive(impliedPreviousWinner)) {
