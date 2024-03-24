@@ -1,24 +1,27 @@
-import { storyblokEditable } from "@storyblok/react/rsc";
+import React from "react";
+
 import {
   FooterExternalLinkStoryblok,
   FooterInternalLinkStoryblok,
 } from "@/storyblok/types/storyblok-types";
 import Link from "next/link";
+import { storyblokEditable } from "@storyblok/react/rsc";
 
-// TODO we only want links to Donate About Data Privacy
 const FooterLink = ({
   blok,
 }: {
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok;
-}) => <>{link(blok)}</>;
+}) => (
+  // React.Fragment is just the explicit version of "<></>" - so we can add a key attribute to it
+  <React.Fragment {...storyblokEditable(blok)}>{link(blok)}</React.Fragment>
+);
 
 const link = (
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok,
 ) => {
   {
-    const className = `btn ${
-      blok.button ? "btn-light" : "btn-link"
-    } btn-sm fw-bold text-start mx-1`;
+    const className = `btn ${blok.button ? "btn-light" : "btn-link"
+      } btn-sm fw-bold text-start mx-1`;
 
     switch (blok.component) {
       case "footer_internal_link":
