@@ -20,8 +20,9 @@ const link = (
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok,
 ) => {
   {
-    const className = `btn ${blok.button ? "btn-light" : "btn-link"
-      } btn-sm fw-bold text-start mx-1`;
+    const className = `btn ${
+      blok.button ? "btn-light" : "btn-link"
+    } btn-sm fw-bold text-start mx-1`;
 
     switch (blok.component) {
       case "footer_internal_link":
