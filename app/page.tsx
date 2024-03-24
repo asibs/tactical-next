@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import ConstituencyLookup from "@/components/constituency_lookup/ConstituencyLookup";
 import ConstituencyFormWithSignup from "@/components/forms/ConstituencyFormWithSignup";
 import MovementSection from "@/components/sections/MovementSection";
 import { Col, Container, Row } from "react-bootstrap";
@@ -37,7 +36,9 @@ export default async function Index() {
         </Container>
       </Header>
 
-      <MovementSection />
+      <main>
+        <MovementSection />
+      </main>
     </>
   );
 }
