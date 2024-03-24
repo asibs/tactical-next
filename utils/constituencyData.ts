@@ -1,4 +1,5 @@
 import constituencyJson from "@/data/constituency.json";
+import { isProgressive } from "@/utils/Party";
 
 const getConstituencyData = (constituencySlug: string) => {
   const constituenciesData = getConstituenciesData();
@@ -55,6 +56,30 @@ const votePercent = (voteResult: VoteResult, partySlug: string) => {
   );
 };
 
+const progressiveContenders = (constituencyData: ConstituencyData) => {
+  const contenders: Set<PartySlug> = new Set();
+
+  const pollWinner = constituencyData.pollingResults.partyVoteResults.sort(
+    (a, b) => b.votePercent - a.votePercent,
+  )[0];
+  constituencyData.pollingResults.partyVoteResults.forEach((result) => {
+    if (
+      isProgressive(result.partySlug) &&
+      result.votePercent >= pollWinner.votePercent - 20
+    ) {
+      contenders.add(result.partySlug);
+    }
+  });
+
+  const impliedPreviousWinner =
+    constituencyData.impliedPreviousResult.winningParty;
+  if (isProgressive(impliedPreviousWinner)) {
+    contenders.add(impliedPreviousWinner);
+  }
+
+  return Array.from(contenders);
+};
+
 const sortOnMajority = (
   constituenciesData: ConstituencyData[],
   direction: "ASC" | "DESC" = "ASC",
@@ -83,6 +108,7 @@ export {
   getConstituencyData,
   getConstituenciesData,
   majority,
+  progressiveContenders,
   sortOnMajority,
   votePercent,
 };

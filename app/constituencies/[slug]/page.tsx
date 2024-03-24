@@ -1,7 +1,6 @@
 import { Col, Container, Row, ButtonGroup, Button } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
-import ActionBox from "@/components/info_box/ActionBox";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
 import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
@@ -10,6 +9,7 @@ import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 import {
   getConstituenciesData,
   getConstituencySlugs,
+  progressiveContenders,
 } from "@/utils/constituencyData";
 import { notFound } from "next/navigation";
 import {
@@ -18,7 +18,6 @@ import {
   FaCopy,
   FaHandHoldingHeart,
 } from "react-icons/fa6";
-import PostcodeLookup from "@/components/constituency_lookup/ConstituencyLookup";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
 
@@ -31,6 +30,88 @@ export const dynamicParams = false; // Don't allow params not in generateStaticP
 export async function generateStaticParams() {
   const constituencySlugs = await getConstituencySlugs();
   return constituencySlugs.map((slug) => ({ slug: slug }));
+}
+
+function TacticalAdviceSection({
+  constituencyData,
+}: {
+  constituencyData: ConstituencyData;
+}) {
+  let tacticalVoteHeader;
+  let tacticalVoteAdvice;
+
+  if (constituencyData.otherVoteData.conservativeWinUnlikely) {
+    /* Conservatives can't win */
+    const parties = progressiveContenders(constituencyData);
+
+    tacticalVoteHeader = (
+      <>
+        <h2>
+          <span className="party-your-heart">Vote with your heart</span>, Tories
+          unlikely to win here
+        </h2>
+      </>
+    );
+
+    if (parties.length === 1) {
+      tacticalVoteAdvice = (
+        <h3 className="party">
+          Likely{" "}
+          <span className={`party ${partyCssClassFromSlug(parties[0])}`}>
+            {partyNameFromSlug(parties[0])}
+          </span>{" "}
+          Win
+        </h3>
+      );
+    } else {
+      tacticalVoteAdvice = (
+        <h3 className="party">
+          {parties
+            .map<React.ReactNode>((p) => (
+              <span key={p} className={partyCssClassFromSlug(p)}>
+                {partyNameFromSlug(p)}
+              </span>
+            ))
+            .reduce((prev, curr) => [prev, " VS ", curr])}
+        </h3>
+      );
+    }
+  } else {
+    /* Conservatives could win */
+    tacticalVoteHeader = <h2>The Tactical Vote is</h2>;
+
+    if (constituencyData.recommendation.partySlug) {
+      tacticalVoteAdvice = (
+        <h3
+          className={`party ${partyCssClassFromSlug(
+            constituencyData.recommendation.partySlug,
+          )}`}
+        >
+          {partyNameFromSlug(constituencyData.recommendation.partySlug)}
+        </h3>
+      );
+    } else {
+      tacticalVoteAdvice = (
+        <h3 className="party party-too-soon">Too soon to call</h3>
+      );
+    }
+  }
+
+  return (
+    <section id="section-advice" className="section-darker">
+      <Container>
+        <Row>
+          <Col>
+            {tacticalVoteHeader}
+            {tacticalVoteAdvice}
+            <p>
+              <a href="#section-info">Why?</a>
+            </p>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
 }
 
 // Multiple versions of this page will be statically generated
@@ -61,30 +142,6 @@ export default async function ConstituencyPage({
   constituencyData.pollingResults.partyVoteResults.sort(
     (a, b) => b.votePercent - a.votePercent,
   );
-
-  let tacticalVoteHeader = "";
-  let tacticalVoteAdvice = "";
-  let tacticalVoteClass = "";
-
-  if (constituencyData.otherVoteData.conservativeWinUnlikely) {
-    tacticalVoteHeader = "Tories unlikely to win here";
-    tacticalVoteAdvice = "Vote with your heart";
-    tacticalVoteClass = "party-your-heart";
-  } else {
-    tacticalVoteHeader = "The Tactical Vote is";
-
-    if (constituencyData.recommendation.partySlug) {
-      tacticalVoteAdvice = partyNameFromSlug(
-        constituencyData.recommendation.partySlug,
-      );
-      tacticalVoteClass = partyCssClassFromSlug(
-        constituencyData.recommendation.partySlug,
-      );
-    } else {
-      tacticalVoteClass = "party-too-soon";
-      tacticalVoteAdvice = "Too Soon to call";
-    }
-  }
 
   if (constituencyData.recommendation.partySlug === "None") {
     return (
@@ -133,21 +190,8 @@ export default async function ConstituencyPage({
       </Header>
 
       <main>
-        <section id="section-advice" className="section-darker">
-          <Container>
-            <Row>
-              <Col>
-                <h2>{tacticalVoteHeader}</h2>
-                <h3 className={`party ${tacticalVoteClass}`}>
-                  {tacticalVoteAdvice}
-                </h3>
-                <p>
-                  <a href="#section-info">Why?</a>
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </section>
+        <TacticalAdviceSection constituencyData={constituencyData} />
+
         <section id="section-join" className="section-dark">
           <Container>
             <Row>

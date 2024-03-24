@@ -91,7 +91,12 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
   }
 };
 
+const isProgressive = (slug: PartySlug) => {
+  return ["Lab", "LD", "Green", "SNP", "PC"].includes(slug);
+};
+
 export {
+  isProgressive,
   partyColorFromSlug,
   partyNameFromSlug,
   shortPartyNameFromSlug,
