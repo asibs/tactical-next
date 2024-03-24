@@ -33,66 +33,60 @@ const MovementSection = () => {
   };
 
   return (
-    <main>
-      <section id="section-movement" className="section-light">
-        <Container className="py-4 py-md-5">
-          {/* PEOPLE */}
-          <Row>
-            <Col className="pb-3 pb-md-5">
-              <h2>
-                Join A Movement building voter power, beyond this election.
-              </h2>
-            </Col>
-          </Row>
+    <section id="section-movement" className="section-light">
+      <Container className="py-4 py-md-5">
+        {/* PEOPLE */}
+        <Row>
+          <Col className="pb-3 pb-md-5">
+            <h2>Join A Movement building voter power, beyond this election.</h2>
+          </Col>
+        </Row>
 
-          <Row xs={3} md={6} className="g-0 mb-4 mb-md-5 alignfull">
-            {Object.keys(people).map((key) => {
-              // TS isn't smart enough to work out `key` is just the keys from the people object,
-              // so thinks they might not be a valid key for the object...
-              // @ts-expect-error
-              const name: string = people[key]["name"];
-              // @ts-expect-error
-              const image: StaticImageData = people[key]["image"];
+        <Row xs={3} md={6} className="g-0 mb-4 mb-md-5 alignfull">
+          {Object.keys(people).map((key) => {
+            // TS isn't smart enough to work out `key` is just the keys from the people object,
+            // so thinks they might not be a valid key for the object...
+            // @ts-expect-error
+            const name: string = people[key]["name"];
+            // @ts-expect-error
+            const image: StaticImageData = people[key]["image"];
 
-              return (
-                <Col key={key}>
-                  <Image
-                    src={image}
-                    alt={`Photo of ${name}`}
-                    style={{ width: "100%", height: "100%" }}
-                    placeholder="blur"
-                  />
-                </Col>
-              );
-            })}
-          </Row>
+            return (
+              <Col key={key}>
+                <Image
+                  src={image}
+                  alt={`Photo of ${name}`}
+                  style={{ width: "100%", height: "100%" }}
+                  placeholder="blur"
+                />
+              </Col>
+            );
+          })}
+        </Row>
 
-          {/* PLAN */}
-          <Row xs={1} md={2}>
-            <Col>
-              <h3 className="fw-bolder fs-5">We show up</h3>
-              <h4 className="fw-bolder fs-2">To get the tories out</h4>
-              <p>
-                In many places around the country, if we vote together for the
-                most likely candidate to beat the Tory, out votes demolish them
-                into tiny numbers.
-              </p>
-            </Col>
-            <Col>
-              <h3 className="fw-bolder fs-5">We stick together</h3>
-              <h4 className="fw-bolder fs-2">
-                To influence the next government
-              </h4>
-              <p>
-                A bigger influence on the next government than the media that
-                currently shape the narrative. We stick together offering our
-                votes for the changes we want.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-    </main>
+        {/* PLAN */}
+        <Row xs={1} md={2}>
+          <Col>
+            <h3 className="fw-bolder fs-5">We show up</h3>
+            <h4 className="fw-bolder fs-2">To get the tories out</h4>
+            <p>
+              In many places around the country, if we vote together for the
+              most likely candidate to beat the Tory, out votes demolish them
+              into tiny numbers.
+            </p>
+          </Col>
+          <Col>
+            <h3 className="fw-bolder fs-5">We stick together</h3>
+            <h4 className="fw-bolder fs-2">To influence the next government</h4>
+            <p>
+              A bigger influence on the next government than the media that
+              currently shape the narrative. We stick together offering our
+              votes for the changes we want.
+            </p>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 };
 
