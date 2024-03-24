@@ -2,7 +2,7 @@
   "story": {
     "name": "FAQ",
     "created_at": "2023-12-09T13:34:06.457Z",
-    "published_at": "2024-03-02T23:08:51.872Z",
+    "published_at": "2024-03-24T02:15:59.458Z",
     "id": 416705707,
     "uuid": "09349e3a-47d9-481a-96fd-7592bad2b461",
     "content": {
@@ -251,6 +251,35 @@
                         "type": "text"
                       }
                     ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "You can ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "meet the team behind Stop The Tories here",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "/team",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text"
+                      }
+                    ]
                   }
                 ]
               },
@@ -279,10 +308,309 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Find out more about our ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "#000000"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Methodology",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "/methodology",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "#000000"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": " and ",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "#000000"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Data",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "/data",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          },
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "#000000"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "#000000"
+                            }
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               },
               "title": "Do you favour one party over another?",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "9f41553e-16b7-4cf6-b49f-0d43771e8789",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We aim to make tactical voting recommendations in every seat where a Tory ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "could",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "italic"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " win.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "In some seats, the tactical vote isn't clear yet - we will aim to make a recommendation as soon as possible, but in some cases will need to wait until close to polling day.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "In seats where the Tory party can't win, we encourage people to vote with their hearts.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We also don't make recommendations in Northern Ireland, or in the Speakers seat (Chorley).",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Find out more about our ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Methodology",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "/methodology",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": " and ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Data",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "/data",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Why aren't you recommending any party in my constituency?",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "b41d35db-f22e-4287-b3c5-e99734c84e13",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "The main political parties who stand in the rest of the UK - including the Tory party - don't stand candidates in Northern Ireland.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Because of this, we've decided not to make any recommendations in Northern Ireland.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Why don't you make recommendations in Northern Ireland?",
+              "component": "toggle_text",
+              "text_shown_initially": false
+            },
+            {
+              "_uid": "62efd934-542b-4ddc-9dfe-088ad113a7d1",
+              "text": {
+                "type": "doc",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "The current MP for Chorley is Lindsay Hoyle, who is currently the ",
+                        "type": "text"
+                      },
+                      {
+                        "text": "Speaker of the House of Commons",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://en.wikipedia.org/wiki/Speaker_of_the_House_of_Commons_(United_Kingdom)",
+                              "uuid": null,
+                              "anchor": null,
+                              "target": "_self",
+                              "linktype": "url"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "text": ".",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "By convention, most major political parties - including the Tory party - do not stand candidates against the Speaker.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "This convention means voters in the Speakers seat typically do not get much choice of who to vote for, and the Speaker usually comfortably wins elections.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "The Speaker also does not take part in debates or votes in Parliament, meaning voters in the Speakers seat do not have a voice in parliament.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "We believe in Proportional Representation, which would mean all voters will have representation in parliament.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "Why aren't you making a recommendation in Chorley?",
               "component": "toggle_text",
               "text_shown_initially": false
             },
@@ -346,7 +674,7 @@
                   }
                 ]
               },
-              "title": "How you can support this project",
+              "title": "How can I support this project?",
               "component": "toggle_text",
               "text_shown_initially": false
             }
@@ -373,7 +701,7 @@
     "default_full_slug": null,
     "translated_slugs": null
   },
-  "cv": 1710704244,
+  "cv": 1711246607,
   "rels": [],
   "links": []
 }
