@@ -291,8 +291,8 @@ footer ul svg:hover {
 }
 
 /* NAVBAR */
+/* Note, the below is not in Josh's CSS file, but required to avoid the navbar spilling in the X-axis on small devices */
 /* Below 360px, the Navigation component won't naturally fit, so start to scale down the text */
-/* Not In Josh CSS
 .brand-text {
   @media (max-width: 359.98px) {
     font-size: 5.25vw;
@@ -300,13 +300,11 @@ footer ul svg:hover {
 }
 
 /* Below 385px, the NavWithHamburger component won't naturally fit, so start to scale down the text */
-/*
 .hamburger-brand-text {
   @media (max-width: 384.98px) {
     font-size: 4vw;
   }
 }
-*/
 
 /* FORMS - CUSTOM CHECKBOX */
 
