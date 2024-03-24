@@ -12,7 +12,7 @@ const FooterLink = ({
 }: {
   blok: FooterInternalLinkStoryblok | FooterExternalLinkStoryblok;
 }) => (
-  // React.Fragment is just the explicit version of "<></>" - so we can add a key attribute to it
+  // React.Fragment is just the explicit version of "<></>" - so we can add the storyblok attribute to it
   <React.Fragment {...storyblokEditable(blok)}>{link(blok)}</React.Fragment>
 );
 
