@@ -1,31 +1,22 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
-import {
-  Container,
-  Form,
-  Button,
-  FormCheck,
-  Row,
-  Col,
-  Spinner,
-  InputGroup,
-} from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 
 import {
   normalizePostcode,
   postcodeInputPattern,
   validatePostcode,
 } from "@/utils/Postcodes";
-import { submitANForm } from "@/utils/AnApiSubmission";
-import { rubik } from "@/utils/Fonts";
-import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
-import FormCheckLabel from "react-bootstrap/esm/FormCheckLabel";
-import { useMemo, useRef, useState, useEffect } from "react";
+import {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
-const postcodeErrorToErrorMessage = (code: PostCodeErrorCode) => {
-  switch (code) {
+const postcodeErrorMessage = (errorCode: PostCodeErrorCode) => {
+  switch (errorCode) {
     case "POSTCODE_INVALID":
       return "Oops, that postcode doesn't look right to us. Please try again or contact us."; // TODO make contact us a link?
 
@@ -36,17 +27,6 @@ const postcodeErrorToErrorMessage = (code: PostCodeErrorCode) => {
     case "SERVER_ERROR":
       return "Something went wrong looking up your constituency.";
     //TODO add in a link for them to find their constituency in a list
-    default:
-      return "";
-  }
-};
-
-const emailErrorToErrorMessage = (code: EmailErrorCode) => {
-  switch (code) {
-    case "EMAIL_INVALID":
-      return "Please add a valid email address.";
-    case "SERVER_ERROR":
-      return "Something went wrong signing you up. Please try again?";
     default:
       return "";
   }
@@ -149,64 +129,61 @@ const throttledApi = async (
 };
 
 type FormData = {
-  emailOptIn: boolean;
   constituencyIndex: number | false;
-  addressIndex: number | false;
-  email: string;
 };
 
 const initialFormState: FormData = {
-  emailOptIn: false,
   constituencyIndex: false,
-  addressIndex: false,
-  email: "",
 };
 
-const PostcodeLookup = () => {
-  const router = useRouter();
+interface IProps {
+  validPostcode: MutableRefObject<string>;
+  constituency: Constituency | null;
+  setConstituency: Dispatch<SetStateAction<Constituency | null>>;
+  loading: boolean;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+}
 
-  // TODO: Look into using useFormState in future:
-  // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-validation-and-error-handling
-  // Was hitting into this issue: https://github.com/vercel/next.js/issues/55919
-
-  const [subscribed, setSubscribed] = useState<string | null | false>(false);
+const ConstituencyLookup = ({
+  validPostcode,
+  constituency,
+  setConstituency,
+  loading,
+  setLoading,
+}: IProps) => {
   const [formState, setFormState] = useState<FormData>(initialFormState);
-  const [formPostcode, setFormPostcode] = useState<string>("");
   const [apiResponse, setApiResponse] = useState<
     ConstituencyLookupResponse | false | null
   >(null);
-  const [postError, setPostError] = useState<PostCodeErrorCode | null>(null);
-  const [emailError, setEmailError] = useState<EmailErrorCode | null>(null);
-  const formRef = useRef<HTMLFormElement | null>(null);
+  const [postcodeError, setPostcodeError] = useState<PostCodeErrorCode | null>(
+    null,
+  );
 
-  const validPostcode = useRef("");
-
+  const [formPostcode, setFormPostcode] = useState("");
   useEffect(() => {
-    //string = subscription Date.now()
-    //null = not subscribed on client
-    //false = on server
-    setSubscribed(window.localStorage.getItem("fwd-subscribed"));
-  }, []);
-
-  const lastSelectedConstituency = useMemo(() => {
     if (
       apiResponse &&
       apiResponse.constituencies?.length > 0 &&
       apiResponse.postcode == validPostcode.current &&
       formState.constituencyIndex !== false
     ) {
-      return apiResponse.constituencies[formState.constituencyIndex];
+      setConstituency(apiResponse.constituencies[formState.constituencyIndex]);
     } else {
-      return null;
+      setConstituency(null);
     }
-  }, [apiResponse, formState.constituencyIndex]);
+  }, [
+    apiResponse,
+    formState.constituencyIndex,
+    validPostcode,
+    setConstituency,
+  ]);
 
   const lookupConstituency = async (
     postcode: string,
     addressSlug?: string,
   ): Promise<ConstituencyLookupResponse | null> => {
-    setApiResponse(false);
-    setPostError(null);
+    setLoading(true);
+    setPostcodeError(null);
 
     console.log("Lookup Constituency", postcode, addressSlug);
     const responseJson = await throttledApi(postcode, addressSlug);
@@ -218,25 +195,25 @@ const PostcodeLookup = () => {
 
     if (responseJson == null) {
       console.log("SERVER ERROR");
-      // a server error for the most recent lookup!
-      setPostError("SERVER_ERROR");
-      setApiResponse(null); // clear the spinner
+      // A server error for the most recent lookup!
+      setPostcodeError("SERVER_ERROR");
+      setApiResponse(null);
+      setLoading(false);
       return null;
     }
 
     // The response postcode doesn't match the last one entered.
     if (responseJson.postcode !== postcode) {
-      //The server has responded with a different postcode
-      //to the one we sent it!
+      // The server has responded with a different postcode to the one we sent it!
       console.log("THIS SHOULD NEVER HAPPEN!");
-      setPostError("SERVER_ERROR");
-
-      setApiResponse(false); // clear the spinner
+      setPostcodeError("SERVER_ERROR");
+      setApiResponse(null);
+      setLoading(false);
       return null;
     }
 
     setApiResponse(responseJson);
-    setPostError(responseJson.errorCode || null);
+    setPostcodeError(responseJson.errorCode || null);
 
     if (responseJson.constituencies.length == 1) {
       setFormState({ ...formState, constituencyIndex: 0 });
@@ -244,12 +221,12 @@ const PostcodeLookup = () => {
       setFormState({ ...formState, constituencyIndex: false });
     }
 
+    setLoading(false);
     return responseJson;
   };
 
   const postcodeChanged = async (userPostcode: string) => {
     setFormPostcode(userPostcode);
-    setPostError(null);
     const normalizedPostcode = normalizePostcode(userPostcode);
 
     if (
@@ -272,69 +249,8 @@ const PostcodeLookup = () => {
     }
   };
 
-  const submitForm = async () => {
-    if (lastSelectedConstituency && !formState.emailOptIn) {
-      router.push(`/constituencies/${lastSelectedConstituency.slug}`);
-      return;
-    } else if (
-      lastSelectedConstituency &&
-      formState.emailOptIn &&
-      formState.email &&
-      formRef.current &&
-      !formRef.current.email.validity.typeMismatch
-    ) {
-      //TODO set source codes from current url params.
-      const anResponse = await submitANForm(
-        formState.email,
-        validPostcode.current,
-        lastSelectedConstituency,
-        process.env.NEXT_PUBLIC_AN_POSTCODE_FORM || "",
-        ["stop the tories", "movement forward", "election reminders", "join"],
-        "", // source codes,
-      );
-
-      if (anResponse.ok) {
-        window.localStorage.setItem("fwd-subscribed", Date.now().toString());
-        router.push(`/constituencies/${lastSelectedConstituency.slug}`);
-      } else {
-        setEmailError("SERVER_ERROR"); //AN doesn't give error codes on failure
-      }
-    }
-
-    // VALIDATION
-    // Invalid email
-    if (
-      formState.emailOptIn &&
-      (!formState.email ||
-        (formRef.current && formRef.current.email.validity.typeMismatch))
-    ) {
-      setEmailError("EMAIL_INVALID");
-    }
-
-    // no postcode or invalid postcode
-    if (
-      !validPostcode.current ||
-      !apiResponse ||
-      !apiResponse.constituencies ||
-      apiResponse.constituencies.length == 0
-    ) {
-      // User hasn't input anything or invalid postcode
-      setPostError("POSTCODE_INVALID");
-      return;
-    }
-
-    //not selected constituency or address
-    if (
-      apiResponse.constituencies.length > 1 &&
-      formState.constituencyIndex === false
-    ) {
-      setPostError("UNCLEAR_CONSTITUENCY");
-    }
-  };
-
   return (
-    <Form className="form-search" ref={formRef} action={submitForm} noValidate>
-      <h3 className="fw-bolder">How to vote your Tory out</h3>
+    <>
       <InputGroup className="my-3" hasValidation>
         <Form.Control
           value={formPostcode}
@@ -343,29 +259,29 @@ const PostcodeLookup = () => {
           type="text"
           placeholder="Your Postcode"
           pattern={postcodeInputPattern}
-          isInvalid={!!postError}
+          isInvalid={!!postcodeError}
           onChange={(e) => postcodeChanged(e.target.value)}
           className="invalid-text-greyed"
           onBlur={(e) => {
             if (!validatePostcode.test(normalizePostcode(e.target.value)))
-              setPostError("POSTCODE_INVALID");
+              setPostcodeError("POSTCODE_INVALID");
           }}
         />
         <Form.Control.Feedback
           className="fw-bold fst-italic px-2 pt-1 text-white"
           type="invalid"
         >
-          {postError ? postcodeErrorToErrorMessage(postError) : ""}
+          {postcodeError ? postcodeErrorMessage(postcodeError) : ""}
         </Form.Control.Feedback>
       </InputGroup>
 
-      {lastSelectedConstituency && (
+      {constituency && (
         <InputGroup className="my-3">
           <Form.Control
             name="constituency-display"
             size="lg"
             type="text"
-            value={lastSelectedConstituency.name}
+            value={constituency.name}
             readOnly
           />
           <Button
@@ -406,7 +322,7 @@ const PostcodeLookup = () => {
               </Form.Select>
             </div>
           ) : (
-            !lastSelectedConstituency && (
+            !constituency && (
               <div className="my-3">
                 <p className="small">Select your constituency</p>
                 <Form.Select
@@ -445,106 +361,8 @@ const PostcodeLookup = () => {
           )}
         </>
       )}
-      {subscribed ? (
-        <div className="my-3"></div>
-      ) : (
-        <div className="my-3">
-          <FormCheck name="emailOptIn" className="form-check custom-checkbox">
-            <FormCheckInput
-              checked={formState.emailOptIn}
-              onChange={() =>
-                setFormState({
-                  ...formState,
-                  emailOptIn: !formState.emailOptIn,
-                })
-              }
-            />
-            <FormCheckLabel
-              onClick={() =>
-                setFormState({
-                  ...formState,
-                  emailOptIn: !formState.emailOptIn,
-                })
-              }
-            >
-              <strong>Join up,</strong> be counted, stick together
-            </FormCheckLabel>
-          </FormCheck>
-
-          {formState.emailOptIn && (
-            <>
-              <InputGroup hasValidation className="my-3">
-                <Form.Control
-                  name="email"
-                  size="lg"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formState.email}
-                  isInvalid={!!emailError}
-                  onChange={(e) => {
-                    setFormState({ ...formState, email: e.target.value });
-                    if (!e.target.validity.typeMismatch) {
-                      setEmailError(null);
-                    }
-                  }}
-                  className="invalid-text-greyed"
-                />
-                <Form.Control.Feedback
-                  className="fw-bold fst-italic px-2 pt-1  text-white"
-                  type="invalid"
-                >
-                  {emailError ? emailErrorToErrorMessage(emailError) : ""}
-                </Form.Control.Feedback>
-              </InputGroup>
-              <p className="small">
-                You&apos;re opting in to receive emails. We store your email
-                address, postcode, and constituency, so we can send you exactly
-                the information you need.
-              </p>
-            </>
-          )}
-        </div>
-      )}
-
-      <div className="d-flex justify-content-between mt-3">
-        <Button
-          variant="light"
-          size="lg"
-          type="submit"
-          disabled={!lastSelectedConstituency}
-          aria-disabled={!lastSelectedConstituency}
-          style={{ width: "66%" }}
-        >
-          {apiResponse === false && (
-            <>
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                area-hidden="true"
-              />
-              <span className="visually-hidden">Loading...</span>{" "}
-            </>
-          )}
-          <span className={`${rubik.className} fw-bold`}>
-            {formState.emailOptIn ? "Go + Join" : "Go"}
-          </span>
-        </Button>
-        <Button
-          href="https://themovementforward.com/privacy/"
-          as="a"
-          variant="link"
-          target="_blank"
-          rel="noreferrer"
-          className="btn btn-sm align-self-center"
-          role="button"
-        >
-          <span className={`${rubik.className} fw-bold`}>Privacy Policy</span>
-        </Button>
-      </div>
-    </Form>
+    </>
   );
 };
 
-export default PostcodeLookup;
+export default ConstituencyLookup;

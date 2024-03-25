@@ -92,7 +92,21 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 
 // IF YOU CHANGE THESE, ALSO UPDATE THEM IN /app/constituencies/[slug]/og.png/route.tsx
 :root {
-  --mvtfwd-pink-strong: #ff66ff;
+  --mf-pink: #ff99ff;
+  --mf-pink-light: #ffccff;
+  --mf-pink-strong: #ff66ff;
+  --mf-pink-dark: #ee66ee;
+  --bs-link-color: var(--bs-black);
+  --bs-link-color-rgb: 0, 0, 0;
+  --bs-link-decoration: underline;
+  --bs-link-hover-color: var(--mf-pink-dark);
+  --bs-link-hover-color-rgb: 238, 102, 238;
+  --bs-red-rgb: 220, 53, 69;
+  --bs-orange-rgb: 253, 126, 20;
+  --bs-green-rgb: 25, 135, 84;
+  --bs-blue-rgb: 13, 110, 253;
+  --bs-gray-150: #f1f3f5;
+
   --con-party-color: #0087dc;
   --lab-party-color: #e4003b;
   --ld-party-color: #faa61a;
@@ -104,11 +118,59 @@ $bs-link-hover-color-rgb: 238, 102, 238;
   --other-party-color: var(--bs-gray-600);
 }
 
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--mf-pink-strong);
+  --bs-btn-border-color: var(--mf-pink-strong);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--mf-pink-dark);
+  --bs-btn-hover-border-color: var(--mf-pink-dark);
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--mf-pink-dark);
+  --bs-btn-active-border-color: var(--mf-pink-dark);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--mf-pink-strong);
+  --bs-btn-disabled-border-color: var(--mf-pink-strong);
+}
+
+.btn-link {
+  --bs-btn-font-weight: 400;
+  --bs-btn-color: var(--bs-link-color);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--bs-link-hover-color);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: var(--bs-link-hover-color);
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-color: #6c757d;
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-box-shadow: 0 0 0 #000;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  text-decoration: underline;
+}
+
 /***** GLOBAL DEFAULT STYLES *****/
+
+// TODO: Many of these could be Next.js CSS Modules as they only affect a single component
+// (eg. Header, Navbar, Footer, etc). See:
+// https://nextjs.org/docs/app/building-your-application/styling/css-modules
+//
+// However, Next.js CSS Modules appear to be buggy - I tried using them for the Nav /
+// NavWithHamburger (see PR https://github.com/asibs/tactical-next/pull/70), but classes
+// with different names & styles in different CSS module files were getting combined in
+// the build process, so the resulting minified CSS had the same styling for both named
+// classes...
+//
+// If/when we upgrade to Next 14, see if this still happens, and if not maybe extract a
+// bunch of this global CSS into modules where it doesn't really have to be global.
 
 /* TYPOGRAPHY */
 body {
   font-size: 18px;
+  line-height: 1.3;
 }
 
 html,
@@ -116,17 +178,167 @@ body {
   background-color: var(--bs-gray-300);
 }
 
-/* NAVBAR */
-.brand-text {
-  @include media-breakpoint-down(sm) {
-    font-size: rfs-fluid-value(1rem);
+H1,
+H2,
+H3,
+H4,
+H5,
+H6,
+navbar,
+nav,
+.btn {
+  font-family: var(--font-rubik);
+  line-height: 1;
+}
+
+H1,
+H2,
+H3,
+H4,
+H5,
+H6 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn {
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+header h6 {
+  color: var(--bs-gray-900);
+  background-color: var(--bs-white);
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+}
+
+.small,
+small {
+  font-size: 0.75em;
+  line-height: 1.2;
+}
+
+/* LAYOUT */
+
+.alignwide {
+  margin: 0px calc(25% - 25vw);
+  max-width: 100vw;
+  /*width: 100vw;*/
+}
+
+.alignfull {
+  margin: 0px calc(50% - 50vw);
+  max-width: 100vw;
+  width: 100vw;
+}
+
+.py-6 {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+@include media-breakpoint-up(md) {
+  .row-cols-md-6 > * {
+    flex: 0 0 auto;
+    width: 16.6666%;
   }
+}
+
+/* LINKS */
+
+p a:link,
+p a:visited,
+p a:hover,
+p a:active {
+  font-weight: bold;
+}
+
+a.dropdown-item:link,
+a.dropdown-item:visited,
+a.dropdown-item:hover,
+a.dropdown-item:active,
+a.dropdown-item i {
+  color: bs var(--bs-dark);
+}
+
+main .section-light p a:link,
+main .section-light p a:visited,
+main .section-light p a:hover,
+main .section-light p a:active {
+  color: var(--bs-black);
+}
+
+main .section-dark p a:link,
+main .section-dark p a:visited,
+main .section-dark p a:hover,
+main .section-dark p a:active {
+  color: var(--bs-white);
+}
+
+main .section-darker p a:link,
+main .section-darker p a:visited,
+main .section-darker p a:hover,
+main .section-darker p a:active {
+  color: var(--bs-white);
+}
+
+footer ul svg {
+  color: var(--bs-black);
+}
+
+footer ul svg:hover {
+  color: var(--mf-pink-strong);
+}
+
+/* NAVBAR */
+/* Below 360px, the Navigation component won't naturally fit, so start to scale down the text */
+/* Not In Josh CSS
+.brand-text {
+  @media (max-width: 359.98px) {
+    font-size: 5.25vw;
+  }
+}
+
+/* Below 385px, the NavWithHamburger component won't naturally fit, so start to scale down the text */
+/*
+.hamburger-brand-text {
+  @media (max-width: 384.98px) {
+    font-size: 4vw;
+  }
+}
+*/
+
+/* FORMS - CUSTOM CHECKBOX */
+
+.custom-checkbox .form-check-input {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  top: -2px;
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: var(--bs-gray-900);
+  border-color: var(--bs-gray-900);
+}
+// Set validation error style on all inputs
+input[type="text"].is-invalid,
+input[type="email"].is-invalid {
+  box-shadow: 0 0 0px 2px rgba(var(--bs-black-rgb), 0.5) !important;
+  border-color: var(--bs-gray-900);
+}
+
+// Custom validation for postcode & email text inputs
+.invalid-text-greyed:invalid {
+  color: var(--bs-gray-600);
 }
 
 /* HEADER */
 header {
   background-color: var(--bs-black);
   color: var(--bs-white);
+  font-size: 18px;
 }
 
 header h1 {
@@ -139,123 +351,250 @@ header h1 {
   }
 }
 
-/* TEXT HEADINGS */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-rubik);
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: 1;
+header p {
+  color: var(--bs-white);
+  font-size: 18px;
 }
 
-/* FORM INPUTS */
-// Set checkbox size & style
-input[type="checkbox"] {
-  width: 22px;
-  height: 22px;
+/* SECTIONS */
+section {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
-input[type="checkbox"]:checked {
+
+@include media-breakpoint-up(lg) {
+  section {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+}
+
+section h2 {
+  font-size: 28px;
+}
+
+@include media-breakpoint-up(md) {
+  section h2 {
+    font-size: 42px;
+  }
+}
+
+section h3 {
+  font-size: 20px;
+}
+
+section h4 {
+  font-size: 32px;
+}
+
+section h3.position-sticky {
   background-color: var(--bs-gray-900);
-  border-color: var(--bs-gray-900);
+  color: var(--bs-white);
+  top: 74px;
 }
 
-// Set validation error style on all inputs
-input[type="text"]:invalid,
-input[type="email"]:invalid,
-select:invalid,
-select option:invalid {
-  box-shadow: 0 0 0px 4px rgba(196, 0, 0, 0.5) !important;
+section h2.position-sticky {
+  top: 200px;
 }
 
-// Set focus style on all inputs
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="checkbox"]:focus,
-select:focus,
-select option:focus,
-button:focus {
-  box-shadow: 0 0 0px 4px rgba(255, 255, 255, 0.5) !important;
-  border-color: var(--bs-gray-600) !important;
+.section-light {
+  background-color: var(--bs-gray-100);
+  /*box-shadow: inset 0px -1px 0px 0px var(--bs-gray-300);*/
+  border-top: 2px solid var(--bs-gray-100);
+  border-bottom: 2px solid var(--bs-gray-400);
 }
 
-// Custom validation for postcode & email text inputs
-.invalid-text-greyed:invalid {
-  color: var(--bs-gray-600);
+.section-light h2,
+.section-light h3,
+.section-light h4,
+.section-light p {
+  color: var(--bs-body-color);
 }
 
-/* PARTY STYLES */
-h3.party {
-  font-size: 8vmax;
-  font-weight: 800;
-  text-transform: uppercase;
+.section-light h3 {
+  /*color: var(--mf-pink-strong);*/
 }
 
-h3.party-labour,
-svg.party-labour,
-i.party-labour {
-  color: var(--bs-red);
+/* SECTION DARK */
+
+.section-dark {
+  background-color: var(--bs-gray-900);
+  /*box-shadow: inset 0px -2px 0px 0px var(--bs-gray-900);*/
+  /*border-top: 2px solid var(--bs-gray-700);*/
+  /*border-bottom: 2px solid var(--bs-gray-900);*/
 }
 
-div.party-labour {
-  background-color: rgba(var(--bs-red-rgb), 1);
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark p {
+  color: var(--bs-body-bg);
+}
+
+.section-dark h3 {
+  /*color: var(--mf-pink-strong);*/
+}
+
+/* SECTION DARKER */
+
+.section-darker {
+  background-color: var(--bs-black);
+  color: var(--bs-white);
+}
+
+.section-darker h2,
+.section-darker h3,
+.section-darker h4,
+.section-darker p {
+  color: var(--bs-body-bg);
+}
+
+/* SEARCH */
+
+.form-search {
+  max-width: 475px;
+  background: var(--mf-pink-strong);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 24px;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.25);
+}
+
+div.alert {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* SECTION INFO AREAS */
+
+.rounded-box {
+  padding: 1rem 1rem 0.1rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.rounded-box h3,
+.rounded-box h4,
+.rounded-box p {
+  color: white;
+}
+
+.info-area a:link,
+.info-area a:visited,
+.info-area a:hover,
+.info-area a:active,
+.action-area a:link,
+.action-area a:visited,
+.action-area a:hover,
+.action-area a:active {
+  color: var(--bs-black);
+}
+
+.info-area p,
+.action-area p {
+  color: var(--bs-black);
+}
+
+.info-area h3,
+.action-area h3 {
+  color: var(--bs-black);
+}
+
+.section-light .action-area {
+  /*background-color: var(--bs-gray-200);*/
+  background: linear-gradient(var(--bs-gray-100), var(--bs-gray-150));
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+.section-light .info-area {
+  /*background-color: var(--bs-gray-200);*/
+  background: linear-gradient(var(--bs-gray-100), var(--bs-gray-150));
   background: linear-gradient(
-    rgba(var(--bs-red-rgb), 1),
-    rgba(var(--bs-red-rgb), 0.85)
+    var(--bs-warning-bg-subtle),
+    var(--bs-warning-border-subtle)
   );
   box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-h3.party-libdem,
-svg.party-libdem,
-i.party-libdem {
-  color: var(--bs-orange);
-}
-
-div.party-libdem {
-  background-color: rgba(var(--bs-orange-rgb), 1);
-  background: linear-gradient(
-    rgba(var(--bs-orange-rgb), 1),
-    rgba(var(--bs-orange-rgb), 0.85)
-  );
-  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+.section-dark .action-area {
+  background-color: var(--bs-gray-400);
+  background: linear-gradient(var(--bs-gray-200), var(--bs-gray-400));
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.5);
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-h3.party-green,
-svg.party-green,
-i.party-green {
-  color: var(--bs-green);
-}
-
-div.party-green {
-  background-color: rgba(var(--bs-green-rgb), 1);
+.section-dark .info-area {
+  background-color: var(--bs-gray-400);
+  background: linear-gradient(var(--bs-gray-200), var(--bs-gray-400));
   background: linear-gradient(
-    rgba(var(--bs-green-rgb), 1),
-    rgba(var(--bs-green-rgb), 0.85)
+    var(--bs-warning-bg-subtle),
+    var(--bs-warning-border-subtle)
   );
-  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.5);
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-h3.party-conservative,
-svg.party-conservative,
-i.party-conservative {
-  color: var(--bs-blue);
+/* FOOTER */
+
+footer {
+  background: var(--bs-gray-300);
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  border-top: 2px solid var(--bs-gray-100);
 }
 
-div.party-conservative {
-  background-color: rgba(var(--bs-blue-rgb), 1);
+@media (min-width: 992px) {
+  footer {
+    background: var(--bs-gray-300);
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    border-top: 2px solid var(--bs-gray-100);
+  }
 }
 
-/* EXTRA PADDING CLASSES (py-6 / py-sm-6 / etc) */
-.py-6 {
-  padding-top: 6rem !important;
-  padding-bottom: 6rem !important;
+.brand-tag {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  color: var(--mf-pink-dark) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 0;
+  border-radius: 0;
+}
+
+/* BUTTON GROUPS */
+
+.btn-group-vertical {
+  margin-bottom: 24px;
+}
+
+.btn-group-vertical .btn {
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.fa,
+.fas,
+.far,
+.btn svg,
+.btn img {
+  margin-right: 0.5rem;
+  width: 1.2rem;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.dropdown-toggle::after {
+  margin-top: 0.4555em;
+  float: right;
+}
+
+/* RESPONSIVE */
+
+[id] {
+  scroll-margin-top: 48px;
 }
 
 @include media-breakpoint-up(sm) {
@@ -293,34 +632,111 @@ div.party-conservative {
   }
 }
 
-/* SECTIONS */
-section {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+@include media-breakpoint-up(lg) {
+  div.two-columns {
+    column-count: 2;
+  }
 }
 
-.section-light {
-  background-color: var(--bs-gray-200);
-  /*box-shadow: inset 0px -1px 0px 0px var(--bs-gray-300);*/
-  border-top: 2px solid var(--bs-gray-100);
-  border-bottom: 2px solid var(--bs-gray-400);
+@include media-breakpoint-up(xxl) {
+  div.three-columns {
+    column-count: 3;
+  }
 }
 
-.section-dark {
-  background-color: var(--bs-gray-800);
-  /*box-shadow: inset 0px -2px 0px 0px var(--bs-gray-900);*/
-  border-top: 2px solid var(--bs-gray-700);
-  border-bottom: 2px solid var(--bs-gray-900);
+/* PARTIES */
+
+section h3.party {
+  font-size: 6vmax;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
-/* FOOTER */
-.footer {
-  background-color: var(--bs-gray-300);
-  border-top: 2px solid var(--bs-gray-100);
-  border-bottom: 2px solid var(--bs-gray-400);
+span.party-too-soon,
+h3.party-too-soon,
+svg.party-too-soon,
+i.party-too-soon {
+  color: var(--bs-gray-600);
 }
 
-.footer-dark {
-  background-color: var(--bs-gray-400);
-  border-top: 2px solid var(--bs-gray-300);
+span.party-your-heart,
+h3.party-your-heart,
+svg.party-your-heart,
+i.party-your-heart {
+  color: var(--mf-pink);
+}
+
+span.party-labour,
+h3.party-labour,
+svg.party-labour,
+i.party-labour {
+  color: var(--bs-red);
+}
+
+div.party-labour {
+  background-color: rgba(var(--bs-red-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-red-rgb), 1),
+    rgba(var(--bs-red-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+span.party-libdem,
+h3.party-libdem,
+svg.party-libdem,
+i.party-libdem {
+  color: var(--bs-orange);
+}
+
+div.party-libdem {
+  background-color: rgba(var(--bs-orange-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-orange-rgb), 1),
+    rgba(var(--bs-orange-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+span.party-plaid,
+h3.party-plaid,
+svg.party-plaid,
+i.party-plaid {
+  color: var(--pc-party-color);
+}
+
+span.party-snp,
+h3.party-snp,
+svg.party-snp,
+i.party-snp {
+  color: var(--snp-party-color);
+}
+
+span.party-green,
+h3.party-green,
+svg.party-green,
+i.party-green {
+  color: var(--bs-green);
+}
+
+div.party-green {
+  background-color: rgba(var(--bs-green-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-green-rgb), 1),
+    rgba(var(--bs-green-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+h3.party-conservative,
+svg.party-conservative,
+i.party-conservative {
+  color: var(--bs-blue);
+}
+
+div.party-conservative {
+  background-color: rgba(var(--bs-blue-rgb), 1);
 }

@@ -7,15 +7,15 @@ const partyNameFromSlug = (slug: PartySlug): string => {
     case "LD":
       return "Liberal Democrat";
     case "Green":
-      return "Green";
+      return "Green Party";
     case "SNP":
-      return "SNP";
+      return "The SNP";
     case "PC":
       return "Plaid Cymru";
     case "Reform":
       return "Reform UK";
     case "NonVoter":
-      return "Non Voters";
+      return "Didn't Vote";
     default:
       return "Other";
   }
@@ -38,7 +38,7 @@ const shortPartyNameFromSlug = (slug: PartySlug): string => {
     case "Reform":
       return "Reform";
     case "NonVoter":
-      return "Non Voters";
+      return "Didn't Vote";
     default:
       return "Other";
   }
@@ -61,7 +61,7 @@ const partyColorFromSlug = (slug: PartySlug) => {
     case "Reform":
       return "var(--reform-party-color)";
     case "NonVoter":
-      return "var(--mvtfwd-pink-strong)";
+      return "var(--mf-pink-strong)";
     case "Other":
       return "var(--other-party-color)";
     default:
@@ -81,9 +81,9 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
     case "Green":
       return "party-green";
     case "SNP":
-      return "";
+      return "party-snp";
     case "PC":
-      return "";
+      return "party-plaid";
     case "Reform":
       return "";
     default:
