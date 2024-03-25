@@ -2,7 +2,6 @@ import {
   getConstituencyData,
   getConstituencySlugs,
 } from "@/utils/constituencyData";
-import { partyNameFromSlug } from "@/utils/Party";
 import { ImageResponse, NextRequest } from "next/server";
 import { promises as fs } from "fs";
 
@@ -52,91 +51,104 @@ export async function GET(
    */
   const constituencyData: ConstituencyData = await getConstituencyData(
     params.slug,
-    false,
   );
 
   const constituencyName = constituencyData.constituencyIdentifiers.name;
-  const partyName = partyNameFromSlug(
-    constituencyData.recommendation.partySlug,
-  );
-  const partyColor = partyColorFromSlug(
-    constituencyData.recommendation.partySlug,
-  );
 
   const rubikBoldFP = path.join(
     process.cwd(),
     "assets",
     "fonts",
-    "Rubik-ExtraBold.woff",
+    "Rubik-Bold.ttf",
   );
   const baseImgFP = path.join(
     process.cwd(),
     "assets",
-    "share-base-image-crowd-with-logo.png",
+    "share-base-image-ge2024.jpeg",
   );
-  const rubikBolderFontData = await fs.readFile(rubikBoldFP);
-  const baseImageData = (await fs.readFile(baseImgFP)).buffer;
+  const rubikBoldFontData = await fs.readFile(rubikBoldFP);
 
-  console.log(
-    `CONSTITUENCY OPENGRAPH-IMAGE: Rendering image for ${params.slug}`,
-  );
+  //force the type to deal with TS errors caused by ImageResponse HTML processor
+  const baseImageData: string = (await fs.readFile(baseImgFP))
+    .buffer as unknown as string;
+
+  // Programatically calcuate the font size
+  // Between 8 char and 19 char it's single line and font is from
+
+  let lineLen = constituencyName.length;
+
+  if (lineLen > 19) {
+    const nameArr = constituencyName.split(/[ -]/);
+    const lineOne = [];
+    const lineTwo = [];
+    while (nameArr.length != 0) {
+      if (lineOne.join().length > lineTwo.join().length) {
+        lineTwo.push(nameArr.pop());
+      } else {
+        lineOne.push(nameArr.shift());
+      }
+    }
+
+    if (lineTwo.join().length > lineOne.join().length) {
+      lineLen = lineTwo.join(" ").length;
+    } else {
+      lineLen = lineOne.join(" ").length;
+    }
+  }
+
+  let fontSize = Math.floor(lineLen * -3 + 130);
+
+  if (lineLen < 9) fontSize = 148;
+
   return new ImageResponse(
     (
       <div
         style={{
-          backgroundColor: "black",
           height: "100%",
           width: "100%",
           display: "flex",
-          textAlign: "center",
-          alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
+          alignItems: "center",
           flexWrap: "nowrap",
         }}
       >
-        {/*
-          // @ts-ignore*/}
-        <img width="1200" height="630" src={baseImageData} />
+        <img
+          src={baseImageData}
+          width="1200"
+          height="630"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        />
 
         <div
           style={{
             position: "absolute",
-            top: "300px",
-            left: 0,
-            width: "100%",
-            height: "180px",
-            padding: "0 30px 30px 30px",
+            top: 300,
+            backgroundColor: "#FFFF00",
+            padding: "18px 22px 18px 22px",
+            display: "flex",
+            transform: "rotate(-3deg)",
+            maxWidth: "825px",
             textAlign: "center",
-            justifyContent: "center",
-            alignItems: "center",
             fontFamily: "Rubik",
-            fontSize: 60,
+            fontSize: fontSize + "px",
+            fontOpticalSizing: "auto",
             fontStyle: "normal",
-            fontWeight: 800,
-            color: partyColor,
+            fontWeight: 700,
           }}
         >
-          {`Vote ${partyName} in ${constituencyName}`}
-        </div>
-
-        <div
-          style={{
-            position: "absolute",
-            bottom: "75px",
-            left: 0,
-            width: "100%",
-            padding: "0 30px 0 30px",
-            textAlign: "center",
-            justifyContent: "center",
-            fontFamily: "Rubik",
-            fontSize: 60,
-            fontStyle: "normal",
-            fontWeight: 800,
-            color: "#ff33ff",
-          }}
-        >
-          Find out your tactical vote now!
+          <div
+            style={{
+              marginBottom: "-0.25em",
+            }}
+          >
+            {constituencyName}
+          </div>
         </div>
       </div>
     ),
@@ -146,35 +158,11 @@ export async function GET(
       fonts: [
         {
           name: "Rubik",
-          data: rubikBolderFontData,
+          data: rubikBoldFontData,
           style: "normal",
-          weight: 800,
+          weight: 700,
         },
       ],
     },
   );
 }
-
-// We can't use the normal partyColorFromSlug in /utils/Party.ts because
-// ImageResponse doesn't have access to our CSS styles, so we need to
-// hardcode specific color codes here.
-const partyColorFromSlug = (slug: PartySlug): string => {
-  switch (slug) {
-    case "Con":
-      return "#0087dc";
-    case "Lab":
-      return "#e4003b";
-    case "LD":
-      return "#faa61a";
-    case "Green":
-      return "#02a95b";
-    case "SNP":
-      return "#fcec50";
-    case "PC":
-      return "#005b54";
-    case "Reform":
-      return "#12b6cf";
-    default:
-      return "#e9ecef";
-  }
-};

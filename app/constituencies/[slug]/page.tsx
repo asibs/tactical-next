@@ -40,20 +40,17 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  console.log("Getting data for:", params.slug);
-  const constituencyData: ConstituencyData = await getConstituencyData(
+  const constituencyData: ConstituencyData = getConstituencyData(
     params.slug,
   );
   const constituencyName = constituencyData.constituencyIdentifiers.name;
-  const partySlug = constituencyData.recommendation.partySlug;
-  const partyName = partyNameFromSlug(partySlug);
 
   return {
     title: `Stop The Toris in ${constituencyName}`,
-    description: `Vote ${partyName} in ${constituencyName} to Stop The Tories`,
+    description: `Vote tactically in ${constituencyName} to Stop The Tories`,
     openGraph: {
       title: "Stop The Tories .Vote",
-      description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      description: `Vote tactically in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
       url: "https://stopthetories.vote",
       siteName: "StopTheTories.Vote",
       locale: "en_GB",
@@ -61,17 +58,17 @@ export async function generateMetadata({
       images: [
         {
           url: `/constituencies/${params.slug}/og.png`,
-          alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+          alt: `Vote tactically in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title: "Stop The Tories .Vote",
-      description: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+      description: `Vote tactically in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
       images: {
         url: `/constituencies/${params.slug}/og.png`,
-        alt: `Vote ${partyName} in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
+        alt: `Vote tactically in ${constituencyName} to Stop The Tories. Find out how you can vote tactically to Stop The Tories, and influence the next government.`,
       },
     },
   };
