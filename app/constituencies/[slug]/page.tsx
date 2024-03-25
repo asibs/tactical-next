@@ -40,9 +40,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const constituencyData: ConstituencyData = getConstituencyData(
-    params.slug,
-  );
+  const constituencyData: ConstituencyData = getConstituencyData(params.slug);
   const constituencyName = constituencyData.constituencyIdentifiers.name;
 
   return {
