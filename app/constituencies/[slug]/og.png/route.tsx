@@ -76,13 +76,15 @@ export async function GET(
   // Between 8 char and 19 char it's single line and font is from
 
   let lineLen = constituencyName.length;
-
+  let lineOneStr = "";
+  let lineTwoStr = "";
+  const lineOne = [];
+  const lineTwo = [];
   if (lineLen > 19) {
     const nameArr = constituencyName.split(/[ -]/);
-    const lineOne = [];
-    const lineTwo = [];
     while (nameArr.length != 0) {
-      if (lineOne.join().length > lineTwo.join().length) {
+      // the + 2 is so we err on the side of bigger 1st lines
+      if (lineOne.join(" ").length > lineTwo.join(" ").length + 2) {
         lineTwo.push(nameArr.pop());
       } else {
         lineOne.push(nameArr.shift());
@@ -94,75 +96,213 @@ export async function GET(
     } else {
       lineLen = lineOne.join(" ").length;
     }
+
+    lineOneStr = constituencyName.substring(0, lineOne.join().length + 1);
+    lineTwoStr = constituencyName.substring(lineOne.join().length + 1);
   }
 
-  let fontSize = Math.floor(lineLen * -3 + 130);
+  let fontSize = Math.floor(lineLen * -2.8 + 130);
 
   if (lineLen < 9) fontSize = 148;
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexWrap: "nowrap",
-        }}
-      >
-        <img
-          src={baseImageData}
-          width="1200"
-          height="630"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            objectFit: "cover",
-            zIndex: -1,
-          }}
-        />
+  if (lineTwoStr !== "") {
+    //Capitalize 1st letter to make padding look less weird
+    lineTwoStr = lineTwoStr.charAt(0).toUpperCase() + lineTwoStr.slice(1);
 
+    return new ImageResponse(
+      (
+        <>
+          <img
+            src={baseImageData}
+            width="1200"
+            height="630"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              objectFit: "cover",
+              zIndex: -1,
+            }}
+          />
+
+          <div
+            style={{
+              width: "1200",
+              height: "330",
+              display: "flex",
+              position: "absolute",
+              top: 300,
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                flexDirection: "column",
+                display: "flex",
+                transform: "rotate(-3deg)",
+
+                fontFamily: "Rubik",
+                fontSize: fontSize + "px",
+                fontWeight: 700,
+                lineHeight: 1.2,
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "#FFFF00",
+                  marginBottom: "-0.15em", //reduce the gap between lines
+                  padding: "0.22em 0.3em",
+                  paddingBottom: 0,
+                }}
+              >
+                {lineOneStr}
+              </div>
+
+              <div
+                style={{
+                  backgroundColor: "#FFFF00",
+                  padding: "0.22em 0.3em",
+                  paddingBottom: 0,
+                }}
+              >
+                {lineTwoStr}
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          {
+            name: "Rubik",
+            data: rubikBoldFontData,
+            style: "normal",
+            weight: 700,
+          },
+        ],
+      },
+    );
+  } else {
+    return new ImageResponse(
+      (
+        <>
+          <img
+            src={baseImageData}
+            width="1200"
+            height="630"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              objectFit: "cover",
+              zIndex: -1,
+            }}
+          />
+
+          <div
+            style={{
+              width: "1200",
+              display: "flex",
+              position: "absolute",
+              top: 300,
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                backgroundColor: "#FFFF00",
+                flexDirection: "column",
+                display: "flex",
+                transform: "rotate(-3deg)",
+
+                fontFamily: "Rubik",
+                fontSize: fontSize + "px",
+                fontWeight: 700,
+                lineHeight: 1.2,
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  marginBottom: "-0.05em",
+                  padding: "0.25em 0.275em",
+                  paddingBottom: "0",
+                }}
+              >
+                {constituencyName}
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          {
+            name: "Rubik",
+            data: rubikBoldFontData,
+            style: "normal",
+            weight: 700,
+          },
+        ],
+      },
+    );
+  }
+}
+
+/*
         <div
           style={{
+
+            display: "flex",
+            alignItems: "center",
+              justifyContent: "center",
             position: "absolute",
             top: 300,
-            backgroundColor: "#FFFF00",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            height: "1000px",
             padding: "18px 22px 18px 22px",
-            display: "flex",
             transform: "rotate(-3deg)",
-            maxWidth: "825px",
-            textAlign: "center",
+            width: "825px",
             fontFamily: "Rubik",
             fontSize: fontSize + "px",
-            fontOpticalSizing: "auto",
             fontStyle: "normal",
             fontWeight: 700,
           }}
-        >
+        > 
+          <div 
+            style={{position: "relative",
+                display:"flex",
+                top: "2px",
+            }}>
+<span style={{
+                padding:"0.5rem",
+                paddingBottom: 0,
+              backgroundColor: "#FFFF00",}}>
+
+
+            {lineOneStr}
+  </span>
+          </div>
           <div
-            style={{
-              marginBottom: "-0.25em",
-            }}
-          >
-            {constituencyName}
+            style={{position: "relative", 
+                display:"flex",
+            }}>
+            <span style={{
+
+                padding:"0.5rem",
+                paddingBottom: 0,
+              backgroundColor: "#FFFF00",}}>
+
+            {lineTwoStr}
+            </span>
           </div>
         </div>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-      fonts: [
-        {
-          name: "Rubik",
-          data: rubikBoldFontData,
-          style: "normal",
-          weight: 700,
-        },
-      ],
-    },
-  );
-}
+ */
