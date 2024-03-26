@@ -35,10 +35,10 @@ const MovementSection = () => {
   return (
     <main>
       <section id="section-movement" className="section-light">
-        <Container className="py-4 py-md-5">
+        <Container className="py-3">
           {/* PEOPLE */}
           <Row>
-            <Col className="pb-3 pb-md-5">
+            <Col className="pb-3 pb-md-4">
               <h2>
                 Join A Movement building voter power, beyond this election.
               </h2>
