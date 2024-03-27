@@ -1,4 +1,4 @@
-import { Col, Container, Row, ButtonGroup, Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
@@ -16,13 +16,8 @@ import {
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 import { notFound } from "next/navigation";
-import {
-  FaUser,
-  FaShare,
-  FaPuzzlePiece,
-  FaCopy,
-  FaHandHoldingHeart,
-} from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
+import SignupShare from "./SignupShare";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
 
@@ -33,7 +28,7 @@ export const dynamicParams = false; // Don't allow params not in generateStaticP
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituencySlugs = await getConstituencySlugs();
+  const constituencySlugs = getConstituencySlugs();
   return constituencySlugs.map((slug) => ({ slug: slug }));
 }
 
@@ -44,7 +39,7 @@ export default async function ConstituencyPage({
 }: {
   params: { slug: string };
 }) {
-  const constituenciesData: ConstituencyData[] = await getConstituenciesData();
+  const constituenciesData: ConstituencyData[] = getConstituenciesData();
   const constituencyData = constituenciesData.filter(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
@@ -157,32 +152,8 @@ export default async function ConstituencyPage({
               <Col xs={12} md={6} lg={4} className="pb-4">
                 <TacticalAdvice constituencyData={constituencyData} />
               </Col>
-
               <Col xs={12} lg={4}>
-                <div className="form-search">
-                  <h3>Grow this movement</h3>
-                  <p>You&apos;re in! Now let&apos;s build our numbers</p>
-                  <ButtonGroup size="lg" vertical className="w-100 mb-0">
-                    {/* TODO share link and clipboard copy */}
-                    <Button href="#" variant="light">
-                      <FaShare /> Share with friends &amp; family
-                    </Button>
-                    <Button href="#" variant="light">
-                      <FaCopy />
-                      Copy link to this page
-                    </Button>
-                    <Button
-                      href="https://themovementforward.com/volunteer/"
-                      variant="light"
-                    >
-                      <FaPuzzlePiece /> Volunteer
-                    </Button>
-
-                    <Button href="/donate" variant="light">
-                      <FaHandHoldingHeart /> Support our crowdfunder
-                    </Button>
-                  </ButtonGroup>
-                </div>
+                <SignupShare constituencyData={constituencyData} />
               </Col>
             </Row>
           </Container>
