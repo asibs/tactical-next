@@ -16,8 +16,8 @@ import { FaBoltLightning, FaMagnifyingGlass } from "react-icons/fa6";
 // menu. Users need to scroll to the footer to see links to non-primary pages.
 const Navigation = () => {
   return (
-    <Container fluid className="bg-light sticky-top">
-      <Navbar className={"py-3 " + rubik.className}>
+    <Container fluid className="bg-light sticky-top px-2">
+      <Navbar className={`${rubik.className} py-2 py-sm-3`}>
         <Container className="px-0">
           {/* Branding section - left-aligned */}
           <Navbar.Brand href="/" className="d-flex align-items-center">
@@ -37,12 +37,12 @@ const Navigation = () => {
           <Navbar.Collapse>
             {/* pushes the buttons to the right */}
             <Nav as="ul" className="ms-auto"></Nav>
-            <Button variant="dark" href="/">
+            <Button href="/" variant="dark" className="px-2 px-sm-3">
               <FaMagnifyingGlass className="me-0 me-sm-2" />
               <span className="d-none d-sm-inline-block">Search</span>
             </Button>
-            <Button href="/join" className="ms-2">
-              <FaBoltLightning className="d-none d-md-inline-block" />
+            <Button href="/join" className="px-2 px-sm-3 ms-1 ms-sm-2 ms-lg-3 ">
+              <FaBoltLightning className="d-none d-sm-inline-block" />
               Join
             </Button>
           </Navbar.Collapse>
