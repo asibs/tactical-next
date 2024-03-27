@@ -31,12 +31,10 @@ const emailErrorMessage = (code: EmailErrorCode) => {
 };
 
 type FormData = {
-  emailOptIn: boolean;
   email: string;
 };
 
 const initialFormState: FormData = {
-  emailOptIn: false,
   email: "",
 };
 
@@ -93,9 +91,8 @@ export default function SignupShare({
     // VALIDATION
     // Invalid email
     if (
-      formState.emailOptIn &&
-      (!formState.email ||
-        (formRef.current && formRef.current.email.validity.typeMismatch))
+      !formState.email ||
+      (formRef.current && formRef.current.email.validity.typeMismatch)
     ) {
       setEmailError("EMAIL_INVALID");
     }
@@ -154,7 +151,7 @@ export default function SignupShare({
                 name="email"
                 size="lg"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Your Email*"
                 value={formState.email}
                 isInvalid={!!emailError}
                 onChange={(e) => {
