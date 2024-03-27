@@ -31,12 +31,10 @@ const emailErrorMessage = (code: EmailErrorCode) => {
 };
 
 type FormData = {
-  emailOptIn: boolean;
   email: string;
 };
 
 const initialFormState: FormData = {
-  emailOptIn: false,
   email: "",
 };
 
@@ -93,9 +91,8 @@ export default function SignupShare({
     // VALIDATION
     // Invalid email
     if (
-      formState.emailOptIn &&
-      (!formState.email ||
-        (formRef.current && formRef.current.email.validity.typeMismatch))
+      !formState.email ||
+      (formRef.current && formRef.current.email.validity.typeMismatch)
     ) {
       setEmailError("EMAIL_INVALID");
     }
@@ -131,8 +128,8 @@ export default function SignupShare({
       >
         <h2>Join UP</h2>
         <p className="fs-4">
-Proving how many of us are voting tactically gives us power after the election.
-
+          Proving how many of us are voting tactically gives us power after the
+          election.
         </p>
         {/* Renders the postcode box, makes API calls, and if necessary shows an address/constituency picker */}
         <ConstituencyLookup
@@ -151,7 +148,7 @@ Proving how many of us are voting tactically gives us power after the election.
                 name="email"
                 size="lg"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Your Email*"
                 value={formState.email}
                 isInvalid={!!emailError}
                 onChange={(e) => {

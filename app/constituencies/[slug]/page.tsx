@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, ButtonGroup, Button } from "react-bootstrap";
 import Link from "next/link";
 import Header from "@/components/Header";
 import ImpliedChart from "@/components/info_box/ImpliedChart";
@@ -16,7 +16,7 @@ import {
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 import { notFound } from "next/navigation";
-import { FaUser } from "react-icons/fa6";
+import { FaUser, FaEnvelope, FaTwitter } from "react-icons/fa6";
 import SignupShare from "./SignupShare";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
@@ -160,38 +160,124 @@ export default async function ConstituencyPage({
         </section>
         <section id="section-join" className="section-dark">
           <Container>
-            <Row>
-              <Col xs={8} md={12} className="pb-3">
-                <h2>be counted, stick together!</h2>
+            <Row xs={1} lg={3}>
+              <Col xs={12} md={6} lg={4} className="pb-3">
+                <h2>Why join us?</h2>
+                <p className="fs-5">[placeholder section]</p>
+                <p className="fs-5">
+                  <strong>1. Getting big, be counted</strong>
+                </p>
+                <p className="fs-5">
+                  <strong>2. Get your plan and reminders</strong>
+                </p>
+                <p className="fs-5">
+                  <strong>3. Pressure new MPs</strong>
+                </p>
+                <p className="fs-5">
+                  Proving how many of us are voting tactically gives us power
+                  after the election.
+                </p>
+              </Col>
+              <Col xs={12} md={6} lg={4} className="pb-3">
+                <h2>Why Be counted?</h2>
+                <p className="fs-5">
+                  <strong>
+                    1. Prove how many of us are voting tactically against the
+                    Tories&nbsp;
+                  </strong>
+                  and not just for the party we&apos;re lending our vote to.
+                </p>
+                <p className="fs-5">
+                  <strong>2. Take power from the right wing&nbsp;</strong>by
+                  showing millions of us reject their narrative.
+                </p>
+                <p className="fs-5">
+                  <strong>
+                    3. Be the biggest influence on the next government after the
+                    election,
+                  </strong>
+                  &nbsp;reminding them what we showed up for, we don&apos;t want
+                  to have to do this again, and we want them to fix our politics
+                  by making our votes count.
+                </p>
+              </Col>
+              <Col xs={12} lg={4} className="pb-3">
+                <div className="rounded-box action-area">
+                  <h1>Contact your candidates</h1>
+                  <p className="fs-5">
+                    You&apos;re lending them your vote this time, tell them you
+                    want your vote to count next time.
+                  </p>
+                  <ButtonGroup
+                    size="lg"
+                    vertical
+                    className="w-100 d-inline-block d-sm-grid justify-content-start mb-2"
+                  >
+                    <Button href="/reminders">
+                      <FaTwitter />
+                      Tweet
+                    </Button>
+                    <Button href="/reminders" disabled>
+                      <FaEnvelope />
+                      Email (coming soon)
+                    </Button>
+                  </ButtonGroup>
+                  <p className="fs-6">*or join up and do it later.</p>
+                </div>
               </Col>
             </Row>
+          </Container>
+        </section>
+        <section id="section-join" className="section-dark">
+          <Container>
             <Row xs={1} lg={3}>
-              <Col md={7} className="pb-3"></Col>
-              <Col md={7} className="pb-3">
-                <p style={{ fontSize: "26px" }}>
-                  <strong>Reasons to be counted</strong>
+              <Col xs={12} md={6} lg={4} className="pb-3">
+                <h2>Why join us?</h2>
+                <p className="fs-5">[placeholder section]</p>
+                <p className="fs-5">
+                  <strong>1. Getting big, be counted</strong>
                 </p>
-                <p style={{ fontSize: "22px" }}>
-                  1. Show how many of us are voting tactically and not just for
-                  the party we&apos;re lending our vote to, and that we want our
-                  votes to count next time.
+                <p className="fs-5">
+                  <strong>2. Get your plan and reminders</strong>
                 </p>
-                <p style={{ fontSize: "22px" }}>
-                  2. Our large numbers show that the country is rejecting the
-                  narrative the right wing media and think tanks spin.
+                <p className="fs-5">
+                  <strong>3. Pressure new MPs</strong>
                 </p>
-                <p style={{ fontSize: "22px" }}>
-                  3. Together we can be a huge independent influence on the next
-                  government, for Proportional Representation, and other
-                  crucial, common sense, policies.
+                <p className="fs-5">
+                  Proving how many of us are voting tactically gives us power
+                  after the election.
                 </p>
               </Col>
-              <Col md={7} className="pb-3">
+              <Col xs={12} md={6} lg={4} className="pb-3">
+                <h2>Why Be counted?</h2>
+                <p className="fs-5">
+                  <strong>
+                    1. Prove how many of us are voting tactically against the
+                    Tories&nbsp;
+                  </strong>
+                  and not just for the party we&apos;re lending our vote to.
+                </p>
+                <p className="fs-5">
+                  <strong>2. Take power from the right wing&nbsp;</strong>by
+                  showing millions of us reject their narrative.
+                </p>
+                <p className="fs-5">
+                  <strong>
+                    3. Be the biggest influence on the next government after the
+                    election,
+                  </strong>
+                  &nbsp;reminding them what we showed up for, we don&apos;t want
+                  to have to do this again, and we want them to fix our politics
+                  by making our votes count.
+                </p>
+              </Col>
+              <Col xs={12} lg={4} className="pb-3">
                 <PlanToVoteBox />
               </Col>
             </Row>
           </Container>
         </section>
+
         <section id="section-info" className="section-light">
           <Container>
             <Row>
