@@ -8,6 +8,8 @@ import {
   FaTriangleExclamation,
 } from "react-icons/fa6";
 
+import Link from "next/link";
+
 const PlanToVoteBox = () => {
   return (
     <>
@@ -15,8 +17,11 @@ const PlanToVoteBox = () => {
         <>
           <h3>Get your voting plan</h3>
           <p>
-            <FaHand style={{ color: "var(--mf-pink-strong)" }} /> Be counted!
-            (get this plan and reminders)
+            <FaHand
+              className="me-2"
+              style={{ color: "var(--mf-pink-strong)" }}
+            />
+            Be counted! (get this plan and reminders)
           </p>
           <p>
             <a
@@ -24,8 +29,11 @@ const PlanToVoteBox = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaPenClip style={{ color: "var(--bs-purple)" }} /> Register to
-              vote, it takes 5 minutes
+              <FaPenClip
+                className="me-2"
+                style={{ color: "var(--bs-purple)" }}
+              />
+              Register to vote, takes 5 mins
             </a>
           </p>
           <p>
@@ -34,8 +42,8 @@ const PlanToVoteBox = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaIdCard style={{ color: "var(--bs-green)" }} /> Get your photo
-              Voter ID
+              <FaIdCard className="me-2" style={{ color: "var(--bs-green)" }} />
+              Get your photo Voter ID
             </a>
           </p>
           <p>
@@ -44,26 +52,41 @@ const PlanToVoteBox = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaEnvelopeOpenText style={{ color: "var(--bs-blue)" }} />{" "}
+              <FaEnvelopeOpenText
+                className="me-2"
+                style={{ color: "var(--bs-blue)" }}
+              />
               Optionally vote from home by post
             </a>
           </p>
           <p>
-            <FaFileImage style={{ color: "var(--bs-blue)" }} /> Print posters
-            and flyers
+            <Link href="/posters">
+              <FaFileImage
+                className="me-2"
+                style={{ color: "var(--bs-black)" }}
+              />
+              Print posters and flyers
+            </Link>
           </p>
           <p>
-            <FaCheckToSlot style={{ color: "var(--mf-pink-strong)" }} /> Vote
-            Tactically!
+            <FaCheckToSlot
+              className="me-2"
+              style={{ color: "var(--mf-pink-strong)" }}
+            />
+            Vote Tactically!
           </p>
           <p>
-            <FaTriangleExclamation style={{ color: "var(--bs-red)" }} /> Remind
-            your new MP why you showed up
+            <FaTriangleExclamation
+              className="me-2"
+              style={{ color: "var(--bs-red)" }}
+            />
+            Remind your new MP why you showed up
           </p>
         </>
       </div>
       <p className="text-end small">
-        Join up and we&apos;ll take you through this plan.
+        <Link href="/join">Join up</Link> and we&apos;ll take you through this
+        plan.
       </p>
     </>
   );

@@ -31,12 +31,10 @@ const emailErrorMessage = (code: EmailErrorCode) => {
 };
 
 type FormData = {
-  emailOptIn: boolean;
   email: string;
 };
 
 const initialFormState: FormData = {
-  emailOptIn: false,
   email: "",
 };
 
@@ -93,9 +91,8 @@ export default function SignupShare({
     // VALIDATION
     // Invalid email
     if (
-      formState.emailOptIn &&
-      (!formState.email ||
-        (formRef.current && formRef.current.email.validity.typeMismatch))
+      !formState.email ||
+      (formRef.current && formRef.current.email.validity.typeMismatch)
     ) {
       setEmailError("EMAIL_INVALID");
     }
@@ -129,14 +126,11 @@ export default function SignupShare({
         action={submitForm}
         noValidate
       >
-        <h3>Join the movement forward</h3>
-        <ul>
-          <li>
-            <strong>Be counted</strong>, I&apos;m voting tactically!
-          </li>
-          <li>Get a voting plan</li>
-          <li>Get reminders and actions</li>
-        </ul>
+        <h2>Join UP</h2>
+        <p className="fs-4">
+          Proving how many of us are voting tactically gives us power after the
+          election.
+        </p>
         {/* Renders the postcode box, makes API calls, and if necessary shows an address/constituency picker */}
         <ConstituencyLookup
           validPostcode={validPostcode}
@@ -154,7 +148,7 @@ export default function SignupShare({
                 name="email"
                 size="lg"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Your Email*"
                 value={formState.email}
                 isInvalid={!!emailError}
                 onChange={(e) => {

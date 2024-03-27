@@ -91,7 +91,10 @@ const partyCssClassFromSlug = (slug: PartySlug) => {
   }
 };
 
+const progressiveSlugs: PartySlug[] = ["Lab", "LD", "Green", "SNP", "PC"];
+
 export {
+  progressiveSlugs,
   partyColorFromSlug,
   partyNameFromSlug,
   shortPartyNameFromSlug,
