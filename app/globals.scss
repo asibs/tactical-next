@@ -96,6 +96,10 @@ $bs-link-hover-color-rgb: 238, 102, 238;
   --mf-pink-light: #ffccff;
   --mf-pink-strong: #ff66ff;
   --mf-pink-dark: #ee66ee;
+  --mf-pink-rgb: 255, 153, 255;
+  --mf-pink-light-rgb: 255, 204, 255;
+  --mf-pink-strong-rgb: 255, 102, 255;
+  --mf-pink-dark-rgb: 238, 102, 238;
   --bs-link-color: var(--bs-black);
   --bs-link-color-rgb: 0, 0, 0;
   --bs-link-decoration: underline;
@@ -269,10 +273,10 @@ main .section-light p a:active {
   color: var(--bs-black);
 }
 
-main .section-dark p a:link,
-main .section-dark p a:visited,
-main .section-dark p a:hover,
-main .section-dark p a:active {
+main .section-dark a:link,
+main .section-dark a:visited,
+main .section-dark a:hover,
+main .section-dark a:active {
   color: var(--bs-white);
 }
 
@@ -315,7 +319,7 @@ footer ul svg:hover {
   width: 22px;
   height: 22px;
   position: relative;
-  top: -2px;
+  top: -4px;
 }
 
 .custom-checkbox .form-check-input:checked {
@@ -358,7 +362,7 @@ header p {
 
 /* SECTIONS */
 section {
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
@@ -460,6 +464,10 @@ section h2.position-sticky {
   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.25);
 }
 
+.form-search a.btn-light {
+  color: var(--bs-black) !important;
+}
+
 div.alert {
   margin-left: 12px;
   margin-right: 12px;
@@ -476,17 +484,17 @@ div.alert {
 .rounded-box h3,
 .rounded-box h4,
 .rounded-box p {
-  color: white;
+  /*color: white;*/
 }
 
-.info-area a:link,
-.info-area a:visited,
-.info-area a:hover,
-.info-area a:active,
-.action-area a:link,
-.action-area a:visited,
-.action-area a:hover,
-.action-area a:active {
+main .info-area a:link,
+main .info-area a:visited,
+main .info-area a:hover,
+main .info-area a:active,
+main .action-area a:link,
+main .action-area a:visited,
+main .action-area a:hover,
+main .action-area a:active {
   color: var(--bs-black);
 }
 
@@ -498,6 +506,10 @@ div.alert {
 .info-area h3,
 .action-area h3 {
   color: var(--bs-black);
+}
+
+.info-area svg {
+  margin-right: 0.5rem !important;
 }
 
 .section-light .action-area {
@@ -536,6 +548,24 @@ div.alert {
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
+section-darker .action-area {
+  background-color: var(--bs-gray-400);
+  background: linear-gradient(var(--bs-gray-200), var(--bs-gray-400));
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.5);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+.section-darker .info-area {
+  background-color: var(--bs-gray-400);
+  background: linear-gradient(var(--bs-gray-200), var(--bs-gray-400));
+  background: linear-gradient(
+    var(--bs-warning-bg-subtle),
+    var(--bs-warning-border-subtle)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.5);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
 /* FOOTER */
 
 footer {
@@ -545,7 +575,7 @@ footer {
   border-top: 2px solid var(--bs-gray-100);
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   footer {
     background: var(--bs-gray-300);
     padding-top: 6rem;
@@ -647,23 +677,52 @@ footer {
 /* PARTIES */
 
 section h3.party {
-  font-size: 6vmax;
+  font-size: 7vmax;
   font-weight: 800;
   text-transform: uppercase;
+  overflow: auto;
 }
 
-span.party-too-soon,
-h3.party-too-soon,
-svg.party-too-soon,
-i.party-too-soon {
-  color: var(--bs-gray-600);
+@include media-breakpoint-up(lg) {
+  section h3.party {
+    font-size: 4vmax;
+    font-weight: 800;
+    text-transform: uppercase;
+    overflow: auto;
+  }
 }
 
-span.party-your-heart,
-h3.party-your-heart,
-svg.party-your-heart,
-i.party-your-heart {
+a span.party-heart,
+h3.party-heart,
+svg.party-heart,
+i.party-heart {
   color: var(--mf-pink);
+}
+
+div.party-heart {
+  background-color: rgba(var(--mf-pink-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--mf-pink-rgb), 1),
+    rgba(var(--mf-pink-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
+}
+
+a span.party-none h3.party-none,
+svg.party-none,
+i.party-none {
+  color: var(--bs-gray-500);
+}
+
+div.party-none {
+  background-color: rgba(var(--bs-gray-500-rgb), 1);
+  background: linear-gradient(
+    rgba(var(--bs-gray-500-rgb), 1),
+    rgba(var(--bs-gray-500-rgb), 0.85)
+  );
+  box-shadow: 0px 5px 10px 0px rgba(var(--bs-black-rgb), 0.075);
+  /*border: solid 1px var(--bs-gray-300);*/
 }
 
 span.party-labour,
