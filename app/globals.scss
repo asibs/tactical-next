@@ -90,6 +90,7 @@ $bs-link-hover-color-rgb: 238, 102, 238;
 
 /***** GLOBAL CSS VARIABLES *****/
 
+// IF YOU CHANGE THESE, ALSO UPDATE THEM IN /app/constituencies/[slug]/og.png/route.tsx
 :root {
   --mf-pink: #ff99ff;
   --mf-pink-light: #ffccff;
