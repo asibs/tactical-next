@@ -142,6 +142,9 @@ interface IProps {
   setConstituency: Dispatch<SetStateAction<Constituency | null>>;
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
+  //Prevent the selected constituency
+  //displaying on the constituencies own page.
+  filterConstituencySlug?: string;
 }
 
 const ConstituencyLookup = ({
@@ -150,6 +153,7 @@ const ConstituencyLookup = ({
   setConstituency,
   loading,
   setLoading,
+  filterConstituencySlug,
 }: IProps) => {
   const [formState, setFormState] = useState<FormData>(initialFormState);
   const [apiResponse, setApiResponse] = useState<
@@ -275,7 +279,7 @@ const ConstituencyLookup = ({
         </Form.Control.Feedback>
       </InputGroup>
 
-      {constituency && (
+      {constituency && constituency.slug != filterConstituencySlug && (
         <InputGroup className="my-3">
           <Form.Control
             name="constituency-display"
