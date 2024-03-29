@@ -304,11 +304,14 @@ footer ul svg:hover {
 }
 
 /* Below 385px, the NavWithHamburger component won't naturally fit, so start to scale down the text */
+/* NOTE: Hamburger navbar currently unused, but keep this around in case we want/need it in future */
+/*
 .hamburger-brand-text {
   @media (max-width: 384.98px) {
     font-size: 4vw;
   }
 }
+*/
 
 /* FORMS - CUSTOM CHECKBOX */
 
