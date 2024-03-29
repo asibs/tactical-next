@@ -14,7 +14,9 @@ import logo from "@/assets/stop-the-tories-logo-transparent.png";
 import { rubik } from "@/utils/Fonts";
 import { FaBoltLightning, FaMagnifyingGlass } from "react-icons/fa6";
 
-import styles from "./styles.module.css";
+/* NOTE: Currently unused, if we want to use again, uncomment the .hamburger-brand-text
+ * style in globals.scss!
+ */
 
 // Navbar with a hamburger menu which is never expanded, and is populated via Storyblok
 // so non-dev users can add items to the hamburger menu easily.
