@@ -5,7 +5,7 @@ import {
   FaUser,
   FaChartSimple,
   FaChartLine,
-  FaEnvelope,
+  FaTriangleExclamation,
   FaBan,
 } from "react-icons/fa6";
 
@@ -20,15 +20,17 @@ const ToryCantWinReasoningBox = ({
   const pollingBiggestProgressive =
     constituencyData.pollingResults.biggestProgressiveParty;
 
-  const pollingGap =
+  const pollingGap = (
     votePercent(constituencyData.pollingResults, pollingBiggestProgressive) -
-    votePercent(constituencyData.pollingResults, "Con");
+    votePercent(constituencyData.pollingResults, "Con")
+  ).toFixed(1);
 
-  const previousGap =
+  const previousGap = (
     votePercent(
       constituencyData.impliedPreviousResult,
       previousBiggestProgressive,
-    ) - votePercent(constituencyData.impliedPreviousResult, "Con");
+    ) - votePercent(constituencyData.impliedPreviousResult, "Con")
+  ).toFixed(1);
 
   return (
     <div className="rounded-box info-area">
@@ -72,7 +74,7 @@ const ToryCantWinReasoningBox = ({
           <FaChartLine className={`me-2 ${partyCssClassFromSlug("Con")}`} />
           Polls give <strong>Tories</strong> only{" "}
           <strong>
-            {votePercent(constituencyData.pollingResults, "Con")}%
+            {votePercent(constituencyData.pollingResults, "Con").toFixed(1)}%
           </strong>{" "}
           here
         </p>
@@ -91,9 +93,16 @@ const ToryCantWinReasoningBox = ({
         {/* Show polling biggest progressive if it matches our recommendation */}
         <p>
           <FaChartLine className={`me-2 ${partyCssClassFromSlug("Con")}`} />
-          They are <strong>{pollingGap}%</strong> behind{" "}
+          They&apos;re now <strong>{pollingGap}%</strong> behind{" "}
           <strong>{partyNameFromSlug(pollingBiggestProgressive)}</strong> in
           polls
+        </p>
+        <p>
+          <FaTriangleExclamation
+            className="me-2"
+            style={{ color: "var(--bs-red)" }}
+          />
+          Don&apos;t be ignored <strong>contact your candidate</strong>
         </p>
 
         {/*
