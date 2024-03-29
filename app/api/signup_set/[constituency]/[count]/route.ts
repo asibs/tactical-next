@@ -32,8 +32,8 @@ export async function POST(
     return NextResponse.json({ status: kvStatus });
   } else {
     return NextResponse.json(
-      { error: "unknown constituency or invalid number" },
-      { status: 404 },
+      { error: "Unknown constituency or Invalid number" },
+      { status: 400 },
     );
   }
 }
