@@ -5,6 +5,7 @@ import ImpliedChart from "@/components/info_box/ImpliedChart";
 import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
+import ToryCantWinReasoningBox from "@/components/info_box/ToryCantWinReasoningBox";
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 import {
   getConstituenciesData,
@@ -215,7 +216,13 @@ export default async function ConstituencyPage({
 
             <Row xs={1} lg={3}>
               <Col md={7} className="pb-3">
-                <TacticalReasoningBox constituencyData={constituencyData} />
+                {constituencyData.otherVoteData.conservativeWinUnlikely ? (
+                  <ToryCantWinReasoningBox
+                    constituencyData={constituencyData}
+                  />
+                ) : (
+                  <TacticalReasoningBox constituencyData={constituencyData} />
+                )}
                 <Link href="/methodology" className="small">
                   <span style={{ color: "rgb(33, 37, 41)" }}>
                     Read more about our process
