@@ -152,10 +152,7 @@ export async function GET(
     };
 
     //see if DC api will give us anything useful
-    //TODO remove this if statement, (here so we can test DC API failure!)
-    let dc_data = null;
-    if (normalizedPostcode != "DE30GU")
-      dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
+    let dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
     //const dc_data = await fetch_dc_api(normalizedPostcode, params.address?.[0]);
 
