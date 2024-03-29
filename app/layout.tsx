@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   description:
     "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
   openGraph: {
-    title: "StopTheTories.Vote",
+    title: "Stop The Tories .Vote",
     description:
-      "Your vote is your power. Find out how to use it tactically to Stop The Tories and influence the next government.",
+      "Your vote is your power. Find out how you can vote tactically to Stop The Tories and influence the next government.",
     url: "https://stopthetories.vote",
     siteName: "StopTheTories.Vote",
     locale: "en_GB",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Stop The Tories .Vote",
     description:
-      "Your vote is your power. Use it tactically to get the Tories out, then influence your new MP and the next government.",
+      "Your vote is your power. Find out how you can vote tactically to Stop The Tories and influence the next government.",
   },
   manifest: "/manifest.json",
 };
