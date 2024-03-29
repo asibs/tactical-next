@@ -5,13 +5,19 @@ import ImpliedChart from "@/components/info_box/ImpliedChart";
 import MRPChart from "@/components/info_box/MRPChart";
 import PlanToVoteBox from "@/components/info_box/PlanToVoteBox";
 import TacticalReasoningBox from "@/components/info_box/TacticalReasoningBox";
+import {
+  progressiveSlugs,
+  partyCssClassFromSlug,
+  partyNameFromSlug,
+  shortPartyNameFromSlug,
+} from "@/utils/Party";
 import ToryCantWinReasoningBox from "@/components/info_box/ToryCantWinReasoningBox";
-import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
 import {
   getConstituenciesData,
   getConstituencySlugs,
 } from "@/utils/constituencyData";
 import { notFound } from "next/navigation";
+import { FaUser } from "react-icons/fa6";
 import SignupShare from "./SignupShare";
 
 export const dynamicParams = false; // Don't allow params not in generateStaticParams
@@ -23,7 +29,7 @@ export const dynamicParams = false; // Don't allow params not in generateStaticP
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const constituencySlugs = await getConstituencySlugs();
+  const constituencySlugs = getConstituencySlugs();
   return constituencySlugs.map((slug) => ({ slug: slug }));
 }
 
@@ -34,7 +40,7 @@ export default async function ConstituencyPage({
 }: {
   params: { slug: string };
 }) {
-  const constituenciesData: ConstituencyData[] = await getConstituenciesData();
+  const constituenciesData: ConstituencyData[] = getConstituenciesData();
   const constituencyData = constituenciesData.filter(
     (c: ConstituencyData) => c.constituencyIdentifiers.slug === params.slug,
   )[0];
@@ -56,31 +62,6 @@ export default async function ConstituencyPage({
     (a, b) => b.votePercent - a.votePercent,
   );
 
-  let tacticalVoteHeader = "";
-  let tacticalVoteAdvice = "";
-  let tacticalVoteClass = "";
-
-  if (constituencyData.otherVoteData.conservativeWinUnlikely) {
-    tacticalVoteHeader = "Tories unlikely to win here";
-    tacticalVoteAdvice = "Vote with your heart";
-    tacticalVoteClass = "party-your-heart";
-  } else {
-    tacticalVoteHeader = "The Tactical Vote is";
-
-    if (constituencyData.recommendation.partySlug) {
-      tacticalVoteAdvice = partyNameFromSlug(
-        constituencyData.recommendation.partySlug,
-      );
-      tacticalVoteClass = partyCssClassFromSlug(
-        constituencyData.recommendation.partySlug,
-      );
-    } else {
-      tacticalVoteClass = "party-too-soon";
-      tacticalVoteAdvice = "Too Soon to call";
-    }
-  }
-
-  // NO ADVICE OVERRIDE (NI & Speaker)
   if (constituencyData.recommendation.partySlug === "None") {
     return (
       <>
@@ -131,54 +112,103 @@ export default async function ConstituencyPage({
         <section id="section-advice" className="section-darker">
           <Container>
             <Row>
-              <Col>
-                <h2>{tacticalVoteHeader}</h2>
-                <h3 className={`party ${tacticalVoteClass}`}>
-                  {tacticalVoteAdvice}
-                </h3>
+              <Col xs={12} md={6} lg={4}>
+                {!constituencyData.otherVoteData.conservativeWinUnlikely && (
+                  <h3>Your situation</h3>
+                )}
+                <h2>
+                  Tories{" "}
+                  {constituencyData.otherVoteData.conservativeWinUnlikely ? (
+                    <>
+                      <span style={{ textDecoration: "underline" }}>
+                        unlikely
+                      </span>{" "}
+                      to win here
+                    </>
+                  ) : (
+                    <>
+                      <span style={{ textDecoration: "underline" }}>can</span>{" "}
+                      win here
+                    </>
+                  )}
+                </h2>
                 <p>
-                  <a href="#section-info">Why?</a>
+                  <FaUser
+                    className={partyCssClassFromSlug(
+                      constituencyData.impliedPreviousResult.winningParty,
+                    )}
+                  />{" "}
+                  Current MP is{" "}
+                  <strong>
+                    {partyNameFromSlug(
+                      constituencyData.impliedPreviousResult.winningParty,
+                    )}
+                  </strong>
                 </p>
+
+                <p>
+                  <a href="#section-info">Info</a>
+                </p>
+              </Col>
+              <Col xs={12} md={6} lg={4} className="pb-4">
+                <TacticalAdvice constituencyData={constituencyData} />
+              </Col>
+              <Col xs={12} lg={4}>
+                <SignupShare constituencyData={constituencyData} />
               </Col>
             </Row>
           </Container>
         </section>
         <section id="section-join" className="section-dark">
           <Container>
-            <Row>
-              <Col xs={8} md={12} className="pb-3">
-                <h2>be counted, stick together!</h2>
-              </Col>
-            </Row>
             <Row xs={1} lg={3}>
-              <Col md={7} className="pb-3">
-                <SignupShare constituencyData={constituencyData} />
-              </Col>
-              <Col md={7} className="pb-3">
-                <p style={{ fontSize: "26px" }}>
-                  <strong>Reasons to be counted</strong>
+              <Col xs={12} md={6} lg={4} className="pb-3">
+                <h2>Why join us?</h2>
+                <p className="fs-5">[placeholder section]</p>
+                <p className="fs-5">
+                  <strong>1. Getting big, be counted</strong>
                 </p>
-                <p style={{ fontSize: "22px" }}>
-                  1. Show how many of us are voting tactically and not just for
-                  the party we&apos;re lending our vote to, and that we want our
-                  votes to count next time.
+                <p className="fs-5">
+                  <strong>2. Get your plan and reminders</strong>
                 </p>
-                <p style={{ fontSize: "22px" }}>
-                  2. Our large numbers show that the country is rejecting the
-                  narrative the right wing media and think tanks spin.
+                <p className="fs-5">
+                  <strong>3. Pressure new MPs</strong>
                 </p>
-                <p style={{ fontSize: "22px" }}>
-                  3. Together we can be a huge independent influence on the next
-                  government, for Proportional Representation, and other
-                  crucial, common sense, policies.
+                <p className="fs-5">
+                  Proving how many of us are voting tactically gives us power
+                  after the election.
                 </p>
               </Col>
-              <Col md={7} className="pb-3">
+              <Col xs={12} md={6} lg={4} className="pb-3">
+                <h2>Why Be counted?</h2>
+                <p className="fs-5">
+                  <strong>
+                    1. Prove how many of us are voting tactically against the
+                    Tories&nbsp;
+                  </strong>
+                  and not just for the party we&apos;re lending our vote to.
+                </p>
+                <p className="fs-5">
+                  <strong>2. Take power from the right wing&nbsp;</strong>by
+                  showing millions of us reject their narrative.
+                </p>
+                <p className="fs-5">
+                  <strong>
+                    3. Be the biggest influence on the next government after the
+                    election,
+                  </strong>
+                  &nbsp;reminding them what we showed up for, we don&apos;t want
+                  to have to do this again, and we want them to fix our politics
+                  by making our votes count.
+                </p>
+              </Col>
+              <Col xs={12} lg={4} className="pb-3">
                 <PlanToVoteBox />
               </Col>
             </Row>
           </Container>
         </section>
+
         <section id="section-info" className="section-light">
           <Container>
             <Row>
@@ -241,4 +271,79 @@ export default async function ConstituencyPage({
       </main>
     </>
   );
+}
+
+function TacticalAdvice({
+  constituencyData,
+}: {
+  constituencyData: ConstituencyData;
+}) {
+  const getTopProgressives = (
+    results: PartyVoteResult[],
+  ): [PartySlug, PartySlug] => {
+    const progResults = results
+      .filter((result) => progressiveSlugs.includes(result.partySlug))
+      .sort((a, b) => b.votePercent - a.votePercent);
+
+    return [progResults[0].partySlug, progResults[1].partySlug];
+  };
+
+  const toryWinUnlikely =
+    constituencyData.otherVoteData.conservativeWinUnlikely;
+  //TODO add in a column for safe opposition seat definition
+  const clearAdvice = !!constituencyData.recommendation.partySlug;
+  const recommendation = constituencyData.recommendation.partySlug;
+  const [topProgressive, secondProgressive] = getTopProgressives(
+    constituencyData.pollingResults.partyVoteResults,
+  );
+
+  if (toryWinUnlikely) {
+    if (clearAdvice) {
+      return (
+        <>
+          <h3 className="party party-heart">Vote with your heart</h3>
+          <h3>Join up and together we can pressure them</h3>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h3 className="party party-none">
+            Vote{" "}
+            <span className={partyCssClassFromSlug(topProgressive)}>
+              {shortPartyNameFromSlug(topProgressive)}
+            </span>{" "}
+            or{" "}
+            <span className={partyCssClassFromSlug(secondProgressive)}>
+              {shortPartyNameFromSlug(secondProgressive)}
+            </span>{" "}
+          </h3>
+
+          <h3>BUT THAT&apos;S NOT ENOUGH, JOIN UP</h3>
+        </>
+      );
+    }
+  } else {
+    //Tories CAN win
+    if (clearAdvice) {
+      return (
+        <>
+          <h3>Your tactical vote</h3>
+          <h3 className={`party ${partyCssClassFromSlug(recommendation)}`}>
+            {partyNameFromSlug(recommendation)}
+          </h3>
+          <h3>But that&apos;s not enough, join up</h3>
+        </>
+      );
+    } else {
+      return (
+        <>
+          {" "}
+          <h3>Your tactical vote</h3>
+          <h3 className="party party-none">Too soon to call</h3>
+          <h3>Join up to be notified</h3>
+        </>
+      );
+    }
+  }
 }

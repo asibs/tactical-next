@@ -680,15 +680,11 @@ section h3.party {
   font-size: 7vmax;
   font-weight: 800;
   text-transform: uppercase;
-  overflow: auto;
 }
 
 @include media-breakpoint-up(lg) {
   section h3.party {
     font-size: 4vmax;
-    font-weight: 800;
-    text-transform: uppercase;
-    overflow: auto;
   }
 }
 
@@ -709,7 +705,8 @@ div.party-heart {
   /*border: solid 1px var(--bs-gray-300);*/
 }
 
-a span.party-none h3.party-none,
+span.party-none,
+h3.party-none,
 svg.party-none,
 i.party-none {
   color: var(--bs-gray-500);

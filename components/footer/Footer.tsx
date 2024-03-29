@@ -31,7 +31,7 @@ const Footer = ({ blok }: { blok: FooterStoryblok }) => (
       <Container>
         <Row>
           {/* QR CODE */}
-          <Col sm={10} md={10} lg={5} xl={4} className="pb-4 px-xl-5">
+          <Col sm={10} md={5} lg={3} xl={4} className="pb-4 px-xl-5">
             <a
               className="footer-qr"
               href="https://shop.mvtfwd.com/stickers"
