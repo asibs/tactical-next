@@ -1,11 +1,12 @@
 import { partyCssClassFromSlug, partyNameFromSlug } from "@/utils/Party";
-
+import { votePercent } from "@/utils/constituencyData";
+import Link from "next/link";
 import {
   FaUser,
   FaChartSimple,
   FaChartLine,
-  FaBullseye,
-  FaTriangleExclamation,
+  FaEnvelope,
+  FaBan,
 } from "react-icons/fa6";
 
 const ToryCantWinReasoningBox = ({
@@ -13,66 +14,100 @@ const ToryCantWinReasoningBox = ({
 }: {
   constituencyData: ConstituencyData;
 }) => {
-  const recommendedParty = constituencyData.recommendation.partySlug;
-  const recommendedPartyName = partyNameFromSlug(recommendedParty);
-
-  const previousWinner = constituencyData.impliedPreviousResult.winningParty;
   const previousBiggestProgressive =
     constituencyData.impliedPreviousResult.biggestProgressiveParty;
 
-  const pollingWinner = constituencyData.pollingResults.winningParty;
   const pollingBiggestProgressive =
     constituencyData.pollingResults.biggestProgressiveParty;
 
-  const recommendedPartyTargetSeat =
-    constituencyData.otherVoteData.targetSeatData.some(
-      (target) =>
-        target.partySlug == recommendedParty && target.likelyTarget == "YES",
-    );
+  const pollingGap =
+    votePercent(constituencyData.pollingResults, pollingBiggestProgressive) -
+    votePercent(constituencyData.pollingResults, "Con");
 
-  const closeSeat = !constituencyData.otherVoteData.conservativeWinUnlikely;
+  const previousGap =
+    votePercent(
+      constituencyData.impliedPreviousResult,
+      previousBiggestProgressive,
+    ) - votePercent(constituencyData.impliedPreviousResult, "Con");
 
   return (
     <div className="rounded-box info-area">
       <>
-        {/* Always show previous general election winner */}
         <p>
-          <FaUser className={`me-2 ${partyCssClassFromSlug(previousWinner)}`} />
-          <strong>{partyNameFromSlug(previousWinner)}</strong> won in 2019
+          <span
+            className="me-2"
+            style={{
+              width: "1em",
+              display: "inline-block",
+              position: "relative",
+              bottom: "-.1em",
+            }}
+          >
+            <FaUser
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              style={{
+                fontSize: ".9em",
+                position: "absolute",
+                left: ".05em",
+                bottom: "0.02em",
+              }}
+              className={`${partyCssClassFromSlug("Con")}`}
+            />
+            <FaBan
+              className={`${partyCssClassFromSlug(pollingBiggestProgressive)}`}
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              style={{
+                fontSize: "1.2em",
+                position: "absolute",
+                left: "-.1em",
+                bottom: "-.1em",
+              }}
+            />
+          </span>
+          A <strong>Tory</strong> is unlikely to win here this time
+        </p>
+        <p>
+          <FaChartLine className={`me-2 ${partyCssClassFromSlug("Con")}`} />
+          Polls give <strong>Tories</strong> only{" "}
+          <strong>
+            {votePercent(constituencyData.pollingResults, "Con")}%
+          </strong>{" "}
+          here
         </p>
 
-        {/* Show previous biggest progressive if it matches our recommendation AND they weren't the winner */}
-        {recommendedParty == previousBiggestProgressive &&
-          recommendedParty != previousWinner && (
-            <p>
-              <FaChartSimple
-                className="me-2"
-                style={{ color: "var(--bs-green)" }}
-              />
-              <strong>{recommendedPartyName}</strong> were closest in 2019
-            </p>
-          )}
+        <p>
+          <FaChartSimple
+            className={`me-2 ${partyCssClassFromSlug(
+              pollingBiggestProgressive,
+            )}`}
+          />
+          They were <strong>{previousGap}%</strong> behind{" "}
+          <strong>{partyNameFromSlug(previousBiggestProgressive)}</strong> in
+          2019
+        </p>
 
         {/* Show polling biggest progressive if it matches our recommendation */}
-        {recommendedParty == pollingBiggestProgressive && (
-          <p>
-            <FaChartLine
+        <p>
+          <FaChartLine className={`me-2 ${partyCssClassFromSlug("Con")}`} />
+          They are <strong>{pollingGap}%</strong> behind{" "}
+          <strong>{partyNameFromSlug(pollingBiggestProgressive)}</strong> in
+          polls
+        </p>
+
+        {/*
+        TODO Link to some non-voting action to get what they want
+        <p>
+          <Link href="#lobby">
+            <FaEnvelope
               className="me-2"
-              style={{ color: "var(--bs-green)" }}
+              style={{ color: "var(--mf-pink-strong)" }}
             />
-            Polls favour <strong>{recommendedPartyName}</strong> here
-          </p>
-        )}
+            Make your vote count
+          </Link>
+        </p>
 
-        {/* If this is a target seat for our recommended party, show this */}
-        {recommendedPartyTargetSeat && (
-          <p>
-            <FaBullseye className="me-2" style={{ color: "var(--bs-red)" }} />
-            Likely a <strong>{recommendedPartyName}</strong> target seat
-          </p>
-        )}
-
-        {/* 
         TODO motivational text based on whats required to get tories out
         Check if this is a close seat 
         {closeSeat && (
