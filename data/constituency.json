@@ -360,7 +360,7 @@
       "mySocietyCode": "UKPARL.2025.ABF"
     },
     "recommendation": {
-      "partySlug": "SNP",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -832,7 +832,7 @@
       "mySocietyCode": "UKPARL.2025.ABN"
     },
     "recommendation": {
-      "partySlug": "SNP",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -1304,7 +1304,7 @@
       "mySocietyCode": "UKPARL.2025.AFM"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -2366,7 +2366,7 @@
       "mySocietyCode": "UKPARL.2025.BAA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -2838,7 +2838,7 @@
       "mySocietyCode": "UKPARL.2025.BAI"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -3900,7 +3900,7 @@
       "mySocietyCode": "UKPARL.2025.BBN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -4136,7 +4136,7 @@
       "mySocietyCode": "UKPARL.2025.BDE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -4372,7 +4372,7 @@
       "mySocietyCode": "UKPARL.2025.BDW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -4490,7 +4490,7 @@
       "mySocietyCode": "UKPARL.2025.BEA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -5552,7 +5552,7 @@
       "mySocietyCode": "UKPARL.2025.BGR"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -5670,7 +5670,7 @@
       "mySocietyCode": "UKPARL.2025.BGS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -5906,7 +5906,7 @@
       "mySocietyCode": "UKPARL.2025.BHG"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -6378,7 +6378,7 @@
       "mySocietyCode": "UKPARL.2025.BKG"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -6496,7 +6496,7 @@
       "mySocietyCode": "UKPARL.2025.BKH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -6614,7 +6614,7 @@
       "mySocietyCode": "UKPARL.2025.BKP"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -6732,7 +6732,7 @@
       "mySocietyCode": "UKPARL.2025.BLA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -6968,7 +6968,7 @@
       "mySocietyCode": "UKPARL.2025.BLS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -7204,7 +7204,7 @@
       "mySocietyCode": "UKPARL.2025.BMS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -7558,7 +7558,7 @@
       "mySocietyCode": "UKPARL.2025.BNN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -7676,7 +7676,7 @@
       "mySocietyCode": "UKPARL.2025.BNS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -8030,7 +8030,7 @@
       "mySocietyCode": "UKPARL.2025.BOS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -8148,7 +8148,7 @@
       "mySocietyCode": "UKPARL.2025.BPB"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -8502,7 +8502,7 @@
       "mySocietyCode": "UKPARL.2025.BPV"
     },
     "recommendation": {
-      "partySlug": "Green",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -9564,7 +9564,7 @@
       "mySocietyCode": "UKPARL.2025.BSE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -9918,7 +9918,7 @@
       "mySocietyCode": "UKPARL.2025.BSN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -10036,7 +10036,7 @@
       "mySocietyCode": "UKPARL.2025.BSO"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -10154,7 +10154,7 @@
       "mySocietyCode": "UKPARL.2025.BSS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -10272,7 +10272,7 @@
       "mySocietyCode": "UKPARL.2025.BTH"
     },
     "recommendation": {
-      "partySlug": "LD",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -10390,7 +10390,7 @@
       "mySocietyCode": "UKPARL.2025.BTL"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -11806,7 +11806,7 @@
       "mySocietyCode": "UKPARL.2025.BYA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -12160,7 +12160,7 @@
       "mySocietyCode": "UKPARL.2025.CAE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -12986,7 +12986,7 @@
       "mySocietyCode": "UKPARL.2025.CBG"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -13104,7 +13104,7 @@
       "mySocietyCode": "UKPARL.2025.CBH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -13694,7 +13694,7 @@
       "mySocietyCode": "UKPARL.2025.CEA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -13812,7 +13812,7 @@
       "mySocietyCode": "UKPARL.2025.CFE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -14048,7 +14048,7 @@
       "mySocietyCode": "UKPARL.2025.CFP"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -14166,7 +14166,7 @@
       "mySocietyCode": "UKPARL.2025.CFW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -17352,7 +17352,7 @@
       "mySocietyCode": "UKPARL.2025.CRW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -19594,7 +19594,7 @@
       "mySocietyCode": "UKPARL.2025.DES"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -20184,7 +20184,7 @@
       "mySocietyCode": "UKPARL.2025.DMD"
     },
     "recommendation": {
-      "partySlug": "PC",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -21010,7 +21010,7 @@
       "mySocietyCode": "UKPARL.2025.DWN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -21482,7 +21482,7 @@
       "mySocietyCode": "UKPARL.2025.EAS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -21600,7 +21600,7 @@
       "mySocietyCode": "UKPARL.2025.EAT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -21954,7 +21954,7 @@
       "mySocietyCode": "UKPARL.2025.ECA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -22544,7 +22544,7 @@
       "mySocietyCode": "UKPARL.2025.EHM"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -22780,7 +22780,7 @@
       "mySocietyCode": "UKPARL.2025.ELN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -22898,7 +22898,7 @@
       "mySocietyCode": "UKPARL.2025.ELP"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -23016,7 +23016,7 @@
       "mySocietyCode": "UKPARL.2025.ELS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -23842,7 +23842,7 @@
       "mySocietyCode": "UKPARL.2025.ESO"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -24432,7 +24432,7 @@
       "mySocietyCode": "UKPARL.2025.EWH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -24904,7 +24904,7 @@
       "mySocietyCode": "UKPARL.2025.EXT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -26556,7 +26556,7 @@
       "mySocietyCode": "UKPARL.2025.GAD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -27028,7 +27028,7 @@
       "mySocietyCode": "UKPARL.2025.GAW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -27146,7 +27146,7 @@
       "mySocietyCode": "UKPARL.2025.GCW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -29388,7 +29388,7 @@
       "mySocietyCode": "UKPARL.2025.HAC"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -29624,7 +29624,7 @@
       "mySocietyCode": "UKPARL.2025.HAH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -29860,7 +29860,7 @@
       "mySocietyCode": "UKPARL.2025.HAP"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -31512,7 +31512,7 @@
       "mySocietyCode": "UKPARL.2025.HFB"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -33400,7 +33400,7 @@
       "mySocietyCode": "UKPARL.2025.HSD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -33518,7 +33518,7 @@
       "mySocietyCode": "UKPARL.2025.HSN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -33636,7 +33636,7 @@
       "mySocietyCode": "UKPARL.2025.HSP"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -34226,7 +34226,7 @@
       "mySocietyCode": "UKPARL.2025.HUN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -34816,7 +34816,7 @@
       "mySocietyCode": "UKPARL.2025.ILS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -35170,7 +35170,7 @@
       "mySocietyCode": "UKPARL.2025.ISN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -35288,7 +35288,7 @@
       "mySocietyCode": "UKPARL.2025.ISS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -35406,7 +35406,7 @@
       "mySocietyCode": "UKPARL.2025.ISW"
     },
     "recommendation": {
-      "partySlug": "SNP",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -35760,7 +35760,7 @@
       "mySocietyCode": "UKPARL.2025.JGE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -36232,7 +36232,7 @@
       "mySocietyCode": "UKPARL.2025.KAS"
     },
     "recommendation": {
-      "partySlug": "LD",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -36586,7 +36586,7 @@
       "mySocietyCode": "UKPARL.2025.KNW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -37176,7 +37176,7 @@
       "mySocietyCode": "UKPARL.2025.LAW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -37412,7 +37412,7 @@
       "mySocietyCode": "UKPARL.2025.LCH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -37766,7 +37766,7 @@
       "mySocietyCode": "UKPARL.2025.LES"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -37884,7 +37884,7 @@
       "mySocietyCode": "UKPARL.2025.LEW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -38002,7 +38002,7 @@
       "mySocietyCode": "UKPARL.2025.LGT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -38474,7 +38474,7 @@
       "mySocietyCode": "UKPARL.2025.LNE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -38828,7 +38828,7 @@
       "mySocietyCode": "UKPARL.2025.LRV"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -38946,7 +38946,7 @@
       "mySocietyCode": "UKPARL.2025.LSO"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -39536,7 +39536,7 @@
       "mySocietyCode": "UKPARL.2025.LWD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -39654,7 +39654,7 @@
       "mySocietyCode": "UKPARL.2025.LWE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -39772,7 +39772,7 @@
       "mySocietyCode": "UKPARL.2025.LWL"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -39890,7 +39890,7 @@
       "mySocietyCode": "UKPARL.2025.LWN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -40362,7 +40362,7 @@
       "mySocietyCode": "UKPARL.2025.LWV"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -40480,7 +40480,7 @@
       "mySocietyCode": "UKPARL.2025.LWW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -41070,7 +41070,7 @@
       "mySocietyCode": "UKPARL.2025.MAM"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -41896,7 +41896,7 @@
       "mySocietyCode": "UKPARL.2025.MCT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -43666,7 +43666,7 @@
       "mySocietyCode": "UKPARL.2025.MRH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -44138,7 +44138,7 @@
       "mySocietyCode": "UKPARL.2025.MTA"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -44256,7 +44256,7 @@
       "mySocietyCode": "UKPARL.2025.MTE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -44492,7 +44492,7 @@
       "mySocietyCode": "UKPARL.2025.MWI"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -45200,7 +45200,7 @@
       "mySocietyCode": "UKPARL.2025.NCE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -45318,7 +45318,7 @@
       "mySocietyCode": "UKPARL.2025.NCL"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -45436,7 +45436,7 @@
       "mySocietyCode": "UKPARL.2025.NCN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -46970,7 +46970,7 @@
       "mySocietyCode": "UKPARL.2025.NGE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -47206,7 +47206,7 @@
       "mySocietyCode": "UKPARL.2025.NGS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -48386,7 +48386,7 @@
       "mySocietyCode": "UKPARL.2025.NRS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -48740,7 +48740,7 @@
       "mySocietyCode": "UKPARL.2025.NSW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -50038,7 +50038,7 @@
       "mySocietyCode": "UKPARL.2025.OAS"
     },
     "recommendation": {
-      "partySlug": "LD",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -50510,7 +50510,7 @@
       "mySocietyCode": "UKPARL.2025.OLW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -50746,7 +50746,7 @@
       "mySocietyCode": "UKPARL.2025.OXE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -50982,7 +50982,7 @@
       "mySocietyCode": "UKPARL.2025.PAL"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -51808,7 +51808,7 @@
       "mySocietyCode": "UKPARL.2025.PKM"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -52280,7 +52280,7 @@
       "mySocietyCode": "UKPARL.2025.POS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -52398,7 +52398,7 @@
       "mySocietyCode": "UKPARL.2025.PPD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -52516,7 +52516,7 @@
       "mySocietyCode": "UKPARL.2025.PRE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -52870,7 +52870,7 @@
       "mySocietyCode": "UKPARL.2025.PSD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -53106,7 +53106,7 @@
       "mySocietyCode": "UKPARL.2025.QPK"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -53696,7 +53696,7 @@
       "mySocietyCode": "UKPARL.2025.RAO"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -54050,7 +54050,7 @@
       "mySocietyCode": "UKPARL.2025.RCD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -56174,7 +56174,7 @@
       "mySocietyCode": "UKPARL.2025.SAB"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -56882,7 +56882,7 @@
       "mySocietyCode": "UKPARL.2025.SAU"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -57118,7 +57118,7 @@
       "mySocietyCode": "UKPARL.2025.SBH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -57708,7 +57708,7 @@
       "mySocietyCode": "UKPARL.2025.SCE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -57826,7 +57826,7 @@
       "mySocietyCode": "UKPARL.2025.SCN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -58652,7 +58652,7 @@
       "mySocietyCode": "UKPARL.2025.SEF"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -59124,7 +59124,7 @@
       "mySocietyCode": "UKPARL.2025.SFD"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -59596,7 +59596,7 @@
       "mySocietyCode": "UKPARL.2025.SHE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -59714,7 +59714,7 @@
       "mySocietyCode": "UKPARL.2025.SHN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -59950,7 +59950,7 @@
       "mySocietyCode": "UKPARL.2025.SHS"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -60540,7 +60540,7 @@
       "mySocietyCode": "UKPARL.2025.SLO"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -60776,7 +60776,7 @@
       "mySocietyCode": "UKPARL.2025.SMK"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -61956,7 +61956,7 @@
       "mySocietyCode": "UKPARL.2025.SOT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -62192,7 +62192,7 @@
       "mySocietyCode": "UKPARL.2025.SPT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -62664,7 +62664,7 @@
       "mySocietyCode": "UKPARL.2025.SSE"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -62900,7 +62900,7 @@
       "mySocietyCode": "UKPARL.2025.SSH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -63490,7 +63490,7 @@
       "mySocietyCode": "UKPARL.2025.STG"
     },
     "recommendation": {
-      "partySlug": "SNP",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -64788,7 +64788,7 @@
       "mySocietyCode": "UKPARL.2025.SWG"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -65378,7 +65378,7 @@
       "mySocietyCode": "UKPARL.2025.SWT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -67266,7 +67266,7 @@
       "mySocietyCode": "UKPARL.2025.TOO"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -67502,7 +67502,7 @@
       "mySocietyCode": "UKPARL.2025.TOT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -67856,7 +67856,7 @@
       "mySocietyCode": "UKPARL.2025.TWI"
     },
     "recommendation": {
-      "partySlug": "LD",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -68210,7 +68210,7 @@
       "mySocietyCode": "UKPARL.2025.VCG"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -68682,7 +68682,7 @@
       "mySocietyCode": "UKPARL.2025.WAH"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -70216,7 +70216,7 @@
       "mySocietyCode": "UKPARL.2025.WGN"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -70452,7 +70452,7 @@
       "mySocietyCode": "UKPARL.2025.WHB"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -70688,7 +70688,7 @@
       "mySocietyCode": "UKPARL.2025.WHW"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -71868,7 +71868,7 @@
       "mySocietyCode": "UKPARL.2025.WLL"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -73874,7 +73874,7 @@
       "mySocietyCode": "UKPARL.2025.WYT"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
@@ -74228,7 +74228,7 @@
       "mySocietyCode": "UKPARL.2025.YOC"
     },
     "recommendation": {
-      "partySlug": "Lab",
+      "partySlug": "",
       "reason": "",
       "reasonUrl": ""
     },
